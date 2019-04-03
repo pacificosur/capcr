@@ -10,5 +10,7 @@ package com.unsis.capcr.db;
  * @author LabTW01
  */
 public class Connection {
-    
+    public static void main(String[] args) {
+        System.out.println("");
+    }
 }
