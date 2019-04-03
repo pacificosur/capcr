@@ -11,4 +11,5 @@ package com.unsis.capcr.db;
  */
 public class Connection {
  int x;
+ int y;
 }
