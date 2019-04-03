@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 1/04/2019, 06:23:33 PM
-    Author     : LabTW01 Modificado
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
