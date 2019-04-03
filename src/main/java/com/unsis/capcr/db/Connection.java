@@ -10,5 +10,5 @@ package com.unsis.capcr.db;
  * @author LabTW01
  */
 public class Connection {
-
+ int x;
 }
