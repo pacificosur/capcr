@@ -1,14 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.unsis.capcr.model;
 
-/**
- *
- * @author LabTW01
- */
-public class UsuarioModel {
-    
+import com.unsis.capcr.entity.Usuario;
+import java.util.List;
+
+public class UsuarioModel implements IUsuarioModel {
+
+    @Override
+    public List<Usuario> obtenerUsuario() {
+        return null;
+    }
+
+    @Override
+    public Usuario obtenerUsuario(Long idUsuario) {
+        return null;
+    }
+
+    @Override
+    public void crearRegistro(Usuario usuario) {
+
+    }
+
+    @Override
+    public void actualizarRegistro(Usuario usuario) {
+
+    }
+
+    @Override
+    public void eliminarRegistro(Usuario usuario) {
+
+    }
+
 }

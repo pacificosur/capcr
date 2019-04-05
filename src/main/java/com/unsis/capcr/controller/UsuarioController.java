@@ -1,4 +1,3 @@
-
 package com.unsis.capcr.controller;
 
 import java.io.IOException;
@@ -8,10 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class UsuarioController extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        int x;
-    }  
+            throws ServletException, IOException {        
+        response.setContentType("text/html");
+    }    
 }
-///aprendiendo
