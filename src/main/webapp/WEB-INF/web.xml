@@ -8,6 +8,30 @@
         <servlet-name>UsuarioController</servlet-name>
         <url-pattern>/UsuarioController</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AlumnosController</servlet-name>
+        <servlet-class>com.unsis.capcr.controller.AlumnosController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AlumnosController</servlet-name>
+        <url-pattern>/AlumnosController</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>PracticaController</servlet-name>
+        <servlet-class>com.unsis.capcr.controller.PracticaController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PracticaController</servlet-name>
+        <url-pattern>/PracticaController</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ReservacionController</servlet-name>
+        <servlet-class>com.unsis.capcr.controller.ReservacionController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReservacionController</servlet-name>
+        <url-pattern>/ReservacionController</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
