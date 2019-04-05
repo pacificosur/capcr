@@ -1,7 +1,9 @@
 <%-- 
-    Document   : reservacionHome
-    Created on : 4/04/2019, 12:43:02 AM
-    Author     : LabTW01
+    Autor: Rolando Pedro Gabriel
+    E-mail: rolando.pedro.gabriel@gmail.com
+    Fecha Creación: 04/04/2019
+    Fecha Modificación: 05/04/2019
+    Descripción: página principal del módulo de Reservación.
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

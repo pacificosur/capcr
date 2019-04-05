@@ -1,4 +1,11 @@
-
+/*
+ * Autor: Rolando Pedro Gabriel
+ * E-mail: rolando.pedro.gabriel@gmail.com
+ * Fecha Creación: 04/04/2019
+ * Fecha Modificación: 05/04/2019
+ * Descripción: implementación de la clase entidad (dominio) para el módulo de 
+ *              Reservación.
+ */
 package com.unsis.capcr.entity;
 
 import java.util.Date;
