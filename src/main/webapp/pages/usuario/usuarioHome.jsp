@@ -1,7 +1,9 @@
 <%-- 
-    Document   : usuarioHome
-    Created on : 1/04/2019, 06:53:37 PM
-    Author     : LabTW01
+    Autor: Belisario Nazario Anselmo
+    E-mail: unsis.b@gmail.com
+    Fecha Creación: 04/04/2019
+    Fecha Modificación: 08/04/2019
+    Descripción: página principal del módulo de Usuario.
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
