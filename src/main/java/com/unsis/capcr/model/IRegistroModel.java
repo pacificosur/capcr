@@ -1,3 +1,11 @@
+/*
+ * Autor: Eber Martínez García
+ * E-mail: hebber.garcia.1997@gmail.com
+ * Fecha Creación: 04/04/2019
+ * Fecha Modificación: 05/04/2019
+ * Descripción: implementación de la interfaz para el modelo del registro.
+ */
+
 package com.unsis.capcr.model;
 
 import com.unsis.capcr.entity.Registro;
@@ -8,5 +16,5 @@ public interface IRegistroModel {
     public Registro obtenerRegistro(Long idRegistro);
     public void crearRegistro(Registro registro);
     public void actualizarRegistro(Registro registro);
-    public void eliminarRegistro(Registro registro);
+    public void eliminarRegistro(Long idRegistro);
 }
