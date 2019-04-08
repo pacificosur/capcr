@@ -9,5 +9,5 @@ public interface IUsuarioModel {
     public Usuario obtenerUsuario(Long idUsuario);
     public void crearRegistro(Usuario usuario);
     public void actualizarRegistro(Usuario usuario);
-    public void eliminarRegistro(Usuario usuario);
+    public void eliminarRegistro(Long idUsuario);
 }
