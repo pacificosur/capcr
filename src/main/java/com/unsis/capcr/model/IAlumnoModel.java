@@ -1,10 +1,9 @@
 /*
- * Autor: Rolando Pedro Gabriel
- * E-mail: rolando.pedro.gabriel@gmail.com
+ * Autor: Pedro Eliezer García Ramírez
+ * E-mail: pg548169@gmail.com
  * Fecha Creación: 04/04/2019
- * Fecha Modificación: 05/04/2019
- * Descripción: creación de una interfaz para la implementación del CRUD para 
- *              el módulo de Reservación.
+ * Fecha Modificación: 04/04/2019
+ * Descripción: implementación del la interfaz IAlumnoModel
  */
 package com.unsis.capcr.model;
 

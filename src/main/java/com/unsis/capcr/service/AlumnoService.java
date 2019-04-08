@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Autor: Pedro Eliezer García Ramírez
+ * E-mail: pg548169@gmail.com
+ * Fecha Creación: 04/04/2019
+ * Fecha Modificación: 05/04/2019
+ * Descripción:Clase que impementa la interfaz IAlumnoService
  */
 package com.unsis.capcr.service;
 
