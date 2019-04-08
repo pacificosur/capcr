@@ -28,7 +28,7 @@ private String query;
         ArrayList <Alumno> listaalumnos= new ArrayList();
         try{
             connection =(Connection) new ConnectionPostgreSQL().conecta();
-            query="SELECT * FROM Alumnos";
+            query="SELECT * FROM Alumno";
             statement=(PreparedStatement) statement.executeQuery(query);
             while(resultset.next()){
                 Alumno alumno= new Alumno();
@@ -50,7 +50,7 @@ private String query;
     public Alumno ObtenerAlumno(String Matricula) {
         try{
             connection =(Connection) new ConnectionPostgreSQL().conecta();
-            query = " SELECT * FROM Alumnos WHERE Matricula = ?";
+            query = " SELECT * FROM Alumno WHERE Matricula = ?";
             statement.setString(3,Matricula);
             statement=(PreparedStatement) statement.executeQuery(query);
             while(resultset.next()){
@@ -80,7 +80,7 @@ private String query;
     public void CrearAlumno(Alumno alumno) {
         try{
             connection =(Connection) new ConnectionPostgreSQL().conecta();
-            query="INSERT INTO Alumnos(Nombre,Apellido,Grupo,Matricula,Carrera,Semestre"
+            query="INSERT INTO Alumno(Nombre,Apellido,Grupo,Matricula,Carrera,Semestre"
                     + "VALUES(?,?,?,?,?,?))";
             statement=(PreparedStatement) statement.executeQuery(query);
             statement.setString(1,alumno.getNombre());
