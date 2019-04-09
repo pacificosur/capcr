@@ -8,6 +8,8 @@
 
 package com.unsis.capcr.model;
 
+import com.unsis.capcr.entity.Alumno;
+import com.unsis.capcr.entity.Practica;
 import com.unsis.capcr.entity.Registro;
 import java.util.List;
 
@@ -15,6 +17,6 @@ public interface IRegistroModel {
     public List<Registro> obtenerRegistros();
     public Registro obtenerRegistro(Long idRegistro);
     public void crearRegistro(Registro registro);
-    public void actualizarRegistro(Registro registro);
+    public void actualizarRegistro(Alumno alumno, Practica practica, Registro registro);
     public void eliminarRegistro(Long idRegistro);
 }

@@ -11,6 +11,8 @@ package com.unsis.capcr.model;
 
 import com.unsis.capcr.entity.Registro;
 import com.unsis.capcr.db.ConnectionPostgreSQL;
+import com.unsis.capcr.entity.Alumno;
+import com.unsis.capcr.entity.Practica;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -48,15 +50,36 @@ public class RegistroModel implements IRegistroModel{
     }
 
     @Override
-    public void actualizarRegistro(Registro registro) {
-        return;
+    public void actualizarRegistro(Alumno alumno, Practica practica, Registro registro) {
+        try{
+            connection = (Connection) new ConnectionPostgreSQL().conecta();
+            query = "update Registro set matriculaAlumno=?,codigoPractica=?,horaEntrada=?,horaSalida=?,fecha=?,sustituye=?,estado=?,comentario=? where codigoPractica=? ";
+            statement = connection.prepareStatement(query);                
+
+            statement.setString(1, alumno.getMatricula()); 
+            //statement.setString(2, practica.getIdPractica());
+            statement.setString(3, registro.getHoraEntrada());
+            statement.setString(4, registro.getHoraSalida());
+                
+
+            statement.executeUpdate();
+
+            resulSet.close();
+            statement.close();
+            connection.close();
+
+
+        }catch(Exception e){
+             System.err.println("Error");;
+
+        }
     }
 
     @Override
     public void eliminarRegistro(Long idRegistro) {
         try{
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "delete from Reporte where idReporte = ?";
+            query = "delete from Reporte where idPractica = ?";
             statement = connection.prepareStatement(query);
             statement.setLong(1, idRegistro);
             statement.executeUpdate();

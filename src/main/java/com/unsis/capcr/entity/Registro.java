@@ -1,4 +1,14 @@
+/*
+ * Autor: Eber Martínez García
+ * E-mail: hebber.garcia.1997@gmail.com
+ * Fecha Creación: 04/04/2019
+ * Fecha Modificación: 08/04/2019
+ * Descripción: implementación del entity del registro.
+ */
+
 package com.unsis.capcr.entity;
+
+import java.util.Date;
 
 public class Registro {
     private String matriculaAlumno;
@@ -6,6 +16,7 @@ public class Registro {
     private String horaEntrada;
     private String horaSalida;
     private String sustituye;
+    private Date fecha;
     
     public Registro(){
         
