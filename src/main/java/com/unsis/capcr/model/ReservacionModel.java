@@ -7,6 +7,7 @@
  */
 package com.unsis.capcr.model;
 
+import com.unsis.capcr.db.ConnectionPostgreSQL;
 import com.unsis.capcr.entity.Reservacion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,7 +26,7 @@ public class ReservacionModel implements IReservacionModel{
     public List<Reservacion> obtenerRegistros() {
         ArrayList <Reservacion> listaRegistro = new ArrayList<>();
         try{
-            connection = new ConnectionPostgreSQL().conecta();
+            connection = (Connection) new ConnectionPostgreSQL().conecta();
             query = "SELECT * FROM Reservacion";
             statement = (PreparedStatement) connection.createStatement();
             resultSet = statement.executeQuery(query);
@@ -55,7 +56,7 @@ public class ReservacionModel implements IReservacionModel{
     @Override
     public Reservacion obtenerRegistro(Long idReservacion) {
         try{
-           connection = new ConnectionPostgreSQL().conecta();
+           connection = (Connection) new ConnectionPostgreSQL().conecta();
             query = "SELECT * FROM Reservacion WHERE idReservacion = ?";
             statement = connection.prepareStatement(query);
             statement.setLong(1,idReservacion);
@@ -84,7 +85,7 @@ public class ReservacionModel implements IReservacionModel{
     @Override
     public void crearRegistro(Reservacion reservacion) {   
         try{
-            connection = new ConnectionPostgreSQL().conecta();
+            connection = (Connection) new ConnectionPostgreSQL().conecta();
             query = "INSERT INTO reservacion(fechaInicio, fechaFin, "
                     + "area, responsableArea, practica, responsablePractica) "
                     + "VALUES(?,?,?,?,?,?,?)) ";
@@ -110,7 +111,7 @@ public class ReservacionModel implements IReservacionModel{
     @Override
     public void actualizarRegistro(Reservacion reservacion) { 
         try{
-        connection = new ConnectionPostgreSQL().conecta();
+        connection = (Connection) new ConnectionPostgreSQL().conecta();
             query = "UPDATE reservacion SET fechaInicio=?, fechaFin=?, "
                     + "area=?, responsableArea=?, practica=?, responsablePractica=?) "
                     + "VALUES(?,?,?,?,?,?,?)) ";
@@ -135,7 +136,7 @@ public class ReservacionModel implements IReservacionModel{
     @Override
     public void eliminarRegistro(Long idReservacion) {      
         try{
-            connection = new Conexion().getConnection();
+            connection = (Connection) new ConnectionPostgreSQL().conecta();
             query = "DELETE FROM Reservacion WHERE idReservacion = ?";
             statement = connection.prepareStatement(query);
             statement.setLong(1,idReservacion);
