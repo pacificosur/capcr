@@ -7,6 +7,8 @@
  */
 package com.unsis.capcr.entity;
 
+import java.sql.Date;
+
 /**
  *
  * @author LabTW06
@@ -18,23 +20,54 @@ public class Alumno {
     private String Matricula;
     private String Carrera;
     private String Semestre;
+    private Date FechaCreacion;
+    private Date FechaActualizacion;
+    private Date FechaEliminacion;
     
+    public Date getFechaCreacion() {
+        return FechaCreacion;
+    }
+
+    public void setFechaCreacion(Date FechaCreacion) {
+        this.FechaCreacion = FechaCreacion;
+    }
+
+    public Date getFechaActualizacion() {
+        return FechaActualizacion;
+    }
+
+    public void setFechaActualizacion(Date FechaActualizacion) {
+        this.FechaActualizacion = FechaActualizacion;
+    }
+
+    public Date getFechaEliminacion() {
+        return FechaEliminacion;
+    }
+
+    public void setFechaEliminacion(Date FechaEliminacion) {
+        this.FechaEliminacion = FechaEliminacion;
+    }
+
     
     
     
     //Constructor
     public Alumno() {
     }
-    
-    public Alumno(String Nombre, String Apellido, String Grupo, String Matricula, String Carrera, String Semestre) {
+
+    public Alumno(String Nombre, String Apellido, String Grupo, String Matricula, String Carrera, String Semestre, Date FechaCreacion, Date FechaActualizacion, Date FechaEliminacion) {
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.Grupo = Grupo;
         this.Matricula = Matricula;
         this.Carrera = Carrera;
         this.Semestre = Semestre;
+        this.FechaCreacion = FechaCreacion;
+        this.FechaActualizacion = FechaActualizacion;
+        this.FechaEliminacion = FechaEliminacion;
     }
     
+
     //getters and setters
 
     public String getNombre() {
