@@ -28,18 +28,22 @@ public class PracticaModel implements IPracticaModel{
       
     @Override
     public Practica getPractica(String IdPractica) {
+        Practica practica=null;
         try {
             connection=(Connection) new ConnectionPostgreSQL().conecta();
-            query="SELECT * FROM Practica where idPractica='"+IdPractica+"'";
-            statement= (PreparedStatement) connection.createStatement();
-            resultSet = statement.executeQuery(query);
+            query="SELECT * FROM Practica where codigo='"+IdPractica+"'";
+            statement= connection.prepareStatement(query);
+            resultSet = statement.executeQuery();
             
             while (resultSet.next()) {
-                Practica practica=new Practica();
-                practica.setCodigo(resultSet.getString("idPractica"));
-                practica.setNombre("nombre");
-                practica.setIdCarrera("idCarrera");
-                practica.setIdSemestre("idSemestre");
+                practica=new Practica();
+                practica.setCodigo(resultSet.getString("codigo"));
+                practica.setNombre(resultSet.getString("nombre"));
+                practica.setIdCarrera(resultSet.getString("codigocarrera"));
+                practica.setIdSemestre(resultSet.getString("codigosemestre"));
+                practica.setFechaCreacion(resultSet.getDate("fechacreacion"));
+                practica.setFechaActualizacion(resultSet.getDate("fechaactualizacion"));
+                practica.setFechaEliminacion(resultSet.getDate("fechaeliminacion"));
             }
             resultSet.close();
             statement.close();
@@ -47,7 +51,7 @@ public class PracticaModel implements IPracticaModel{
         } catch (SQLException e) {
             System.err.println("Error "+ e.getMessage());
         }
-        return null;
+        return practica;
     }
 
     @Override
@@ -56,15 +60,19 @@ public class PracticaModel implements IPracticaModel{
         try {
             connection=(Connection) new ConnectionPostgreSQL().conecta();
             query="SELECT * FROM Practica";
-            statement= (PreparedStatement) connection.createStatement();
-            resultSet = statement.executeQuery(query);
+            statement= connection.prepareStatement(query);
+            resultSet = statement.executeQuery();
             
             while (resultSet.next()) {
                 Practica practica=new Practica();
-                practica.setCodigo(resultSet.getString("idPractica"));
-                practica.setNombre("nombre");
-                practica.setIdCarrera("idCarrera");
-                practica.setIdSemestre("idSemestre");
+                practica.setCodigo(resultSet.getString("codigo"));
+                practica.setNombre(resultSet.getString("nombre"));
+                practica.setIdCarrera(resultSet.getString("codigocarrera"));
+                practica.setIdSemestre(resultSet.getString("codigosemestre"));
+                practica.setFechaCreacion(resultSet.getDate("fechacreacion"));
+                practica.setFechaActualizacion(resultSet.getDate("fechaactualizacion"));
+                practica.setFechaEliminacion(resultSet.getDate("fechaeliminacion"));
+                listaPractica.add(practica);
             }
             resultSet.close();
             statement.close();
@@ -72,7 +80,7 @@ public class PracticaModel implements IPracticaModel{
         } catch (SQLException e) {
             System.err.println("Error "+ e.getMessage());
         }
-        return null;
+        return listaPractica;
     }
 
     @Override
@@ -81,7 +89,7 @@ public class PracticaModel implements IPracticaModel{
             connection=(Connection) new ConnectionPostgreSQL().conecta();
             query="INSERT INTO Practica(codigo,nombre, "
                     + "codigoSemestre, codigoCarrera, fechaCreacion, fechaActualizacion,fechaEliminacion) "
-                    + "VALUES(?,?,?,?,?,?,?,?)) ";
+                    + "VALUES(?,?,?,?,?,?,?) ";
             statement = connection.prepareStatement(query);
             statement.setString(1,practica.getCodigo()); 
             statement.setString(2,practica.getNombre()); 
@@ -134,6 +142,18 @@ public class PracticaModel implements IPracticaModel{
         } catch (SQLException e) {
             System.err.println("Error "+ e.getMessage());
         }
+    }
+    public static void main(String[] args) {
+        IPracticaModel pm = new PracticaModel();
+        //java.util.Date d = new java.util.Date(); 
+        //Practica practica = new Practica("1003","Inserción de DIU","01","03",new java.sql.Date(d.getTime()),null,null);
+        //pm.crearPractica(practica);
+//        List<Practica> a=pm.getPracticas("0", "0");
+//        for (Practica practica : a) {
+//            System.out.println(practica.getCodigo()+" "+practica.getNombre()+" "+practica.getIdSemestre()+" "+practica.getIdCarrera()+" "+practica.getFechaCreacion()+" "+practica.getFechaActualizacion()+" "+practica.getFechaEliminacion());
+//        }
+        Practica a=pm.getPractica("1001");
+        System.out.println(a.getCodigo()+" "+a.getNombre()+" "+a.getIdSemestre()+" "+a.getIdCarrera()+" "+a.getFechaCreacion()+" "+a.getFechaActualizacion()+" "+a.getFechaEliminacion());
     }
     
 }
