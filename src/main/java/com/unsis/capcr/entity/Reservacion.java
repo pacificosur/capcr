@@ -8,7 +8,8 @@
  */
 package com.unsis.capcr.entity;
 
-import java.util.Date;
+import java.sql.Date;
+
 
 public class Reservacion {
     private Long idReservacion;
