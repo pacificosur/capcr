@@ -84,3 +84,14 @@ create table Usuario(
     constraint pk_usuario primary key(idusuario)
 );
 
+create table Reservacion(
+	idReservacion bigserial not null,
+	fechaInicio timestamp(0) not null,
+	fechaFin timestamp(0) not null,
+	area text not null,
+	responsableArea text not null,
+	practica text not null,
+	responsablePractica text not null
+	constraint pk_reservacion primary key(idReservacion)
+);
+
