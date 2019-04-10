@@ -2,7 +2,7 @@
  * Autor: Padilla Bustamante Uriel Gustavo
  * E-mail: padilla98.upb@gmail.com  
  * Fecha Creación: 04/04/2019
- * Fecha Modificación: 05/04/2019
+ * Fecha Modificación: 09/04/2019
  * Descripción: implementación del modulo prácticas
  */
 package com.unsis.capcr.entity;
