@@ -14,116 +14,105 @@ import java.sql.Date;
  * @author LabTW06
  */
 public class Alumno {
-    private String Nombre;
-    private String Apellido;
-    private String Grupo;
-    private String Matricula;
-    private String Carrera;
-    private String Semestre;
-    private Date FechaCreacion;
-    private Date FechaActualizacion;
-    private Date FechaEliminacion;
-    
-    public Date getFechaCreacion() {
-        return FechaCreacion;
-    }
-
-    public void setFechaCreacion(Date FechaCreacion) {
-        this.FechaCreacion = FechaCreacion;
-    }
-
-    public Date getFechaActualizacion() {
-        return FechaActualizacion;
-    }
-
-    public void setFechaActualizacion(Date FechaActualizacion) {
-        this.FechaActualizacion = FechaActualizacion;
-    }
-
-    public Date getFechaEliminacion() {
-        return FechaEliminacion;
-    }
-
-    public void setFechaEliminacion(Date FechaEliminacion) {
-        this.FechaEliminacion = FechaEliminacion;
-    }
-
-    
-    
-    
+    private String nombre;
+    private String apellido;
+    private String grupo;
+    private String matricula;
+    private String carrera;
+    private String semestre;
+    private Date fechaCreacion;
+    private Date fechaActualizacion;
+    private Date fechaEliminacion;
     //Constructor
+
     public Alumno() {
     }
 
-    public Alumno(String Nombre, String Apellido, String Grupo, String Matricula, String Carrera, String Semestre, Date FechaCreacion, Date FechaActualizacion, Date FechaEliminacion) {
-        this.Nombre = Nombre;
-        this.Apellido = Apellido;
-        this.Grupo = Grupo;
-        this.Matricula = Matricula;
-        this.Carrera = Carrera;
-        this.Semestre = Semestre;
-        this.FechaCreacion = FechaCreacion;
-        this.FechaActualizacion = FechaActualizacion;
-        this.FechaEliminacion = FechaEliminacion;
+    public Alumno(String nombre, String apellido, String grupo, String matricula, String carrera, String semestre, Date fechaCreacion, Date fechaActualizacion, Date fechaEliminacion) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.grupo = grupo;
+        this.matricula = matricula;
+        this.carrera = carrera;
+        this.semestre = semestre;
+        this.fechaCreacion = fechaCreacion;
+        this.fechaActualizacion = fechaActualizacion;
+        this.fechaEliminacion = fechaEliminacion;
     }
+    
     
 
     //getters and setters
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getApellido() {
-        return Apellido;
+        return apellido;
     }
 
-    public void setApellido(String Apellido) {
-        this.Apellido = Apellido;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getGrupo() {
-        return Grupo;
+        return grupo;
     }
 
-    public void setGrupo(String Grupo) {
-        this.Grupo = Grupo;
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
     }
 
     public String getMatricula() {
-        return Matricula;
+        return matricula;
     }
 
-    public void setMatricula(String Matricula) {
-        this.Matricula = Matricula;
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     public String getCarrera() {
-        return Carrera;
+        return carrera;
     }
 
-    public void setCarrera(String Carrera) {
-        this.Carrera = Carrera;
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
     }
 
     public String getSemestre() {
-        return Semestre;
+        return semestre;
     }
 
-    public void setSemestre(String Semestre) {
-        this.Semestre = Semestre;
+    public void setSemestre(String semestre) {
+        this.semestre = semestre;
     }
 
-    
-    
+    public Date getFechaCreacion() {
+        return fechaCreacion;
+    }
 
-    
+    public void setFechaCreacion(Date fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
 
-   
-    
-    
+    public Date getFechaActualizacion() {
+        return fechaActualizacion;
+    }
+
+    public void setFechaActualizacion(Date fechaActualizacion) {
+        this.fechaActualizacion = fechaActualizacion;
+    }
+
+    public Date getFechaEliminacion() {
+        return fechaEliminacion;
+    }
+
+    public void setFechaEliminacion(Date fechaEliminacion) {
+        this.fechaEliminacion = fechaEliminacion;
+    }    
 }
