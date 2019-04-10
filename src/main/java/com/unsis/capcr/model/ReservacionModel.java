@@ -10,10 +10,12 @@ package com.unsis.capcr.model;
 import com.unsis.capcr.db.ConnectionPostgreSQL;
 import com.unsis.capcr.entity.Reservacion;
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ReservacionModel implements IReservacionModel{
@@ -27,11 +29,12 @@ public class ReservacionModel implements IReservacionModel{
         ArrayList <Reservacion> listaRegistro = new ArrayList<>();
         try{
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "SELECT * FROM Reservacion";
-            statement = (PreparedStatement) connection.createStatement();
-            resultSet = statement.executeQuery(query);
+            query = "SELECT * FROM Reservacion;";
+            statement =  connection.prepareStatement(query);
+            resultSet = statement.executeQuery();
 
             while(resultSet.next()){
+                System.out.println("Ingresando...");
                 Reservacion reservacion = new Reservacion();
                 reservacion.setIdReservacion(resultSet.getLong("idReservacion"));
                 reservacion.setFechaInicio(resultSet.getDate("fechaInicio"));
@@ -51,6 +54,28 @@ public class ReservacionModel implements IReservacionModel{
                 return null;
 
         }	
+    }
+    
+    public static void main(String[] args) {
+        IReservacionModel  rm = new ReservacionModel();
+        
+        for(Reservacion r : rm.obtenerRegistros()){
+            System.out.println(r.getArea());
+            System.out.println(r.getResponsableArea());
+            System.out.println("");
+        }
+        
+        //Reservacion r = new Reservacion();
+         
+        //r.setFechaInicio((java.sql.Date) new Date());
+        //r.setFechaFin((java.sql.Date) new Date());
+        /*r.setArea("E4");
+        r.setResponsableArea("Juan1");
+        r.setPractica("No. 1");
+        r.setResponsablePractica("Enrique1");*/
+        
+        
+        
     }
 
     @Override
@@ -88,7 +113,7 @@ public class ReservacionModel implements IReservacionModel{
             connection = (Connection) new ConnectionPostgreSQL().conecta();
             query = "INSERT INTO reservacion(fechaInicio, fechaFin, "
                     + "area, responsableArea, practica, responsablePractica) "
-                    + "VALUES(?,?,?,?,?,?,?)) ";
+                    + "VALUES(?,?,?,?,?,?); ";
             statement = connection.prepareStatement(query);         
             statement.setDate(1,reservacion.getFechaInicio()); 
             statement.setDate(2,reservacion.getFechaFin()); 
@@ -98,15 +123,14 @@ public class ReservacionModel implements IReservacionModel{
             statement.setString(6,reservacion.getResponsablePractica()); 
                      
             statement.executeUpdate();
-
-            resultSet.close();
             statement.close();
             connection.close();
         }catch(SQLException e){
             System.err.println("Error: " + e.getMessage());
         }
-
     }
+    
+   
 
     @Override
     public void actualizarRegistro(Reservacion reservacion) { 

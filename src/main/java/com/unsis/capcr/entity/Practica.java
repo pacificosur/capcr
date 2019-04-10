@@ -2,7 +2,7 @@
  * Autor: Padilla Bustamante Uriel Gustavo
  * E-mail: padilla98.upb@gmail.com  
  * Fecha Creación: 04/04/2019
- * Fecha Modificación: 05/04/2019
+ * Fecha Modificación: 09/04/2019
  * Descripción: implementación del modulo prácticas
  */
 package com.unsis.capcr.entity;
@@ -25,11 +25,15 @@ public class Practica {
     public Practica() {
     }
 
-    public Practica(String codigo, String nombre, String idSemestre, String idCarrera) {
+    public Practica(String codigo, String nombre, String idSemestre, String idCarrera,Date fechacreacion,Date fechaActualizacion,Date fechaEliminacion ) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.idSemestre = idSemestre;
         this.idCarrera = idCarrera;
+        this.fechaCreacion = fechacreacion;
+        this.fechaActualizacion = fechaActualizacion;
+        this.fechaEliminacion = fechaEliminacion;
+        
     }
  
     public String getCodigo() {
