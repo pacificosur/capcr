@@ -21,7 +21,7 @@ import java.util.List;
 public class AlumnoModel implements IAlumnoModel{
 private Connection connection;
 private PreparedStatement statement;
-private ResultSet resultset;
+private ResultSet resultSet;
 private String query;
     @Override
     public List<Alumno> ObtenerAlumno() {
@@ -29,17 +29,20 @@ private String query;
         try{
             connection =(Connection) new ConnectionPostgreSQL().conecta();
             query="SELECT * FROM Alumno";
-            statement=(PreparedStatement) statement.executeQuery(query);
-            while(resultset.next()){
+            statement = connection.prepareStatement(query);
+            resultSet = statement.executeQuery();
+            
+            while(resultSet.next()){
                 Alumno alumno= new Alumno();
-                alumno.setMatricula(resultset.getString("Matricula"));
-                alumno.setNombre(resultset.getString("Nombre"));
-                alumno.setGrupo(resultset.getString("Grupo"));  
-                alumno.setFechaCreacion(resultset.getDate("FechaCreacion"));
-                alumno.setFechaActualizacion(resultset.getDate("FechaActualizacion"));
-                alumno.setFechaEliminacion(resultset.getDate("FechaEliminacion"));
-                alumno.setSemestre(resultset.getString("Semestre")); 
-                alumno.setCarrera(resultset.getString("Carrera"));
+                alumno.setMatricula(resultSet.getString("matricula"));
+                alumno.setNombre(resultSet.getString("nombre"));
+                alumno.setApellido(resultSet.getString("apellido"));
+                alumno.setGrupo(resultSet.getString("grupo"));  
+                alumno.setFechaCreacion(resultSet.getDate("fechaCreacion"));
+                alumno.setFechaActualizacion(resultSet.getDate("fechaActualizacion"));
+                alumno.setFechaEliminacion(resultSet.getDate("fechaEliminacion"));
+                alumno.setSemestre(resultSet.getString("semestre")); 
+                alumno.setCarrera(resultSet.getString("carrera"));
                 listaalumnos.add(alumno);
             }
         }catch(SQLException e){
@@ -47,31 +50,34 @@ private String query;
         }
         return listaalumnos;
     }
-
+    
+    
     @Override
-    public Alumno ObtenerAlumno(String Matricula) {
+    public Alumno ObtenerAlumno(String matricula) {
         try{
             connection =(Connection) new ConnectionPostgreSQL().conecta();
-            query = " SELECT * FROM Alumno WHERE Matricula = ?";
-            statement.setString(3,Matricula);
+            query = " SELECT * FROM Alumno WHERE matricula = ?";
+            statement.setString(1,matricula);
             statement=(PreparedStatement) statement.executeQuery(query);
-            while(resultset.next()){
+            
+            while(resultSet.next()){
                 Alumno alumno= new Alumno();
                 statement.setString(1,alumno.getMatricula());
                 statement.setString(2,alumno.getNombre());
-                statement.setString(3,alumno.getGrupo());
-                statement.setDate(4,alumno.getFechaCreacion());
-                statement.setDate(5,alumno.getFechaActualizacion());
-                statement.setDate(6,alumno.getFechaEliminacion());
-                statement.setString(7,alumno.getCarrera());
-                statement.setString(8,alumno.getSemestre());
+                statement.setString(3,alumno.getApellido());
+                statement.setString(4,alumno.getGrupo());
+                statement.setDate(5,alumno.getFechaCreacion());
+                statement.setDate(6,alumno.getFechaActualizacion());
+                statement.setDate(7,alumno.getFechaEliminacion());
+                statement.setString(8,alumno.getCarrera());
+                statement.setString(9,alumno.getSemestre());
                 statement.executeUpdate();
 
-                resultset.close();
+                resultSet.close();
                 statement.close();
                 return alumno;
         }
-                resultset.close();
+                resultSet.close();
                 statement.close();
                 connection.close();
         }catch(SQLException e){
@@ -84,20 +90,21 @@ private String query;
     public void CrearAlumno(Alumno alumno) {
         try{
             connection =(Connection) new ConnectionPostgreSQL().conecta();
-            query="INSERT INTO Alumno(Nombre,Apellido,Grupo,Matricula,Carrera,Semestre"
-                    + "VALUES(?,?,?,?,?,?))";
+            query="INSERT INTO Alumno(matricula, nombre, apellido, grupo, fechaCreación, fechaActualizacion, fechaEliminacion, carrera, semestre"
+                    + "VALUES(?,?,?,?,?,?,?,?,?))";
                 statement=(PreparedStatement) statement.executeQuery(query);
                 statement.setString(1,alumno.getMatricula());
                 statement.setString(2,alumno.getNombre());
-                statement.setString(3,alumno.getGrupo());
-                statement.setDate(4,alumno.getFechaCreacion());
-                statement.setDate(5,alumno.getFechaActualizacion());
-                statement.setDate(6,alumno.getFechaEliminacion());
-                statement.setString(7,alumno.getCarrera());
-                statement.setString(8,alumno.getSemestre());
+                statement.setString(3,alumno.getApellido());
+                statement.setString(4,alumno.getGrupo());
+                statement.setDate(5,alumno.getFechaCreacion());
+                statement.setDate(6,alumno.getFechaActualizacion());
+                statement.setDate(7,alumno.getFechaEliminacion());
+                statement.setString(8,alumno.getCarrera());
+                statement.setString(9,alumno.getSemestre());
                 statement.executeUpdate();
                 
-                resultset.close();
+                resultSet.close();
                 statement.close();
                 connection.close();
         }catch(SQLException e){
@@ -105,17 +112,27 @@ private String query;
         }
     }
 
+    
+    public static void main(String[] args){
+        IAlumnoModel am = new AlumnoModel();
+        
+        Alumno a = new Alumno();
+        
+        
+    }
+
+    
     @Override
     public void EliminarAlumno(Alumno alumno) {
         try{
             connection =(Connection) new ConnectionPostgreSQL().conecta();
-            query="DELET FROM Alumno WHERE Matricula=?";
+            query="DELETE FROM Alumno WHERE matricula=?";
             statement= connection.prepareStatement(query);
             statement.setString(1, query);
             statement.executeUpdate();
             statement.close();
             connection.close();
-        }catch(Exception e){
+        }catch(SQLException e){
             e.getMessage();
         }
     }
@@ -128,24 +145,27 @@ private String query;
     public void ActualizarAlumno(Alumno alumno) {
         try{
             connection =(Connection) new ConnectionPostgreSQL().conecta();
-            query="UPDATE SET (Nombre,Apellido,Grupo,Matricula,Carrera,Semestre"
-                    + "VALUES(?,?,?,?,?,?))";
+            query="UPDATE Alumno SET (matricula, nombre, apellido, grupo, fechaCreación, fechaActualizacion, fechaEliminacion, carrera, semestre"
+                    + "VALUES(?,?,?,?,?,?,?,?,?))";
                 statement=(PreparedStatement) statement.executeQuery(query);
                 statement.setString(1,alumno.getMatricula());
                 statement.setString(2,alumno.getNombre());
-                statement.setString(3,alumno.getGrupo());
-                statement.setDate(4,alumno.getFechaCreacion());
-                statement.setDate(5,alumno.getFechaActualizacion());
-                statement.setDate(6,alumno.getFechaEliminacion());
-                statement.setString(7,alumno.getCarrera());
-                statement.setString(8,alumno.getSemestre());
+                statement.setString(3,alumno.getApellido());
+                statement.setString(4,alumno.getGrupo());
+                statement.setDate(5,alumno.getFechaCreacion());
+                statement.setDate(6,alumno.getFechaActualizacion());
+                statement.setDate(7,alumno.getFechaEliminacion());
+                statement.setString(8,alumno.getCarrera());
+                statement.setString(9,alumno.getSemestre());
                 statement.executeUpdate();            
-                resultset.close();
+                resultSet.close();
                 statement.close();
                 connection.close();
         }catch(SQLException e){
             e.getMessage();
         }
     }
+    
+   
     
 }
