@@ -2,7 +2,7 @@
  * Autor: Rolando Pedro Gabriel
  * E-mail: rolando.pedro.gabriel@gmail.com
  * Fecha Creación: 04/04/2019
- * Fecha Modificación: 05/04/2019
+ * Fecha Modificación: 10/04/2019
  * Descripción: implementación del CRUD para el módulo de Reservación.
  */
 package com.unsis.capcr.model;
@@ -15,10 +15,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class ReservacionModel implements IReservacionModel{
+public class ReservacionModel implements IReservacionModel {
+
     private Connection connection;
     private PreparedStatement statement;
     private ResultSet resultSet;
@@ -26,14 +26,13 @@ public class ReservacionModel implements IReservacionModel{
 
     @Override
     public List<Reservacion> obtenerRegistros() {
-        ArrayList <Reservacion> listaRegistro = new ArrayList<>();
-        try{
+        ArrayList<Reservacion> listaRegistro = new ArrayList<>();
+        try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
             query = "SELECT * FROM Reservacion;";
-            statement =  connection.prepareStatement(query);
+            statement = connection.prepareStatement(query);
             resultSet = statement.executeQuery();
-
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 System.out.println("Ingresando...");
                 Reservacion reservacion = new Reservacion();
                 reservacion.setIdReservacion(resultSet.getLong("idReservacion"));
@@ -48,46 +47,22 @@ public class ReservacionModel implements IReservacionModel{
             resultSet.close();
             statement.close();
             connection.close();
-
-             return listaRegistro;
-        }catch(Exception e){
-                return null;
-
-        }	
-    }
-    
-    public static void main(String[] args) {
-        IReservacionModel  rm = new ReservacionModel();
-        
-        for(Reservacion r : rm.obtenerRegistros()){
-            System.out.println(r.getArea());
-            System.out.println(r.getResponsableArea());
-            System.out.println("");
+            return listaRegistro;
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+            return null;
         }
-        
-        //Reservacion r = new Reservacion();
-         
-        //r.setFechaInicio((java.sql.Date) new Date());
-        //r.setFechaFin((java.sql.Date) new Date());
-        /*r.setArea("E4");
-        r.setResponsableArea("Juan1");
-        r.setPractica("No. 1");
-        r.setResponsablePractica("Enrique1");*/
-        
-        
-        
     }
 
     @Override
     public Reservacion obtenerRegistro(Long idReservacion) {
-        try{
-           connection = (Connection) new ConnectionPostgreSQL().conecta();
+        try {
+            connection = (Connection) new ConnectionPostgreSQL().conecta();
             query = "SELECT * FROM Reservacion WHERE idReservacion = ?";
             statement = connection.prepareStatement(query);
-            statement.setLong(1,idReservacion);
+            statement.setLong(1, idReservacion);
             resultSet = statement.executeQuery();
-
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 Reservacion reservacion = new Reservacion();
                 reservacion.setIdReservacion(resultSet.getLong("idReservacion"));
                 reservacion.setFechaInicio(resultSet.getDate("fechaInicio"));
@@ -95,81 +70,74 @@ public class ReservacionModel implements IReservacionModel{
                 reservacion.setArea(resultSet.getString("area"));
                 reservacion.setResponsableArea(resultSet.getString("responsableArea"));
                 reservacion.setPractica(resultSet.getString("practica"));
-                reservacion.setResponsablePractica(resultSet.getString("responsablePractica"));                
+                reservacion.setResponsablePractica(resultSet.getString("responsablePractica"));
                 return reservacion;
             }
             resultSet.close();
             statement.close();
             connection.close();
-        }catch(Exception e){
-                return null;
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+            return null;
         }
-       return null;
+        return null;
     }
 
     @Override
-    public void crearRegistro(Reservacion reservacion) {   
-        try{
+    public void crearRegistro(Reservacion reservacion) {
+        try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
             query = "INSERT INTO reservacion(fechaInicio, fechaFin, "
                     + "area, responsableArea, practica, responsablePractica) "
                     + "VALUES(?,?,?,?,?,?); ";
-            statement = connection.prepareStatement(query);         
-            statement.setDate(1,reservacion.getFechaInicio()); 
-            statement.setDate(2,reservacion.getFechaFin()); 
-            statement.setString(3,reservacion.getArea()); 
-            statement.setString(4,reservacion.getResponsableArea()); 
-            statement.setString(5,reservacion.getPractica()); 
-            statement.setString(6,reservacion.getResponsablePractica()); 
-                     
+            statement = connection.prepareStatement(query);
+            statement.setDate(1, reservacion.getFechaInicio());
+            statement.setDate(2, reservacion.getFechaFin());
+            statement.setString(3, reservacion.getArea());
+            statement.setString(4, reservacion.getResponsableArea());
+            statement.setString(5, reservacion.getPractica());
+            statement.setString(6, reservacion.getResponsablePractica());
             statement.executeUpdate();
             statement.close();
             connection.close();
-        }catch(SQLException e){
+        } catch (SQLException e) {
             System.err.println("Error: " + e.getMessage());
         }
     }
-    
-   
 
     @Override
-    public void actualizarRegistro(Reservacion reservacion) { 
-        try{
-        connection = (Connection) new ConnectionPostgreSQL().conecta();
+    public void actualizarRegistro(Reservacion reservacion) {
+        try {
+            connection = (Connection) new ConnectionPostgreSQL().conecta();
             query = "UPDATE reservacion SET fechaInicio=?, fechaFin=?, "
-                    + "area=?, responsableArea=?, practica=?, responsablePractica=?) "
-                    + "VALUES(?,?,?,?,?,?,?)) ";
-            statement = connection.prepareStatement(query);         
-            statement.setDate(1,reservacion.getFechaInicio()); 
-            statement.setDate(2,reservacion.getFechaFin()); 
-            statement.setString(3,reservacion.getArea()); 
-            statement.setString(4,reservacion.getResponsableArea()); 
-            statement.setString(5,reservacion.getPractica()); 
-            statement.setString(6,reservacion.getResponsablePractica()); 
-                     
+                    + "area=?, responsableArea=?, practica=?, responsablePractica=?;";
+            statement = connection.prepareStatement(query);
+            statement.setDate(1, reservacion.getFechaInicio());
+            statement.setDate(2, reservacion.getFechaFin());
+            statement.setString(3, reservacion.getArea());
+            statement.setString(4, reservacion.getResponsableArea());
+            statement.setString(5, reservacion.getPractica());
+            statement.setString(6, reservacion.getResponsablePractica());
             statement.executeUpdate();
-
-            resultSet.close();
             statement.close();
             connection.close();
-        }catch(SQLException e){
+        } catch (SQLException e) {
             System.err.println("Error: " + e.getMessage());
         }
     }
 
     @Override
-    public void eliminarRegistro(Long idReservacion) {      
-        try{
+    public void eliminarRegistro(Long idReservacion) {
+        try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
             query = "DELETE FROM Reservacion WHERE idReservacion = ?";
             statement = connection.prepareStatement(query);
-            statement.setLong(1,idReservacion);
+            statement.setLong(1, idReservacion);
             statement.executeUpdate();
             statement.close();
             connection.close();
-
-        }catch(SQLException e){
-            System.err.println("Error " + e.getMessage());
+        } catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
         }
-    }   
+    }
 }
