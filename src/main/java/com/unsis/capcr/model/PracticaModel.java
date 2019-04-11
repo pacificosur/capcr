@@ -110,16 +110,15 @@ public class PracticaModel implements IPracticaModel{
     public void actualizarPractica(Practica practica) {
         try {
             connection=(Connection) new ConnectionPostgreSQL().conecta();
-            query="UPDATE Practica set codigo=?,nombre=?, "
-                    + "codigoSemestre=?, codigoCarrera=?, fechaCreacion=?, fechaActualizacion=?,fechaEliminacion=? ";
+            query="UPDATE Practica set nombre=?, "
+                    + "codigoSemestre=?, codigoCarrera=?, fechaActualizacion=?,fechaEliminacion=? where codigo=? ";
             statement = connection.prepareStatement(query);
-            statement.setString(1,practica.getCodigo()); 
-            statement.setString(2,practica.getNombre()); 
-            statement.setString(3,practica.getIdSemestre()); 
-            statement.setString(4,practica.getIdCarrera()); 
-            statement.setDate(5,practica.getFechaCreacion()); 
-            statement.setDate(6,practica.getFechaCreacion());
-            statement.setDate(7,practica.getFechaCreacion()); 
+            statement.setString(1,practica.getNombre()); 
+            statement.setString(2,practica.getIdSemestre()); 
+            statement.setString(3,practica.getIdCarrera());  
+            statement.setDate(4,practica.getFechaActualizacion());
+            statement.setDate(5,practica.getFechaEliminacion()); 
+            statement.setString(6,practica.getCodigo()); 
             statement.executeUpdate();
             statement.close();
             connection.close();
@@ -132,11 +131,10 @@ public class PracticaModel implements IPracticaModel{
     public void eliminarPractica(String IdPractica) {
         try {
             connection=(Connection) new ConnectionPostgreSQL().conecta();
-            query="DELETE FROM Practica WHERE idPractica= ?";
+            query="DELETE FROM Practica WHERE codigo= ?";
             statement= connection.prepareStatement(query);
             statement.setString(1, IdPractica);
             statement.executeUpdate();
-            resultSet.close();
             statement.close();
             connection.close();
         } catch (SQLException e) {
@@ -145,15 +143,17 @@ public class PracticaModel implements IPracticaModel{
     }
     public static void main(String[] args) {
         IPracticaModel pm = new PracticaModel();
-        //java.util.Date d = new java.util.Date(); 
-        //Practica practica = new Practica("1003","Inserción de DIU","01","03",new java.sql.Date(d.getTime()),null,null);
+        java.util.Date d = new java.util.Date(); 
+        Practica practica = new Practica("1003","lavado de manos","01","03",new java.sql.Date(d.getTime()),null,null);
         //pm.crearPractica(practica);
 //        List<Practica> a=pm.getPracticas("0", "0");
 //        for (Practica practica : a) {
 //            System.out.println(practica.getCodigo()+" "+practica.getNombre()+" "+practica.getIdSemestre()+" "+practica.getIdCarrera()+" "+practica.getFechaCreacion()+" "+practica.getFechaActualizacion()+" "+practica.getFechaEliminacion());
 //        }
-        Practica a=pm.getPractica("1001");
-        System.out.println(a.getCodigo()+" "+a.getNombre()+" "+a.getIdSemestre()+" "+a.getIdCarrera()+" "+a.getFechaCreacion()+" "+a.getFechaActualizacion()+" "+a.getFechaEliminacion());
+//        Practica a=pm.getPractica("1001");
+//        System.out.println(a.getCodigo()+" "+a.getNombre()+" "+a.getIdSemestre()+" "+a.getIdCarrera()+" "+a.getFechaCreacion()+" "+a.getFechaActualizacion()+" "+a.getFechaEliminacion());
+//         pm.eliminarPractica("1001");
+        pm.actualizarPractica(practica);
     }
     
 }
