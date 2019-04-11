@@ -16,6 +16,5 @@ public interface IAlumnoModel {
     
     public void CrearAlumno(Alumno alumno);
     public void EliminarAlumno(Alumno alumno);
-    public void BuscarAlumno(Alumno alumno);
     public void ActualizarAlumno(Alumno alumno); 
 }
