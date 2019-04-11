@@ -17,10 +17,8 @@ import java.util.List;
 public interface IAlumnoService {
     public List<Alumno> ObtenerAlumno();
     public Alumno ObtenerAlumno(String Matricula);
-    
     public void CrearAlumno(Alumno alumno);
     public void EliminarAlumno(Alumno alumno);
-    public void BuscarAlumno(Alumno alumno);
     public void ActualizarAlumno(Alumno alumno);
     
     

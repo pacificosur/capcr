@@ -28,7 +28,7 @@ public class Alumno {
     public Alumno() {
     }
 
-    public Alumno(String nombre, String apellido, String grupo, String matricula, String carrera, String semestre, Date fechaCreacion, Date fechaActualizacion, Date fechaEliminacion) {
+    public Alumno(String matricula,String nombre, String apellido, String grupo, Date fechaCreacion, Date fechaActualizacion, Date fechaEliminacion, String carrera, String semestre) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.grupo = grupo;

@@ -9,6 +9,7 @@ package com.unsis.capcr.model;
 import com.unsis.capcr.db.ConnectionPostgreSQL;
 import com.unsis.capcr.entity.Alumno;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -90,7 +91,7 @@ private String query;
     public void CrearAlumno(Alumno alumno) {
         try{
             connection =(Connection) new ConnectionPostgreSQL().conecta();
-            query="INSERT INTO Alumno(matricula, nombre, apellido, grupo, fechaCreación, fechaActualizacion, fechaEliminacion, carrera, semestre"
+            query="INSERT INTO alumno(matricula, nombre, apellido, grupo, fechaCreación, fechaActualizacion, fechaEliminacion, carrera, semestre"
                     + "VALUES(?,?,?,?,?,?,?,?,?))";
                 statement=(PreparedStatement) statement.executeQuery(query);
                 statement.setString(1,alumno.getMatricula());
@@ -113,13 +114,17 @@ private String query;
     }
 
     
-    public static void main(String[] args){
+   /*public static void main(String[] args){
         IAlumnoModel am = new AlumnoModel();
+        java.util.Date d = new java.util.Date(); 
+        Alumno al= new Alumno("matricula","nombre","apellido","grupo",new java.sql.Date(d.getTime()),null,null,"carrera","semestre");
+        am.CrearAlumno(al);
+        List<Alumno> alumno=am.ObtenerAlumno();
         
-        Alumno a = new Alumno();
-        
-        
-    }
+        for(Alumno a: am.ObtenerAlumno()){
+            System.out.println(a.getNombre());
+        } 
+    }*/
 
     
     @Override
@@ -135,10 +140,6 @@ private String query;
         }catch(SQLException e){
             e.getMessage();
         }
-    }
-
-    @Override
-    public void BuscarAlumno(Alumno alumno) {
     }
 
     @Override

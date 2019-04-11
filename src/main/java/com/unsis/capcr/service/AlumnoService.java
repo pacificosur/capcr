@@ -8,6 +8,8 @@
 package com.unsis.capcr.service;
 
 import com.unsis.capcr.entity.Alumno;
+import com.unsis.capcr.model.AlumnoModel;
+import com.unsis.capcr.model.IAlumnoModel;
 import java.util.List;
 
 /**
@@ -15,31 +17,31 @@ import java.util.List;
  * @author LabTW06
  */
 public class AlumnoService implements IAlumnoService{
-
+    IAlumnoModel iAlumnoModel=new AlumnoModel();
     @Override
     public List<Alumno> ObtenerAlumno() {
-        return null;
+       return iAlumnoModel.ObtenerAlumno();
     }
 
     @Override
     public Alumno ObtenerAlumno(String Matricula) {
-        return null;
+        return  iAlumnoModel.ObtenerAlumno(Matricula);
     }
 
     @Override
     public void CrearAlumno(Alumno alumno) {
+        iAlumnoModel.CrearAlumno(alumno);
     }
 
     @Override
     public void EliminarAlumno(Alumno alumno) {
+        iAlumnoModel.EliminarAlumno(alumno);
     }
 
-    @Override
-    public void BuscarAlumno(Alumno alumno) {
-    }
 
     @Override
     public void ActualizarAlumno(Alumno alumno) {
+        iAlumnoModel.ActualizarAlumno(alumno);
     }
     
 }

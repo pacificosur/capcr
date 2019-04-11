@@ -1,7 +1,7 @@
 <%-- 
-    Document   : AlumnoHome
-    Created on : 4/04/2019, 12:43:05 AM
-    Author     : LabTW06
+    Document   : listar
+    Created on : 10/04/2019, 06:54:30 PM
+    Author     : LabTW03
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>LISTAR ALUMNO</h1>
     </body>
 </html>
