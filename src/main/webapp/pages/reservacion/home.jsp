@@ -2,7 +2,7 @@
     Autor: Rolando Pedro Gabriel
     E-mail: rolando.pedro.gabriel@gmail.com
     Fecha Creación: 04/04/2019
-    Fecha Modificación: 10/04/2019
+    Fecha Modificación: 11/04/2019
     Descripción: página principal del módulo de Reservación.
 --%>
 
@@ -12,10 +12,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link rel="stylesheet" href="../../webjars/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../../webjars/fontawesome/4.7.0/css/font-awesome.min.css">
-        <script src="../../webjars/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-        <script src="../../webjars/jquery/3.0.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/webjars/bootstrap/4.2.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/webjars/fontawesome/4.7.0/css/font-awesome.min.css">
+        <script src="${pageContext.request.contextPath}/webjars/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/webjars/jquery/3.0.0/jquery.min.js"></script>
     </head>
     <body>
         <div class="container">
@@ -36,7 +36,7 @@
                             <a class="nav-link" href="#">Registro</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../../ReservacionController?accion=listar">Reservaciones</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/ReservacionController?accion=listar">Reservaciones</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Acerca de...</a>
@@ -54,6 +54,6 @@
                     </ul>
                 </div>                
             </nav>
-            
+
     </body>
 </html>

@@ -2,7 +2,7 @@
  * Autor: Rolando Pedro Gabriel
  * E-mail: rolando.pedro.gabriel@gmail.com
  * Fecha Creación: 04/04/2019
- * Fecha Modificación: 10/04/2019
+ * Fecha Modificación: 11/04/2019
  * Descripción: implementación del CRUD para el módulo de Reservación.
  */
 package com.unsis.capcr.model;
@@ -10,7 +10,6 @@ package com.unsis.capcr.model;
 import com.unsis.capcr.db.ConnectionPostgreSQL;
 import com.unsis.capcr.entity.Reservacion;
 import java.sql.Connection;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -110,7 +109,7 @@ public class ReservacionModel implements IReservacionModel {
         try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
             query = "UPDATE reservacion SET fechaInicio=?, fechaFin=?, "
-                    + "area=?, responsableArea=?, practica=?, responsablePractica=?;";
+                    + "area=?, responsableArea=?, practica=?, responsablePractica=? WHERE idReservacion=?;";
             statement = connection.prepareStatement(query);
             statement.setDate(1, reservacion.getFechaInicio());
             statement.setDate(2, reservacion.getFechaFin());
@@ -118,6 +117,7 @@ public class ReservacionModel implements IReservacionModel {
             statement.setString(4, reservacion.getResponsableArea());
             statement.setString(5, reservacion.getPractica());
             statement.setString(6, reservacion.getResponsablePractica());
+            statement.setLong(7, reservacion.getIdReservacion());
             statement.executeUpdate();
             statement.close();
             connection.close();

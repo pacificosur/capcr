@@ -2,7 +2,7 @@
  * Autor: Rolando Pedro Gabriel
  * E-mail: rolando.pedro.gabriel@gmail.com
  * Fecha Creación: 04/04/2019
- * Fecha Modificación: 10/04/2019
+ * Fecha Modificación: 11/04/2019
  * Descripción: implementación de la clase controladora para el módulo de 
  *              Reservación.
  */
@@ -20,12 +20,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class ReservacionController extends HttpServlet {
-    private IReservacionService iReservacionService = new ReservacionService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("hola get");
-        String accion = request.getParameter("accion");
+        String accion = request.getParameter("accion");    
+        
+        if(accion.equals("crear") && request.getParameter("idReservacion") != null && !request.getParameter("idReservacion").equals("")){            
+            accion = "actualizar";
+        }  
         
         try {
             switch(accion) {
@@ -34,6 +36,15 @@ public class ReservacionController extends HttpServlet {
                     break;
                 case "listar":
                     listar(request, response);
+                    break;
+                case "crear":
+                    crear(request, response);
+                    break;
+                case "eliminar":
+                    eliminar(request, response);
+                    break;
+                case "actualizar":
+                    actualizar(request, response);
                     break;
                 default:
                     break;
@@ -55,83 +66,77 @@ public class ReservacionController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reservacion/home.jsp");
         dispatcher.forward(request, response);
     }
-    
+  
     private void listar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reservacion/listar.jsp");
+        IReservacionService iReservacionService = new ReservacionService();
+        List<Reservacion> listaReservacion = iReservacionService.obtenerRegistros();
+        request.setAttribute("listaReservacion", listaReservacion);
+	dispatcher.forward(request, response);        
+    }
+    
+    private void crear(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reservacion/listar.jsp");
+        
+        String area = request.getParameter("area");
+        String responsableArea = request.getParameter("responsableArea");
+        String practica = request.getParameter("practica");
+        String responsablePractica = request.getParameter("responsablePractica");
+        
+        Reservacion reservacion = new Reservacion();
+        
+        reservacion.setArea(area);
+        reservacion.setResponsableArea(responsableArea);
+        reservacion.setPractica(practica);
+        reservacion.setResponsablePractica(responsablePractica);
+        
+        IReservacionService iReservacionService = new ReservacionService();
+        iReservacionService.crearRegistro(reservacion);
+        
+        List<Reservacion> listaReservacion = iReservacionService.obtenerRegistros();
+        request.setAttribute("listaReservacion", listaReservacion);
+	dispatcher.forward(request, response);        
+    }
+    
+     private void actualizar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reservacion/listar.jsp");
+        
+        Long idReservacion = Long.parseLong(request.getParameter("idReservacion"));
+        String area = request.getParameter("area");
+        String responsableArea = request.getParameter("responsableArea");
+        String practica = request.getParameter("practica");
+        String responsablePractica = request.getParameter("responsablePractica");
+        
+        Reservacion reservacion = new Reservacion();
+        
+        reservacion.setIdReservacion(idReservacion);
+        reservacion.setArea(area);
+        reservacion.setResponsableArea(responsableArea);
+        reservacion.setPractica(practica);
+        reservacion.setResponsablePractica(responsablePractica);
+        
+        IReservacionService iReservacionService = new ReservacionService();
+        iReservacionService.actualizarRegistro(reservacion);
+        
+        List<Reservacion> listaReservacion = iReservacionService.obtenerRegistros();
+        request.setAttribute("listaReservacion", listaReservacion);
+	dispatcher.forward(request, response);        
+    }
+    
+    private void eliminar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reservacion/listar.jsp");
+        
+        Long idReservacion = Long.parseLong(request.getParameter("idReservacion"));
+        
+        IReservacionService iReservacionService = new ReservacionService();
+        iReservacionService.eliminarRegistro(idReservacion);
+        
         List<Reservacion> listaReservacion = iReservacionService.obtenerRegistros();
         request.setAttribute("listaReservacion", listaReservacion);
 	dispatcher.forward(request, response);        
     }
 }
-
-
-/*
-
-Class.forName("org.postgresql.Driver");
-            conn= DriverManager.getConnection(url, user, password);
-            System.out.println("Conexión Establecida");
-
-
-<dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-web-api</artifactId>
-            <version>7.0</version>
-            <scope>provided</scope>
-        </dependency>
-        
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
-            <scope>provided</scope>
-        </dependency>
-        
-        <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>javax.servlet.jsp-api</artifactId>
-            <version>2.3.1</version>
-            <scope>provided</scope>
-        </dependency>
-        
-        <dependency>
-            <groupId>jstl</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-        </dependency>
-            
-        <dependency>
-            <groupId>postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>9.1-901-1.jdbc4</version>
-        </dependency>
-        
-        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-        <!--        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
-            <scope>provided</scope>
-        </dependency>-->
-        
-        <!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>bootstrap</artifactId>
-            <version>4.2.1</version>
-        </dependency>
-        
-        <!-- https://mvnrepository.com/artifact/org.webjars.bower/jquery -->
-        <dependency>
-            <groupId>org.webjars.bower</groupId>
-            <artifactId>jquery</artifactId>
-            <version>3.3.1</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.webjars.bower/fontawesome -->
-        <dependency>
-            <groupId>org.webjars.bower</groupId>
-            <artifactId>fontawesome</artifactId>
-            <version>4.7.0</version>
-        </dependency>
-*/
