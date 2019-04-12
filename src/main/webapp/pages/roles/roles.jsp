@@ -1,7 +1,9 @@
 <%-- 
-    Document   : home
-    Created on : 10/04/2019, 06:48:03 PM
-    Author     : LabTW08
+    Autor: Rolando Pedro Gabriel
+    E-mail: rolando.pedro.gabriel@gmail.com
+    Fecha Creación: 04/04/2019
+    Fecha Modificación: 11/04/2019
+    Descripción: página principal del módulo de Reservación.
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -28,13 +30,16 @@
                             <a class="nav-link" href="#">Alumno</i><span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/PracticaController?accion=listar">Practica</a>
+                            <a class="nav-link" href="#">Practica</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Registro</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="${pageContext.request.contextPath}/ReservacionController?accion=listar">Reservaciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Roles</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Acerca de...</a>
@@ -52,6 +57,33 @@
                     </ul>
                 </div>                
             </nav>
+            <table id="idTable" class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <td> ID</td>
+                        <td> FECHA INICIO</td>
+                        <td> FECHA FIN</td>
+                        <td>AREA</td>
+                        <td>RES. AREA</td>
+                        <td>PRACTICA</td>
+                        <td>RES. PRACTICA</td>
+                     
+                    </tr>
+                </thead>
+                <c:forEach var="usuario" items="${listaUsuarios}">
+                    <tr>
+                        <td><c:out value="${usuario.idReservacion}"/></td>
+                        <td><c:out value="${usuario.fechaInicio}"/></td>
+                        <td><c:out value="${usuario.fechaFin}"/></td>
+                        <td><c:out value="${usuario.area}"/></td>
+                        <td><c:out value="${usuario.responsableArea}"/></td>
+                        <td><c:out value="${usuario.practica}"/></td>
+                        <td><c:out value="${usuario.responsablePractica}"/></td>
+                        		
+                    </tr>
+                </c:forEach>
+            </table>
+
 
     </body>
 </html>

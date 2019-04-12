@@ -1,10 +1,11 @@
 /*
- * Autor: Pedro Eliezer García Ramírez
- * E-mail: pg548169@gmail.com
+ * Autor: Luis Wonen Olvera Vásquez
+ * E-mail: loov1625@gmail.com
  * Fecha Creación: 04/04/2019
- * Fecha Modificación: 05/04/2019
- * Descripción:Clase que impementa la interfaz IAlumnoService
+ * Fecha Modificación: 11/04/2019
+ * Descripción:Clase que implementa la interfaz IAlumnoService
  */
+
 package com.unsis.capcr.service;
 
 import com.unsis.capcr.entity.Alumno;
@@ -19,29 +20,29 @@ import java.util.List;
 public class AlumnoService implements IAlumnoService{
     IAlumnoModel iAlumnoModel=new AlumnoModel();
     @Override
-    public List<Alumno> ObtenerAlumno() {
-       return iAlumnoModel.ObtenerAlumno();
+    public List<Alumno> obtenerAlumno() {
+       return iAlumnoModel.obtenerAlumno();
     }
 
     @Override
-    public Alumno ObtenerAlumno(String Matricula) {
-        return  iAlumnoModel.ObtenerAlumno(Matricula);
+    public Alumno obtenerAlumno(String Matricula) {
+        return  iAlumnoModel.obtenerAlumno(Matricula);
     }
 
     @Override
-    public void CrearAlumno(Alumno alumno) {
-        iAlumnoModel.CrearAlumno(alumno);
+    public void crearAlumno(Alumno alumno) {
+        iAlumnoModel.crearAlumno(alumno);
     }
 
     @Override
-    public void EliminarAlumno(Alumno alumno) {
-        iAlumnoModel.EliminarAlumno(alumno);
+    public void eliminarAlumno(Alumno alumno) {
+        iAlumnoModel.eliminarAlumno(alumno);
     }
 
 
     @Override
-    public void ActualizarAlumno(Alumno alumno) {
-        iAlumnoModel.ActualizarAlumno(alumno);
+    public void actualizarAlumno(Alumno alumno) {
+        iAlumnoModel.actualizarAlumno(alumno);
     }
     
 }
