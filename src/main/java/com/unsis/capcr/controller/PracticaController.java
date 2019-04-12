@@ -24,8 +24,6 @@ import javax.servlet.http.HttpServletResponse;
  * @author LabTW08
  */
 public class PracticaController extends HttpServlet {
-
-    private IPracticaService iPracticaService =new PracticaService();
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -63,7 +61,15 @@ public class PracticaController extends HttpServlet {
     private void listar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/practica/listar.jsp");
+        
+        IPracticaService iPracticaService =new PracticaService();
         List<Practica> listaPractica = iPracticaService.getPracticas("0", "0");
+        System.out.println(listaPractica.size());
+        
+        for (Practica practica : listaPractica) {
+             System.out.println(practica.getCodigo()+" "+practica.getNombre()+" "+practica.getIdSemestre()+" "+practica.getIdCarrera()+" "+practica.getFechaCreacion()+" "+practica.getFechaActualizacion()+" "+practica.getFechaEliminacion());
+            
+        }
         request.setAttribute("listaPractica", listaPractica);
 	dispatcher.forward(request, response);        
     }
