@@ -44,7 +44,7 @@ public class UsuarioController extends HttpServlet {
     }
 
     private void home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/usurio/home.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/usuario/home.jsp");
         dispatcher.forward(request,response);
     }
 
