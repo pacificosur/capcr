@@ -15,11 +15,11 @@ import java.util.List;
  * @author LabTW06
  */
 public interface IAlumnoService {
-    public List<Alumno> ObtenerAlumno();
-    public Alumno ObtenerAlumno(String Matricula);
-    public void CrearAlumno(Alumno alumno);
-    public void EliminarAlumno(Alumno alumno);
-    public void ActualizarAlumno(Alumno alumno);
+    public List<Alumno> obtenerAlumno();
+    public Alumno obtenerAlumno(String Matricula);
+    public void crearAlumno(Alumno alumno);
+    public void eliminarAlumno(Alumno alumno);
+    public void actualizarAlumno(Alumno alumno);
     
     
 }

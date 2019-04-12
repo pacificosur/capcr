@@ -15,11 +15,10 @@ import java.sql.Date;
  */
 public class Alumno {
     private String nombre;
-    private String apellido;
     private String grupo;
     private String matricula;
-    private String carrera;
-    private String semestre;
+    private String codigoCarrera;
+    private String codigoSemestre;
     private Date fechaCreacion;
     private Date fechaActualizacion;
     private Date fechaEliminacion;
@@ -27,18 +26,20 @@ public class Alumno {
 
     public Alumno() {
     }
-
-    public Alumno(String matricula,String nombre, String apellido, String grupo, Date fechaCreacion, Date fechaActualizacion, Date fechaEliminacion, String carrera, String semestre) {
+   
+    
+    public Alumno(String nombre, String grupo, String matricula, String codigoCarrera, String codigoSemestre, Date fechaCreacion, Date fechaActualizacion, Date fechaEliminacion) {
         this.nombre = nombre;
-        this.apellido = apellido;
         this.grupo = grupo;
         this.matricula = matricula;
-        this.carrera = carrera;
-        this.semestre = semestre;
+        this.codigoCarrera = codigoCarrera;
+        this.codigoSemestre = codigoSemestre;
         this.fechaCreacion = fechaCreacion;
         this.fechaActualizacion = fechaActualizacion;
         this.fechaEliminacion = fechaEliminacion;
     }
+    
+    
     
     
 
@@ -50,14 +51,6 @@ public class Alumno {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
     }
 
     public String getGrupo() {
@@ -76,20 +69,20 @@ public class Alumno {
         this.matricula = matricula;
     }
 
-    public String getCarrera() {
-        return carrera;
+    public String getCodigoCarrera() {
+        return codigoCarrera;
     }
 
-    public void setCarrera(String carrera) {
-        this.carrera = carrera;
+    public void setCodigoCarrera(String codigoCarrera) {
+        this.codigoCarrera = codigoCarrera;
     }
 
-    public String getSemestre() {
-        return semestre;
+    public String getCodigoSemestre() {
+        return codigoSemestre;
     }
 
-    public void setSemestre(String semestre) {
-        this.semestre = semestre;
+    public void setCodigoSemestre(String codigoSemestre) {
+        this.codigoSemestre = codigoSemestre;
     }
 
     public Date getFechaCreacion() {
@@ -114,5 +107,11 @@ public class Alumno {
 
     public void setFechaEliminacion(Date fechaEliminacion) {
         this.fechaEliminacion = fechaEliminacion;
-    }    
+    }
+
+    
+   
+    
+
+    
 }

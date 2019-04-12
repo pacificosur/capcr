@@ -54,7 +54,7 @@ private IAlumnoService iAlumnoService = new AlumnoService();
     private void listar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/Alumno/listar.jsp");
-        List<Alumno> listaAlumno = iAlumnoService.ObtenerAlumno();
+        List<Alumno> listaAlumno = iAlumnoService.obtenerAlumno();
         request.setAttribute("listaAlumno", listaAlumno);
 	dispatcher.forward(request, response);        
     }
