@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface IUsuarioService {
 
-    public List<Usuario> obtenerUsuario();
+    public List<Usuario> obtenerUsuarios();
 
     public Usuario obtenerUsuario(Long idUsuario);
 

@@ -39,7 +39,6 @@ public class UsuarioModel implements IUsuarioModel {
                 usuario.setNombreUsuario(resultSet.getString("nombreusuario"));
                 usuario.setContraseña(resultSet.getString("contraseña"));
                 usuario.setTipo(resultSet.getInt("tipo"));
-
                 listaUsuario.add(usuario);
                 System.out.println("saliendo");
             }
@@ -59,26 +58,58 @@ public class UsuarioModel implements IUsuarioModel {
         Usuario usuario = new Usuario();
         try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "SELECT * FROM usuario where idUsuario = ? ";
-            statement = (PreparedStatement) connection.createStatement();
+            query = "SELECT * FROM usuario WHERE idUsuario = ?";
+            statement = connection.prepareStatement(query);
             statement.setLong(1, idUsuario);
-            resultSet = statement.executeQuery(query);
+            resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 usuario.setIdUsuario(resultSet.getLong("idUsuario"));
-                usuario.setTipo(1);
-                usuario.setApellidos(query);
-                usuario.setContraseña(query);
-                usuario.setNombre(query);
-                usuario.setNombreUsuario(query);
+                usuario.setNombre(resultSet.getString("nombre"));
+                usuario.setApellidos(resultSet.getString("apellido"));
+                usuario.setNombreUsuario(resultSet.getString("nombreusuario"));
+                usuario.setContraseña(resultSet.getString("contraseña"));
+                usuario.setTipo(resultSet.getInt("tipo"));
+                return usuario;
             }
             resultSet.close();
             connection.close();
             statement.close();
-            return usuario;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return null;
+    }
+
+    public static void main(String[] args) {
+        IUsuarioModel um = new UsuarioModel();
+        //Usuario u = new Usuario();   
+        /* u.setNombre("Hiralda");
+        u.setApellidos("Castro");
+        u.setNombreUsuario("unsis3");
+        u.setContraseña("12345");
+        u.setTipo(2);
+        um.crearRegistro(u);*/
+
+        //Para probar obtenerUsuarios.
+        /*for (Usuario u : um.obtenerUsuarios()) {
+            System.out.println(u.getNombre());
+        }*/
+        //Para probar obtenerUsuario.
+        /*Usuario u = new Usuario();
+        u = um.obtenerUsuario(new Long(1));
+        System.out.println(u.getNombre()+u.getApellidos());*/
+        //Para probar ActualizarRegistro.
+        /*Usuario u = new Usuario();   
+        u.setNombre("Hiraldas");
+        u.setApellidos("Castro");
+        u.setNombreUsuario("unsis3");
+        u.setContraseña("12345");
+        u.setTipo(2);
+        u.setIdUsuario(new Long(1));
+        um.actualizarRegistro(u);*/
+        //para eliminar.
+        um.eliminarRegistro(new Long(2));
+
     }
 
     @Override
@@ -106,13 +137,14 @@ public class UsuarioModel implements IUsuarioModel {
     public void actualizarRegistro(Usuario usuario) {
         try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "UPDATE usuario SET nombre=?, apellido=?, nombreUsuario=?, contraseña=?, tipo=? values(?,?,?,?,?)";
+            query = "UPDATE usuario SET nombre=?, apellido=?, nombreusuario=?, contraseña=?, tipo=? WHERE idUsuario = ?;";
             statement = connection.prepareStatement(query);
             statement.setString(1, usuario.getNombre());
             statement.setString(2, usuario.getApellidos());
             statement.setString(3, usuario.getNombreUsuario());
             statement.setString(4, usuario.getContraseña());
             statement.setLong(5, usuario.getTipo());
+            statement.setLong(6, usuario.getIdUsuario());
             statement.executeUpdate();
             statement.close();
             connection.close();
@@ -136,19 +168,4 @@ public class UsuarioModel implements IUsuarioModel {
         }
     }
 
-    public static void main(String[] args) {
-        IUsuarioModel um = new UsuarioModel();
-        
-        //Usuario u = new Usuario();   
-        /* u.setNombre("Hiralda");
-        u.setApellidos("Castro");
-        u.setNombreUsuario("unsis3");
-        u.setContraseña("12345");
-        u.setTipo(2);
-        um.crearRegistro(u);*/
-        for (Usuario u : um.obtenerUsuarios()) {
-            System.out.println(u.getNombre());
-        }
-
-    }
 }

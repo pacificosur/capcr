@@ -8,13 +8,17 @@
 package com.unsis.capcr.service;
 
 import com.unsis.capcr.entity.Usuario;
+import com.unsis.capcr.model.IUsuarioModel;
+import com.unsis.capcr.model.UsuarioModel;
 import java.util.List;
 
 public class UsuarioService implements IUsuarioService {
 
+    IUsuarioModel iUsuarioModel = new UsuarioModel();
+    
     @Override
-    public List<Usuario> obtenerUsuario() {
-        return null;
+    public List<Usuario> obtenerUsuarios() {
+        return iUsuarioModel.obtenerUsuarios();
     }
 
     @Override
