@@ -17,6 +17,7 @@ public class Registro {
     private String horaSalida;
     private String sustituye;
     private Date fecha;
+    private String comentario;
     
     public Registro(){
         
@@ -62,4 +63,19 @@ public class Registro {
         this.sustituye = sustituye;
     }
     
+    public void setFecha(Date fecha){
+        this.fecha=fecha;
+    }
+    
+    public Date getFecha(){
+        return fecha;
+    }
+    
+    public void setComentario(String comenta){
+        this.comentario=comenta;
+    }
+    
+    public String getComentario(){
+        return comentario;
+    }
 }
