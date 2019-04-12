@@ -11,10 +11,10 @@ import com.unsis.capcr.entity.Alumno;
 import java.util.List;
 
 public interface IAlumnoModel {
-    public List<Alumno> ObtenerAlumno();
-    public Alumno ObtenerAlumno(String Matricula);
+    public List<Alumno> obtenerAlumno();
+    public Alumno obtenerAlumno(String Matricula);
     
-    public void CrearAlumno(Alumno alumno);
-    public void EliminarAlumno(Alumno alumno);
-    public void ActualizarAlumno(Alumno alumno); 
+    public void crearAlumno(Alumno alumno);
+    public void eliminarAlumno(Alumno alumno);
+    public void actualizarAlumno(Alumno alumno); 
 }

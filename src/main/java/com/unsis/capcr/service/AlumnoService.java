@@ -19,29 +19,29 @@ import java.util.List;
 public class AlumnoService implements IAlumnoService{
     IAlumnoModel iAlumnoModel=new AlumnoModel();
     @Override
-    public List<Alumno> ObtenerAlumno() {
-       return iAlumnoModel.ObtenerAlumno();
+    public List<Alumno> obtenerAlumno() {
+       return iAlumnoModel.obtenerAlumno();
     }
 
     @Override
-    public Alumno ObtenerAlumno(String Matricula) {
-        return  iAlumnoModel.ObtenerAlumno(Matricula);
+    public Alumno obtenerAlumno(String Matricula) {
+        return  iAlumnoModel.obtenerAlumno(Matricula);
     }
 
     @Override
-    public void CrearAlumno(Alumno alumno) {
-        iAlumnoModel.CrearAlumno(alumno);
+    public void crearAlumno(Alumno alumno) {
+        iAlumnoModel.crearAlumno(alumno);
     }
 
     @Override
-    public void EliminarAlumno(Alumno alumno) {
-        iAlumnoModel.EliminarAlumno(alumno);
+    public void eliminarAlumno(Alumno alumno) {
+        iAlumnoModel.eliminarAlumno(alumno);
     }
 
 
     @Override
-    public void ActualizarAlumno(Alumno alumno) {
-        iAlumnoModel.ActualizarAlumno(alumno);
+    public void actualizarAlumno(Alumno alumno) {
+        iAlumnoModel.actualizarAlumno(alumno);
     }
     
 }

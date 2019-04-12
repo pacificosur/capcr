@@ -18,12 +18,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import com.unsis.capcr.db.ConnectionPostgreSQL;
+import java.nio.charset.CodingErrorAction;
+import java.sql.SQLException;
+import java.util.Date;
+
 
 public class RegistroModel implements IRegistroModel{
     
     private Connection connection;
     private PreparedStatement statement;
-    private ResultSet resulSet;
+    private ResultSet resultSet;
     private String query;
 
     @Override
@@ -31,7 +36,25 @@ public class RegistroModel implements IRegistroModel{
         ArrayList <Registro> listaRegistro = new ArrayList<>();
         try{
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "SELECT * FROM Rregidtro;";
+            query = "SELECT * FROM Registro;";
+            statement = connection.prepareStatement(query);
+            resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                System.out.println("Ingresando...");
+                Registro registro = new Registro();
+                registro.setCodigoPractica(resultSet.getString("codigoPractica"));
+                registro.setMatriculaAlumno(resultSet.getString("matriculaAlumno"));
+                registro.setHoraEntrada(resultSet.getString("horaEntrada"));
+                registro.setHoraSalida(resultSet.getString("horaSalida"));
+                registro.setFecha(resultSet.getDate("fecha"));
+                registro.setSustituye(resultSet.getString("sustituye"));
+                registro.setComentario(resultSet.getString("comentario"));
+                listaRegistro.add(registro);    
+            }
+            resultSet.close();
+            statement.close();
+            connection.close();
+            return listaRegistro;
         }
         catch(Exception e){
             System.out.println(e.getMessage());
@@ -41,11 +64,54 @@ public class RegistroModel implements IRegistroModel{
 
     @Override
     public Registro obtenerRegistro(Long idRegistro) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{    
+            connection = (Connection) new ConnectionPostgreSQL().conecta();
+            query = "SELECT * FROM Registro WHERE codigoPractica = ?";
+            statement = connection.prepareStatement(query);
+            statement.setLong(1, idRegistro);
+            resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                System.out.println("Ingresando...");
+                Registro registro = new Registro();
+                registro.setCodigoPractica(resultSet.getString("codigoPractica"));
+                registro.setMatriculaAlumno(resultSet.getString("matriculaAlumno"));
+                registro.setHoraEntrada(resultSet.getString("horaEntrada"));
+                registro.setHoraSalida(resultSet.getString("horaSalida"));
+                registro.setFecha(resultSet.getDate("fecha"));
+                registro.setSustituye(resultSet.getString("sustituye"));
+                registro.setComentario(resultSet.getString("comentario"));
+                return registro;
+            }
+            resultSet.close();
+            statement.close();
+            connection.close();
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+            return null;
+        }
+        return null;
     }
 
     @Override
     public void crearRegistro(Registro registro) {
+        try {
+            connection = (Connection) new ConnectionPostgreSQL().conecta();
+            query = "INSERT INTO registro(horaEntrada, horaSalida, fecha, sustituye, comentario"
+                    + "VALUES(?, ?, ?, ?, ?); ";
+            statement = connection.prepareStatement(query);
+            statement.setString(1, registro.getHoraEntrada());
+            statement.setString(2, registro.getHoraSalida());
+            //statement.setDate(3, registro.getFecha());
+            statement.setString(4, registro.getSustituye());
+            statement.setString(5, registro.getComentario());
+            statement.executeUpdate();
+            statement.close();
+            connection.close();
+        } catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+        
         return;
     }
 
@@ -57,14 +123,16 @@ public class RegistroModel implements IRegistroModel{
             statement = connection.prepareStatement(query);                
 
             statement.setString(1, alumno.getMatricula()); 
-            //statement.setString(2, practica.getIdPractica());
+            statement.setString(2, practica.getCodigo());
             statement.setString(3, registro.getHoraEntrada());
             statement.setString(4, registro.getHoraSalida());
-                
-
+            //statement.setString(5, registro.getFecha());
+            statement.setString(6, registro.getSustituye());
+            statement.setString(7, registro.getComentario() );
+            statement.setString(8, practica.getCodigo());
+            
             statement.executeUpdate();
-
-            resulSet.close();
+            resultSet.close();
             statement.close();
             connection.close();
 
@@ -89,5 +157,9 @@ public class RegistroModel implements IRegistroModel{
         catch(Exception e){
             System.err.println("Error " + e.getMessage());
         }
+    }
+    
+    public static void main(String[] args) {
+        //ConnectionPstgreSQL conn= null;
     }
 }

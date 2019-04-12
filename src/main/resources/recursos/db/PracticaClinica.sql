@@ -8,22 +8,22 @@ use clinica;
 -- CREACION DE LAS TABLAS SEMESTRE, CARRERA, PRACTICA, ALUMNO, USUARIO, REGISTRO
 -- -------------------------------------------------------------------------------
 create table Semestre(
-    codigo varchar(2) not null,
-    nombre varchar(20) not null,
+    codigo text not null,
+    nombre text not null,
     constraint pk_semestre primary key(codigo)
 );
 
 create table Carrera(
-    codigo varchar(2) not null,
-    nombre varchar(50) not null,
+    codigo text not null,
+    nombre text not null,
     constraint pk_codigoC primary key(codigo)
 );
 
 create table Practica(
-    codigo varchar(4) not null,
-    nombre varchar(90) not null unique,
-    codigoSemestre varchar(2) not null,
-    codigoCarrera varchar(2) not null,
+    codigo text not null,
+    nombre text not null unique,
+    codigoSemestre text not null,
+    codigoCarrera text not null,
     fechaCreacion timestamp(0) not null,
     fechaActualizacion timestamp(0),
     fechaEliminacion timestamp(0),
@@ -37,14 +37,14 @@ create table Practica(
     );
    
 create table Alumno(
-    matricula varchar(10) not null,
-    nombre varchar(80) not null,
-    grupo varchar(6)not null,
+    matricula text not null,
+    nombre text not null,
+    grupo text not null,
     fechaCreacion timestamp(0) not null,
     fechaActualizacion timestamp(0),
     fechaEliminacion timestamp(0),
-    codigoSemestre varchar(2) not null,
-    codigoCarrera varchar(2) not null,
+    codigoSemestre text not null,
+    codigoCarrera text not null,
     constraint pk_alumno primary key (matricula),
     constraint fk_Asemestre foreign key(codigoSemestre)	references Semestre(codigo)
     on delete cascade
@@ -55,14 +55,14 @@ create table Alumno(
 );
 
 create table Registro(
-    matriculaAlumno varchar(10) not null,
-    codigoPractica varchar(4) not null,
+    matriculaAlumno text not null,
+    codigoPractica text not null,
     horaEntrada time(0) ,
     horaSalida time(0) ,
     fecha date,
-    sustituye varchar(20) not null,
-    estado varchar (10)not null,
-    comentario varchar (50),
+    sustituye text not null,
+    estado text not null,
+    comentario text,
     constraint fk_alumno foreign key (matriculaAlumno)	references Alumno(matricula)
     on delete cascade
     on update cascade,
@@ -73,10 +73,10 @@ create table Registro(
     
 create table Usuario(
     idusuario bigserial not null,
-    nombre varchar(25) not null,
-    apellido varchar(25) not null,
-    nombreUsuario varchar(40)not null,
-    contraseña varchar(20) not null,
+    nombre text not null,
+    apellido text not null,
+    nombreUsuario text not null,
+    contraseña text not null,
     tipo int not null,
     constraint pk_usuario primary key(idusuario)
 );
