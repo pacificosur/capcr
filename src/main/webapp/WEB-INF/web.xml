@@ -32,6 +32,22 @@
         <servlet-name>ReservacionController</servlet-name>
         <url-pattern>/ReservacionController</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>RolesController</servlet-name>
+        <servlet-class>com.unsis.capcr.controller.RolesController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RolesController</servlet-name>
+        <url-pattern>/RolesController</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ReportePracticaController</servlet-name>
+        <servlet-class>com.unsis.capcr.controller.ReportePracticaController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReportePracticaController</servlet-name>
+        <url-pattern>/ReportePracticaController</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

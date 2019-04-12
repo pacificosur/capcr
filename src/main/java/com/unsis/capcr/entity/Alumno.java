@@ -1,9 +1,9 @@
 /*
- * Autor: Pedro Eliezer García Ramírez
- * E-mail: pg548169@gmail.com
+ * Autor: Luis Wonen Olvera Vásquez
+ * E-mail: loov1625@gmail.com
  * Fecha Creación: 04/04/2019
- * Fecha Modificación: 05/04/2019
- * Descripción: implementación de la clase Alumno
+ * Fecha Modificación: 11/04/2019
+ * Descripción: Implementación de la clase Alumno.
  */
 package com.unsis.capcr.entity;
 
