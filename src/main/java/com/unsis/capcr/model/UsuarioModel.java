@@ -28,7 +28,7 @@ public class UsuarioModel implements IUsuarioModel {
         ArrayList<Usuario> listaUsuario = new ArrayList<>();
         try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "SELECT *FROM usuario;";
+            query = "SELECT * FROM usuario;";
             statement = connection.prepareStatement(query);
             resultSet = statement.executeQuery();
             while (resultSet.next()) {
