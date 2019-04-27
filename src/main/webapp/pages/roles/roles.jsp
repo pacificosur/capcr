@@ -19,54 +19,15 @@
     </head>
     <body>
         <div class="container">
-            <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
-                <a class="navbar-brand" href="#"><i class="fa fa-home"></i>Clínica</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Alumno</i><span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Practica</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Registro</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/ReservacionController?accion=listar">Reservaciones</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Roles</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Acerca de...</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown link
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>                
-            </nav>
             <table id="idTable" class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <td> ID</td>
-                        <td> FECHA INICIO</td>
-                        <td> FECHA FIN</td>
-                        <td>AREA</td>
-                        <td>RES. AREA</td>
-                        <td>PRACTICA</td>
-                        <td>RES. PRACTICA</td>
+                        <td> IDUSARIO</td>
+                        <td> NOMBRE</td>
+                        <td> APELLIDOS</td>
+                        <td> NOMBREUSUARIO</td>
+                        <td> CONTRASEÑA</td>
+                        <td> TIPO</td>
                      
                     </tr>
                 </thead>
