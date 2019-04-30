@@ -10,4 +10,5 @@ public interface IUsuarioModel {
     public void crearRegistro(Usuario usuario);
     public void actualizarRegistro(Usuario usuario);
     public void eliminarRegistro(Long idUsuario);
+    public boolean logueo(Usuario usuario);
 }

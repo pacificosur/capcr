@@ -41,4 +41,9 @@ public class UsuarioService implements IUsuarioService {
 
     }
 
+    @Override
+    public boolean logueo(Usuario usuario) {
+       return iUsuarioModel.logueo(usuario);
+    }
+
 }
