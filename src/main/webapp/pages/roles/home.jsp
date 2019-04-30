@@ -1,23 +1,33 @@
 <%-- 
-    Autor: Rolando Pedro Gabriel
-    E-mail: rolando.pedro.gabriel@gmail.com
+    Autor: Jose Benito Gomez Sanchez
+    E-mail: josegomz.sa17@gmail.com 
     Fecha Creación: 04/04/2019
     Fecha Modificación: 11/04/2019
-    Descripción: página principal del módulo de Reservación.
+    Descripción: página principal del módulo de Asignación de roles.
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/webjars/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/webjars/fontawesome/4.7.0/css/font-awesome.min.css">
-        <script src="${pageContext.request.contextPath}/webjars/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-        <script src="${pageContext.request.contextPath}/webjars/jquery/3.0.0/jquery.min.js"></script>
+        <%-- css --%>
+        <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/plugins/cubeportfolio/css/cubeportfolio.min.css">
+        <link href="${pageContext.request.contextPath}/resources/css/nivo-lightbox.css" rel="stylesheet" />
+        <link href="${pageContext.request.contextPath}/resources/css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/resources/css/owl.carousel.css" rel="stylesheet" media="screen" />
+        <link href="${pageContext.request.contextPath}/resources/css/owl.theme.css" rel="stylesheet" media="screen" />
+        <link href="${pageContext.request.contextPath}/resources/css/animate.css" rel="stylesheet" />
+        <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
+        <%-- boxed bg --%>
+        <link id="bodybg" href="../resources/bodybg/bg1.css" rel="stylesheet" type="text/css" />
+        <%-- template skin --%>
+        <link id="t-colors" href="../resources/color/default.css" rel="stylesheet">
     </head>
-    <body>
+    <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
                 <a class="navbar-brand" href="#"><i class="fa fa-home"></i>Clínica</a>

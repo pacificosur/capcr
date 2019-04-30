@@ -5,7 +5,6 @@ import com.unsis.capcr.entity.Usuario;
 import com.unsis.capcr.service.IUsuarioService;
 import com.unsis.capcr.service.UsuarioService;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,11 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 
 
 public class RolesController extends HttpServlet {
-
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -38,7 +32,7 @@ public class RolesController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        doGet(request,response);
     }
 
     private void listar(HttpServletRequest request, HttpServletResponse response)
