@@ -1,8 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+  Autor: García Ramírez Pedro Eliezer
+  E-mail: pg548169@gmail.com  
+  Fecha Creación: 24/04/2019
+  Fecha Modificación: -/-/-
+*/
 package com.unsis.capcr.controller;
 
 import com.unsis.capcr.entity.Reservacion;
