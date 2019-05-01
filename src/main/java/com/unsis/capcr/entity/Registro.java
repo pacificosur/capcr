@@ -16,6 +16,8 @@ public class Registro {
     private String horaEntrada;
     private String horaSalida;
     private String sustituye;
+    private Date fecha;
+    private String comentario;
 
     
     public Registro(){
