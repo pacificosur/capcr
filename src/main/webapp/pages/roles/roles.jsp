@@ -6,15 +6,17 @@
     Descripción: página principal del módulo de Asignación de roles.
 --%>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+    <head>    
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Asignacion de Roles</title>
         <%-- css --%>
         <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -25,10 +27,11 @@
         <link href="${pageContext.request.contextPath}/resources/css/owl.theme.css" rel="stylesheet" media="screen" />
         <link href="${pageContext.request.contextPath}/resources/css/animate.css" rel="stylesheet" />
         <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/resources/img/lamp.ico" rel="shortcut icon">
         <%-- boxed bg --%>
-        <link id="bodybg" href="../resources/bodybg/bg1.css" rel="stylesheet" type="text/css" />
+        <link id="bodybg" href="${pageContext.request.contextPath}/resources/bodybg/bg1.css" rel="stylesheet" type="text/css" />
         <%-- template skin --%>
-        <link id="t-colors" href="../resources/color/default.css" rel="stylesheet">
+        <link id="t-colors" href="${pageContext.request.contextPath}/resources/color/default.css" rel="stylesheet">
     </head>
     <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
         <div id="wrapper">
@@ -76,48 +79,49 @@
                 </div>
             <!-- /.container -->
             </nav>
- 
-            <table id="idTable" class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <td> IDUSARIO</td>
-                        <td> NOMBRE</td>
-                        <td> APELLIDOS</td>
-                        <td> NOMBREUSUARIO</td>
-                        <td> CONTRASEÑA</td>
-                        <td colspan=3> TIPO</td>
-                     
-                    </tr>
-                </thead>
-                <c:forEach var="usuario" items="${listaUsuario}">
-                    <tr>
-                        <td><c:out value="${usuario.idUsuario}"/></td>
-                        <td><c:out value="${usuario.nombre}"/></td>
-                        <td><c:out value="${usuario.apellidos}"/></td>
-                        <td><c:out value="${usuario.nombreUsuario}"/></td>
-                        <td><c:out value="${usuario.contraseña}"/></td>
-                        <td>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" id="cb1" value="option1"> Avila
-                                </label>
-                                <label>
-                                    <input type="checkbox" id="cb2" value="option2"> Salamanca
-                                </label>
-                                <label>
-                                    <input type="checkbox" id="cb3" value="option3"> Zamora
-                                </label>
-                            </div>
-                        </td>
-                        		
-                    </tr>
-                </c:forEach>
-            </table>
-                  
-                        
+            <section id="intro" class="intro">
+                <div class="container" style="padding:200px 0 60px;">
+                    <div class="container">
+                        <table id="idTable" class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <td> IDUSARIO</td>
+                                    <td> NOMBRE</td>
+                                    <td> APELLIDOS</td>
+                                    <td> NOMBREUSUARIO</td>
+                                    <td> CONTRASEÑA</td>
+                                    <td colspan=4> ROL</td>
+                                </tr>
+                            </thead>
+                            <c:forEach var="usuario" items="${listaUsuario}">
+                            <tr>
+                                <td><c:out value="${usuario.idUsuario}"/></td>
+                                <td><c:out value="${usuario.nombre}"/></td>
+                                <td><c:out value="${usuario.apellidos}"/></td>
+                                <td><c:out value="${usuario.nombreUsuario}"/></td>
+                                <td><c:out value="${usuario.contraseña}"/></td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                            Roles
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <p><a class="dropdown-item" href="#">Encargado(a)</a></p>
+                                            <p><a class="dropdown-item" href="#">Profesor</a></p>
+                                            <p><a class="dropdown-item" href="#">Alumno</a></p>
+                                        </div>
+                                    </div>
+                                </td>   		
+                            </tr>
+                            </c:forEach>
+                        </table>
+                    </div>
+                </div>
+            </section>       
+                         
             <footer>
 
-      <div class="container">
+                <div class="container">
         <div class="row">
           <div class="col-sm-6 col-md-4">
             <div class="wow fadeInDown" data-wow-delay="0.1s">

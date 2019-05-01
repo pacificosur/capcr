@@ -70,7 +70,12 @@ create table Registro(
     on delete restrict
     on update cascade
 );   
-    
+create table Rol(
+    idrol bigserial not null,
+    nombre text not null,
+    constraint pk_rol primary key(idrol)
+);
+
 create table Usuario(
     idusuario bigserial not null,
     nombre text not null,
@@ -78,7 +83,10 @@ create table Usuario(
     nombreUsuario text not null,
     contraseña text not null,
     tipo int not null,
-    constraint pk_usuario primary key(idusuario)
+    constraint pk_usuario primary key(idusuario),
+    constraint fk_rol foreign key(tipo) references Rol(idrol)
+    on delete restrict
+    on update cascade
 );
 
 create table Reservacion(
