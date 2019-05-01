@@ -4,6 +4,10 @@
         <servlet-name>UsuarioController</servlet-name>
         <servlet-class>com.unsis.capcr.controller.UsuarioController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Logueo</servlet-name>
+        <servlet-class>com.unsis.capcr.controller.Logueo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UsuarioController</servlet-name>
         <url-pattern>/UsuarioController</url-pattern>
@@ -50,7 +54,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>LogueoController</servlet-name>
-        <servlet-class>com.unsis.capcr.controller.LogueoController</servlet-class>
+        <servlet-class>com.unsis.capcr.controller.LogueoControllerController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LogueoController</servlet-name>
@@ -64,7 +68,6 @@
         <servlet-name>RolesController</servlet-name>
         <url-pattern>/RolesController</url-pattern>
     </servlet-mapping>
-    
     <servlet>
         <servlet-name>GeneralController</servlet-name>
         <servlet-class>com.unsis.capcr.controller.GeneralController</servlet-class>
@@ -73,7 +76,10 @@
         <servlet-name>GeneralController</servlet-name>
         <url-pattern>/GeneralController</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>Logueo</servlet-name>
+        <url-pattern>/Logueo</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
