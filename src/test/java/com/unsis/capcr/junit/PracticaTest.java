@@ -17,13 +17,13 @@ import junit.framework.TestCase;
  * @author LabTW08
  */
 public class PracticaTest extends TestCase{
-    IPracticaService service = new PracticaService();
-    IPracticaModel pm = new PracticaModel();
-    public void insertar(){
-       java.util.Date d = new java.util.Date(); 
-       Practica practica = new Practica("6001","P1","10","03",new java.sql.Date(d.getTime()),null,null);
-       service.crearPractica(practica);
-       practica = service.getPractica("6001");
-       assertEquals("P1",practica.getNombre());
-    }
+//    IPracticaService service = new PracticaService();
+//    IPracticaModel pm = new PracticaModel();
+//    public void insertar(){
+//       java.util.Date d = new java.util.Date(); 
+//       Practica practica = new Practica("6001","P1","10","03",new java.sql.Date(d.getTime()),null,null);
+//       service.crearPractica(practica);
+//       practica = service.getPractica("6001");
+//       assertEquals("P1",practica.getNombre());
+//  }
 }
