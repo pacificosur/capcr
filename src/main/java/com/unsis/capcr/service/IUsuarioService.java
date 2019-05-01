@@ -13,4 +13,6 @@ public interface IUsuarioService {
     public void actualizarRegistro(Usuario usuario);
 
     public void eliminarRegistro(Usuario usuario);
+    
+    public boolean logueo(Usuario usuario);
 }

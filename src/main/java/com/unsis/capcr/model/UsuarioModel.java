@@ -80,7 +80,7 @@ public class UsuarioModel implements IUsuarioModel {
         return null;
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         IUsuarioModel um = new UsuarioModel();
         //Usuario u = new Usuario();   
         /* u.setNombre("Hiralda");
@@ -108,9 +108,9 @@ public class UsuarioModel implements IUsuarioModel {
         u.setIdUsuario(new Long(1));
         um.actualizarRegistro(u);*/
         //para eliminar.
-        um.eliminarRegistro(new Long(2));
+       // um.eliminarRegistro(new Long(2));
 
-    }
+   // }
 
     @Override
     public void crearRegistro(Usuario usuario) {
@@ -166,6 +166,31 @@ public class UsuarioModel implements IUsuarioModel {
         } catch (SQLException e) {
             System.err.println("Error " + e.getMessage());
         }
+    }
+
+    @Override
+    public boolean logueo(Usuario usuario) {
+        boolean c=false;
+        try {
+            connection = (Connection) new ConnectionPostgreSQL().conecta();
+            query = "SELECT * FROM usuario WHERE nombreusuario = ? AND contraseña=?";
+            statement = connection.prepareStatement(query);
+            statement.setString(1, usuario.getNombreUsuario());
+            statement.setString(2, usuario.getContraseña());
+
+            resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                c=true;
+                break;
+            }
+            resultSet.close();
+            connection.close();
+            statement.close();
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return c;
     }
 
 }
