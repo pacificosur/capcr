@@ -52,14 +52,7 @@
         <servlet-name>ReporteAlumnosController</servlet-name>
         <url-pattern>/ReporteAlumnosController</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>LogueoController</servlet-name>
-        <servlet-class>com.unsis.capcr.controller.LogueoControllerController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>LogueoController</servlet-name>
-        <url-pattern>/LogueoController</url-pattern>
-    </servlet-mapping>
+    ´
     <servlet>
         <servlet-name>RolesController</servlet-name>
         <servlet-class>com.unsis.capcr.controller.RolesController</servlet-class>
