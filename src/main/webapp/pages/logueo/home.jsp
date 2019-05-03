@@ -69,8 +69,5 @@
                 </div>
             </div>
         </div>
-        <scritp>
-           
-        </scritp>
     </body>
 </html>
