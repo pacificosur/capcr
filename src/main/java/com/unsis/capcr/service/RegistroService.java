@@ -19,27 +19,27 @@ public class RegistroService implements IRegistroService {
 
     @Override
     public List<Registro> obtenerRegistros() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return iRegistroModel.obtenerRegistros();
     }
 
     @Override
     public Registro obtenerRegistro(Long idRegistro) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return iRegistroModel.obtenerRegistro(idRegistro);
     }
 
     @Override
     public void crearRegistro(Registro registro) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        iRegistroModel.crearRegistro(registro);
     }
 
     @Override
     public void actualizarRegistro(Registro registro) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //iRegistroModel.actualizarRegistro(registro);
     }
 
     @Override
     public void eliminarRegistro(Long idRegistro) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        iRegistroModel.eliminarRegistro(idRegistro);
     }
             
 }

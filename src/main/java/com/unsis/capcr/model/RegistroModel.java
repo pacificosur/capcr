@@ -10,18 +10,16 @@
 package com.unsis.capcr.model;
 
 import com.unsis.capcr.entity.Registro;
-import com.unsis.capcr.db.ConnectionPostgreSQL;
 import com.unsis.capcr.entity.Alumno;
 import com.unsis.capcr.entity.Practica;
+import com.unsis.capcr.db.ConnectionPostgreSQL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import com.unsis.capcr.db.ConnectionPostgreSQL;
-import java.nio.charset.CodingErrorAction;
 import java.sql.SQLException;
-import java.util.Date;
 
 
 public class RegistroModel implements IRegistroModel{
@@ -46,9 +44,7 @@ public class RegistroModel implements IRegistroModel{
                 registro.setMatriculaAlumno(resultSet.getString("matriculaAlumno"));
                 registro.setHoraEntrada(resultSet.getString("horaEntrada"));
                 registro.setHoraSalida(resultSet.getString("horaSalida"));
-                registro.setFecha(resultSet.getDate("fecha"));
                 registro.setSustituye(resultSet.getString("sustituye"));
-                registro.setComentario(resultSet.getString("comentario"));
                 listaRegistro.add(registro);    
             }
             resultSet.close();
@@ -77,9 +73,7 @@ public class RegistroModel implements IRegistroModel{
                 registro.setMatriculaAlumno(resultSet.getString("matriculaAlumno"));
                 registro.setHoraEntrada(resultSet.getString("horaEntrada"));
                 registro.setHoraSalida(resultSet.getString("horaSalida"));
-                registro.setFecha(resultSet.getDate("fecha"));
                 registro.setSustituye(resultSet.getString("sustituye"));
-                registro.setComentario(resultSet.getString("comentario"));
                 return registro;
             }
             resultSet.close();
@@ -97,14 +91,11 @@ public class RegistroModel implements IRegistroModel{
     public void crearRegistro(Registro registro) {
         try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "INSERT INTO registro(horaEntrada, horaSalida, fecha, sustituye, comentario"
-                    + "VALUES(?, ?, ?, ?, ?); ";
+            query = "INSERT INTO Registro(matriculaAlumno, codigoPractica, horaEntrada, horaSalida, fecha, sustituye, estado, comentario)"
+                    + "VALUES(?, ?, now(), null, now(), null, 'en proceso', null); ";
             statement = connection.prepareStatement(query);
-            statement.setString(1, registro.getHoraEntrada());
-            statement.setString(2, registro.getHoraSalida());
-            //statement.setDate(3, registro.getFecha());
-            statement.setString(4, registro.getSustituye());
-            statement.setString(5, registro.getComentario());
+            statement.setString(1, registro.getMatriculaAlumno());
+            statement.setString(2, registro.getCodigoPractica());
             statement.executeUpdate();
             statement.close();
             connection.close();
@@ -119,17 +110,12 @@ public class RegistroModel implements IRegistroModel{
     public void actualizarRegistro(Alumno alumno, Practica practica, Registro registro) {
         try{
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "update Registro set matriculaAlumno=?,codigoPractica=?,horaEntrada=?,horaSalida=?,fecha=?,sustituye=?,estado=?,comentario=? where codigoPractica=? ";
+            query = "update Registro set matriculaAlumno=?,codigoPractica=?,horaEntrada=now(),horaSalida=null,fecha=current_date,sustituye=null,estado='en proceso',comentario=null where codigoPractica=? ";
             statement = connection.prepareStatement(query);                
 
             statement.setString(1, alumno.getMatricula()); 
             statement.setString(2, practica.getCodigo());
-            statement.setString(3, registro.getHoraEntrada());
-            statement.setString(4, registro.getHoraSalida());
-            //statement.setString(5, registro.getFecha());
-            statement.setString(6, registro.getSustituye());
-            statement.setString(7, registro.getComentario() );
-            statement.setString(8, practica.getCodigo());
+            statement.setString(3, registro.getCodigoPractica());
             
             statement.executeUpdate();
             resultSet.close();
@@ -159,7 +145,9 @@ public class RegistroModel implements IRegistroModel{
         }
     }
     
-    public static void main(String[] args) {
-        //ConnectionPstgreSQL conn= null;
-    }
+    /*public static void main(String[] args) {
+        IRegistroModel irm= new RegistroModel();
+        Registro r=new Registro();
+        System.out.println("Exito");
+    }*/
 }

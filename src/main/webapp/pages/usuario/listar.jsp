@@ -4,8 +4,12 @@
     Author     : LabTW08
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+         pageEncoding="ISO-8859-1"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -14,21 +18,21 @@
         <meta name="author" content="">
         <title>CAPCR</title>
         <!-- css -->
-        <link href="../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="../../resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" type="text/css" href="../../resources/plugins/cubeportfolio/css/cubeportfolio.min.css">
+        <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/plugins/cubeportfolio/css/cubeportfolio.min.css">
       <!--  <link rel="stylesheet" href="${pageContext.request.contextPath}/webjars/fontawesome/4.7.0/css/font-awesome.min.css">-->
-        <link href="../../resources/css/nivo-lightbox.css" rel="stylesheet" />
-        <link href="../../resources/css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
-        <link href="../../resources/css/owl.carousel.css" rel="stylesheet" media="screen" />
-        <link href="../../resources/css/owl.theme.css" rel="stylesheet" media="screen" />
-        <link href="../../resources/css/animate.css" rel="stylesheet" />
-        <link href="../../resources/css/style.css" rel="stylesheet">
-        <link href="../../resources/img/lamp.ico" rel="shortcut icon">
+        <link href="${pageContext.request.contextPath}/resources/css/nivo-lightbox.css" rel="stylesheet" />
+        <link href="${pageContext.request.contextPath}/resources/css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/resources/css/owl.carousel.css" rel="stylesheet" media="screen" />
+        <link href="${pageContext.request.contextPath}/resources/css/owl.theme.css" rel="stylesheet" media="screen" />
+        <link href="${pageContext.request.contextPath}/resources/css/animate.css" rel="stylesheet" />
+        <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/resources/img/lamp.ico" rel="shortcut icon">
         <!-- boxed bg -->
-        <link id="bodybg" href="../../resources/bodybg/bg1.css" rel="stylesheet" type="text/css" />
+        <link id="bodybg" href="${pageContext.request.contextPath}/resources/bodybg/bg1.css" rel="stylesheet" type="text/css" />
         <!-- template skin -->
-        <link id="t-colors" href="../../resources/color/default.css" rel="stylesheet">
+        <link id="t-colors" href="${pageContext.request.contextPath}/resources/color/default.css" rel="stylesheet">
         <!-- =======================================================
           Theme Name: Medicio
           Theme URL: https://bootstrapmade.com/medicio-free-bootstrap-theme/
@@ -65,7 +69,7 @@
                     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                         <ul class="nav navbar-nav">
                             <li ><a href="#intro">Alumno</a></li>
-                            <li><a href="${pageContext.request.contextPath}/PracticaController?accion=listar">PrÃ¡ctica</a></li>
+                            <li><a href="${pageContext.request.contextPath}/PracticaController?accion=listar">Práctica</a></li>
                             <li><a href="#doctor">Registro</a></li>
                             <li><a href="${pageContext.request.contextPath}/ReservacionController?accion=listar">Reservaciones</a></li>
                             <li class="active"><a href="${pageContext.request.contextPath}/UsuarioController?accion=listar">Usuario</a></li>
@@ -97,8 +101,8 @@
                                     <td>ID</td>
                                     <td>NOMBRE</td>
                                     <td>APELLIDO</td>
-                                    <td>NOMBRE DE USUARIO</td>
-                                    <td>CONTRASEÃ‘A</td>
+                                    <td>USUARIO</td>
+                                    <td>CONTRASEÑA</td>
                                     <td>TIPO</td>
                                     <td colspan=2>ACCIONES</td>
                                 </tr>
@@ -108,11 +112,11 @@
                                     <td><c:out value="${usuario.idUsuario}"/></td>
                                     <td><c:out value="${usuario.nombre}"/></td>
                                     <td><c:out value="${usuario.apellidos}"/></td>
-                                    <td><c:out value="${usuario.contraseÃ±a}"/></td>
-                                    <td><c:out value="${usuario.tipo}"/></td>
-                                    <td><c:out value="${usuario.nombreUsuario}"/></td>	
+                                    <td><c:out value="${usuario.nombreUsuario}"/></td>
+                                    <td><c:out value="${usuario.contraseña}"/></td>
+                                    <td><c:out value="${usuario.tipo}"/></td>                      	
                                     <td><button type="button" class="btn btn-success class-actualizar-usuario"><i class="fa fa-edit"></i></button> </td>	
-                                    <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/UsuarioController?accion=eliminar&idUsuario=<c:out value=${usuario.idUsuario}"/>"><i class="fa fa-trash"></i></a> </td>				
+                                    <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/UsuarioController?accion=eliminar&idUsuario=<c:out value="${usuario.idUsuario}"/>"><i class="fa fa-trash"></i></a> </td>				                                   
                                 </tr>
                             </c:forEach>
                         </table>
@@ -130,26 +134,33 @@
                                     <div class="modal-body">
                                         <form action="${pageContext.request.contextPath}/UsuarioController?accion=crear" method="POST" role="form">
                                             <div class="form-group">
-                                                <input type="hidden" name="idUsuario" class="form-control" id="idUsuario" >
+                                                <label for="id"><span class="glyphicon glyphicon-user"></span>idUsuario</label>
+                                                <input type="text" name="idUsuario" class="form-control" id="idUsuario" placeholder="Ingrese el id">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="nombre"><span class="glyphicon glyphicon-user"></span>Nombre</label>
-                                                <input type="text" name="nombre" class="form-control" id="idnombre" placeholder="Ingrese el nombre">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Responsable</label>
-                                                <input type="text" name="responsableArea" class="form-control" id="idAreaResponsable" placeholder="Ingrese el responsable">
+                                                <input type="text" name="nombre" class="form-control" id="idNombre" placeholder="Ingrese el nombre">
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Practica</label>
-                                                <input type="text" name="practica" class="form-control" id="idPractica" placeholder="Ingrese la practica">
+                                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Apellido</label>
+                                                <input type="text" name="apellido" class="form-control" id="idApellido" placeholder="Ingrese el apellido">
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Responsable Practica</label>
-                                                <input type="text" name="responsablePractica" class="form-control" id="idPracticaResponsable" placeholder="Ingrese el responsable de la practica">
+                                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Usuario</label>
+                                                <input type="text" name="usuario" class="form-control" id="idNombreUsuario" placeholder="nuevo usuario">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Contraseña</label>
+                                                <input type="text" name="contraseña" class="form-control" id="idContraseña" placeholder="Ingrese la contraseña">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Tipo</label>
+                                                <input type="text" name="tipo" class="form-control" id="idTipo" placeholder="Ingrese el tipo">
                                             </div>
 
                                             <button type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Guardar</button>
@@ -172,13 +183,13 @@
                                 <div class="widget">
                                     <h5>Acerca de CAPCR</h5>
                                     <p>
-                                        CAPCR es un sistema que registra la asistencia de prÃ¡cticas de la ClÃ­nica Robotizada, tambiÃ©n genera los reportes de asistencia de estas. 
+                                        CAPCR es un sistema que registra la asistencia de prácticas de la Clínica Robotizada, también genera los reportes de asistencia de estas. 
                                     </p>
                                 </div>
                             </div>
                             <div class="wow fadeInDown" data-wow-delay="0.1s">
                                 <div class="widget">
-                                    <h5>InformaciÃ³n</h5>
+                                    <h5>Información</h5>
                                     <ul>
                                         <li><a href="#">Inicio</a></li>
                                         <li><a href="#">Laboratory</a></li>
@@ -274,17 +285,18 @@
         </div>
         <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
         <!-- Core JavaScript Files -->
-        <script src="../../resources/js/jquery.min.js"></script>
-        <script src="../../resources/js/bootstrap.min.js"></script>
-        <script src="../../resources/js/jquery.easing.min.js"></script>
-        <script src="../../resources/js/wow.min.js"></script>
-        <script src="../../resources/js/jquery.scrollTo.js"></script>
-        <script src="../../resources/js/jquery.appear.js"></script>
-        <script src="../../resources/js/stellar.js"></script>
-        <script src="../../resources/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
-        <script src="../../resources/js/owl.carousel.min.js"></script>
-        <script src="../../resources/js/nivo-lightbox.min.js"></script>
-        <script src="../../resources/js/custom.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.easing.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/wow.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.scrollTo.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.appear.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/stellar.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/nivo-lightbox.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/scriptUsuario.js"></script>
     </body>
 </html>
 
