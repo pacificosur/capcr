@@ -1,7 +1,7 @@
 <%-- 
-    Document   : home
+    Document   : JSP Logueo
     Created on : 2/05/2019, 02:10:49 PM
-    Author     : LabTW03
+    Author     : Pedro Eliezer García Ramírez
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,11 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Logueo</title>
+        <title>CAPCR</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/webjars/bootstrap/4.2.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/webjars/fontawesome/4.7.0/css/font-awesome.min.css">
         <script src="${pageContext.request.contextPath}/webjars/bootstrap/4.2.1/js/bootstrap.min.js"></script>
         <script src="${pageContext.request.contextPath}/webjars/jquery/3.0.0/jquery.min.js"></script>
+        <link href="${pageContext.request.contextPath}/resources/img/lamp.ico" rel="shortcut icon">
+        
         <style>
             body {
                     background: url('http://www.unsis.edu.mx/images/iisp2.JPG') no-repeat center center fixed;
