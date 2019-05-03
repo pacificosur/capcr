@@ -2,7 +2,8 @@
   Autor: García Ramírez Pedro Eliezer
   E-mail: pg548169@gmail.com  
   Fecha Creación: 24/04/2019
-  Fecha Modificación: -/-/-
+  Fecha Modificación: 02/05/2019
+Tecnologias web I
 */
 package com.unsis.capcr.controller;
 
@@ -36,8 +37,6 @@ public class LogueoController extends HttpServlet {
             PrintWriter salida= response.getWriter(); 
             IUsuarioModel iu= new UsuarioModel();
             Usuario usr=new Usuario();
-            
-            String validar;
             String user=request.getParameter("user");
             String password=request.getParameter("password");
             System.out.println(user+"  "+password);
