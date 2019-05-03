@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Autor: Martínez García Eber
+ * E-mail: berpy.1997@gmail.com  
+ * Fecha Creación: 04/04/2019
+ * Fecha Modificación: 10/04/2019
+ * Descripción: implementación del modulo registro
  */
 package com.unsis.capcr.controller;
 
@@ -16,10 +18,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author LabTW13
- */
 public class RegistroController extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -60,7 +58,7 @@ public class RegistroController extends HttpServlet{
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/registro/listar.jsp");
         
-        String matricula = request.getParameter("matriculaalumno");
+        String matricula = request.getParameter("matriculaAlumno");
         String codigo = request.getParameter("codigoPractica");
         
         Registro registro = new Registro();
@@ -97,25 +95,25 @@ public class RegistroController extends HttpServlet{
         registro.setHoraSalida("horaSalida");
         registro.setSustituye("sustituye");
      ////hxlwhxldkjldkjlwxclkdjwlkjwdklj   
-        IRegistroService iReservacionService = new RegistroService();
-        iReservacionService.actualizarRegistro(registro);
+        IRegistroService iRegistroService = new RegistroService();
+        iRegistroService.actualizarRegistro(registro);
         
-        List<Registro> listaReservacion = iReservacionService.obtenerRegistros();
-        request.setAttribute("listaReservacion", listaReservacion);
+        List<Registro> listaRegistro = iRegistroService.obtenerRegistros();
+        request.setAttribute("listaRegistro", listaRegistro);
 	dispatcher.forward(request, response);        
     }
     
     private void eliminar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reservacion/listar.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/registro/listar.jsp");
         
-        Long idReservacion = Long.parseLong(request.getParameter("idReservacion"));
+        Long idRegistro = Long.parseLong(request.getParameter("idRegistro"));
         
-        IRegistroService iReservacionService = new RegistroService();
-        iReservacionService.eliminarRegistro(idReservacion);
+        IRegistroService iRegistroService = new RegistroService();
+        iRegistroService.eliminarRegistro(idRegistro);
         
-        List<Registro> listaReservacion = iReservacionService.obtenerRegistros();
-        request.setAttribute("listaReservacion", listaReservacion);
+        List<Registro> listaRegistro = iRegistroService.obtenerRegistros();
+        request.setAttribute("listaRegistro", listaRegistro);
 	dispatcher.forward(request, response);        
     }
 }
