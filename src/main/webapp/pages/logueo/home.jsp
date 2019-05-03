@@ -10,10 +10,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Logueo</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/webjars/bootstrap/4.2.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/webjars/fontawesome/4.7.0/css/font-awesome.min.css">
+        <script src="${pageContext.request.contextPath}/webjars/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/webjars/jquery/3.0.0/jquery.min.js"></script>
         <style>
             body {
                     background: url('http://www.unsis.edu.mx/images/iisp2.JPG') no-repeat center center fixed;
@@ -52,7 +52,7 @@
                                   <input type="text" name="user" class="form-control" id="user" placeholder="Usuario" required autofocus>
                                 </div>
                                 <div class="form-group">
-                                  <input type="text" name="password" class="form-control" id="password" id="Contraseña" placeholder="Password" required>
+                                  <input type="password" name="password" class="form-control" id="password" id="Contraseña" placeholder="Password" required>
                                 </div>
                                 <div class="text-center pt-4">
                                   <button type="submit" class="btn btn-primary">Iniciar</button>
