@@ -44,13 +44,11 @@ public class LogueoController extends HttpServlet {
             usr.setNombreUsuario(user);
             usr.setContraseña(password);
             if(iuser.logueo(usr)){
-                validar="Exitoso ";
                 response.sendRedirect("/capcr/pages/index.jsp");
 
             }
             else{
-                validar="Error";
-                response.sendRedirect("/capcr/pages/Logueo/home.jsp");
+                response.sendRedirect("/capcr/pages/logueo/home.jsp");
             }
             
     }
