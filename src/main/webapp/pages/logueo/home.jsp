@@ -54,10 +54,13 @@
                                   <input type="text" name="user" class="form-control" id="user" placeholder="Usuario" required autofocus>
                                 </div>
                                 <div class="form-group">
-                                  <input type="password" name="password" class="form-control" id="password" id="Contraseña" placeholder="Password" required>
+                                  <input type="password" name="password" class="form-control" id="password" id="Contraseña" placeholder="Contraseña" required>
                                 </div>
-                                <div class="text-center pt-4">
-                                  <button type="submit" class="btn btn-primary">Iniciar</button>
+                                <div class="text-center">
+                                    <button type="submit" name="boton" class="btn btn-primary  btn-block">Iniciar</button>
+                                </div>                               
+                                <div class="text-center pt-2">
+                                    <a href="/capcr/pages/index.jsp">Haz olvidado la contraseña</a>
                                 </div>
                               </form>
                             </div>
@@ -66,5 +69,8 @@
                 </div>
             </div>
         </div>
-  </body>
+        <scritp>
+           
+        </scritp>
+    </body>
 </html>

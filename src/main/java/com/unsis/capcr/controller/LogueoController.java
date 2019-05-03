@@ -36,8 +36,6 @@ public class LogueoController extends HttpServlet {
             PrintWriter salida= response.getWriter(); 
             IUsuarioModel iu= new UsuarioModel();
             Usuario usr=new Usuario();
-            
-            String validar;
             String user=request.getParameter("user");
             String password=request.getParameter("password");
             System.out.println(user+"  "+password);
