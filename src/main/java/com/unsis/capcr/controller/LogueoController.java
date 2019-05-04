@@ -47,7 +47,7 @@ public class LogueoController extends HttpServlet {
 
             }
             else{
-                response.sendRedirect("/capcr/pages/logueo/home.jsp");
+                response.sendRedirect("/capcr/pages/logueo/index.jsp");
             }
             
     }
