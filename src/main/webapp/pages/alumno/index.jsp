@@ -72,7 +72,7 @@
                 </form>
             </div>
                 <div class="modal-footer">
-                <button type="submit" class="btn btn-default btn-default btn-block" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>          
+                <button type="submit" class="btn btn-default btn-default btn-danger btn-block" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>          
             </div>
         </div>
     </div>
