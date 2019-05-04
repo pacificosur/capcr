@@ -1,9 +1,10 @@
 <%-- 
-    Document   : listar
-    Created on : 10/04/2019, 06:54:30 PM
-    Author     : LabTW03
+    Autores: Martínez García Eber
+    E-mail: hebber.garcia.1997@gmail.com
+    Fecha Creación: 10/04/2019
+    Fecha Modificación: 03/05/2019
+    Descripción: página principal del módulo de Registro.
 --%>
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 
@@ -16,7 +17,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Sección de Alumnos</title>
+        <title>CAPCR</title>
 
         <!-- css -->
         <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -30,10 +31,19 @@
         <link href="${pageContext.request.contextPath}/resources/css/animate.css" rel="stylesheet" />
         <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
         <link href="${pageContext.request.contextPath}/resources/img/lamp.ico" rel="shortcut icon">
+
+
         <!-- boxed bg -->
         <link id="bodybg" href="${pageContext.request.contextPath}/resources/bodybg/bg1.css" rel="stylesheet" type="text/css" />
         <!-- template skin -->
         <link id="t-colors" href="${pageContext.request.contextPath}/resources/color/default.css" rel="stylesheet">
+
+        <!-- =======================================================
+          Theme Name: Medicio
+          Theme URL: https://bootstrapmade.com/medicio-free-bootstrap-theme/
+          Author: BootstrapMade
+          Author URL: https://bootstrapmade.com
+        ======================================================= -->
     </head>
     <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 
@@ -66,9 +76,9 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="#intro">Alumno</a></li>
-                            <li><a href="${pageContext.request.contextPath}/PracticaController?accion=listar">Práctica</a></li>
-                            <li><a href="#doctor">Registro</a></li>
+                            <li><a href="#">Alumno</a></li>
+                            <li class="active"><a href="${pageContext.request.contextPath}/PracticaController?accion=listar">Práctica</a></li>
+                            <li><a href="${pageContext.request.contextPath}/RegistroController?accion=listar">Registro</a></li>
                             <li><a href="${pageContext.request.contextPath}/ReservacionController?accion=listar">Reservaciones</a></li>
                             <li><a href="${pageContext.request.contextPath}/UsuarioController?accion=listar">Usuario</a></li>
                             <li class="dropdown">
@@ -91,34 +101,37 @@
                     <div class="container">
 
                         <br/>
-                        <button type="button" class="btn btn-success" id="id-btn-crear-alumno"><i class="fa fa-plus"></i>&nbsp;Crear Alumno</button>
+                        <button type="button" class="btn btn-success" id="id-btn-crear-practica"><i class="fa fa-plus"></i>&nbsp;Crear Practica</button>
                         <br/>
+
                         <table id="idTable" class="table">
                             <thead class="thead-dark">
                                 <tr>
-                                    <td>MATRICULA</td>
-                                    <td>NOMBRE</td>
-                                    <td>GRUPO</td>
-                                    <td>SEMESTRE</td>
-                                    <td>CARRERA</td>
-                                    <td colspan=2>ACCIONES</td>
+                                    <td> Codigo Practica</td>
+                                    <td> Matricula Alumno</td>
+                                    <td> Hora Entrada</td>
+                                    <td> Hora Salida</td>
+                                    <td> Fecha</td>
+                                    <td> Sustituye</td>
+                                    <td> Comentario</td>
                                 </tr>
                             </thead>
-                            <c:forEach var="alumnos" items="${listaAlumnos}">
+                            <c:forEach var="registro" items="${listaRegistro}">
                                 <tr>
-                                    <td><c:out value="${alumno.Matricula}"/></td>
-                                    <td><c:out value="${alumno.Nombre}"/></td>
-                                    <td><c:out value="${alumno.Grupo}"/></td>
-                                    <td><c:out value="${alumno.CodigoSemetre}"/></td>
-                                    <td><c:out value="${alumno.CodigoCarrera}"/></td>
-                                    <td><button type="button" class="btn btn-success class-actualizar-alumno"><i class="fa fa-edit"></i></button> </td>	
-                                    <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/AlumnosController?accion=eliminar&Matricula=<c:out value="${alumno.Matricula}"/>"><i class="fa fa-trash"></i></a> </td>				
+                                    <td><c:out value="${practica.codigo}"/></td>
+                                    <td><c:out value="${practica.nombre}"/></td>
+                                    <td><c:out value="${practica.idSemestre}"/></td>
+                                    <td><c:out value="${practica.idCarrera}"/></td>
+                                    <td><c:out value="${practica.fechaCreacion}"/></td>
+                                    <td><c:out value="${practica.fechaActualizacion}"/></td>
+                                    <td><c:out value="${practica.fechaEliminacion}"/></td>
+                                    <td><button type="button" class="btn btn-success class-actualizar-registro"><i class="fa fa-edit"></i></button> </td>	
+                                    <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/RegistroController?accion=eliminar&matriculaAlumno=<c:out value="${registro.matriculaAlumno}"/>"><i class="fa fa-trash"></i></a> </td>				
                                 </tr>
                             </c:forEach>
                         </table>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="id-modal-alumno" role="dialog">
+                         <!-- Modal -->
+                        <div class="modal fade" id="id-modal-reservacion" role="dialog">
                             <div class="modal-dialog">
 
                                 <!-- Modal content-->
@@ -128,27 +141,30 @@
                                         <h4 style="color:red;"><span class="glyphicon glyphicon-lock"></span></h4>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="${pageContext.request.contextPath}/AlumnosController?accion=crear" method="POST" role="form">
+                                        <form action="${pageContext.request.contextPath}/ReservacionController?accion=crear" method="POST" role="form">
                                             <div class="form-group">
-                                                <label for="Matricula"><span class="glyphicon glyphicon-user"></span>Matricula</label>
-                                                <input type="text" name="Matricula" class="form-control" id="idMatricula" placeholder="Ingrese la matricula">
+                                                <input type="hidden" name="idReservacion" class="form-control" id="idReservacion" >
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="area"><span class="glyphicon glyphicon-user"></span>Area</label>
+                                                <input type="text" name="area" class="form-control" id="idArea" placeholder="Ingrese el area">
                                             </div>
                                             <div class="form-group">
-                                                <label for="Nombre"><span class="glyphicon glyphicon-user"></span>Nombre</label>
-                                                <input type="text" name="Nombre" class="form-control" id="idNombre" placeholder="Ingrese el nombre">
+                                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Responsable</label>
+                                                <input type="text" name="responsableArea" class="form-control" id="idAreaResponsable" placeholder="Ingrese el responsable">
                                             </div>
+
                                             <div class="form-group">
-                                                <label for="Grupo"><span class="glyphicon glyphicon-user"></span>Grupo</label>
-                                                <input type="text" name="Grupo" class="form-control" id="idGrupo" placeholder="Ingrese el grupo">
+                                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Practica</label>
+                                                <input type="text" name="practica" class="form-control" id="idPractica" placeholder="Ingrese la practica">
                                             </div>
+
                                             <div class="form-group">
-                                                <label for="Semestre"><span class="glyphicon glyphicon-user"></span>Semestre</label>
-                                                <input type="text" name="Semestre" class="form-control" id="idCodigoSemestre" placeholder="Ingrese el semestre">
+                                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Responsable Practica</label>
+                                                <input type="text" name="responsablePractica" class="form-control" id="idPracticaResponsable" placeholder="Ingrese el responsable de la practica">
                                             </div>
-                                            <div class="form-group">
-                                                <label for="Carrera"><span class="glyphicon glyphicon-user"></span>Carrera</label>
-                                                <input type="text" name="Carrera" class="form-control" id="idCodigoCarrera" placeholder="Ingrese la carrera">
-                                            </div>
+
                                             <button type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Guardar</button>
                                         </form>
                                     </div>
@@ -287,6 +303,6 @@
         <script src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/nivo-lightbox.min.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/js/scriptAlumnos.js"></script>
+        <!-- <script src="${pageContext.request.contextPath}/resources/js/scriptPractica.js"></script> -->
     </body>
 </html>

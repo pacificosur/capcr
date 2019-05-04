@@ -2,7 +2,7 @@
   Autor: García Ramírez Pedro Eliezer
   E-mail: pg548169@gmail.com  
   Fecha Creación: 24/04/2019
-  Fecha Modificación: 02/05/2019
+  Fecha Modificación: 03/05/2019
 Tecnologias web I
 */
 package com.unsis.capcr.controller;
@@ -30,6 +30,7 @@ import javax.swing.JOptionPane;
 
 public class LogueoController extends HttpServlet {
     @Override
+   
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             IUsuarioService iuser=new UsuarioService();
@@ -39,7 +40,6 @@ public class LogueoController extends HttpServlet {
             Usuario usr=new Usuario();
             String user=request.getParameter("user");
             String password=request.getParameter("password");
-            System.out.println(user+"  "+password);
             usr.setNombreUsuario(user);
             usr.setContraseña(password);
             if(iuser.logueo(usr)){
@@ -47,7 +47,7 @@ public class LogueoController extends HttpServlet {
 
             }
             else{
-                response.sendRedirect("/capcr/pages/logueo/home.jsp");
+                response.sendRedirect("/capcr/pages/logueo/index.jsp");
             }
             
     }
