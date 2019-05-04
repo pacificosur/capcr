@@ -41,12 +41,16 @@ public class RolesController extends HttpServlet {
     private void listar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/roles/roles.jsp");
+        
         IUsuarioService iUsuarioService = new UsuarioService();
         List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
-        request.setAttribute("listaUsuario", listaUsuario);
+        
         IRolService iRolService = new RolService();
         List<Rol> listaRol = iRolService.obtenerRoles();
+        
+        request.setAttribute("listaUsuario", listaUsuario);
         request.setAttribute("listaRol",listaRol);
+        
 	dispatcher.forward(request, response);        
     }
 
