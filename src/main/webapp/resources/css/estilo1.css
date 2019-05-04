@@ -1,0 +1,15 @@
+            body {
+                    background: url('salud.png') no-repeat center center fixed;
+                    -webkit-background-size: cover;
+                    -moz-background-size: cover;
+                    -o-background-size: cover;
+                    background-size: cover;
+                }
+
+                .card {
+                  width: 300px;
+                }
+
+                .nav-item .nav-link[disabled]:hover {
+
+                }

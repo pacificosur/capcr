@@ -15,24 +15,8 @@
         <script src="${pageContext.request.contextPath}/webjars/bootstrap/4.2.1/js/bootstrap.min.js"></script>
         <script src="${pageContext.request.contextPath}/webjars/jquery/3.0.0/jquery.min.js"></script>
         <link href="${pageContext.request.contextPath}/resources/img/lamp.ico" rel="shortcut icon">
+        <link href="${pageContext.request.contextPath}/resources/css/estilo1.css>
         
-        <style>
-            body {
-                    background: url('salud.png') no-repeat center center fixed;
-                    -webkit-background-size: cover;
-                    -moz-background-size: cover;
-                    -o-background-size: cover;
-                    background-size: cover;
-                }
-
-                .card {
-                  width: 300px;
-                }
-
-                .nav-item .nav-link[disabled]:hover {
-
-                }
-        </style>
     </head>
     <body>
         <div class="container">
