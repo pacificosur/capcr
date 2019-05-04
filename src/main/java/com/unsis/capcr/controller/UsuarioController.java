@@ -29,9 +29,12 @@ public class UsuarioController extends HttpServlet {
             case "home":
                 home(request, response);
                 break;
-            case "listar":
-                listar(request, response);
+            case "index":
+                index(request, response);
                 break;
+            case "crear":
+                System.out.println("Hola ");
+               break;
             default:
                 break;
         }
@@ -48,11 +51,28 @@ public class UsuarioController extends HttpServlet {
         dispatcher.forward(request,response);
     }
 
-    private void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/usuario/listar.jsp");
+    private void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/usuario/index.jsp");
         IUsuarioService iUsuarioService = new UsuarioService(); 
-        List<Usuario>listaUsuario = iUsuarioService.obtenerUsuarios();
+        List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
         request.setAttribute("listaUsuario",listaUsuario);
         dispatcher.forward(request,response);
+    }
+    
+    private void crear(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/usuario/index.jsp");
+        
+        String Nombre = request.getParameter("idNombre");
+        String Apellidos = request.getParameter("idApellidos");
+        String idUsuario = request.getParameter("idUsuario");
+        String idNombreUsuario = request.getParameter("idNombre");
+        String idContraseña = request.getParameter("idContraseña");
+        String idCntraseña2 = request.getParameter("idContraseña2");
+        String idTipo = request.getParameter("idTipo");
+       
+        Usuario usuario = new Usuario();
+ 
+            
     }
 }
