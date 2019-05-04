@@ -4,7 +4,7 @@
     E-mail: padilla98.upb@gmail.com  
             hiraldac.cisneros@gmail.com
     Fecha Creación: 10/04/2019
-    Fecha Modificación: 02/05/2019
+    Fecha Modificación: 03/05/2019
     Descripción: página principal del módulo de Practica.
 --%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -16,13 +16,13 @@
 
 <%--El header se encuentra en la carpeta layouts en la carpeta pages
     El header incluye desde la etiqueta <!DOCTYPE html> hasta el segundo div dentro de Section: intro--%>
-    <jsp:include page="../../pages/layouts/header.jsp"></jsp:include>
+<jsp:include page="../../pages/layouts/header.jsp"></jsp:include>
 
     <br/>
     <button type="button" class="btn btn-success" id="id-btn-crear-practica"><i class="fa fa-plus"></i>&nbsp;Crear Practica</button>
     <br/>
 
-    <table id="idTable" class="table">
+    <table id="idTable" class="table table-hover">
         <thead class="thead-dark">
             <tr>
                 <td>Codigo</td>
@@ -44,13 +44,14 @@
             <td><c:out value="${practica.fechaCreacion}"/></td>
             <td><c:out value="${practica.fechaActualizacion}"/></td>
             <td><c:out value="${practica.fechaEliminacion}"/></td>
-            <td><button type="button" class="btn btn-success class-actualizar-reservacion"><i class="fa fa-edit"></i></button> </td>	
-            <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/PracticaController?accion=eliminar&idPractica=<c:out value="${practica.codigo}"/>"><i class="fa fa-trash"></i></a> </td>				
+            <td><button type="button" class="btn btn-success class-actualizar-practica"><i class="fa fa-edit"></i></button> </td>	
+            <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/PracticaController?accion=eliminar&codigoPractica=<c:out value="${practica.codigo}"/>"><i class="fa fa-trash"></i></a> </td>				
         </tr>
     </c:forEach>
 </table>
+
 <!-- Modal -->
-<div class="modal fade" id="id-modal-reservacion" role="dialog">
+<div class="modal fade" id="id-modal-practica" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
@@ -60,28 +61,26 @@
                 <h4 style="color:red;"><span class="glyphicon glyphicon-lock"></span></h4>
             </div>
             <div class="modal-body">
-                <form action="${pageContext.request.contextPath}/ReservacionController?accion=crear" method="POST" role="form">
+                <form action="${pageContext.request.contextPath}/PracticaController?accion=crear" method="POST" role="form">
                     <div class="form-group">
-                        <input type="hidden" name="idReservacion" class="form-control" id="idReservacion" >
+                        <input type="hidden" name="vacio" class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <label for="area"><span class="glyphicon glyphicon-user"></span>Area</label>
-                        <input type="text" name="area" class="form-control" id="idArea" placeholder="Ingrese el area">
+                        <label for="codigoPractica"><span class="glyphicon glyphicon-user"></span>Codigo</label>
+                        <input type="text" name="codigoPractica" class="form-control" id="codigoPractica" placeholder="Ingrese el codigo">
                     </div>
                     <div class="form-group">
-                        <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Responsable</label>
-                        <input type="text" name="responsableArea" class="form-control" id="idAreaResponsable" placeholder="Ingrese el responsable">
+                        <label for="nombrePractica"><span class="glyphicon glyphicon-user"></span>Nombre</label>
+                        <input type="text" name="nombrePractica" class="form-control" id="nombrePractica" placeholder="Ingrese el nombre">
                     </div>
-
                     <div class="form-group">
-                        <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Practica</label>
-                        <input type="text" name="practica" class="form-control" id="idPractica" placeholder="Ingrese la practica">
+                        <label for="idSemestrePractica"><span class="glyphicon glyphicon-eye-open"></span>Semestre</label>
+                        <input type="text" name="idSemestrePractica" class="form-control" id="idSemestrePractica" placeholder="Ingrese el codigo del semestre">
                     </div>
-
                     <div class="form-group">
-                        <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Responsable Practica</label>
-                        <input type="text" name="responsablePractica" class="form-control" id="idPracticaResponsable" placeholder="Ingrese el responsable de la practica">
+                        <label for="idCarreraPractica"><span class="glyphicon glyphicon-eye-open"></span>Carrera</label>
+                        <input type="text" name="idCarreraPractica" class="form-control" id="idCarreraPractica" placeholder="Ingrese el codigo de carrera">
                     </div>
 
                     <button type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Guardar</button>
@@ -92,11 +91,12 @@
             </div>
         </div>
     </div>
-</div>  
+</div>  <!-- Modal -->
 
 <%-- El footer se encuentra en la carperta layouts en la carpeta pages.
-    el footer incluye dos div arriba de section y incluye todo (el footer y los archivos JavaScript) antes de donde cierra la etiqueta body
---%> 
-<jsp:include page="../../pages/layouts/footer.jsp"></jsp:include>
+      el footer incluye dos div arriba de section y incluye todo (el footer y los archivos JavaScript) antes de donde cierra la etiqueta body
+        --%> 
+        <jsp:include page="../../pages/layouts/footer.jsp"></jsp:include>
+<script src="${pageContext.request.contextPath}/resources/practica/js/scriptPractica.js"></script>
 </body>
 </html>
