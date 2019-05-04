@@ -47,13 +47,13 @@ private IAlumnoService iAlumnoService = new AlumnoService();
     }
     private void home(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/Alumno/alumnoHome.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/alumno/index.jsp");
         dispatcher.forward(request, response);
     }
     
     private void listar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/Alumno/listar.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/alumno/index.jsp");
         List<Alumno> listaAlumno = iAlumnoService.obtenerAlumno();
         request.setAttribute("listaAlumno", listaAlumno);
 	dispatcher.forward(request, response);        
