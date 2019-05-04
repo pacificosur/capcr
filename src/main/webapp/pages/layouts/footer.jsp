@@ -38,28 +38,28 @@
           <div class="col-sm-6 col-md-4">
             <div class="wow fadeInDown" data-wow-delay="0.1s">
               <div class="widget">
-                <h5>Medicio center</h5>
+                <h5>Universidad de la Sierra Sur</h5>
                 <p>
-                  Nam leo lorem, tincidunt id risus ut, ornare tincidunt naqunc sit amet.
+                 La Universidad de la Sierra Sur (UNSIS) es una institución Pública de Educación Superior, que forma parte del Sistema de Universidades Estatales de Oaxaca (SUNEO).
                 </p>
                 <ul>
                   <li>
                     <span class="fa-stack fa-lg">
 									<i class="fa fa-circle fa-stack-2x"></i>
 									<i class="fa fa-calendar-o fa-stack-1x fa-inverse"></i>
-								</span> Lunes - Viernes, 8 am a 10 pm
+								</span> Lunes - Viernes, 8 am a 7 pm
                   </li>
                   <li>
                     <span class="fa-stack fa-lg">
 									<i class="fa fa-circle fa-stack-2x"></i>
 									<i class="fa fa-phone fa-stack-1x fa-inverse"></i>
-								</span> +62 0888 904 711
+								</span> 01 (951) 57 2 41 00 Extensión 1202
                   </li>
                   <li>
                     <span class="fa-stack fa-lg">
 									<i class="fa fa-circle fa-stack-2x"></i>
 									<i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
-								</span> hello@medicio.com
+								</span> serves@unsis.edu.mx
                   </li>
 
                 </ul>
@@ -69,14 +69,15 @@
           <div class="col-sm-6 col-md-4">
             <div class="wow fadeInDown" data-wow-delay="0.1s">
               <div class="widget">
-                <h5>Our location</h5>
-                <p>The Suithouse V303, Kuningan City, Jakarta Indonesia 12940</p>
+                <h5>Nuestra ubicación</h5>
+                <p>Calle Guillermo Rojas Mijangos S/N, Esq. Av. Universidad Col. Ciudad Universitaria, Miahuatlán de Porfirio Díaz, Oax., México C.P. 70800
+                </p>
 
               </div>
             </div>
             <div class="wow fadeInDown" data-wow-delay="0.1s">
               <div class="widget">
-                <h5>Follow us</h5>
+                <h5>Redes Sociales</h5>
                 <ul class="company-social">
                   <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
                   <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>

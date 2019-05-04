@@ -100,11 +100,13 @@
                 <div class="intro-content">
                     <div class="container">
 
-                        <br/>
-                        <button type="button" class="btn btn-success" id="id-btn-crear-practica"><i class="fa fa-plus"></i>&nbsp;Crear Practica</button>
-                        <br/>
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <input type="text" class="form-control form-control-lg col-md-3" placeholder="Matricula del alumno" name="text3">
+                            </div>
+                        </div>
 
-                        <table id="idTable" class="table">
+                        <table id="idTable" class="table table-hover">
                             <thead class="thead-dark">
                                 <tr>
                                     <td> Codigo Practica</td>

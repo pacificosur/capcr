@@ -40,7 +40,6 @@ public class LogueoController extends HttpServlet {
             Usuario usr=new Usuario();
             String user=request.getParameter("user");
             String password=request.getParameter("password");
-            System.out.println(user+"  "+password);
             usr.setNombreUsuario(user);
             usr.setContraseña(password);
             if(iuser.logueo(usr)){
@@ -48,7 +47,7 @@ public class LogueoController extends HttpServlet {
 
             }
             else{
-                response.sendRedirect("/capcr/pages/logueo/home.jsp");
+                response.sendRedirect("/capcr/pages/logueo/index.jsp");
             }
             
     }
