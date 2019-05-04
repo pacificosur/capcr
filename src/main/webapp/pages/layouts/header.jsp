@@ -53,10 +53,11 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-6 col-md-6">
-              <p class="bold text-left">Lunes - Viernes, 8am a 7pm </p>
+              <p class="bold text-left">Lunes - Viernes, 8 am a 7 pm </p>
             </div>
             <div class="col-sm-6 col-md-6">
-              <p class="bold text-right">Llama a +62 008 65 001</p>
+              <p class="bold text-right">01 (951) 57 2 41 00 Extensión 1202
+              </p>
             </div>
           </div>
         </div>
@@ -76,11 +77,11 @@
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
           <ul class="nav navbar-nav">
             <li><a href="#intro">Alumno</a></li>
-            <li><a href="${pageContext.request.contextPath}/PracticaController?accion=listar">Práctica</a></li>
+            <li><a href="${pageContext.request.contextPath}/PracticaController?accion=index">Práctica</a></li>
             <li><a href="#doctor">Registro</a></li>
-            <li><a href="${pageContext.request.contextPath}/ReservacionController?accion=listar">Reservaciones</a></li>
-            <li><a href="${pageContext.request.contextPath}/UsuarioController?accion=listar">Usuario</a></li>
-             <li><a href="${pageContext.request.contextPath}/RolesController?accion=listar">Asignar Roles</a></li>
+            <li><a href="${pageContext.request.contextPath}/ReservacionController?accion=index">Reservaciones</a></li>
+            <li><a href="${pageContext.request.contextPath}/UsuarioController?accion=index">Usuario</a></li>
+             <li><a href="${pageContext.request.contextPath}/RolesController?accion=index">Asignar Roles</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
               <ul class="dropdown-menu">
