@@ -72,7 +72,7 @@
                             <li><a href="${pageContext.request.contextPath}/PracticaController?accion=listar">Práctica</a></li>
                             <li><a href="#doctor">Registro</a></li>
                             <li><a href="${pageContext.request.contextPath}/ReservacionController?accion=listar">Reservaciones</a></li>
-                            <li class="active"><a href="${pageContext.request.contextPath}/UsuarioController?accion=listar">Usuario</a></li>
+                            <li class="active"><a href="${pageContext.request.contextPath}/UsuarioController?accion=index">Usuario</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
@@ -95,7 +95,7 @@
                         <button type="button" class="btn btn-success" id="id-btn-crear-usuario"><i class="fa fa-plus"></i>&nbsp;Crear Usuario</button>
                         <br/>
 
-                        <table id="idTable" class="table">
+                        <table id="idTable" class="table table-hover">
                             <thead class="thead-dark">
                                 <tr>
                                     <td>ID</td>
@@ -134,33 +134,37 @@
                                     <div class="modal-body">
                                         <form action="${pageContext.request.contextPath}/UsuarioController?accion=crear" method="POST" role="form">
                                             <div class="form-group">
-                                                <label for="id"><span class="glyphicon glyphicon-user"></span>idUsuario</label>
-                                                <input type="text" name="idUsuario" class="form-control" id="idUsuario" placeholder="Ingrese el id">
+                                                <input type="hidden" name="idUsuario" class="form-control" id="idUsuario" >
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="nombre"><span class="glyphicon glyphicon-user"></span>Nombre</label>
-                                                <input type="text" name="nombre" class="form-control" id="idNombre" placeholder="Ingrese el nombre">
+                                                <input type="text" name="idNombre" class="form-control" id="idNombre" placeholder="Ingrese el nombre">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Apellido</label>
-                                                <input type="text" name="apellido" class="form-control" id="idApellido" placeholder="Ingrese el apellido">
+                                                <input type="text" name="idApellido" class="form-control" id="idApellido" placeholder="Paterno    Materno">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Usuario</label>
-                                                <input type="text" name="usuario" class="form-control" id="idNombreUsuario" placeholder="nuevo usuario">
+                                                <input type="text" name="idUsuario" class="form-control" id="idNombreUsuario" placeholder="nuevo usuario">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Contraseña</label>
-                                                <input type="text" name="contraseña" class="form-control" id="idContraseña" placeholder="Ingrese la contraseña">
+                                                <input type="text" name="idContraseña" class="form-control" id="idContraseña" placeholder="Ingrese la contraseña">
+                                            </div>
+                                            
+                                             <div class="form-group">
+                                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Confirmar contraseña</label>
+                                                <input type="text" name="idContraseña2" class="form-control" id="idContraseña2" placeholder="Confirme su contraseña">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Tipo</label>
-                                                <input type="text" name="tipo" class="form-control" id="idTipo" placeholder="Ingrese el tipo">
+                                                <input type="text" name="idTipo" class="form-control" id="idTipo" placeholder="Ingrese el tipo">
                                             </div>
 
                                             <button type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Guardar</button>
@@ -296,7 +300,7 @@
         <script src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/nivo-lightbox.min.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/js/scriptUsuario.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/Usuario/js/scriptUsuario.js"></script>
     </body>
 </html>
 
