@@ -106,9 +106,9 @@
                                             Roles
                                         </button>
                                         <div class="dropdown-menu">
-                                            <p><a class="dropdown-item" href="#">Encargado(a)</a></p>
-                                            <p><a class="dropdown-item" href="#">Profesor</a></p>
-                                            <p><a class="dropdown-item" href="#">Alumno</a></p>
+                                            <c:forEach var="rol" items="${listaRol}">
+                                                <p><a class="dropdown-item" href="#"><c:out value="${rol.nombre}"/></a></p>
+                                            </c:forEach>
                                         </div>
                                     </div>
                                 </td>   		

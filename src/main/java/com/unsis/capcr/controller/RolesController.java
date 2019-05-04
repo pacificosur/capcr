@@ -1,8 +1,11 @@
 
 package com.unsis.capcr.controller;
 
+import com.unsis.capcr.entity.Rol;
 import com.unsis.capcr.entity.Usuario;
+import com.unsis.capcr.service.IRolService;
 import com.unsis.capcr.service.IUsuarioService;
+import com.unsis.capcr.service.RolService;
 import com.unsis.capcr.service.UsuarioService;
 import java.io.IOException;
 import java.util.List;
@@ -41,6 +44,9 @@ public class RolesController extends HttpServlet {
         IUsuarioService iUsuarioService = new UsuarioService();
         List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
         request.setAttribute("listaUsuario", listaUsuario);
+        IRolService iRolService = new RolService();
+        List<Rol> listaRol = iRolService.obtenerRoles();
+        request.setAttribute("listaRol",listaRol);
 	dispatcher.forward(request, response);        
     }
 
