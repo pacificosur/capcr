@@ -78,7 +78,7 @@
           <ul class="nav navbar-nav">
             <li><a href="#intro">Alumno</a></li>
             <li><a href="${pageContext.request.contextPath}/PracticaController?accion=index">Práctica</a></li>
-            <li><a href="#doctor">Registro</a></li>
+            <li><a href="${pageContext.request.contextPath}/RegistroController?accion=index">Registro</a></li>
             <li><a href="${pageContext.request.contextPath}/ReservacionController?accion=index">Reservaciones</a></li>
             <li><a href="${pageContext.request.contextPath}/UsuarioController?accion=index">Usuario</a></li>
              <li><a href="${pageContext.request.contextPath}/RolesController?accion=index">Asignar Roles</a></li>
