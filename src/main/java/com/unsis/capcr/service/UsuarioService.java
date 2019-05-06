@@ -28,12 +28,12 @@ public class UsuarioService implements IUsuarioService {
 
     @Override
     public void crearRegistro(Usuario usuario) {
-
+        iUsuarioModel.crearRegistro(usuario);
     }
 
     @Override
     public void actualizarRegistro(Usuario usuario) {
-
+        iUsuarioModel.actualizarRegistro(usuario);
     }
 
     @Override

@@ -82,13 +82,13 @@ public class UsuarioModel implements IUsuarioModel {
 
     /*public static void main(String[] args) {
         IUsuarioModel um = new UsuarioModel();
-        //Usuario u = new Usuario();   
-        /* u.setNombre("Hiralda");
+        Usuario u = new Usuario();   
+        u.setNombre("Hiraldas");
         u.setApellidos("Castro");
         u.setNombreUsuario("unsis3");
         u.setContraseña("12345");
         u.setTipo(2);
-        um.crearRegistro(u);*/
+        um.crearRegistro(u);
 
         //Para probar obtenerUsuarios.
         /*for (Usuario u : um.obtenerUsuarios()) {
@@ -110,7 +110,7 @@ public class UsuarioModel implements IUsuarioModel {
         //para eliminar.
        // um.eliminarRegistro(new Long(2));
 
-   // }
+   //}
 
     @Override
     public void crearRegistro(Usuario usuario) {
