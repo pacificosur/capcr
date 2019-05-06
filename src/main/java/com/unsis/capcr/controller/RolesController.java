@@ -1,8 +1,11 @@
 
 package com.unsis.capcr.controller;
 
+import com.unsis.capcr.entity.Rol;
 import com.unsis.capcr.entity.Usuario;
+import com.unsis.capcr.service.IRolService;
 import com.unsis.capcr.service.IUsuarioService;
+import com.unsis.capcr.service.RolService;
 import com.unsis.capcr.service.UsuarioService;
 import java.io.IOException;
 import java.util.List;
@@ -38,9 +41,16 @@ public class RolesController extends HttpServlet {
     private void listar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/roles/roles.jsp");
+        
         IUsuarioService iUsuarioService = new UsuarioService();
         List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
+        
+        IRolService iRolService = new RolService();
+        List<Rol> listaRol = iRolService.obtenerRoles();
+        
         request.setAttribute("listaUsuario", listaUsuario);
+        request.setAttribute("listaRol",listaRol);
+        
 	dispatcher.forward(request, response);        
     }
 

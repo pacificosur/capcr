@@ -20,19 +20,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class ReservacionController extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String accion = request.getParameter("accion");    
-        
-        if(accion.equals("crear") && request.getParameter("idReservacion") != null && !request.getParameter("idReservacion").equals("")){            
+        String accion = request.getParameter("accion");
+
+        if (accion.equals("crear") && request.getParameter("idReservacion") != null && !request.getParameter("idReservacion").equals("")) {
             accion = "actualizar";
-        }  
-        
+        }
+
         try {
-            switch(accion) {
-                case "home":
-                    home(request, response);
+            switch (accion) {
+                case "index":
+                    index(request, response);
                     break;
                 case "listar":
                     listar(request, response);
@@ -53,90 +54,93 @@ public class ReservacionController extends HttpServlet {
             System.out.println("Error: " + e.getMessage());
         }
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("hola post");
         doGet(request, response);
     }
-    
-    private void home(HttpServletRequest request, HttpServletResponse response)
+
+    private void index(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reservacion/home.jsp");
-        dispatcher.forward(request, response);
-    }
-  
-    private void listar(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reservacion/listar.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reservacion/index.jsp");
+
         IReservacionService iReservacionService = new ReservacionService();
         List<Reservacion> listaReservacion = iReservacionService.obtenerRegistros();
         request.setAttribute("listaReservacion", listaReservacion);
-	dispatcher.forward(request, response);        
+        dispatcher.forward(request, response);
     }
-    
+
+    private void listar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reservacion/index.jsp");
+        IReservacionService iReservacionService = new ReservacionService();
+        List<Reservacion> listaReservacion = iReservacionService.obtenerRegistros();
+        request.setAttribute("listaReservacion", listaReservacion);
+        dispatcher.forward(request, response);
+    }
+
     private void crear(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reservacion/listar.jsp");
-        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reservacion/index.jsp");
+
         String area = request.getParameter("area");
         String responsableArea = request.getParameter("responsableArea");
         String practica = request.getParameter("practica");
         String responsablePractica = request.getParameter("responsablePractica");
-        
+
         Reservacion reservacion = new Reservacion();
-        
+
         reservacion.setArea(area);
         reservacion.setResponsableArea(responsableArea);
         reservacion.setPractica(practica);
         reservacion.setResponsablePractica(responsablePractica);
-        
+
         IReservacionService iReservacionService = new ReservacionService();
         iReservacionService.crearRegistro(reservacion);
-        
+
         List<Reservacion> listaReservacion = iReservacionService.obtenerRegistros();
         request.setAttribute("listaReservacion", listaReservacion);
-	dispatcher.forward(request, response);        
+        dispatcher.forward(request, response);
     }
-    
-     private void actualizar(HttpServletRequest request, HttpServletResponse response)
+
+    private void actualizar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reservacion/listar.jsp");
-        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reservacion/index.jsp");
+
         Long idReservacion = Long.parseLong(request.getParameter("idReservacion"));
         String area = request.getParameter("area");
         String responsableArea = request.getParameter("responsableArea");
         String practica = request.getParameter("practica");
         String responsablePractica = request.getParameter("responsablePractica");
-        
+
         Reservacion reservacion = new Reservacion();
-        
+
         reservacion.setIdReservacion(idReservacion);
         reservacion.setArea(area);
         reservacion.setResponsableArea(responsableArea);
         reservacion.setPractica(practica);
         reservacion.setResponsablePractica(responsablePractica);
-        
+
         IReservacionService iReservacionService = new ReservacionService();
         iReservacionService.actualizarRegistro(reservacion);
-        
+
         List<Reservacion> listaReservacion = iReservacionService.obtenerRegistros();
         request.setAttribute("listaReservacion", listaReservacion);
-	dispatcher.forward(request, response);        
+        dispatcher.forward(request, response);
     }
-    
+
     private void eliminar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reservacion/listar.jsp");
-        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reservacion/index.jsp");
+
         Long idReservacion = Long.parseLong(request.getParameter("idReservacion"));
-        
+
         IReservacionService iReservacionService = new ReservacionService();
         iReservacionService.eliminarRegistro(idReservacion);
-        
+
         List<Reservacion> listaReservacion = iReservacionService.obtenerRegistros();
         request.setAttribute("listaReservacion", listaReservacion);
-	dispatcher.forward(request, response);        
+        dispatcher.forward(request, response);
     }
 }

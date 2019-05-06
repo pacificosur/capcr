@@ -106,15 +106,18 @@
                                             Roles
                                         </button>
                                         <div class="dropdown-menu">
-                                            <p><a class="dropdown-item" href="#">Encargado(a)</a></p>
-                                            <p><a class="dropdown-item" href="#">Profesor</a></p>
-                                            <p><a class="dropdown-item" href="#">Alumno</a></p>
+                                            
                                         </div>
                                     </div>
                                 </td>   		
                             </tr>
                             </c:forEach>
+                            
                         </table>
+                        <p>hola</p>
+                        <c:forEach var="rol" items="${listaRol}">
+                                                <p><c:out value="${rol.nombre}"/></p>
+                                            </c:forEach>
                     </div>
                 </div>
             </section>       

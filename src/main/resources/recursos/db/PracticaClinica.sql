@@ -1,10 +1,4 @@
 -- -------------------------------------------------------------------------------
--- LIMPIEZA DE LA BASE DE DATOS ELIMINAR Y VOLVER A CREAR LA BASE DE DATOS
--- -------------------------------------------------------------------------------
-drop database if exists clinica;
-create database clinica;
-use clinica;
--- -------------------------------------------------------------------------------
 -- CREACION DE LAS TABLAS SEMESTRE, CARRERA, PRACTICA, ALUMNO, USUARIO, REGISTRO
 -- -------------------------------------------------------------------------------
 create table Semestre(
