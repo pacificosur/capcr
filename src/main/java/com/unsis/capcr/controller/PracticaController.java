@@ -35,10 +35,7 @@ public class PracticaController extends HttpServlet {
         String accion = request.getParameter("accion"); 
         try {
             switch(accion) {
-                case "home":
-                    home(request, response);
-                    break;
-                case "listar":
+                case "index":
                     listar(request, response);
                     break;
                 case "reporte":
@@ -69,12 +66,6 @@ public class PracticaController extends HttpServlet {
         doGet(request, response);
     }
 
-     private void home(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/practica/index.jsp");
-        dispatcher.forward(request, response);
-    }
-    
     private void listar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/practica/index.jsp");

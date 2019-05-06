@@ -1,8 +1,10 @@
 /*
- * Autor: Padilla Bustamante Uriel Gustavo
+ * Autores: Padilla Bustamante Uriel Gustavo
+ *          Castro Cisneros Hiralda
  * E-mail: padilla98.upb@gmail.com  
+ *         hiraldac.cisneros@gmail.com
  * Fecha Creación: 04/04/2019
- * Fecha Modificación: 10/04/2019
+ * Fecha Modificación: 02/05/2019
  * Descripción: implementación del modulo prácticas
  */
 package com.unsis.capcr.model;
@@ -89,15 +91,12 @@ public class PracticaModel implements IPracticaModel{
             connection=(Connection) new ConnectionPostgreSQL().conecta();
             query="INSERT INTO Practica(codigo,nombre, "
                     + "codigoSemestre, codigoCarrera, fechaCreacion, fechaActualizacion,fechaEliminacion) "
-                    + "VALUES(?,?,?,?,?,?,?) ";
+                    + "VALUES(?,?,?,?,now(),null,null) ";
             statement = connection.prepareStatement(query);
             statement.setString(1,practica.getCodigo()); 
             statement.setString(2,practica.getNombre()); 
             statement.setString(3,practica.getIdSemestre()); 
-            statement.setString(4,practica.getIdCarrera()); 
-            statement.setDate(5,practica.getFechaCreacion()); 
-            statement.setDate(6,practica.getFechaActualizacion());
-            statement.setDate(7,practica.getFechaEliminacion()); 
+            statement.setString(4,practica.getIdCarrera());  
             statement.executeUpdate();
             statement.close();
             connection.close();
@@ -111,13 +110,11 @@ public class PracticaModel implements IPracticaModel{
         try {
             connection=(Connection) new ConnectionPostgreSQL().conecta();
             query="UPDATE Practica set nombre=?, "
-                    + "codigoSemestre=?, codigoCarrera=?, fechaActualizacion=?,fechaEliminacion=? where codigo=? ";
+                    + "codigoSemestre=?, codigoCarrera=?, fechaActualizacion=now() where codigo=? ";
             statement = connection.prepareStatement(query);
             statement.setString(1,practica.getNombre()); 
             statement.setString(2,practica.getIdSemestre()); 
             statement.setString(3,practica.getIdCarrera());  
-            statement.setDate(4,practica.getFechaActualizacion());
-            statement.setDate(5,practica.getFechaEliminacion()); 
             statement.setString(6,practica.getCodigo()); 
             statement.executeUpdate();
             statement.close();
@@ -131,7 +128,8 @@ public class PracticaModel implements IPracticaModel{
     public void eliminarPractica(String IdPractica) {
         try {
             connection=(Connection) new ConnectionPostgreSQL().conecta();
-            query="DELETE FROM Practica WHERE codigo= ?";
+            query="UPDATE Practica set fechaEliminacion=now()"
+                    + " where codigo=? ";
             statement= connection.prepareStatement(query);
             statement.setString(1, IdPractica);
             statement.executeUpdate();

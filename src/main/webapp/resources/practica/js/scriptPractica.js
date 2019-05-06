@@ -10,6 +10,11 @@
 $(document).ready(function () {
     /* Este id Selector es para mostrar el modal para crear un nueva practica*/
     $("#id-btn-crear-practica").click(function () {
+        $('#codigoPractica').prop('disabled', false);
+        $('#codigoPractica').val('');
+        $('#nombrePractica').val('');
+        $('#idSemestrePractica').val('');
+        $('#idCarreraPractica').val('');
         $("#id-modal-practica").modal();
     });
 
@@ -17,7 +22,9 @@ $(document).ready(function () {
     $('.class-actualizar-practica').click(function () {
         var $row = jQuery(this).closest('tr');
         var $columns = $row.find('td');
-
+        
+        $('#codigoPractica').prop('disabled', true);
+        
         $columns.addClass('row-highlight');
         var values = [4];
 
