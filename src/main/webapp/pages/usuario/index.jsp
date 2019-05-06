@@ -133,10 +133,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <form action="${pageContext.request.contextPath}/UsuarioController?accion=crear" method="POST" role="form">
-                                            <div class="form-group">
-                                                <input type="hidden" name="idUsuario" class="form-control" id="idUsuario" >
-                                            </div>
-
+                                            
                                             <div class="form-group">
                                                 <label for="nombre"><span class="glyphicon glyphicon-user"></span>Nombre</label>
                                                 <input type="text" name="idNombre" class="form-control" id="idNombre" placeholder="Ingrese el nombre">
@@ -144,12 +141,12 @@
 
                                             <div class="form-group">
                                                 <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Apellido</label>
-                                                <input type="text" name="idApellido" class="form-control" id="idApellido" placeholder="Paterno    Materno">
+                                                <input type="text" name="idApellidos" class="form-control" id="idApellidos" placeholder="Paterno    Materno">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Usuario</label>
-                                                <input type="text" name="idUsuario" class="form-control" id="idNombreUsuario" placeholder="nuevo usuario">
+                                                <input type="text" name="idNombreUsuario" class="form-control" id="idNombreUsuario" placeholder="nuevo usuario">
                                             </div>
 
                                             <div class="form-group">
