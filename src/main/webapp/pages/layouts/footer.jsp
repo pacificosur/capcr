@@ -2,7 +2,7 @@
    Autores: Padilla Bustamante Uriel Gustavo
    E-mail: padilla98.upb@gmail.com  
    Fecha Creación: 02/05/2019
-   Fecha Modificación: 02/05/2019
+   Fecha Modificación: 06/05/2019
    Descripción: footer plantilla
 --%>
 </div>
@@ -19,7 +19,7 @@
                     <div class="widget">
                         <h5>Acerca de CAPCR</h5>
                         <p>
-                            CAPCR es un sistema que registra la asistencia de prácticas de la Clínica Robotizada, también genera los reportes de asistencia de estas. 
+                            CAPCR es un sistema que registra la asistencia de prácticas en la Clínica Robotizada y genera reportes de asistencias.
                         </p>
                     </div>
                 </div>
@@ -27,10 +27,8 @@
                     <div class="widget">
                         <h5>Información</h5>
                         <ul>
-                            <li><a href="#">Inicio</a></li>
-                            <li><a href="#">Laboratory</a></li>
-                            <li><a href="#">Medical treatment</a></li>
-                            <li><a href="#">Terms & conditions</a></li>
+                            <li><a href="${pageContext.request.contextPath}/pages/index.jsp">Inicio</a></li>
+                            <li><a href="http://www.unsis.edu.mx/" target="_blank">Página oficial</a></li>
                         </ul>
                     </div>
                 </div>
@@ -79,11 +77,8 @@
                     <div class="widget">
                         <h5>Redes Sociales</h5>
                         <ul class="company-social">
-                            <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li class="social-vimeo"><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
-                            <li class="social-dribble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li class="social-facebook"><a href="https://www.facebook.com/suneounsis/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li class="social-twitter"><a href="https://twitter.com/unsis_suneo?lang=en" target="_blank"><i class="fa fa-twitter"></i></a></li>
                         </ul>
                     </div>
                 </div>
