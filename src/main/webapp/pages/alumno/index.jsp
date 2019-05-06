@@ -33,7 +33,7 @@
             <td><c:out value="${alumno.CodigoSemetre}"/></td>
             <td><c:out value="${alumno.CodigoCarrera}"/></td>
             <td><button type="button" class="btn btn-success class-actualizar-alumno"><i class="fa fa-edit"></i></button> </td>	
-            <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/AlumnosController?accion=eliminar&Matricula=<c:out value="${alumno.Matricula}"/>"><i class="fa fa-trash"></i></a> </td>				
+            <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/AlumnosController?accion=eliminar&idAlumno<c:out value="${alumno.Matricula}"/>"><i class="fa fa-trash"></i></a> </td>				
         </tr>
     </c:forEach>
 </table>
@@ -49,24 +49,24 @@
             <div class="modal-body">
                 <form action="${pageContext.request.contextPath}/AlumnosController?accion=crear" method="POST" role="form">
                     <div class="form-group">
-                        <label for="Matricula"><span class="glyphicon glyphicon-user"></span>Matricula</label>
-                        <input type="text" name="Matricula" class="form-control" id="idMatricula" placeholder="Ingrese la matricula">
+                        <label for="matricula"><span class="glyphicon glyphicon-user"></span>&nbsp Matricula</label>
+                        <input type="text" name="matricula" class="form-control" id="idMatricula" placeholder="Ingrese la matricula">
                     </div>
                     <div class="form-group">
-                        <label for="Nombre"><span class="glyphicon glyphicon-user"></span>Nombre</label>
-                        <input type="text" name="Nombre" class="form-control" id="idNombre" placeholder="Ingrese el nombre">
+                        <label for="nombre"><span class="glyphicon glyphicon-user"></span>&nbsp Nombre</label>
+                        <input type="text" name="nombre" class="form-control" id="idNombre" placeholder="Ingrese el nombre">
                     </div>
                     <div class="form-group">
-                        <label for="Grupo"><span class="glyphicon glyphicon-user"></span>Grupo</label>
-                        <input type="text" name="Grupo" class="form-control" id="idGrupo" placeholder="Ingrese el grupo">
+                        <label for="grupo"><span class="glyphicon glyphicon-user"></span>&nbsp Grupo</label>
+                        <input type="text" name="grupo" class="form-control" id="idGrupo" placeholder="Ingrese el grupo">
                     </div>
                     <div class="form-group">
-                        <label for="Semestre"><span class="glyphicon glyphicon-user"></span>Semestre</label>
-                        <input type="text" name="Semestre" class="form-control" id="idCodigoSemestre" placeholder="Ingrese el semestre">
+                        <label for="semestre"><span class="glyphicon glyphicon-user"></span>&nbsp Semestre</label>
+                        <input type="text" name="semestre" class="form-control" id="idCodigoSemestre" placeholder="Ingrese el semestre">
                     </div>
                     <div class="form-group">
-                        <label for="Carrera"><span class="glyphicon glyphicon-user"></span>Carrera</label>
-                        <input type="text" name="Carrera" class="form-control" id="idCodigoCarrera" placeholder="Ingrese la carrera">
+                        <label for="carrera"><span class="glyphicon glyphicon-user"></span>&nbsp Carrera</label>
+                        <input type="text" name="carrera" class="form-control" id="idCodigoCarrera" placeholder="Ingrese la carrera">
                     </div>
                     <button type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Guardar</button>
                 </form>
