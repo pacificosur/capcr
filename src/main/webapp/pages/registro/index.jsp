@@ -13,9 +13,13 @@
 <jsp:include page="../../pages/layouts/header.jsp"></jsp:include>
 
 <div class="row">
-    <div class="col-lg-5">
+    <div class="col-md-6">
         <input type="text" class="form-control form-control-lg col-md-3" placeholder="Matricula del alumno" name="text3">
     </div>
+    <div class="col-md-6">
+        <button type="button" class="btn btn-info">Agregar</button>
+    </div>
+    
 </div>
 <table id="idTable" class="table table-hover">
     <thead class="thead-dark">
@@ -31,13 +35,14 @@
     </thead>
     <c:forEach var="registro" items="${listaRegistro}">
         <tr>
-            <td><c:out value="${practica.codigo}"/></td>
-            <td><c:out value="${practica.nombre}"/></td>
-            <td><c:out value="${practica.idSemestre}"/></td>
-            <td><c:out value="${practica.idCarrera}"/></td>
-            <td><c:out value="${practica.fechaCreacion}"/></td>
-            <td><c:out value="${practica.fechaActualizacion}"/></td>
-            <td><c:out value="${practica.fechaEliminacion}"/></td>
+            <td><c:out value="${registro.matriculaAlumno}"/></td>
+            <td><c:out value="${registro.codigoPractica}"/></td>
+            <td><c:out value="${registro.horaEntrada}"/></td>
+            <td><c:out value="${registro.horaSalida}"/></td>
+            <td><c:out value="${registro.fecha}"/></td>
+            <td><c:out value="${registro.sustituye}"/></td>
+            <td><c:out value="${registro.estado}"/></td>
+            <td><c:out value="${registro.comentario}"/></td>
             <td><button type="button" class="btn btn-success class-actualizar-registro"><i class="fa fa-edit"></i></button> </td>	
             <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/RegistroController?accion=eliminar&matriculaAlumno=<c:out value="${registro.matriculaAlumno}"/>"><i class="fa fa-trash"></i></a> </td>				
         </tr>
