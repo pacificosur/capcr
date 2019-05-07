@@ -35,10 +35,9 @@ public class AlumnoService implements IAlumnoService{
     }
 
     @Override
-    public void eliminarAlumno(Alumno alumno) {
-        iAlumnoModel.eliminarAlumno(alumno);
+    public void eliminarAlumno(Long idAlumno) {
+        iAlumnoModel.eliminarAlumno(idAlumno);
     }
-
 
     @Override
     public void actualizarAlumno(Alumno alumno) {

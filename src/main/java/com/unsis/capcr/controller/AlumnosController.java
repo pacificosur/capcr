@@ -31,12 +31,10 @@ private IAlumnoService iAlumnoService = new AlumnoService();
         String accion=request.getParameter("accion");
         try {
             switch(accion) {
-                case "home":
-                    home(request, response);
+                case "index":
+                    index(request, response);
                     break;
-                case "listar":
-                    listar(request, response);
-                    break;
+                
                 case "crear":
                     crear(request, response);
                     break;
@@ -54,24 +52,19 @@ private IAlumnoService iAlumnoService = new AlumnoService();
         }
         
     }
-    private void home(HttpServletRequest request, HttpServletResponse response)
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/alumno/index.jsp");
-        dispatcher.forward(request, response);
+        doGet(request, response);
     }
     
-    private void listar(HttpServletRequest request, HttpServletResponse response)
+    private void index(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/alumno/index.jsp");
         List<Alumno> listaAlumno = iAlumnoService.obtenerAlumno();
         request.setAttribute("listaAlumno", listaAlumno);
 	dispatcher.forward(request, response);        
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        doGet(request, response);
     }
 
     private void crear(HttpServletRequest request, HttpServletResponse response)
@@ -126,7 +119,8 @@ private IAlumnoService iAlumnoService = new AlumnoService();
         List<Alumno> listaAlumno = iAlumnoService.obtenerAlumno();
         request.setAttribute("listaAlumno", listaAlumno);
 	dispatcher.forward(request, response);
-    }    
+    }  
+    
     private void eliminar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             
@@ -138,7 +132,7 @@ private IAlumnoService iAlumnoService = new AlumnoService();
         iAlumnoService.eliminarAlumno(idAlumno);
         
         List<Alumno> listaReservacion = iAlumnoService.obtenerAlumno();
-        request.setAttribute("listaAlumno", listaAlumno);
+        //request.setAttribute("listaAlumno", listaAlumno);
 	dispatcher.forward(request, response);        
     
     }

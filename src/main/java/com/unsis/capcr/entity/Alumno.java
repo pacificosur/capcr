@@ -9,10 +9,7 @@ package com.unsis.capcr.entity;
 
 import java.sql.Date;
 
-/**
- *
- * @author LabTW06
- */
+
 public class Alumno {
     private String nombre;
     private String grupo;

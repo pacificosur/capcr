@@ -19,7 +19,7 @@ public interface IAlumnoService {
     public List<Alumno> obtenerAlumno();
     public Alumno obtenerAlumno(String Matricula);
     public void crearAlumno(Alumno alumno);
-    public void eliminarAlumno(Alumno alumno);
+    public void eliminarAlumno(Long idAlumno);
     public void actualizarAlumno(Alumno alumno);
     
     

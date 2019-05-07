@@ -141,7 +141,7 @@ private String query;
     
    
     @Override
-    public void eliminarAlumno(Alumno alumno) {
+    public void eliminarAlumno(Long idAlumno) {
         try{
             connection =(Connection) new ConnectionPostgreSQL().conecta();
             query="DELETE FROM Alumno WHERE matricula = ?";
