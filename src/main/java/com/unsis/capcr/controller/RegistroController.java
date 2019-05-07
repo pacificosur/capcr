@@ -24,12 +24,18 @@ public class RegistroController extends HttpServlet{
             throws ServletException, IOException {
         String accion = request.getParameter("accion");
         switch (accion) {
-            case "home":
+            case "index":
                 home(request, response);
                 break;
-            case "listar":
-                listar(request, response);
+            case "crear":
+                crear(request, response);
                 break;
+            case "eliminar":
+                eliminar(request, response);
+                break;
+            case "actualizar":
+                actualizar(request, response);
+                break;   
             default:
                 break;
         }
@@ -42,12 +48,12 @@ public class RegistroController extends HttpServlet{
     }
 
     private void home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/registro/home.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/registro/index.jsp");
         dispatcher.forward(request,response);
     }
 
     private void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/registro/listar.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/registro/index.jsp");
         IRegistroService iRegistroService = new RegistroService(); 
         List<Registro>listaRegistro = iRegistroService.obtenerRegistros();
         request.setAttribute("listaRegistro",listaRegistro);
@@ -56,7 +62,7 @@ public class RegistroController extends HttpServlet{
     
     private void crear(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/registro/listar.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/registro/index.jsp");
         
         String matricula = request.getParameter("matriculaAlumno");
         String codigo = request.getParameter("codigoPractica");
@@ -79,7 +85,7 @@ public class RegistroController extends HttpServlet{
     
      private void actualizar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/registro/listar.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/registro/index.jsp");
         
         Long idRegistro = Long.parseLong(request.getParameter("cogigoPractica"));
         String area = request.getParameter("area");
@@ -105,7 +111,7 @@ public class RegistroController extends HttpServlet{
     
     private void eliminar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/registro/listar.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/registro/index.jsp");
         
         Long idRegistro = Long.parseLong(request.getParameter("idRegistro"));
         
