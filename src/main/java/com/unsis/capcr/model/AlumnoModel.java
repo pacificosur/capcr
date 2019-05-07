@@ -53,7 +53,7 @@ private String query;
             
             return listaAlumnos;
         }catch(SQLException e){
-            e.getMessage();
+            System.err.println("Error: " + e.getMessage());
             return null;
         }
         
@@ -85,7 +85,7 @@ private String query;
             statement.close();
             connection.close();
         }catch(SQLException e){
-            e.getMessage();
+            System.err.println("Error: " + e.getMessage());
         }
         return null;
     }
@@ -110,22 +110,9 @@ private String query;
                 statement.close();
                 connection.close();
         }catch(SQLException e){
-            e.getMessage();
+            System.err.println("Error: " + e.getMessage());
         }
     }
-
-    
-   /*public static void main(String[] args){
-        IAlumnoModel am = new AlumnoModel();
-        java.util.Date d = new java.util.Date(); 
-        Alumno al= new Alumno("matricula","nombre","apellido","grupo",new java.sql.Date(d.getTime()),null,null,"carrera","semestre");
-        am.CrearAlumno(al);
-        List<Alumno> alumno=am.ObtenerAlumno();
-        
-        for(Alumno a: am.ObtenerAlumno()){
-            System.out.println(a.getNombre());
-        } 
-    }*/
 
     
     @Override
@@ -148,7 +135,7 @@ private String query;
                 statement.close();
                 connection.close();
         }catch(SQLException e){
-            e.getMessage();
+            System.err.println("Error: " + e.getMessage());
         }
     }
     
@@ -164,7 +151,7 @@ private String query;
             statement.close();
             connection.close();
         }catch(SQLException e){
-            e.getMessage();
+            System.err.println("Error: " + e.getMessage());
         }
     }
     

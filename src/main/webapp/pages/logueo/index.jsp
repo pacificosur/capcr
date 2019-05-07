@@ -34,10 +34,10 @@
                             <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
                                 <form action="${pageContext.request.contextPath}/LogueoController" method="GET">
                                 <div class="form-group">
-                                  <input type="text" name="user" class="form-control" id="user" placeholder="Usuario" required autofocus>
+                                  <input onkeypress="return soloLetras(event)" type="text" name="user" class="form-control" id="user" placeholder="Usuario" required autofocus>
                                 </div>
                                 <div class="form-group">
-                                  <input type="password" name="password" class="form-control" id="password" id="Contraseña" placeholder="Contraseña" required>
+                                  <input onkeypress="return soloLetras(event)" type="password" name="password" class="form-control" id="password" id="Contraseña" placeholder="Contraseña" required>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" name="boton" class="btn btn-primary  btn-block">Iniciar</button>
@@ -52,5 +52,25 @@
                 </div>
             </div>
         </div>
+        <script>
+            function soloLetras(e){
+               key = e.keyCode || e.which;
+               tecla = String.fromCharCode(key).toLowerCase();
+               letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+               especiales = "8-37-39-46";
+
+               tecla_especial = false
+               for(var i in especiales){
+                    if(key == especiales[i]){
+                        tecla_especial = true;
+                        break;
+                    }
+                }
+
+                if(letras.indexOf(tecla)==-1 && !tecla_especial){
+                    return false;
+                }
+            }
+        </script>
     </body>
 </html>
