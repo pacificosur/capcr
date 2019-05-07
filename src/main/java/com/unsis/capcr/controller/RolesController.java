@@ -23,8 +23,10 @@ public class RolesController extends HttpServlet {
             throws ServletException, IOException {
         String accion=request.getParameter("accion");
         switch(accion){
-            case "listar":
-                listar(request,response);
+            case "index":
+                //listar(request,response);
+                System.out.println("hola");
+                listarRoles(request,response);
                 break;
             default:
                 break;
@@ -44,15 +46,17 @@ public class RolesController extends HttpServlet {
         
         IUsuarioService iUsuarioService = new UsuarioService();
         List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
-        
-        IRolService iRolService = new RolService();
-        List<Rol> listaRol = iRolService.obtenerRoles();
-        
-        request.setAttribute("listaUsuario", listaUsuario);
-        request.setAttribute("listaRol",listaRol);
-        
+        request.setAttribute("listaUsuario", listaUsuario);   
 	dispatcher.forward(request, response);        
     }
 
-
+    private void listarRoles(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/roles/roles.jsp");
+        
+        IRolService iRolService = new RolService();
+        List<Rol> listaRol = iRolService.obtenerRoles();
+        request.setAttribute("listaRol", listaRol);
+	dispatcher.forward(request, response);        
+    }
 }

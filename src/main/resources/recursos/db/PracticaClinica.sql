@@ -15,7 +15,7 @@ create table Carrera(
 
 create table Practica(
     codigo text not null,
-    nombre text not null unique,
+    nombre text not null,
     codigoSemestre text not null,
     codigoCarrera text not null,
     fechaCreacion timestamp(0) not null,

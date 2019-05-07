@@ -35,8 +35,9 @@ public class RolModel implements IRolModel{
                 rol.setIdRol(resultset.getLong("idRol"));
                 rol.setNombre(resultset.getString("nombre"));
                 listaRol.add(rol);
-                System.out.println("agregado");
+                System.out.println(rol.getNombre()+" agregado...");
             }
+            return listaRol;
         }
         catch(Exception e)
         {
