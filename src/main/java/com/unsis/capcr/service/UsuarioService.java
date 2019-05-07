@@ -37,8 +37,8 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public void eliminarRegistro(Usuario usuario) {
-
+    public void eliminarRegistro(Long idUsuario) {
+        iUsuarioModel.eliminarRegistro(idUsuario);
     }
 
     @Override
