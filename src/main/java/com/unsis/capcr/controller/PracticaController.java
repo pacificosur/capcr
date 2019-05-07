@@ -33,6 +33,15 @@ public class PracticaController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String accion = request.getParameter("accion"); 
+        
+        System.out.println("Acion----------------: " + accion + " **** crear practica:   " + request.getParameter("crearPractica"));
+        
+        if (accion.equals("crear") && request.getParameter("crearPractica").equals("")) {
+            accion = "actualizar";
+        }
+        
+        System.out.println("Aaaction: " + accion);
+        
         try {
             switch(accion) {
                 case "index":
@@ -42,7 +51,6 @@ public class PracticaController extends HttpServlet {
                     reporte(request, response);
                     break;
                 case "crear":
-                    
                     crear(request, response);
                     break;
                 case "eliminar":
@@ -96,7 +104,7 @@ public class PracticaController extends HttpServlet {
         practica.setNombre(nombre);
         practica.setIdSemestre(semestre);
         practica.setIdCarrera(carrera);
-        
+               
         IPracticaService iPracticaService = new PracticaService();
         iPracticaService.crearPractica(practica);
         
@@ -120,6 +128,7 @@ public class PracticaController extends HttpServlet {
         practica.setIdSemestre(semestre);
         practica.setIdCarrera(carrera);
         
+        System.out.println(practica.getCodigo()+" "+practica.getNombre()+" "+practica.getIdSemestre()+" "+practica.getIdCarrera());
         IPracticaService iPracticaService = new PracticaService();
         iPracticaService.actualizarPractica(practica);
         
