@@ -12,6 +12,7 @@ import com.unsis.capcr.entity.Reservacion;
 import com.unsis.capcr.service.IReservacionService;
 import com.unsis.capcr.service.ReservacionService;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -80,6 +81,12 @@ public class ReservacionController extends HttpServlet {
         Reservacion reservacion = new Reservacion();
 
         reservacion.setArea(area);
+        
+        java.util.Date fecha = new java.util.Date(); 
+        
+        reservacion.setFechaInicio(new java.sql.Date(fecha.getTime()));
+        reservacion.setFechaFin(new java.sql.Date(fecha.getTime()));
+        
         reservacion.setResponsableArea(responsableArea);
         reservacion.setPractica(practica);
         reservacion.setResponsablePractica(responsablePractica);
