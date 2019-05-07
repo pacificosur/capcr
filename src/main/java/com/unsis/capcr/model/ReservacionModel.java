@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReservacionModel implements IReservacionModel {
-
     private Connection connection;
     private PreparedStatement statement;
     private ResultSet resultSet;
