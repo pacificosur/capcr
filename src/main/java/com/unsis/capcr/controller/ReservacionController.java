@@ -12,7 +12,6 @@ import com.unsis.capcr.entity.Reservacion;
 import com.unsis.capcr.service.IReservacionService;
 import com.unsis.capcr.service.ReservacionService;
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
