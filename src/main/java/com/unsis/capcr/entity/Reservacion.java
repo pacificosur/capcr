@@ -10,7 +10,6 @@ package com.unsis.capcr.entity;
 
 import java.sql.Date;
 
-
 public class Reservacion {
     private Long idReservacion;
     private Date fechaInicio;
@@ -19,12 +18,10 @@ public class Reservacion {
     private String responsableArea;
     private String practica;
     private String responsablePractica;
-    
-    // Constructor
-    public Reservacion() {
-    } 
-    // setters and getters
 
+    public Reservacion() {
+    }
+    
     public Long getIdReservacion() {
         return idReservacion;
     }

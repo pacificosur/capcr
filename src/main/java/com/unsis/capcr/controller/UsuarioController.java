@@ -36,7 +36,7 @@ public class UsuarioController extends HttpServlet {
                 crear(request, response);
                 break;
             case "eliminar":
-                    //eliminar(request, response);
+                    eliminar(request, response);
                     break;
                 case "actualizar":
                     actualizar(request, response);
@@ -106,6 +106,7 @@ public class UsuarioController extends HttpServlet {
         int idTipo = Integer.parseInt(request.getParameter("idTipo").trim());
         
         Usuario usuario = new Usuario();
+        usuario.setIdUsuario(idUsuario);
         usuario.setNombre(Nombre);
         usuario.setApellidos(Apellidos);
         usuario.setNombreUsuario(idNombreUsuario);
@@ -120,19 +121,19 @@ public class UsuarioController extends HttpServlet {
         request.setAttribute("listaUsuario", listaUsuario);
 	dispatcher.forward(request, response);        
     }
-    /*
+
     private void eliminar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reservacion/listar.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/usuario/listar.jsp");
         
-        Long idReservacion = Long.parseLong(request.getParameter("idReservacion"));
+        Long idUsuario = Long.parseLong(request.getParameter("idUsuario"));
         
-        IReservacionService iReservacionService = new ReservacionService();
-        iReservacionService.eliminarRegistro(idReservacion);
+        IUsuarioService iUsuarioService = new UsuarioService();
+        iUsuarioService.eliminarRegistro(idUsuario);
         
-        List<Reservacion> listaReservacion = iReservacionService.obtenerRegistros();
-        request.setAttribute("listaReservacion", listaReservacion);
+        List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
+        request.setAttribute("listaUsuario", listaUsuario);
 	dispatcher.forward(request, response);        
-    }*/
+    }
     
 }

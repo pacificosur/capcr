@@ -25,18 +25,15 @@ public class ReservacionController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String accion = request.getParameter("accion");
-
+        
         if (accion.equals("crear") && request.getParameter("idReservacion") != null && !request.getParameter("idReservacion").equals("")) {
             accion = "actualizar";
         }
-
+            
         try {
             switch (accion) {
                 case "index":
                     index(request, response);
-                    break;
-                case "listar":
-                    listar(request, response);
                     break;
                 case "crear":
                     crear(request, response);
@@ -71,15 +68,6 @@ public class ReservacionController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void listar(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reservacion/index.jsp");
-        IReservacionService iReservacionService = new ReservacionService();
-        List<Reservacion> listaReservacion = iReservacionService.obtenerRegistros();
-        request.setAttribute("listaReservacion", listaReservacion);
-        dispatcher.forward(request, response);
-    }
-
     private void crear(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reservacion/index.jsp");
@@ -92,6 +80,12 @@ public class ReservacionController extends HttpServlet {
         Reservacion reservacion = new Reservacion();
 
         reservacion.setArea(area);
+        
+        java.util.Date fecha = new java.util.Date(); 
+        
+        reservacion.setFechaInicio(new java.sql.Date(fecha.getTime()));
+        reservacion.setFechaFin(new java.sql.Date(fecha.getTime()));
+        
         reservacion.setResponsableArea(responsableArea);
         reservacion.setPractica(practica);
         reservacion.setResponsablePractica(responsablePractica);
@@ -133,8 +127,8 @@ public class ReservacionController extends HttpServlet {
     private void eliminar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reservacion/index.jsp");
-
-        Long idReservacion = Long.parseLong(request.getParameter("idReservacion"));
+        
+        Long idReservacion = Long.parseLong(request.getParameter("idReservacion-eliminar"));
 
         IReservacionService iReservacionService = new ReservacionService();
         iReservacionService.eliminarRegistro(idReservacion);

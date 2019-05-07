@@ -12,7 +12,7 @@ import com.unsis.capcr.model.IReservacionModel;
 import com.unsis.capcr.model.ReservacionModel;
 import java.util.List;
 
-public class ReservacionService implements IReservacionService{
+public class ReservacionService implements IReservacionService {
     IReservacionModel iReservacionModel = new ReservacionModel();
 
     @Override
@@ -26,17 +26,17 @@ public class ReservacionService implements IReservacionService{
     }
 
     @Override
-    public void crearRegistro(Reservacion reservacion) {       
+    public void crearRegistro(Reservacion reservacion) {
         iReservacionModel.crearRegistro(reservacion);
     }
 
     @Override
-    public void actualizarRegistro(Reservacion reservacion) { 
+    public void actualizarRegistro(Reservacion reservacion) {
         iReservacionModel.actualizarRegistro(reservacion);
     }
 
     @Override
-    public void eliminarRegistro(Long idReservacion) {  
+    public void eliminarRegistro(Long idReservacion) {
         iReservacionModel.eliminarRegistro(idReservacion);
     }
 }

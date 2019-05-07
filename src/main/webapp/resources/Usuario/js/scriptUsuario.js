@@ -17,11 +17,11 @@ $(document).ready(function () {
             values[i] = item.innerHTML;
         });
         $('#idUsuario').val(values[0]);
-        $('#idNombre').val(values[3]);
-        $('#idApellido').val(values[4]);
+        $('#idNombre').val(values[1]);
+        $('#idApellidos').val(values[2]);
         $('#idNombreUsuario').val(values[3]);
         $('#idContraseña').val(values[4]);
-         $('#idTipo').val(values[4]);
+        $('#idTipo').val(values[5]);
         $("#id-modal-usuario").modal();
     });
 });

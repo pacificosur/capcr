@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReservacionModel implements IReservacionModel {
-
     private Connection connection;
     private PreparedStatement statement;
     private ResultSet resultSet;
@@ -32,7 +31,6 @@ public class ReservacionModel implements IReservacionModel {
             statement = connection.prepareStatement(query);
             resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                System.out.println("Ingresando...");
                 Reservacion reservacion = new Reservacion();
                 reservacion.setIdReservacion(resultSet.getLong("idReservacion"));
                 reservacion.setFechaInicio(resultSet.getDate("fechaInicio"));

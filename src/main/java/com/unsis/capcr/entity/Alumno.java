@@ -9,8 +9,8 @@ package com.unsis.capcr.entity;
 
 import java.sql.Date;
 
-
 public class Alumno {
+
     private String nombre;
     private String grupo;
     private String matricula;
@@ -19,12 +19,11 @@ public class Alumno {
     private Date fechaCreacion;
     private Date fechaActualizacion;
     private Date fechaEliminacion;
-    //Constructor
+    //Constructores
 
     public Alumno() {
     }
-   
-    
+
     public Alumno(String nombre, String grupo, String matricula, String codigoCarrera, String codigoSemestre, Date fechaCreacion, Date fechaActualizacion, Date fechaEliminacion) {
         this.nombre = nombre;
         this.grupo = grupo;
@@ -35,13 +34,8 @@ public class Alumno {
         this.fechaActualizacion = fechaActualizacion;
         this.fechaEliminacion = fechaEliminacion;
     }
-    
-    
-    
-    
 
-    //getters and setters
-
+    //getters and setters corepondientes a la clase Alumno
     public String getNombre() {
         return nombre;
     }
@@ -106,9 +100,4 @@ public class Alumno {
         this.fechaEliminacion = fechaEliminacion;
     }
 
-    
-   
-    
-
-    
 }
