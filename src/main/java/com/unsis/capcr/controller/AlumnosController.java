@@ -37,6 +37,15 @@ private IAlumnoService iAlumnoService = new AlumnoService();
                 case "listar":
                     listar(request, response);
                     break;
+                case "crear":
+                    crear(request, response);
+                    break;
+                case "eliminar":
+                    eliminar(request, response);
+                    break;
+                case "actualizar":
+                    actualizar(request, response);
+                    break;
                 default:
                     break;
             }
@@ -65,6 +74,75 @@ private IAlumnoService iAlumnoService = new AlumnoService();
         doGet(request, response);
     }
 
+    private void crear(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/alumno/index.jsp");
+        
+        String  matricula = request.getParameter("matricula");
+        String  nombre = request.getParameter("nombre");
+        String  grupo = request.getParameter("grupo");
+        String  semestre = request.getParameter("semestre");
+        String  carrera = request.getParameter("carrera");
+        
+        Alumno alumno = new Alumno();
+        
+        alumno.setMatricula(matricula);
+        alumno.setNombre(nombre);
+        alumno.setGrupo(grupo);  
+        alumno.setCodigoSemestre(semestre);
+        alumno.setCodigoCarrera(carrera);
+        
+        IAlumnoService iAlumnoService = new AlumnoService();
+        iAlumnoService.crearAlumno(alumno);
+        
+        List<Alumno> listaAlumno = iAlumnoService.obtenerAlumno();
+        request.setAttribute("listaAlumno", listaAlumno);
+	dispatcher.forward(request, response);     
+    }          
 
-
+    private void actualizar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/alumno/index.jsp");
+        
+        String  matricula = request.getParameter("matricula");
+        String  nombre = request.getParameter("nombre");
+        String  grupo = request.getParameter("grupo");
+        String  semestre = request.getParameter("semestre");
+        String  carrera = request.getParameter("carrera");
+        
+        Alumno alumno = new Alumno();
+        
+        alumno.setMatricula(matricula);
+        alumno.setNombre(nombre);
+        alumno.setGrupo(grupo);  
+        alumno.setCodigoSemestre(semestre);
+        alumno.setCodigoCarrera(carrera);
+        
+        IAlumnoService iAlumnoService = new AlumnoService();
+        iAlumnoService.actualizarAlumno(alumno);
+        
+        List<Alumno> listaAlumno = iAlumnoService.obtenerAlumno();
+        request.setAttribute("listaAlumno", listaAlumno);
+	dispatcher.forward(request, response);
+    }    
+    private void eliminar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+            
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/alumno/index.jsp");
+        
+        Long idAlumno = Long.parseLong(request.getParameter("idAlumno"));
+        
+        IAlumnoService iAlumnoService = new AlumnoService();
+        iAlumnoService.eliminarAlumno(idAlumno);
+        
+        List<Alumno> listaReservacion = iAlumnoService.obtenerAlumno();
+        request.setAttribute("listaAlumno", listaAlumno);
+	dispatcher.forward(request, response);        
+    
+    }
+        
+    
+    
 }
