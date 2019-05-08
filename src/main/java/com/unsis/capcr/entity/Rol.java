@@ -9,7 +9,7 @@ package com.unsis.capcr.entity;
 
 public class Rol {
     private Long idRol;
-    private String Nombre;
+    private String nombre;
     //constructor
     public Rol(){
     }
@@ -24,10 +24,10 @@ public class Rol {
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }
