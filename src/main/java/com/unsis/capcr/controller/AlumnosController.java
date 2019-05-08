@@ -2,7 +2,7 @@
  * Autor: Luis Wonen Olvera Vásquez
  * E-mail: loov1625@gmail.com
  * Fecha Creación: 04/04/2019
- * Fecha Modificación: 11/04/2019
+ * Fecha Modificación: 07/05/2019
  * Descripción: implementación del CRUD para el módulo de Alumnos.
  */
 package com.unsis.capcr.controller;
@@ -26,12 +26,11 @@ public class AlumnosController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String accion = request.getParameter("accion");
-        try {
+        try { //este try implementa un switch case para saber el método que sera seleccionado
             switch (accion) {
                 case "index":
                     index(request, response);
                     break;
-
                 case "crear":
                     crear(request, response);
                     break;
@@ -59,11 +58,12 @@ public class AlumnosController extends HttpServlet {
     private void index(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/alumno/index.jsp");
-        List<Alumno> listaAlumno = iAlumnoService.obtenerAlumno();
+        List<Alumno> listaAlumno = iAlumnoService.obtenerAlumnos();
         request.setAttribute("listaAlumno", listaAlumno);
         dispatcher.forward(request, response);
     }
 
+    //implementación del método crear
     private void crear(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -86,11 +86,12 @@ public class AlumnosController extends HttpServlet {
         IAlumnoService iAlumnoService = new AlumnoService();
         iAlumnoService.crearAlumno(alumno);
 
-        List<Alumno> listaAlumno = iAlumnoService.obtenerAlumno();
+        List<Alumno> listaAlumno = iAlumnoService.obtenerAlumnos();
         request.setAttribute("listaAlumno", listaAlumno);
         dispatcher.forward(request, response);
     }
 
+    //implementación del método actualizar
     private void actualizar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -113,11 +114,12 @@ public class AlumnosController extends HttpServlet {
         IAlumnoService iAlumnoService = new AlumnoService();
         iAlumnoService.actualizarAlumno(alumno);
 
-        List<Alumno> listaAlumno = iAlumnoService.obtenerAlumno();
+        List<Alumno> listaAlumno = iAlumnoService.obtenerAlumnos();
         request.setAttribute("listaAlumno", listaAlumno);
         dispatcher.forward(request, response);
     }
 
+    //implementación del método eliminar
     private void eliminar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -128,7 +130,7 @@ public class AlumnosController extends HttpServlet {
         IAlumnoService iAlumnoService = new AlumnoService();
         iAlumnoService.eliminarAlumno(idAlumno);
 
-        List<Alumno> listaReservacion = iAlumnoService.obtenerAlumno();
+        List<Alumno> listaReservacion = iAlumnoService.obtenerAlumnos();
         //request.setAttribute("listaAlumno", listaAlumno);
         dispatcher.forward(request, response);
 

@@ -78,20 +78,13 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                         <ul class="nav navbar-nav">
-                            <li><a href="#intro">Alumno</a></li>
+                            <li><a href="${pageContext.request.contextPath}/AlumnosController?accion=index">Alumno</a></li>
                             <li><a href="${pageContext.request.contextPath}/PracticaController?accion=index">Práctica</a></li>
                             <li><a href="${pageContext.request.contextPath}/RegistroController?accion=index">Registro</a></li>
                             <li><a href="${pageContext.request.contextPath}/ReservacionController?accion=index">Reservaciones</a></li>
                             <li><a href="${pageContext.request.contextPath}/UsuarioController?accion=index">Usuario</a></li>
                             <li><a href="${pageContext.request.contextPath}/RolesController?accion=index">Asignar Roles</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="index_.html">Home CTA</a></li>
-                                    <li><a href="index-form.html">Home Form</a></li>
-                                    <li><a href="index-video.html">Home video</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="${pageContext.request.contextPath}/pages/logueo/index.jsp">Logout</a></li><!-- Función para desloguearse-->
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->

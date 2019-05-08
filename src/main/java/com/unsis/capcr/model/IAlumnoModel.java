@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface IAlumnoModel {
 
-    public List<Alumno> obtenerAlumno();
+    public List<Alumno> obtenerAlumnos();
 
     public Alumno obtenerAlumno(String Matricula);
 
