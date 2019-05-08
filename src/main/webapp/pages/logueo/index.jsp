@@ -1,8 +1,10 @@
-<%-- 
-    Document   : JSP Logueo
-    Created on : 2/05/2019, 02:10:49 PM
-    Author     : Pedro Eliezer García Ramírez
---%>
+/*
+  Autor: García Ramírez Pedro Eliezer
+  E-mail: pg548169@gmail.com  
+  Fecha Creación: 24/04/2019
+  Fecha Modificación: 03/05/2019
+Tecnologias web I
+*/
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
