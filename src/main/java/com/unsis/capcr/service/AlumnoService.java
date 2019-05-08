@@ -17,8 +17,8 @@ public class AlumnoService implements IAlumnoService {
     IAlumnoModel iAlumnoModel = new AlumnoModel();
 
     @Override
-    public List<Alumno> obtenerAlumno() {
-        return iAlumnoModel.obtenerAlumno();
+    public List<Alumno> obtenerAlumnos() {
+        return iAlumnoModel.obtenerAlumnos();
     }
 
     @Override
