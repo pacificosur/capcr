@@ -72,6 +72,14 @@
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/LogoutController</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>RegistroController</servlet-name>
+        <servlet-class>com.unsis.capcr.controller.RegistroController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistroController</servlet-name>
+        <url-pattern>/RegistroController</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
