@@ -92,7 +92,7 @@ public class AlumnoModel implements IAlumnoModel {
         try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
             query = "INSERT INTO alumno(matricula, nombre, grupo, fechaCreación, fechaActualizacion, fechaEliminacion, codigoSemestre, codigoCarrera"
-                    + "VALUES(?,?,?,?,?,?,?,?))";
+                    + "VALUES(?,?,?,now(),null,null,?,?))";
             statement = (PreparedStatement) statement.executeQuery(query);
             statement.setString(1, alumno.getMatricula());
             statement.setString(2, alumno.getNombre());
