@@ -13,15 +13,12 @@ import com.unsis.capcr.entity.Practica;
 import com.unsis.capcr.service.IPracticaService;
 import com.unsis.capcr.service.PracticaService;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.Date;
-import java.time.LocalDate;
 
 /**
  *
@@ -33,6 +30,15 @@ public class PracticaController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String accion = request.getParameter("accion"); 
+        
+        System.out.println("Acion----------------: " + accion + " **** crear practica:   " + request.getParameter("crearPractica"));
+        
+        if (accion.equals("crear") && request.getParameter("crearPractica").equals("")) {
+            accion = "actualizar";
+        }
+        
+        System.out.println("Aaaction: " + accion);
+        
         try {
             switch(accion) {
                 case "index":
@@ -42,7 +48,6 @@ public class PracticaController extends HttpServlet {
                     reporte(request, response);
                     break;
                 case "crear":
-                    
                     crear(request, response);
                     break;
                 case "eliminar":
@@ -66,6 +71,7 @@ public class PracticaController extends HttpServlet {
         doGet(request, response);
     }
 
+    //
     private void listar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/practica/index.jsp");
@@ -86,7 +92,7 @@ public class PracticaController extends HttpServlet {
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/practica/index.jsp");
         
-        String codigo= request.getParameter("codigoPractica");
+        String codigo= request.getParameter("codigoPractica");      
         String nombre = request.getParameter("nombrePractica");
         String semestre = request.getParameter("idSemestrePractica");
         String carrera = request.getParameter("idCarreraPractica");    
@@ -96,7 +102,7 @@ public class PracticaController extends HttpServlet {
         practica.setNombre(nombre);
         practica.setIdSemestre(semestre);
         practica.setIdCarrera(carrera);
-        
+               
         IPracticaService iPracticaService = new PracticaService();
         iPracticaService.crearPractica(practica);
         
@@ -107,9 +113,9 @@ public class PracticaController extends HttpServlet {
     
      private void actualizar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/practica/index.jsp");
+       RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/practica/index.jsp");
         
-        String codigo= request.getParameter("codigoPractica");
+        String codigo= request.getParameter("codigoPractica");      
         String nombre = request.getParameter("nombrePractica");
         String semestre = request.getParameter("idSemestrePractica");
         String carrera = request.getParameter("idCarreraPractica");    
@@ -120,6 +126,7 @@ public class PracticaController extends HttpServlet {
         practica.setIdSemestre(semestre);
         practica.setIdCarrera(carrera);
         
+        System.out.println(practica.getCodigo()+" "+practica.getNombre()+" "+practica.getIdSemestre()+" "+practica.getIdCarrera());
         IPracticaService iPracticaService = new PracticaService();
         iPracticaService.actualizarPractica(practica);
         

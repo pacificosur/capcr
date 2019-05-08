@@ -40,7 +40,7 @@
                     <td><c:out value="${usuario.contraseña}"/></td>
                     <td><c:out value="${usuario.tipo}"/></td> 
                     <td><button type="button" class="btn btn-success class-actualizar-usuario"><i class="fa fa-edit"></i></button> </td>
-                    <td><a type="button" class="btn btn-danger" href="${pageContext.request.contextPath}/UsuarioController?accion=eliminar&idUsuario=<c:out value="${usuario.idUsuario}"/>"><i class="fa fa-trash"></i></a> </td>			
+                    <td><button type="button" class="btn btn-danger class-eliminar-usuario"><i class="fa fa-trash"></i></button> </td>			
                 </tr>
             </c:forEach>
         </tbody>
@@ -106,11 +106,52 @@
     </div>
 </div>  
 
+<!-- Modal Eliminar -->
+<div class="modal fade" id="id-modal-usuario-eliminar" role="dialog">
+    <div class="modal-dialog">
 
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h1>¿Está seguro de eliminar este registro?</h1>
+            </div>
+            <div class="modal-body">
+                <form action="${pageContext.request.contextPath}/UsuarioController?accion=eliminar" method="POST" role="form">
+                    <div class="form-group">
+                        <input type="hidden" name="idUsuario-eliminar" class="form-control" id="idUsuario-eliminar" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Nombre">Nombre:</label>
+                        <p id="idNombre-eliminar"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="psw">Apellido</label>
+                        <p id="idApellido-eliminar"></p>                       
+                    </div>
+
+                    <div class="form-group">
+                        <label for="psw">Usuario</label>
+                        <p id="idNombreUsuario-eliminar"></p> 
+                    </div>
+
+                    <div class="form-group">
+                        <label for="psw">Tipo</label>
+                        <p id="idTipo-eliminar"></p>                         
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-default btn-success"><span class="fa fa-trash"></span>&nbsp Eliminar</button>
+                        <button type="submit" class="btn btn-default btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Cancel</button>  
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> 
 <%-- El footer se encuentra en la carperta layouts en la carpeta pages.
 el footer incluye dos div arriba de section y incluye todo (el footer y los archivos JavaScript) antes de donde cierra la etiqueta body
 --%> 
 <jsp:include page="../../pages/layouts/footer.jsp"></jsp:include>
-<script src="${pageContext.request.contextPath}/resources/Usuario/js/scriptUsuario.js"></script>
+<script src="${pageContext.request.contextPath}/resources/usuario/js/scriptUsuario.js"></script>
 </body>
 </html>
