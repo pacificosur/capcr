@@ -1,8 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+  Autor: García Ramírez Pedro Eliezer
+  E-mail: pg548169@gmail.com  
+  Fecha Creación: 07/05/2019
+  Fecha Modificación: -/-/-
+Tecnologias web I
+*/
 package com.unsis.capcr.controller;
 
 import java.io.IOException;
