@@ -84,14 +84,7 @@
                             <li><a href="${pageContext.request.contextPath}/ReservacionController?accion=index">Reservaciones</a></li>
                             <li><a href="${pageContext.request.contextPath}/UsuarioController?accion=index">Usuario</a></li>
                             <li><a href="${pageContext.request.contextPath}/RolesController?accion=index">Asignar Roles</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="index_.html">Home CTA</a></li>
-                                    <li><a href="index-form.html">Home Form</a></li>
-                                    <li><a href="index-video.html">Home video</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="${pageContext.request.contextPath}/pages/logueo/index.jsp">Logout</a></li><!-- Función para desloguearse-->
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
