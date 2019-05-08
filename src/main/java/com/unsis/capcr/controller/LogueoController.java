@@ -39,10 +39,9 @@ public class LogueoController extends HttpServlet {
             usr.setNombreUsuario(user);
             usr.setContraseña(password);
             if(iuser.logueo(usr)){
-                response.sendRedirect("Deslogueo.jsp");
-                Cookie ck=new Cookie("name",user);  
+                Cookie ck=new Cookie("user",user);  
                 response.addCookie(ck);
-                //response.sendRedirect("/capcr/pages/index.jsp");
+                response.sendRedirect("/capcr/pages/index.jsp");
 
             }
             else{

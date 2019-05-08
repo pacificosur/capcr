@@ -11,7 +11,7 @@ create table Carrera(
     codigo text not null,
     nombre text not null,
     constraint pk_codigoC primary key(codigo)
-);
+);  
 
 create table Practica(
     codigo text not null,
