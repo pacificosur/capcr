@@ -25,7 +25,7 @@ public class LogoutController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html");  
         PrintWriter out=response.getWriter();     
-        request.getRequestDispatcher("/capcr/pages/index.jsp").include(request, response);      
+        request.getRequestDispatcher("/capcr/pages/index.jsp").include(request, response);    /*Al hacer click en Logout nos redirecciona a la página de logueo*/  
         Cookie ck=new Cookie("user","");  
         ck.setMaxAge(0);  
         response.addCookie(ck);  
