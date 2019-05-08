@@ -62,7 +62,7 @@ public class RegistroModel implements IRegistroModel{
     public Registro obtenerRegistro(Long idRegistro) {
         try{    
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "SELECT * FROM Registro WHERE codigoPractica = ?";
+            query = "SELECT * FROM Registro WHERE matriculaalumno = ?";
             statement = connection.prepareStatement(query);
             statement.setLong(1, idRegistro);
             resultSet = statement.executeQuery();
@@ -106,16 +106,15 @@ public class RegistroModel implements IRegistroModel{
         return;
     }
 
-    @Override
-    public void actualizarRegistro(Alumno alumno, Practica practica, Registro registro) {
+    public void actualizarRegistro(Registro registro) {
         try{
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "update Registro set matriculaAlumno=?,codigoPractica=?,horaEntrada=now(),horaSalida=null,fecha=current_date,sustituye=null,estado='en proceso',comentario=null where codigoPractica=? ";
+            query = "update Registro set matriculaAlumno=?,codigoPractica=?,horaEntrada=now(),horaSalida=null,fecha=current_date,sustituye=null,estado='en proceso',comentario=null where matriculaAlumno=? ";
             statement = connection.prepareStatement(query);                
 
-            statement.setString(1, alumno.getMatricula()); 
-            statement.setString(2, practica.getCodigo());
-            statement.setString(3, registro.getCodigoPractica());
+            statement.setString(1, registro.getMatriculaAlumno()); 
+            statement.setString(2, registro.getCodigoPractica());
+            statement.setString(3, registro.getMatriculaAlumno());
             
             statement.executeUpdate();
             resultSet.close();
@@ -133,7 +132,7 @@ public class RegistroModel implements IRegistroModel{
     public void eliminarRegistro(Long idRegistro) {
         try{
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "delete from Reporte where idPractica = ?";
+            query = "delete from Reporte where matriculaalumno = ?";
             statement = connection.prepareStatement(query);
             statement.setLong(1, idRegistro);
             statement.executeUpdate();
