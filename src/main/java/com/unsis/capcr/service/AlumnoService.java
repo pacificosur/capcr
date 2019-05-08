@@ -5,7 +5,6 @@
  * Fecha Modificación: 11/04/2019
  * Descripción:Clase que implementa la interfaz IAlumnoService
  */
-
 package com.unsis.capcr.service;
 
 import com.unsis.capcr.entity.Alumno;
@@ -13,20 +12,18 @@ import com.unsis.capcr.model.AlumnoModel;
 import com.unsis.capcr.model.IAlumnoModel;
 import java.util.List;
 
-/**
- *
- * @author LabTW06
- */
-public class AlumnoService implements IAlumnoService{
-    IAlumnoModel iAlumnoModel=new AlumnoModel();
+public class AlumnoService implements IAlumnoService {
+
+    IAlumnoModel iAlumnoModel = new AlumnoModel();
+
     @Override
-    public List<Alumno> obtenerAlumno() {
-       return iAlumnoModel.obtenerAlumno();
+    public List<Alumno> obtenerAlumnos() {
+        return iAlumnoModel.obtenerAlumnos();
     }
 
     @Override
     public Alumno obtenerAlumno(String Matricula) {
-        return  iAlumnoModel.obtenerAlumno(Matricula);
+        return iAlumnoModel.obtenerAlumno(Matricula);
     }
 
     @Override
@@ -43,5 +40,5 @@ public class AlumnoService implements IAlumnoService{
     public void actualizarAlumno(Alumno alumno) {
         iAlumnoModel.actualizarAlumno(alumno);
     }
-    
+
 }
