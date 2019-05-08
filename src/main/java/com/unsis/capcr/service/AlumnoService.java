@@ -32,7 +32,7 @@ public class AlumnoService implements IAlumnoService {
     }
 
     @Override
-    public void eliminarAlumno(Long idAlumno) {
+    public void eliminarAlumno(String idAlumno) {
         iAlumnoModel.eliminarAlumno(idAlumno);
     }
 
