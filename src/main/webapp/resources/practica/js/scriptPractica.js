@@ -9,7 +9,6 @@
 
 $(document).ready(function () {
     
-   
     
     /*Paginar los registros en la tabla practica*/
     $('#miTabla').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:5});
@@ -17,7 +16,7 @@ $(document).ready(function () {
     /* Este id Selector es para mostrar el modal para crear un nueva practica*/
     $("#id-btn-crear-practica").click(function () {
         
-        $('#codigoPractica').prop('disabled', false);
+        $('#codigoPractica').attr('type', 'text');
         
         $('#crearPractica').val('1');
         $('#codigoPractica').val('');
@@ -34,7 +33,7 @@ $(document).ready(function () {
         var $columns = $row.find('td');
         
         $('#crearPractica').val('');
-        $('#codigoPractica').prop('disabled', true);
+        $('#codigoPractica').attr('type', 'hidden');
         
         $columns.addClass('row-highlight');
         var values = [4];

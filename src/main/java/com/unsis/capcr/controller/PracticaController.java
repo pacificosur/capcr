@@ -94,7 +94,7 @@ public class PracticaController extends HttpServlet {
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/practica/index.jsp");
         
-        String codigo= request.getParameter("codigoPractica");
+        String codigo= request.getParameter("codigoPractica");      
         String nombre = request.getParameter("nombrePractica");
         String semestre = request.getParameter("idSemestrePractica");
         String carrera = request.getParameter("idCarreraPractica");    
@@ -115,9 +115,9 @@ public class PracticaController extends HttpServlet {
     
      private void actualizar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/practica/index.jsp");
+       RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/practica/index.jsp");
         
-        String codigo= request.getParameter("codigoPractica");
+        String codigo= request.getParameter("codigoPractica");      
         String nombre = request.getParameter("nombrePractica");
         String semestre = request.getParameter("idSemestrePractica");
         String carrera = request.getParameter("idCarreraPractica");    
