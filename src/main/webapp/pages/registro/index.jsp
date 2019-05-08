@@ -39,10 +39,7 @@
             <td><c:out value="${registro.codigoPractica}"/></td>
             <td><c:out value="${registro.horaEntrada}"/></td>
             <td><c:out value="${registro.horaSalida}"/></td>
-            <td><c:out value="${registro.fecha}"/></td>
             <td><c:out value="${registro.sustituye}"/></td>
-            <td><c:out value="${registro.estado}"/></td>
-            <td><c:out value="${registro.comentario}"/></td>
             <td><button type="button" class="btn btn-success class-actualizar-registro"><i class="fa fa-edit"></i></button> </td>	
             <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/RegistroController?accion=eliminar&matriculaAlumno=<c:out value="${registro.matriculaAlumno}"/>"><i class="fa fa-trash"></i></a> </td>				
         </tr>

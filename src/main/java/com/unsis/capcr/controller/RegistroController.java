@@ -25,7 +25,7 @@ public class RegistroController extends HttpServlet{
         String accion = request.getParameter("accion");
         switch (accion) {
             case "index":
-                home(request, response);
+                index(request, response);
                 break;
             case "crear":
                 crear(request, response);
@@ -47,11 +47,16 @@ public class RegistroController extends HttpServlet{
         doGet(request,response);
     }
 
-    private void home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/registro/index.jsp");
         dispatcher.forward(request,response);
+        
+        IRegistroService iRegistroService = new RegistroService();
+        List<Registro> listaRegistro = iRegistroService.obtenerRegistros();
+        request.setAttribute("listaRegistro", listaRegistro);
+        dispatcher.forward(request, response);
     }
-
+/*
     private void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/registro/index.jsp");
         IRegistroService iRegistroService = new RegistroService(); 
@@ -59,7 +64,7 @@ public class RegistroController extends HttpServlet{
         request.setAttribute("listaRegistro",listaRegistro);
         dispatcher.forward(request,response);
     }
-    
+*/    
     private void crear(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/registro/index.jsp");
