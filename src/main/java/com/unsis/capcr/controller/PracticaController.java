@@ -13,15 +13,12 @@ import com.unsis.capcr.entity.Practica;
 import com.unsis.capcr.service.IPracticaService;
 import com.unsis.capcr.service.PracticaService;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.Date;
-import java.time.LocalDate;
 
 /**
  *
@@ -74,6 +71,7 @@ public class PracticaController extends HttpServlet {
         doGet(request, response);
     }
 
+    //
     private void listar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/practica/index.jsp");
