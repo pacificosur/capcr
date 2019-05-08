@@ -33,7 +33,7 @@
             <td><c:out value="${alumno.codigoSemestre}"/></td>
             <td><c:out value="${alumno.codigoCarrera}"/></td>
             <td><button type="button" class="btn btn-success class-actualizar-alumno"><i class="fa fa-edit"></i></button> </td>	
-            <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/AlumnosController?accion=eliminar&idAlumno<c:out value="${alumno.matricula}"/>"><i class="fa fa-trash"></i></a> </td>				
+            <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/AlumnosController?accion=eliminar&idAlumno=<c:out value="${alumno.matricula}"/>"><i class="fa fa-trash"></i></a> </td>				
         </tr>
     </c:forEach>
 </table>
