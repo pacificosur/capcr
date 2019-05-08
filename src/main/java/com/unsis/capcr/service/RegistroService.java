@@ -34,7 +34,7 @@ public class RegistroService implements IRegistroService {
 
     @Override
     public void actualizarRegistro(Registro registro) {
-        //iRegistroModel.actualizarRegistro(registro);
+        iRegistroModel.actualizarRegistro(registro);
     }
 
     @Override
