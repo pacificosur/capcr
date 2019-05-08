@@ -78,7 +78,7 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                         <ul class="nav navbar-nav">
-                            <li><a href="#intro">Alumno</a></li>
+                            <li><a href="${pageContext.request.contextPath}/AlumnosController?accion=index">Alumno</a></li>
                             <li><a href="${pageContext.request.contextPath}/PracticaController?accion=index">Práctica</a></li>
                             <li><a href="${pageContext.request.contextPath}/RegistroController?accion=index">Registro</a></li>
                             <li><a href="${pageContext.request.contextPath}/ReservacionController?accion=index">Reservaciones</a></li>

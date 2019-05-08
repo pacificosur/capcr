@@ -16,10 +16,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author LabTW06
- */
 public class AlumnoModel implements IAlumnoModel {
 
     private Connection connection;
@@ -28,7 +24,7 @@ public class AlumnoModel implements IAlumnoModel {
     private String query;
 
     @Override
-    public List<Alumno> obtenerAlumno() {
+    public List<Alumno> obtenerAlumnos() {
         ArrayList<Alumno> listaAlumnos = new ArrayList();
         try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();

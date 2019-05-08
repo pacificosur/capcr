@@ -19,7 +19,7 @@ public class Alumno {
     private Date fechaCreacion;
     private Date fechaActualizacion;
     private Date fechaEliminacion;
-    //Constructor
+    //Constructores
 
     public Alumno() {
     }
@@ -35,7 +35,7 @@ public class Alumno {
         this.fechaEliminacion = fechaEliminacion;
     }
 
-    //getters and setters
+    //getters and setters corepondientes a la clase Alumno
     public String getNombre() {
         return nombre;
     }
