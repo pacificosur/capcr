@@ -10,9 +10,6 @@
 package com.unsis.capcr.model;
 
 import com.unsis.capcr.entity.Registro;
-import com.unsis.capcr.entity.Alumno;
-import com.unsis.capcr.entity.Practica;
-import com.unsis.capcr.db.ConnectionPostgreSQL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,7 +27,7 @@ public class RegistroModel implements IRegistroModel{
     private String query;
 
     @Override
-    public List<Registro> obtenerRegistros() {
+    public List<Registro> obtenerRegistro() {
         ArrayList <Registro> listaRegistro = new ArrayList<>();
         try{
             connection = (Connection) new ConnectionPostgreSQL().conecta();
@@ -59,7 +56,7 @@ public class RegistroModel implements IRegistroModel{
     }
 
     @Override
-    public Registro obtenerRegistro(Long idRegistro) {
+    public Registro obtenerRegistros(Long idRegistro) {
         try{    
             connection = (Connection) new ConnectionPostgreSQL().conecta();
             query = "SELECT * FROM Registro WHERE matriculaalumno = ?";
@@ -92,10 +89,11 @@ public class RegistroModel implements IRegistroModel{
         try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
             query = "INSERT INTO Registro(matriculaAlumno, codigoPractica, horaEntrada, horaSalida, fecha, sustituye, estado, comentario)"
-                    + "VALUES(?, ?, now(), null, now(), null, 'en proceso', null); ";
+                    + "VALUES(?, ?, now(),  now(), now(),?, 'en proceso', null); ";
             statement = connection.prepareStatement(query);
             statement.setString(1, registro.getMatriculaAlumno());
             statement.setString(2, registro.getCodigoPractica());
+            statement.setString(3, registro.getSustituye());
             statement.executeUpdate();
             statement.close();
             connection.close();
@@ -106,7 +104,7 @@ public class RegistroModel implements IRegistroModel{
         return;
     }
 
-    public void actualizarRegistro(Registro registro) {
+    public void actualizarRegistros(Registro registro) {
         try{
             connection = (Connection) new ConnectionPostgreSQL().conecta();
             query = "update Registro set matriculaAlumno=?,codigoPractica=?,horaEntrada=now(),horaSalida=null,fecha=current_date,sustituye=null,estado='en proceso',comentario=null where matriculaAlumno=? ";
@@ -144,9 +142,44 @@ public class RegistroModel implements IRegistroModel{
         }
     }
     
-    /*public static void main(String[] args) {
-        IRegistroModel irm= new RegistroModel();
-        Registro r=new Registro();
-        System.out.println("Exito");
-    }*/
+    @Override
+    public Registro obtenerRegistroPorMatricula(String matricula) {
+        try{    
+            connection = (Connection) new ConnectionPostgreSQL().conecta();
+            query = "SELECT * FROM Registro WHERE matriculaalumno = ?";
+            statement = connection.prepareStatement(query);
+            statement.setString(1, matricula);
+            resultSet = statement.executeQuery();
+            Registro registro = new Registro();
+            while (resultSet.next()) {                
+                registro.setCodigoPractica(resultSet.getString("codigoPractica"));
+                registro.setMatriculaAlumno(resultSet.getString("matriculaAlumno"));
+                registro.setHoraEntrada(resultSet.getString("horaEntrada"));
+                registro.setHoraSalida(resultSet.getString("horaSalida"));
+                registro.setSustituye(resultSet.getString("sustituye")); 
+                break;
+            }
+            resultSet.close();
+            statement.close();
+            connection.close();
+            return registro;
+        }
+        catch(SQLException e){
+            System.out.println("Error: " + e.getMessage());
+            return null;
+        }
+    }
+    
+    
+    public static void main(String[] args) {
+        RegistroModel rm= new RegistroModel();
+        /*Registro r=new Registro("2018030379","1001","10:00","11:00","biblioteca");
+        rm.crearRegistro(r);
+        System.out.println(r.getMatriculaAlumno()+" "+r.getCodigoPractica());*/
+        
+        Registro r = rm.obtenerRegistroPorMatricula("2018030379");
+        System.out.println("Codigo: " + r.getCodigoPractica());
+    }
 }
+
+

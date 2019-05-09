@@ -14,9 +14,11 @@ import com.unsis.capcr.entity.Registro;
 import java.util.List;
 
 public interface IRegistroModel {
-    public List<Registro> obtenerRegistros();
-    public Registro obtenerRegistro(Long idRegistro);
+    public List<Registro> obtenerRegistro();
+    public Registro obtenerRegistros(Long idRegistro);
     public void crearRegistro(Registro registro);
-    public void actualizarRegistro(Registro registro);
+    public void actualizarRegistros(Registro registro);
     public void eliminarRegistro(Long idRegistro);
+    
+    public Registro obtenerRegistroPorMatricula(String matricula);
 }
