@@ -25,7 +25,27 @@ $(document).ready(function () {
         $('#idCarreraPractica').val('');
         $("#id-modal-practica").modal();
     });
+    
+    $('.class-eliminar-reservacion').click(function () {
+        var $row = jQuery(this).closest('tr');
+        var $columns = $row.find('td');
 
+        $columns.addClass('row-highlight');
+        var values = [8];
+
+        jQuery.each($columns, function (i, item) {
+            values[i] = item.innerHTML;
+        });
+                
+        $('#idReservacion-eliminar').val(values[0]);
+        $('#idArea-eliminar').text(values[3]);
+        $('#idAreaResponsable-eliminar').text(values[4]);
+        $('#idPractica-eliminar').text(values[3]);
+        $('#idPracticaResponsable-eliminar').text(values[4]);
+
+        $("#id-modal-reservacion-eliminar").modal();
+    });
+    
     /* Esta clase Selector es para mostrar el modal para actualizar una practica*/
     $('.class-actualizar-practica').click(function () {
         

@@ -111,7 +111,7 @@ public class AlumnoModel implements IAlumnoModel {
     public void actualizarAlumno(Alumno alumno) {
         try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "UPDATE Alumno SET nombre=?, grupo=?, fechaactualizacion=now(), codigosemestre=?, codigocarrera=? where matricula=? ";
+            query = "UPDATE Alumno set nombre=?, grupo=?, fechaactualizacion=now(), codigosemestre=?, codigocarrera=? where matricula=? ";
             statement = (PreparedStatement) statement.executeQuery(query);
             statement.setString(1, alumno.getNombre());
             statement.setString(2, alumno.getGrupo());

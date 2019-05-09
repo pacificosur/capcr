@@ -28,6 +28,7 @@
         <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
         <link href="${pageContext.request.contextPath}/resources/img/lamp.ico" rel="shortcut icon">
 
+         <link href="${pageContext.request.contextPath}/resources/alumno/css/cssAlumno.css" rel="stylesheet" />
         <link href="${pageContext.request.contextPath}/resources/reservacion/css/cssReservacion.css" rel="stylesheet" />
         <link href="${pageContext.request.contextPath}/resources/practica/css/cssPractica.css" rel="stylesheet" />
 
