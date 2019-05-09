@@ -20,8 +20,6 @@ import javax.servlet.http.HttpServletResponse;
 
 public class AlumnosController extends HttpServlet {
 
-    private IAlumnoService iAlumnoService = new AlumnoService();
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -46,7 +44,6 @@ public class AlumnosController extends HttpServlet {
         } catch (IOException | ServletException e) {
             System.out.println("Error: " + e.getMessage());
         }
-
     }
 
     @Override
@@ -58,12 +55,27 @@ public class AlumnosController extends HttpServlet {
     private void index(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/alumno/index.jsp");
+        IAlumnoService iAlumnoService = new AlumnoService();
         List<Alumno> listaAlumno = iAlumnoService.obtenerAlumnos();
         request.setAttribute("listaAlumno", listaAlumno);
         dispatcher.forward(request, response);
     }
 
-    //implementación del método crear
+    private void listar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/alumno/index.jsp");
+
+        IAlumnoService iAlumnoService = new AlumnoService();
+        List<Alumno> listaAlumno = iAlumnoService.obtenerAlumnos();
+        System.out.println(listaAlumno.size());
+
+        for (Alumno alumno : listaAlumno) {
+            System.out.println(alumno.getMatricula() + " " + alumno.getNombre() + " " + alumno.getGrupo() + " " + alumno.getFechaCreacion() + " " + alumno.getFechaActualizacion() + " " + alumno.getFechaEliminacion() + " " + alumno.getCodigoSemestre() + " " + alumno.getCodigoCarrera());
+        }
+        request.setAttribute("listaAlumno", listaAlumno);
+        dispatcher.forward(request, response);
+    }
+
     private void crear(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -91,7 +103,6 @@ public class AlumnosController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    //implementación del método actualizar
     private void actualizar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -119,21 +130,19 @@ public class AlumnosController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    //implementación del método eliminar
     private void eliminar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/alumno/index.jsp");
 
-        Long idAlumno = Long.parseLong(request.getParameter("idAlumno"));
+        String idAlumno = (request.getParameter("idAlumno"));
 
         IAlumnoService iAlumnoService = new AlumnoService();
         iAlumnoService.eliminarAlumno(idAlumno);
 
-        List<Alumno> listaReservacion = iAlumnoService.obtenerAlumnos();
-        //request.setAttribute("listaAlumno", listaAlumno);
+        List<Alumno> listaAlumno = iAlumnoService.obtenerAlumnos();
+        request.setAttribute("listaAlumno", listaAlumno);
         dispatcher.forward(request, response);
 
     }
-
 }

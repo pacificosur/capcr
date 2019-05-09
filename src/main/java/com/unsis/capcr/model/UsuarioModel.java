@@ -2,7 +2,7 @@
  * Autor: Belisario Nazario Anselmo
  * E-mail: unsis.b@gmail.com
  * Fecha Creación: 04/04/2019
- * Fecha Modificación: 09/04/2019
+ * Fecha Modificación: 08/05/2019
  * Descripción: implementación del CRUD para el módulo de Usuario.
  */
 package com.unsis.capcr.model;
@@ -80,38 +80,6 @@ public class UsuarioModel implements IUsuarioModel {
         return null;
     }
 
-    /*public static void main(String[] args) {
-        IUsuarioModel um = new UsuarioModel();
-        Usuario u = new Usuario();   
-        u.setNombre("Hiraldas");
-        u.setApellidos("Castro");
-        u.setNombreUsuario("unsis3");
-        u.setContraseña("12345");
-        u.setTipo(2);
-        um.crearRegistro(u);
-
-        //Para probar obtenerUsuarios.
-        /*for (Usuario u : um.obtenerUsuarios()) {
-            System.out.println(u.getNombre());
-        }*/
-        //Para probar obtenerUsuario.
-        /*Usuario u = new Usuario();
-        u = um.obtenerUsuario(new Long(1));
-        System.out.println(u.getNombre()+u.getApellidos());*/
-        //Para probar ActualizarRegistro.
-        /*Usuario u = new Usuario();   
-        u.setNombre("Hiraldas");
-        u.setApellidos("Castro");
-        u.setNombreUsuario("unsis3");
-        u.setContraseña("12345");
-        u.setTipo(2);
-        u.setIdUsuario(new Long(1));
-        um.actualizarRegistro(u);*/
-        //para eliminar.
-       // um.eliminarRegistro(new Long(2));
-
-   //}
-
     @Override
     public void crearRegistro(Usuario usuario) {
         try {
@@ -170,7 +138,7 @@ public class UsuarioModel implements IUsuarioModel {
 
     @Override
     public boolean logueo(Usuario usuario) {
-        boolean c=false;
+        boolean c = false;
         try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
             query = "SELECT * FROM usuario WHERE nombreusuario = ? AND contraseña=?";
@@ -180,17 +148,46 @@ public class UsuarioModel implements IUsuarioModel {
 
             resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                c=true;
+                c = true;
                 break;
             }
             resultSet.close();
             connection.close();
             statement.close();
-            
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return c;
     }
 
+    /*public static void main(String[] args) {
+        IUsuarioModel um = new UsuarioModel();
+        Usuario u = new Usuario();   
+        /*u.setNombre("Hiraldas");
+        u.setApellidos("Castro");
+        u.setNombreUsuario("unsis3");
+        u.setContraseña("12345");
+        u.setTipo(2);
+        um.crearRegistro(u);*/
+    //Para probar obtenerUsuarios.
+    /*for (Usuario u : um.obtenerUsuarios()) {
+            System.out.println(u.getNombre());
+        }*/
+    //Para probar obtenerUsuario.
+    /*Usuario u = new Usuario();
+        u = um.obtenerUsuario(new Long(1));
+        System.out.println(u.getNombre()+u.getApellidos());*/
+    //Para probar ActualizarRegistro.
+    /*Usuario u = new Usuario();   
+        u.setNombre("Hiraldas");
+        u.setApellidos("Castro");
+        u.setNombreUsuario("unsis3");
+        u.setContraseña("12345");
+        u.setTipo(2);
+        u.setIdUsuario(new Long(1));
+        um.actualizarRegistro(u);*/
+    //para eliminar.
+    // um.eliminarRegistro(new Long(6));
+    //}
 }

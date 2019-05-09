@@ -1,77 +1,67 @@
 /*
- * Autor: Hiralda Castro Cisneros
- * E-mail: hiraldac.cisneros@gmail.com
- * Fecha Creación: 03/05/2019
- * Fecha Modificación: 03/05/2019
- * Descripción: scritp para manipular el modulo de
- *              Practica.
+ * Autor: Belisario Nazario Anselmo
+ * E-mail: unsis.b@gmail.com
+ * Fecha Creación: 08/05/2019
+ * Fecha Modificación: 08/05/2019
+ * Descripción: scritp para manipular la creacion y actualizacion del modulo de
+ *              usuario.
  */
-
 $(document).ready(function () {
-
-    /*Modifica los mensajes de error en el input*/
-    var intputElements = document.getElementsByTagName("INPUT");
-    for (var i = 0; i < intputElements.length; i++) {
-        intputElements[i].oninvalid = function (e) {
-            e.target.setCustomValidity("");
-            if (!e.target.validity.valid) {
-                if(e.target.validity.valueMissing)
-                    e.target.setCustomValidity("El campo esta vacio");
-                else {
-                    e.target.setCustomValidity("El valor es incorrecto");
-                }
-
-
-            }
-        };
-    }
-    
-    /*Paginar los registros en la tabla practica*/
+    /*Panginar los registros en la tabla usuario*/
     $('#miTabla').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:5});
     
-    /* Este id Selector es para mostrar el modal para crear un nueva practica*/
-    $("#id-btn-crear-practica").click(function () {
-        
-        /*Modifica la parte del código para crear una practica*/
-        $('#grupoCodigoPractica').show(); 
-        $('#crearPractica').val('1');
-        
-        /*Limpia el formulario*/
-        $('#codigoPractica').val('');
-        $('#nombrePractica').val('');
-        $('#idSemestrePractica').val('');
-        $('#idCarreraPractica').val('');
-        $("#id-modal-practica").modal();
+    /* Este id Selector es para mostrar el modal para crear un nuevo usuario*/
+    $("#id-btn-crear-usuario").click(function () {
+        $("#id-modal-usuario").modal();
     });
-
-    /* Esta clase Selector es para mostrar el modal para actualizar una practica*/
-    $('.class-actualizar-practica').click(function () {
-        
-        /*Modifica la parte del código para actualizar una practica*/
-        $('#crearPractica').val('');
-        $('#grupoCodigoPractica').hide(); 
-        
+    
+    /* Esta clase Selector es para mostrar el modal para eliminar un usuario*/
+    $('.class-eliminar-usuario').click(function () {
         var $row = jQuery(this).closest('tr');
         var $columns = $row.find('td');
-        
-        
-        
+
         $columns.addClass('row-highlight');
-        var values = [4];
+        var values = [8];
 
         jQuery.each($columns, function (i, item) {
             values[i] = item.innerHTML;
         });
-        $('#codigoPractica').val(values[0]);
-        $('#nombrePractica').val(values[1]);
-        $('#idSemestrePractica').val(values[2]);
-        $('#idCarreraPractica').val(values[3]);
+                
+        $('#idUsuario-eliminar').val(values[0]);
+        $('#idNombre-eliminar').text(values[1]);
+        $('#idApellidos-eliminar').text(values[2]);
+        $('#idNombreUsuario-eliminar').text(values[3]);
+        $('#idContrasena-eliminar').text(values[4]);
+        $('#idTipo-eliminar').text(values[5]);
+        
+        $("#id-modal-usuario-eliminar").modal();
+    });
 
-        $("#id-modal-practica").modal();
+    /* Esta clase Selector es para mostrar el modal para actualizar un usuario*/
+    $('.class-actualizar-usuario').click(function () {
+        var $row = jQuery(this).closest('tr');
+        var $columns = $row.find('td');
+
+        $columns.addClass('row-highlight');
+        var values = [8];
+
+        jQuery.each($columns, function (i, item) {
+            values[i] = item.innerHTML;
+        });
+        $('#idUsuario').val(values[0]);
+        $('#idNombre').val(values[1]);
+        $('#idApellidos').val(values[2]);
+        $('#idNombreUsuario').val(values[3]);
+        $('#idContrasena').val(values[4]);
+        $('#idContrasena2').val(values[4]);
+        $('#idTipo').val(values[5]);
+
+        $("#id-modal-usuario").modal();
     });
 });
 
-/* función para paginar los registros*/
+
+/* función para paginar los usuario*/
 $.fn.pageMe = function(opts){
     var $this = this,
         defaults = {

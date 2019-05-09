@@ -61,7 +61,7 @@ public class PracticaModel implements IPracticaModel{
         ArrayList<Practica> listaPractica= new ArrayList<>();
         try {
             connection=(Connection) new ConnectionPostgreSQL().conecta();
-            query="SELECT * FROM Practica";
+            query="SELECT * FROM Practica where fechaeliminacion is null";
             statement= connection.prepareStatement(query);
             resultSet = statement.executeQuery();
             
@@ -115,7 +115,7 @@ public class PracticaModel implements IPracticaModel{
             statement.setString(1,practica.getNombre()); 
             statement.setString(2,practica.getIdSemestre()); 
             statement.setString(3,practica.getIdCarrera());  
-            statement.setString(6,practica.getCodigo()); 
+            statement.setString(4,practica.getCodigo()); 
             statement.executeUpdate();
             statement.close();
             connection.close();
@@ -143,14 +143,6 @@ public class PracticaModel implements IPracticaModel{
         IPracticaModel pm = new PracticaModel();
         java.util.Date d = new java.util.Date(); 
         Practica practica = new Practica("1003","lavado de manos","01","03",new java.sql.Date(d.getTime()),null,null);
-        //pm.crearPractica(practica);
-//        List<Practica> a=pm.getPracticas("0", "0");
-//        for (Practica practica : a) {
-//            System.out.println(practica.getCodigo()+" "+practica.getNombre()+" "+practica.getIdSemestre()+" "+practica.getIdCarrera()+" "+practica.getFechaCreacion()+" "+practica.getFechaActualizacion()+" "+practica.getFechaEliminacion());
-//        }
-//        Practica a=pm.getPractica("1001");
-//        System.out.println(a.getCodigo()+" "+a.getNombre()+" "+a.getIdSemestre()+" "+a.getIdCarrera()+" "+a.getFechaCreacion()+" "+a.getFechaActualizacion()+" "+a.getFechaEliminacion());
-//         pm.eliminarPractica("1001");
         pm.actualizarPractica(practica);
     }
     

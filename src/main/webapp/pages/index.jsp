@@ -19,12 +19,12 @@
                 <div class="wow fadeInRight" data-wow-delay="0.1s">
 
                     <ul class="lead-list">
-                        <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Affordable monthly premium packages</strong><br />Lorem ipsum dolor sit amet, in verterem persecuti vix, sit te meis</span></li>
-                        <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Choose your favourite doctor</strong><br />Lorem ipsum dolor sit amet, in verterem persecuti vix, sit te meis</span></li>
-                        <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Only use friendly environment</strong><br />Lorem ipsum dolor sit amet, in verterem persecuti vix, sit te meis</span></li>
+                        <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Modifica tu Información</strong><br />Cambia tus datos de usuario. </span></li>
+                        <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Registro  de asistencias en menos tiempo.</strong><br />Registra las asistencias de forma rápida y sencilla.</span></li>
+                        <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Recuperación de registros.</strong><br />Recupera la información de asistencias con sólo un click.</span></li>
                     </ul>
                     <p class="text-right wow bounceIn" data-wow-delay="0.4s">
-                        <a href="#" class="btn btn-skin btn-lg">Learn more <i class="fa fa-angle-right"></i></a>
+                        <a href="#boxes" class="btn btn-skin btn-lg">Leer más <i class="fa fa-angle-right"></i></a>
                     </p>
                 </div>
             </div>
@@ -104,9 +104,9 @@
                     <div class="box text-center">
 
                         <i class="fa fa-check fa-3x circled bg-skin"></i>
-                        <h4 class="h-bold">Make an appoinment</h4>
+                        <h4 class="h-bold">Clínica Robotizada</h4>
                         <p>
-                            Lorem ipsum dolor sit amet, nec te mollis utroque honestatis, ut utamur molestiae vix, graecis eligendi ne.
+                             Integrada por instalaciones y equipo de lo más apegados a la realidad.
                         </p>
                     </div>
                 </div>
@@ -116,9 +116,9 @@
                     <div class="box text-center">
 
                         <i class="fa fa-list-alt fa-3x circled bg-skin"></i>
-                        <h4 class="h-bold">Choose your package</h4>
+                        <h4 class="h-bold">Hacer una reservación</h4>
                         <p>
-                            Lorem ipsum dolor sit amet, nec te mollis utroque honestatis, ut utamur molestiae vix, graecis eligendi ne.
+                           Haz una reservación de una área de la Clínica Robotizada.
                         </p>
                     </div>
                 </div>
@@ -127,9 +127,9 @@
                 <div class="wow fadeInUp" data-wow-delay="0.2s">
                     <div class="box text-center">
                         <i class="fa fa-user-md fa-3x circled bg-skin"></i>
-                        <h4 class="h-bold">Help by specialist</h4>
+                        <h4 class="h-bold">Personal Autorizado</h4>
                         <p>
-                            Lorem ipsum dolor sit amet, nec te mollis utroque honestatis, ut utamur molestiae vix, graecis eligendi ne.
+                            El uso de este sistema va dirigido a los técnicos encargados de la Clínica Robotizada y personal autorizado por el administrador de CAPCR.
                         </p>
                     </div>
                 </div>
@@ -139,9 +139,9 @@
                     <div class="box text-center">
 
                         <i class="fa fa-hospital-o fa-3x circled bg-skin"></i>
-                        <h4 class="h-bold">Get diagnostic report</h4>
+                        <h4 class="h-bold">CAPCR genera reportes</h4>
                         <p>
-                            Lorem ipsum dolor sit amet, nec te mollis utroque honestatis, ut utamur molestiae vix, graecis eligendi ne.
+                            Además de registrar las asistencias a prácticas en la Clínica Robotizada, CAPCR genera reportes de asistencias.
                         </p>
                     </div>
                 </div>

@@ -18,7 +18,7 @@ public interface IAlumnoService {
 
     public void crearAlumno(Alumno alumno);
 
-    public void eliminarAlumno(Long idAlumno);
+    public void eliminarAlumno(String idAlumno);
 
     public void actualizarAlumno(Alumno alumno);
 

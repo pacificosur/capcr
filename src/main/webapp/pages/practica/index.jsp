@@ -7,8 +7,8 @@
     Fecha Modificación: 03/05/2019
     Descripción: página principal del módulo de Practica.
 --%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html"
+         %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -22,19 +22,21 @@
     <button type="button" class="btn btn-success" id="id-btn-crear-practica"><i class="fa fa-plus"></i>&nbsp;Crear Practica</button>
     <br/>
 
-    <table id="idTable" class="table table-hover">
+    <div class="table-responsive">
+        <table id="idTable" class="table table-hover" style="width:100%">
         <thead class="thead-dark">
             <tr>
-                <td>Codigo</td>
-                <td>Nombre</td>
-                <td>Id Semestre</td>
-                <td>Id Carrera</td>
-                <td>Fecha creación</td>
-                <td>Fecha Actualización</td>
-                <td>Fecha Eliminación</td>
-                <td colspan=2>ACCIONES</td>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Id Semestre</th>
+                <th>Id Carrera</th>
+                <th>Fecha creación</th>
+                <th>Fecha Actualización</th>
+                <th>Fecha Eliminación</th>
+                <th colspan=2>ACCIONES</th>
             </tr>
         </thead>
+        <tbody id="miTabla">
     <c:forEach var="practica" items="${listaPractica}">
         <tr>
             <td><c:out value="${practica.codigo}"/></td>
@@ -48,7 +50,12 @@
             <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/PracticaController?accion=eliminar&codigoPractica=<c:out value="${practica.codigo}"/>"><i class="fa fa-trash"></i></a> </td>				
         </tr>
     </c:forEach>
+        </tbody>
 </table>
+ </div>
+ <div class="col-md-12 text-center">
+    <ul class="pagination pagination-lg pager" id="myPager"></ul>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="id-modal-practica" role="dialog">
@@ -56,34 +63,34 @@
 
         <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header text-center" >
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 style="color:red;"><span class="glyphicon glyphicon-lock"></span></h4>
+                <img class="img-logo-modal-header" src="${pageContext.request.contextPath}/resources/practica/img/logo-modal-header.png" />
             </div>
             <div class="modal-body">
-                <form action="${pageContext.request.contextPath}/PracticaController?accion=crear" method="POST" role="form">
+                <form action="${pageContext.request.contextPath}/PracticaController?accion=crear" method="POST" role="form" id="formulario">
                     <div class="form-group">
-                        <input type="hidden" name="vacio" class="form-control">
+                        <input id="crearPractica" type="hidden" name="crearPractica" class="form-control">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group"  id="grupoCodigoPractica">
                         <label for="codigoPractica"><span class="glyphicon glyphicon-user"></span>Codigo</label>
-                        <input type="text" name="codigoPractica" class="form-control" id="codigoPractica" placeholder="Ingrese el codigo">
+                        <input type="text" name="codigoPractica" class="form-control" id="codigoPractica" placeholder="Ingrese el codigo" required pattern="[0-9]{4}" required>
                     </div>
                     <div class="form-group">
                         <label for="nombrePractica"><span class="glyphicon glyphicon-user"></span>Nombre</label>
-                        <input type="text" name="nombrePractica" class="form-control" id="nombrePractica" placeholder="Ingrese el nombre">
+                        <input type="text" name="nombrePractica" class="form-control" id="nombrePractica" placeholder="Ingrese el nombre" required>
                     </div>
                     <div class="form-group">
                         <label for="idSemestrePractica"><span class="glyphicon glyphicon-eye-open"></span>Semestre</label>
-                        <input type="text" name="idSemestrePractica" class="form-control" id="idSemestrePractica" placeholder="Ingrese el codigo del semestre">
+                        <input type="text" name="idSemestrePractica" class="form-control" id="idSemestrePractica" placeholder="Ingrese el codigo del semestre" required pattern="[0-9]{2}" required>
                     </div>
                     <div class="form-group">
                         <label for="idCarreraPractica"><span class="glyphicon glyphicon-eye-open"></span>Carrera</label>
-                        <input type="text" name="idCarreraPractica" class="form-control" id="idCarreraPractica" placeholder="Ingrese el codigo de carrera">
+                        <input type="text" name="idCarreraPractica" class="form-control" id="idCarreraPractica" placeholder="Ingrese el codigo de carrera" required pattern="[0-9]{2}" required>
                     </div>
 
-                    <button type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Guardar</button>
+                    <button id="guardarPractica" type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Guardar</button>
                 </form>
             </div>
             <div class="modal-footer">
