@@ -2,7 +2,8 @@
   Autor: García Ramírez Pedro Eliezer
   E-mail: pg548169@gmail.com  
   Fecha Creación: 07/05/2019
-  Fecha Modificación: -/-/-
+  Fecha Modificación: 08/05/2019
+  Descripción: Creación de jsp del logueo
   Tecnologias web I
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
