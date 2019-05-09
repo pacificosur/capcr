@@ -1,11 +1,10 @@
 <%-- 
     Autor: Belisario Nazario Anselmo
     E-mail: unsis.b@gmail.com
-    Fecha Creación: 04/04/2019
-    Fecha Modificación: 07/05/2019
-    Descripción: página principal del módulo de Usuario.
+    Fecha Creación: 05/04/2019
+    Fecha Modificación: 08/05/2019
+    Descripción: página principal del módulo de usuario.
 --%>
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 
@@ -13,9 +12,8 @@
 <%--El header se encuentra en la carpeta layouts en la carpeta pages
     El header incluye desde la etiqueta <!DOCTYPE html> hasta el segundo div dentro de Section: intro--%>
 <jsp:include page="../../pages/layouts/header.jsp"></jsp:include>
-
     <br/>
-    <button type="button" class="btn btn-success" id="id-btn-crear-usuario"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Crear Usuario</button>
+    <button type="button" class="btn btn-success" id="id-btn-crear-usuario"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Crear usuario</button>
     <br/>
     <div class="table-responsive">
         <table id="idTable" class="table table-hover" style="width:100%">
@@ -40,7 +38,7 @@
                     <td><c:out value="${usuario.contraseña}"/></td>
                     <td><c:out value="${usuario.tipo}"/></td> 
                     <td><button type="button" class="btn btn-success class-actualizar-usuario"><i class="fa fa-edit"></i></button> </td>
-                    <td><button type="button" class="btn btn-danger class-eliminar-usuario"><i class="fa fa-trash"></i></button> </td>			
+                    <td><button type="button" class="btn btn-danger class-eliminar-usuario"><i class="fa fa-trash"></i></button> </td>
                 </tr>
             </c:forEach>
         </tbody>
@@ -59,48 +57,48 @@
             <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <img class="img-logo-modal-header" src="${pageContext.request.contextPath}/resources/usuario/img/logo-modal-header.png" />
-                <!--                <h4 style="color: forestgreen; text-align: center"><span class="fa fa-lock"></span>&nbsp Usuario</h4>-->
             </div>
             <div class="modal-body">
                 <form action="${pageContext.request.contextPath}/UsuarioController?accion=crear" method="POST" role="form">
+
                     <div class="form-group">
                         <input type="hidden" name="idUsuario" class="form-control" id="idUsuario" >
                     </div>
 
                     <div class="form-group">
-                        <label for="nombre"><span class="glyphicon glyphicon-user"></span>Nombre</label>
-                        <input type="text" name="idNombre" class="form-control" id="idNombre" placeholder="Ingrese el nombre">
+                        <label for="nombre"><span class="fa fa-building"></span>&nbsp NOMBRE</label>
+                        <input type="text" name="idNombre" class="form-control" id="idNombre" required pattern="^[\w\.\-\s]+$" placeholder="Ingrese el nombre">
                     </div>
                     <div class="form-group">
-                        <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Apellido</label>
-                        <input type="text" name="idApellidos" class="form-control" id="idApellidos" placeholder="Paterno    Materno">
+                        <label for="psw"><span class="fa fa-user"></span>&nbsp APELLIDOS</label>
+                        <input type="text" name="idApellidos" class="form-control" id="idApellidos" required pattern="^[\w\.\-\s]+$" placeholder="Ingrese los apellidos">
                     </div>
 
                     <div class="form-group">
-                        <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Usuario</label>
-                        <input type="text" name="idNombreUsuario" class="form-control" id="idNombreUsuario" placeholder="nuevo usuario">
+                        <label for="psw"><span class="fa fa-list"></span>&nbsp USUARIO</label>
+                        <input type="text" name="idNombreUsuario" class="form-control" id="idNombreUsuario" placeholder="Ingrese el usuario">
                     </div>
 
                     <div class="form-group">
-                        <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Contraseña</label>
-                        <input type="text" name="idContraseña" class="form-control" id="idContraseña" placeholder="Ingrese la contraseña">
+                        <label for="psw"><span class="fa fa-user"></span>&nbsp CONTRASEÑA</label>
+                        <input type="text" name="idContrasena" class="form-control" id="idContrasena" required pattern="^[\w\.\-\s]+$" placeholder="Ingrese la contraseña">
                     </div>
 
                     <div class="form-group">
-                        <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Confirmar contraseña</label>
-                        <input type="text" name="idContraseña2" class="form-control" id="idContraseña2" placeholder="Confirme su contraseña">
+                        <label for="psw"><span class="fa fa-user"></span>&nbsp REPETIR CONTRASEÑA</label>
+                        <input type="text" name="idContrasena2" class="form-control" id="idContrasena2" required pattern="^[\w\.\-\s]+$" placeholder="Confirme la contraseña">
                     </div>
 
                     <div class="form-group">
-                        <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Tipo</label>
-                        <input type="text" name="idTipo" class="form-control" id="idTipo" placeholder="Ingrese el tipo">
+                        <label for="psw"><span class="fa fa-user"></span>&nbsp TIPO</label>
+                        <input type="text" name="idTipo" class="form-control" id="idTipo" required pattern="^[\w\.\-\s]+$" placeholder="Ingrese el tipo">
                     </div>
 
-                    <button type="submit" class="btn btn-default btn-success btn-block"><span class="fa fa-save"></span>&nbsp Guardar</button>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-default btn-success"><span class="fa fa-save"></span>&nbsp Guardar</button>
+                        <button type="submit" class="btn btn-default btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Cancel</button>          
+                    </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-default btn-danger btn-block" data-dismiss="modal"><span class="fa fa-close"></span> Cancel</button>          
             </div>
         </div>
     </div>
@@ -113,32 +111,39 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header text-center">
-                <h1>¿Está seguro de eliminar este registro?</h1>
+                <h1>¿Está seguro de eliminar este usuario?</h1>
             </div>
             <div class="modal-body">
                 <form action="${pageContext.request.contextPath}/UsuarioController?accion=eliminar" method="POST" role="form">
+
                     <div class="form-group">
                         <input type="hidden" name="idUsuario-eliminar" class="form-control" id="idUsuario-eliminar" >
                     </div>
 
                     <div class="form-group">
-                        <label for="Nombre">Nombre:</label>
+                        <label for="nombre">NOMBRE:</label>
                         <p id="idNombre-eliminar"></p>
                     </div>
                     <div class="form-group">
-                        <label for="psw">Apellido</label>
-                        <p id="idApellido-eliminar"></p>                       
+                        <label for="psw">APELLIDOS</label>
+                        <p id="idApellidos-eliminar"></p>                       
                     </div>
 
                     <div class="form-group">
-                        <label for="psw">Usuario</label>
+                        <label for="psw">USUARIO</label>
                         <p id="idNombreUsuario-eliminar"></p> 
                     </div>
 
                     <div class="form-group">
-                        <label for="psw">Tipo</label>
+                        <label for="psw">CONTRASEÑA</label>
+                        <p id="idContrasena-eliminar"></p>                         
+                    </div>
+
+                    <div class="form-group">
+                        <label for="psw">TIPO</label>
                         <p id="idTipo-eliminar"></p>                         
                     </div>
+
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-default btn-success"><span class="fa fa-trash"></span>&nbsp Eliminar</button>
                         <button type="submit" class="btn btn-default btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Cancel</button>  
@@ -148,6 +153,7 @@
         </div>
     </div>
 </div> 
+
 <%-- El footer se encuentra en la carperta layouts en la carpeta pages.
 el footer incluye dos div arriba de section y incluye todo (el footer y los archivos JavaScript) antes de donde cierra la etiqueta body
 --%> 

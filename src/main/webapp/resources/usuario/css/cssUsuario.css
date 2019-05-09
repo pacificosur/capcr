@@ -1,0 +1,16 @@
+/*
+ * Autor: Rolando Pedro Gabriel
+ * E-mail: rolando.pedro.gabriel@gmail.com
+ * Fecha Creación: 06/05/2019
+ * Fecha Modificación: 06/05/2019
+ * Descripción: estilo para el modulo de reservación.
+ */
+
+.img-logo-modal-header {
+    height: 90px; 
+    width: 90px; 
+    border-radius: 50px;
+    margin-top: -50px;
+}
+
+.table-responsive {height:280px;}
