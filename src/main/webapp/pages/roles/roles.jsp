@@ -54,11 +54,12 @@
                             <input type="radio" class="form-check-input" id="radio<c:out value="${rol.idRol}"/> " name="optradio" value="option1" checked><c:out value="${rol.nombre}"/>                                        </label>
                         </div>
                     </c:forEach>
-                    <button id="asignarRol" type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Asingar rol</button>
+                    
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-default btn-default btn-success btn-block" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Cancelar</button>          
+                <button id="asignarRol" type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Asingar rol</button>
+                <button type="submit" class="btn btn-default btn-default btn-danger btn-block" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Cancelar</button>          
             </div>
         </div>
     </div>
