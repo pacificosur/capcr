@@ -22,4 +22,6 @@ public interface IRegistroService {
     public void actualizarRegistro(Registro registro);
 
     public void eliminarRegistro(Long idRegistro);
+    
+    public Registro obtenerRegistroPorMatricula(String matricula);
 }

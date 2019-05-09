@@ -19,12 +19,12 @@ public class RegistroService implements IRegistroService {
 
     @Override
     public List<Registro> obtenerRegistros() {
-        return iRegistroModel.obtenerRegistros();
+        return iRegistroModel.obtenerRegistro();
     }
 
     @Override
     public Registro obtenerRegistro(Long idRegistro) {
-        return iRegistroModel.obtenerRegistro(idRegistro);
+        return iRegistroModel.obtenerRegistros(idRegistro);
     }
 
     @Override
@@ -34,12 +34,17 @@ public class RegistroService implements IRegistroService {
 
     @Override
     public void actualizarRegistro(Registro registro) {
-        iRegistroModel.actualizarRegistro(registro);
+        iRegistroModel.actualizarRegistros(registro);
     }
 
     @Override
     public void eliminarRegistro(Long idRegistro) {
         iRegistroModel.eliminarRegistro(idRegistro);
+    }
+
+    @Override
+    public Registro obtenerRegistroPorMatricula(String matricula) {
+        return iRegistroModel.obtenerRegistroPorMatricula(matricula);
     }
             
 }
