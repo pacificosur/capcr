@@ -7,8 +7,8 @@
     Fecha Modificación: 03/05/2019
     Descripción: página principal del módulo de Practica.
 --%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html"
+         %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -26,7 +26,7 @@
         <table id="idTable" class="table table-hover" style="width:100%">
         <thead class="thead-dark">
             <tr>
-                <th>Codigo</th>
+                <th>Código</th>
                 <th>Nombre</th>
                 <th>Id Semestre</th>
                 <th>Id Carrera</th>
@@ -73,21 +73,21 @@
                         <input id="crearPractica" type="hidden" name="crearPractica" class="form-control">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group"  id="grupoCodigoPractica">
                         <label for="codigoPractica"><span class="glyphicon glyphicon-user"></span>Codigo</label>
-                        <input type="text" name="codigoPractica" class="form-control" id="codigoPractica" placeholder="Ingrese el codigo" class="required">
+                        <input type="text" name="codigoPractica" class="form-control" id="codigoPractica" placeholder="Ingrese el codigo" required pattern="[0-9]{4}" required>
                     </div>
                     <div class="form-group">
                         <label for="nombrePractica"><span class="glyphicon glyphicon-user"></span>Nombre</label>
-                        <input type="text" name="nombrePractica" class="form-control" id="nombrePractica" placeholder="Ingrese el nombre" class="required">
+                        <input type="text" name="nombrePractica" class="form-control" id="nombrePractica" placeholder="Ingrese el nombre" required>
                     </div>
                     <div class="form-group">
                         <label for="idSemestrePractica"><span class="glyphicon glyphicon-eye-open"></span>Semestre</label>
-                        <input type="text" name="idSemestrePractica" class="form-control" id="idSemestrePractica" placeholder="Ingrese el codigo del semestre" class="required">
+                        <input type="text" name="idSemestrePractica" class="form-control" id="idSemestrePractica" placeholder="Ingrese el codigo del semestre" required pattern="[0-9]{2}" required>
                     </div>
                     <div class="form-group">
                         <label for="idCarreraPractica"><span class="glyphicon glyphicon-eye-open"></span>Carrera</label>
-                        <input type="text" name="idCarreraPractica" class="form-control" id="idCarreraPractica" placeholder="Ingrese el codigo de carrera" class="required">
+                        <input type="text" name="idCarreraPractica" class="form-control" id="idCarreraPractica" placeholder="Ingrese el codigo de carrera" required pattern="[0-9]{2}" required>
                     </div>
 
                     <button id="guardarPractica" type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Guardar</button>

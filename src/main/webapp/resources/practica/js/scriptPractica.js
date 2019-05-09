@@ -8,7 +8,23 @@
  */
 
 $(document).ready(function () {
-    
+
+    /*Modifica los mensajes de error en el input*/
+    var intputElements = document.getElementsByTagName("INPUT");
+    for (var i = 0; i < intputElements.length; i++) {
+        intputElements[i].oninvalid = function (e) {
+            e.target.setCustomValidity("");
+            if (!e.target.validity.valid) {
+                if(e.target.validity.valueMissing)
+                    e.target.setCustomValidity("El campo esta vacio");
+                else {
+                    e.target.setCustomValidity("El valor es incorrecto");
+                }
+
+
+            }
+        };
+    }
     
     /*Paginar los registros en la tabla practica*/
     $('#miTabla').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:5});
@@ -16,9 +32,11 @@ $(document).ready(function () {
     /* Este id Selector es para mostrar el modal para crear un nueva practica*/
     $("#id-btn-crear-practica").click(function () {
         
-        $('#codigoPractica').attr('type', 'text');
-        
+        /*Modifica la parte del código para crear una practica*/
+        $('#grupoCodigoPractica').show(); 
         $('#crearPractica').val('1');
+        
+        /*Limpia el formulario*/
         $('#codigoPractica').val('');
         $('#nombrePractica').val('');
         $('#idSemestrePractica').val('');
@@ -49,11 +67,14 @@ $(document).ready(function () {
     /* Esta clase Selector es para mostrar el modal para actualizar una practica*/
     $('.class-actualizar-practica').click(function () {
         
+        /*Modifica la parte del código para actualizar una practica*/
+        $('#crearPractica').val('');
+        $('#grupoCodigoPractica').hide(); 
+        
         var $row = jQuery(this).closest('tr');
         var $columns = $row.find('td');
         
-        $('#crearPractica').val('');
-        $('#codigoPractica').attr('type', 'hidden');
+        
         
         $columns.addClass('row-highlight');
         var values = [4];

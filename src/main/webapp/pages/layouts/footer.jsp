@@ -91,7 +91,7 @@
                 <div class="col-sm-6 col-md-6 col-lg-6">
                     <div class="wow fadeInLeft" data-wow-delay="0.1s">
                         <div class="text-left">
-                            <p>&copy;Copyright - Medicio Theme. All rights reserved.</p>
+                            <p>&copy;Copyright - Universidad de la Sierra Sur. All rights reserved.</p>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
                                   Licensing information: https://bootstrapmade.com/license/
                                   Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Medicio
                                 -->
-                                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                                Deseñado por <a href="http://www.unsis.edu.mx/">Alumnos de Tecnologías Web I - 2019</a>
                             </div>
                         </div>
                     </div>
