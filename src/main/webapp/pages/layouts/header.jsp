@@ -72,7 +72,7 @@
                             <i class="fa fa-bars"></i>
                         </button>
                         <a class="navbar-brand" href="${pageContext.request.contextPath}/pages/index.jsp">
-                            <img src="${pageContext.request.contextPath}/resources/img/LogoCAP.png" alt="" width="150" height="40" />
+                            <img src="${pageContext.request.contextPath}/resources/img/Logo_1.png" alt="" width="150" height="40" />
                         </a>
                     </div>
 
