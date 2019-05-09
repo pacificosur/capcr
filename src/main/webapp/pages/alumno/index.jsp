@@ -25,15 +25,15 @@
             <td colspan=2>ACCIONES</td>
         </tr>
     </thead>
-    <c:forEach var="alumnos" items="${listaAlumnos}">
+    <c:forEach var="alumno" items="${listaAlumno}">
         <tr>
-            <td><c:out value="${alumno.Matricula}"/></td>
-            <td><c:out value="${alumno.Nombre}"/></td>
-            <td><c:out value="${alumno.Grupo}"/></td>
-            <td><c:out value="${alumno.CodigoSemetre}"/></td>
-            <td><c:out value="${alumno.CodigoCarrera}"/></td>
+            <td><c:out value="${alumno.matricula}"/></td>
+            <td><c:out value="${alumno.nombre}"/></td>
+            <td><c:out value="${alumno.grupo}"/></td>
+            <td><c:out value="${alumno.codigoSemestre}"/></td>
+            <td><c:out value="${alumno.codigoCarrera}"/></td>
             <td><button type="button" class="btn btn-success class-actualizar-alumno"><i class="fa fa-edit"></i></button> </td>	
-            <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/AlumnosController?accion=eliminar&idAlumno<c:out value="${alumno.Matricula}"/>"><i class="fa fa-trash"></i></a> </td>				
+            <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/AlumnosController?accion=eliminar&idAlumno<c:out value="${alumno.matricula}"/>"><i class="fa fa-trash"></i></a> </td>				
         </tr>
     </c:forEach>
 </table>
