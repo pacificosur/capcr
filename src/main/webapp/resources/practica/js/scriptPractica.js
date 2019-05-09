@@ -47,12 +47,14 @@ $(document).ready(function () {
     /* Esta clase Selector es para mostrar el modal para actualizar una practica*/
     $('.class-actualizar-practica').click(function () {
         
-        var $row = jQuery(this).closest('tr');
-        var $columns = $row.find('td');
-        
         /*Modifica la parte del código para actualizar una practica*/
         $('#crearPractica').val('');
         $('#grupoCodigoPractica').hide(); 
+        
+        var $row = jQuery(this).closest('tr');
+        var $columns = $row.find('td');
+        
+        
         
         $columns.addClass('row-highlight');
         var values = [4];
