@@ -11,6 +11,7 @@ import com.unsis.capcr.entity.Rol;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class RolModel implements IRolModel{
             }
             return listaRol;
         }
-        catch(Exception e)
+        catch(SQLException e)
         {
             System.out.println(e.getMessage());
         }
