@@ -83,7 +83,7 @@
                     </div>
                     <div class="form-group">
                         <label for="idSemestrePractica"><span class="glyphicon glyphicon-eye-open"></span>Semestre</label>
-                        <input type="text" name="idSemestrePractica" class="form-control" id="idSemestrePractica" placeholder="Ingrese el codigo del semestre" maxlength="4" required pattern="[0-9]{2}" required>
+                        <input type="text" name="idSemestrePractica" class="form-control" id="idSemestrePractica" placeholder="Ingrese el codigo del semestre" required pattern="[0-9]{2}" required>
                     </div>
                     <div class="form-group">
                         <label for="idCarreraPractica"><span class="glyphicon glyphicon-eye-open"></span>Carrera</label>
