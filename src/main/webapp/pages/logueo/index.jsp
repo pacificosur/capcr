@@ -1,9 +1,10 @@
-<%-- 
-    Document   : JSP Logueo
-    Created on : 2/05/2019, 02:10:49 PM
-    Author     : Pedro Eliezer García Ramírez
+<%--
+  Autor: García Ramírez Pedro Eliezer
+  E-mail: pg548169@gmail.com  
+  Fecha Creación: 07/05/2019
+  Fecha Modificación: -/-/-
+  Tecnologias web I
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,6 +15,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/webjars/fontawesome/4.7.0/css/font-awesome.min.css">
         <script src="${pageContext.request.contextPath}/webjars/bootstrap/4.2.1/js/bootstrap.min.js"></script>
         <script src="${pageContext.request.contextPath}/webjars/jquery/3.0.0/jquery.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/logueo/js/validar.js"></script>
         <link href="${pageContext.request.contextPath}/resources/img/lamp.ico" rel="shortcut icon">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/logueo/css/estilo1.css">
     </head>
@@ -37,7 +39,7 @@
                                   <input onkeypress="return soloLetras(event)" type="text" name="user" class="form-control" id="user" placeholder="Usuario" required autofocus>
                                 </div>
                                 <div class="form-group">
-                                  <input onkeypress="return soloLetras(event)" type="password" name="password" class="form-control" id="password" id="Contraseña" placeholder="Contraseña" required>
+                                  <input type="password" name="password" class="form-control" id="password" id="Contraseña" placeholder="Contraseña" required>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" name="boton" class="btn btn-primary  btn-block">Iniciar</button>
@@ -52,25 +54,5 @@
                 </div>
             </div>
         </div>
-        <script>
-            function soloLetras(e){
-               key = e.keyCode || e.which;
-               tecla = String.fromCharCode(key).toLowerCase();
-               letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
-               especiales = "8-37-39-46";
-
-               tecla_especial = false
-               for(var i in especiales){
-                    if(key == especiales[i]){
-                        tecla_especial = true;
-                        break;
-                    }
-                }
-
-                if(letras.indexOf(tecla)==-1 && !tecla_especial){
-                    return false;
-                }
-            }
-        </script>
     </body>
 </html>

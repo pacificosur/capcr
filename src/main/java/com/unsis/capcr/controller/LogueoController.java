@@ -7,11 +7,9 @@ Tecnologias web I
 */
 package com.unsis.capcr.controller;
 
-import com.unsis.capcr.entity.Reservacion;
 import com.unsis.capcr.entity.Usuario;
 import com.unsis.capcr.model.IUsuarioModel;
 import com.unsis.capcr.model.UsuarioModel;
-import com.unsis.capcr.service.IReservacionService;
 import com.unsis.capcr.service.IUsuarioService;
 import com.unsis.capcr.service.UsuarioService;
 import java.io.IOException;

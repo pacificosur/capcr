@@ -90,8 +90,8 @@ public class AlumnoModel implements IAlumnoModel {
     public void crearAlumno(Alumno alumno) {
         try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "INSERT INTO alumno(matricula, nombre, grupo, fechaCreación, fechaActualizacion, fechaEliminacion, codigoSemestre, codigoCarrera"
-                    + "VALUES(?,?,?,now(),null,null,?,?))";
+            query = "INSERT INTO alumno(matricula, nombre, grupo, fechacreacion, fechaactualizacion, fechaeliminacion, codigosemestre, codigocarrera)"
+                    + " VALUES(?,?,?,now(),null,null,?,?)";
             statement = connection.prepareStatement(query);
             statement.setString(1, alumno.getMatricula());
             statement.setString(2, alumno.getNombre());
@@ -111,7 +111,7 @@ public class AlumnoModel implements IAlumnoModel {
     public void actualizarAlumno(Alumno alumno) {
         try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "UPDATE Alumno SET nombre=?, grupo=?, fechaActualizacion=now(), codigoSemestre=?, codigoCarrera=? where matricula=? ";
+            query = "UPDATE Alumno SET nombre=?, grupo=?, fechaactualizacion=now(), codigosemestre=?, codigocarrera=? where matricula=? ";
             statement = (PreparedStatement) statement.executeQuery(query);
             statement.setString(1, alumno.getNombre());
             statement.setString(2, alumno.getGrupo());
@@ -127,13 +127,13 @@ public class AlumnoModel implements IAlumnoModel {
     }
 
     @Override
-    public void eliminarAlumno(Long idAlumno) {
+    public void eliminarAlumno(String idAlumno) {
         try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "UPDATE Alumno set fechaEliminacion=now()"
+            query = "UPDATE Alumno set fechaeliminacion=now()"
                     + " where matricula=? ";
             statement = connection.prepareStatement(query);
-            statement.setLong(1, idAlumno);
+            statement.setString(1, idAlumno);
             statement.executeUpdate();
             statement.close();
             connection.close();
