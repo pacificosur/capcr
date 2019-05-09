@@ -81,12 +81,12 @@
 
                     <div class="form-group">
                         <label for="psw"><span class="fa fa-user"></span>&nbsp CONTRASEÑA</label>
-                        <input type="text" name="idContrasena" class="form-control" id="idContrasena" required pattern="^[\w\.\-\s]+$" placeholder="Ingrese la contraseña">
+                        <input type="password" name="idContrasena" class="form-control" id="idContrasena" required pattern="^[\w\.\-\s]+$" placeholder="Ingrese la contraseña">
                     </div>
 
                     <div class="form-group">
                         <label for="psw"><span class="fa fa-user"></span>&nbsp REPETIR CONTRASEÑA</label>
-                        <input type="text" name="idContrasena2" class="form-control" id="idContrasena2" required pattern="^[\w\.\-\s]+$" placeholder="Confirme la contraseña">
+                        <input type="password" name="idContrasena2" class="form-control" id="idContrasena2" required pattern="^[\w\.\-\s]+$" placeholder="Confirme la contraseña">
                     </div>
 
                     <div class="form-group">
@@ -95,7 +95,7 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-default btn-success"><span class="fa fa-save"></span>&nbsp Guardar</button>
+                        <button type="submit" class="btn btn-default btn-success" ><span class="fa fa-save"></span>&nbsp Guardar</button>
                         <button type="submit" class="btn btn-default btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Cancel</button>          
                     </div>
                 </form>
