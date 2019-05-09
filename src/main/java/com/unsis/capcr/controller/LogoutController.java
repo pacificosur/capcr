@@ -2,7 +2,7 @@
   Autor: García Ramírez Pedro Eliezer
   E-mail: pg548169@gmail.com  
   Fecha Creación: 07/05/2019
-  Fecha Modificación: -/-/-
+  Fecha Modificación: 08/05/2019
 Tecnologias web I
 */
 package com.unsis.capcr.controller;
@@ -25,7 +25,7 @@ public class LogoutController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html");  
         PrintWriter out=response.getWriter();     
-        request.getRequestDispatcher("/capcr/pages/index.jsp").include(request, response);      
+        request.getRequestDispatcher("/capcr/pages/index.jsp").include(request, response);    /*Al hacer click en Logout nos redirecciona a la página de logueo*/  
         Cookie ck=new Cookie("user","");  
         ck.setMaxAge(0);  
         response.addCookie(ck);  

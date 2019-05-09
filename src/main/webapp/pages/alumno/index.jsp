@@ -14,17 +14,19 @@
 <br/>
 <button type="button" class="btn btn-success" id="id-btn-crear-alumno"><i class="fa fa-plus"></i>&nbsp;Crear Alumno</button>
 <br/>
+<div class="table-responsive">
 <table id="idTable" class="table">
     <thead class="thead-dark">
         <tr>
-            <td>MATRICULA</td>
-            <td>NOMBRE</td>
-            <td>GRUPO</td>
-            <td>SEMESTRE</td>
-            <td>CARRERA</td>
-            <td colspan=2>ACCIONES</td>
+            <th>MATRICULA</th>
+            <th>NOMBRE</th>
+            <th>GRUPO</th>
+            <th>SEMESTRE</th>
+            <th>CARRERA</th>
+            <th colspan=2>ACCIONES</th>
         </tr>
     </thead>
+    <tbody id="miTabla">
     <c:forEach var="alumno" items="${listaAlumno}">
         <tr>
             <td><c:out value="${alumno.matricula}"/></td>
@@ -33,10 +35,16 @@
             <td><c:out value="${alumno.codigoSemestre}"/></td>
             <td><c:out value="${alumno.codigoCarrera}"/></td>
             <td><button type="button" class="btn btn-success class-actualizar-alumno"><i class="fa fa-edit"></i></button> </td>	
-            <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/AlumnosController?accion=eliminar&idAlumno<c:out value="${alumno.matricula}"/>"><i class="fa fa-trash"></i></a> </td>				
+            <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/AlumnosController?accion=eliminar&idAlumno=<c:out value="${alumno.matricula}"/>"><i class="fa fa-trash"></i></a> </td>				
         </tr>
     </c:forEach>
+    </tbody>
 </table>
+</div>
+ <div class="col-md-12 text-center">
+    <ul class="pagination pagination-lg pager" id="myPager"></ul>
+</div>
+
 <!-- Modal -->
 <div class="modal fade" id="id-modal-alumno" role="dialog">
     <div class="modal-dialog">
@@ -48,6 +56,7 @@
             </div>
             <div class="modal-body">
                 <form action="${pageContext.request.contextPath}/AlumnosController?accion=crear" method="POST" role="form">
+                    
                     <div class="form-group">
                         <label for="matricula"><span class="glyphicon glyphicon-user"></span>&nbsp Matricula</label>
                         <input type="text" name="matricula" class="form-control" id="idMatricula" placeholder="Ingrese la matricula">
@@ -77,6 +86,8 @@
         </div>
     </div>
  </div>  
+
+
     <%-- El footer se encuentra en la carperta layouts en la carpeta pages.
     el footer incluye dos div arriba de section y incluye todo (el footer y los archivos JavaScript) antes de donde cierra la etiqueta body--%> 
     <jsp:include page="../../pages/layouts/footer.jsp"></jsp:include>

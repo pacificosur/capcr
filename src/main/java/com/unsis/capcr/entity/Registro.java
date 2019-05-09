@@ -17,6 +17,14 @@ public class Registro {
     private String horaSalida;
     private String sustituye;
     
+    public Registro(String matriculaAlumno, String codigoPractica, String horaEntrada, String horaSalida, String sustituye){
+        this.matriculaAlumno=matriculaAlumno;
+        this.codigoPractica=codigoPractica;
+        this.horaEntrada=horaEntrada;
+        this.horaSalida=horaSalida;
+        this.sustituye=sustituye;
+    }
+    
     public Registro(){
         
     }

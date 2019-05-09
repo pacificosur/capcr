@@ -28,6 +28,7 @@
         <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
         <link href="${pageContext.request.contextPath}/resources/img/lamp.ico" rel="shortcut icon">
 
+         <link href="${pageContext.request.contextPath}/resources/alumno/css/cssAlumno.css" rel="stylesheet" />
         <link href="${pageContext.request.contextPath}/resources/reservacion/css/cssReservacion.css" rel="stylesheet" />
         <link href="${pageContext.request.contextPath}/resources/practica/css/cssPractica.css" rel="stylesheet" />
 
@@ -71,8 +72,8 @@
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                             <i class="fa fa-bars"></i>
                         </button>
-                        <a class="navbar-brand" href="index.jsp">
-                            <img src="${pageContext.request.contextPath}/resources/img/lamp.png" alt="" width="150" height="40" />
+                        <a class="navbar-brand" href="${pageContext.request.contextPath}/pages/index.jsp">
+                            <img src="${pageContext.request.contextPath}/resources/img/Logo_1.png" alt="" width="150" height="40" />
                         </a>
                     </div>
 

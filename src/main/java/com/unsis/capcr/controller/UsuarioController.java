@@ -2,7 +2,7 @@
  * Autor: Belisario Nazario Anselmo
  * E-mail: unsis.b@gmail.com
  * Fecha Creación: 04/04/2019
- * Fecha Modificación: 08/04/2019
+ * Fecha Modificación: 08/05/2019
  * Descripción: implementación de la clase controladora para el módulo de 
  *              Usuario.
  */
@@ -25,6 +25,10 @@ public class UsuarioController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String accion = request.getParameter("accion");
+
+        if (accion.equals("crear") && request.getParameter("idUsuario") != null && !request.getParameter("idUsuario").equals("")) {
+            accion = "actualizar";
+        }
         switch (accion) {
             case "home":
                 home(request, response);
@@ -36,11 +40,11 @@ public class UsuarioController extends HttpServlet {
                 crear(request, response);
                 break;
             case "eliminar":
-                    eliminar(request, response);
-                    break;
-                case "actualizar":
-                    actualizar(request, response);
-                    break;
+                eliminar(request, response);
+                break;
+            case "actualizar":
+                actualizar(request, response);
+                break;
             default:
                 break;
         }
@@ -67,73 +71,82 @@ public class UsuarioController extends HttpServlet {
 
     private void crear(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/usuario/index.jsp");
 
         String Nombre = request.getParameter("idNombre");
         String Apellidos = request.getParameter("idApellidos");
         String idNombreUsuario = request.getParameter("idNombreUsuario");
-        String idContraseña = request.getParameter("idContraseña");
-        String idContraseña2 = request.getParameter("idContraseña2");
+        String idContraseña = request.getParameter("idContrasena");
+        String idContraseña2 = request.getParameter("idContrasena2");
         int idTipo = Integer.parseInt(request.getParameter("idTipo").trim());
-        
-        Usuario usuario = new Usuario();
-        usuario.setNombre(Nombre);
-        usuario.setApellidos(Apellidos);
-        usuario.setNombreUsuario(idNombreUsuario);
-        usuario.setContraseña(idContraseña);
-        usuario.setTipo(idTipo);
+        if (idContraseña.equals(idContraseña2)) {
 
-        IUsuarioService iUsuarioService = new UsuarioService();
-        iUsuarioService.crearRegistro(usuario);
+            Usuario usuario = new Usuario();
+            usuario.setNombre(Nombre);
+            usuario.setApellidos(Apellidos);
+            usuario.setNombreUsuario(idNombreUsuario);
+            usuario.setContraseña(idContraseña);
+            usuario.setTipo(idTipo);
 
-        List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
-        request.setAttribute("listaUsuario", listaUsuario);
-        dispatcher.forward(request, response);
+            IUsuarioService iUsuarioService = new UsuarioService();
+            iUsuarioService.crearRegistro(usuario);
+
+            List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
+            request.setAttribute("listaUsuario", listaUsuario);
+            dispatcher.forward(request, response);
+
+        } else {
+            System.out.println("Contraseñas no son iguales");
+        }
 
     }
-    
+
     private void actualizar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/usuario/listar.jsp");
-        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/usuario/index.jsp");
+
         Long idUsuario = Long.parseLong(request.getParameter("idUsuario"));
         String Nombre = request.getParameter("idNombre");
         String Apellidos = request.getParameter("idApellidos");
         String idNombreUsuario = request.getParameter("idNombreUsuario");
-        String idContraseña = request.getParameter("idContraseña");
-        String idContraseña2 = request.getParameter("idContraseña2");
+        String idContraseña = request.getParameter("idContrasena");
+        String idContraseña2 = request.getParameter("idContrasena2");
         int idTipo = Integer.parseInt(request.getParameter("idTipo").trim());
-        
-        Usuario usuario = new Usuario();
-        usuario.setIdUsuario(idUsuario);
-        usuario.setNombre(Nombre);
-        usuario.setApellidos(Apellidos);
-        usuario.setNombreUsuario(idNombreUsuario);
-        usuario.setContraseña(idContraseña);
-        usuario.setTipo(idTipo);
-        usuario.setIdUsuario(idUsuario);
-        
-        IUsuarioService iUsuarioService = new UsuarioService();
-        iUsuarioService.actualizarRegistro(usuario);
-        
-        List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
-        request.setAttribute("listaUsuario", listaUsuario);
-	dispatcher.forward(request, response);        
+
+        if (idContraseña.equals(idContraseña2)) {
+
+            Usuario usuario = new Usuario();
+            usuario.setIdUsuario(idUsuario);
+            usuario.setNombre(Nombre);
+            usuario.setApellidos(Apellidos);
+            usuario.setNombreUsuario(idNombreUsuario);
+            usuario.setContraseña(idContraseña);
+            usuario.setTipo(idTipo);
+            usuario.setIdUsuario(idUsuario);
+
+            IUsuarioService iUsuarioService = new UsuarioService();
+            iUsuarioService.actualizarRegistro(usuario);
+
+            List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
+            request.setAttribute("listaUsuario", listaUsuario);
+            dispatcher.forward(request, response);
+        } else {
+            System.out.println("Contraseñas no son iguales");
+        }
     }
 
     private void eliminar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/usuario/listar.jsp");
-        
-        Long idUsuario = Long.parseLong(request.getParameter("idUsuario"));
-        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/usuario/index.jsp");
+        Long idUsuario = Long.parseLong(request.getParameter("idUsuario-eliminar"));
+
         IUsuarioService iUsuarioService = new UsuarioService();
         iUsuarioService.eliminarRegistro(idUsuario);
-        
+
         List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
         request.setAttribute("listaUsuario", listaUsuario);
-	dispatcher.forward(request, response);        
+        dispatcher.forward(request, response);
     }
-    
+
 }

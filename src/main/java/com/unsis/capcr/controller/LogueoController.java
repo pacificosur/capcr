@@ -3,6 +3,7 @@
   E-mail: pg548169@gmail.com  
   Fecha Creación: 24/04/2019
   Fecha Modificación: 03/05/2019
+  Descripción: Servlet que comprueba si el logueo es correcto
 Tecnologias web I
 */
 package com.unsis.capcr.controller;
@@ -37,13 +38,13 @@ public class LogueoController extends HttpServlet {
             usr.setNombreUsuario(user);
             usr.setContraseña(password);
             if(iuser.logueo(usr)){
-                Cookie ck=new Cookie("user",user);  
-                response.addCookie(ck);
-                response.sendRedirect("/capcr/pages/index.jsp");
+                Cookie ck=new Cookie("user",user);  /**Creación de un objeto cookie*/
+                response.addCookie(ck);/*si el usuario y contraseña es correcto agrega una cookie*/
+                response.sendRedirect("/capcr/pages/index.jsp");/*Manda a la página inicial del proyecto*/
 
             }
             else{
-                response.sendRedirect("/capcr/pages/logueo/index.jsp");
+                response.sendRedirect("/capcr/pages/logueo/index.jsp");/*Contraseña incorrecta vuelve a recargar la página*/
             }
             
     }
