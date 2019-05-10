@@ -19,13 +19,13 @@
         <table id="idTable" class="table table-hover" style="width:100%">
             <thead>
                 <tr>
-                    <td>ID</td>
-                    <td>NOMBRE</td>
-                    <td>APELLIDO</td>
-                    <td>USUARIO</td>
-                    <td>CONTRASEÑA</td>
-                    <td>TIPO</td>
-                    <td colspan=2>ACCIONES</td>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>APELLIDO</th>
+                    <th>USUARIO</th>
+                    <th>CONTRASEÑA</th>
+                    <th>TIPO</th>
+                    <th colspan=2>ACCIONES</th>
                 </tr>
             </thead>
             <tbody id="miTabla">
@@ -69,6 +69,7 @@
                         <label for="nombre"><span class="fa fa-building"></span>&nbsp NOMBRE</label>
                         <input type="text" name="idNombre" class="form-control" id="idNombre" required pattern="^[\w\.\-\s]+$" placeholder="Ingrese el nombre">
                     </div>
+            
                     <div class="form-group">
                         <label for="psw"><span class="fa fa-user"></span>&nbsp APELLIDOS</label>
                         <input type="text" name="idApellidos" class="form-control" id="idApellidos" required pattern="^[\w\.\-\s]+$" placeholder="Ingrese los apellidos">
@@ -80,12 +81,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="psw"><span class="fa fa-user"></span>&nbsp CONTRASEÑA</label>
+                        <label for="psw"><span class=" fa fa-lock"></span>&nbsp CONTRASEÑA</label>
                         <input type="password" name="idContrasena" class="form-control" id="idContrasena" required pattern="^[\w\.\-\s]+$" placeholder="Ingrese la contraseña">
                     </div>
 
                     <div class="form-group">
-                        <label for="psw"><span class="fa fa-user"></span>&nbsp REPETIR CONTRASEÑA</label>
+                        <label for="psw"><span class=" fa fa-lock"></span>&nbsp REPETIR CONTRASEÑA</label>
                         <input type="password" name="idContrasena2" class="form-control" id="idContrasena2" required pattern="^[\w\.\-\s]+$" placeholder="Confirme la contraseña">
                     </div>
 

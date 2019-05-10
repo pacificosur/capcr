@@ -7,6 +7,9 @@
  *              usuario.
  */
 $(document).ready(function () {
+    
+        
+                
     /*Panginar los registros en la tabla usuario*/
     $('#miTabla').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:5});
     

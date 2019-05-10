@@ -97,7 +97,7 @@ public class UsuarioController extends HttpServlet {
             dispatcher.forward(request, response);
 
         } else {
-            System.out.println("Contraseñas no son iguales");
+            response.sendRedirect("/capcr/pages/usuario/index.jsp");
         }
 
     }
@@ -132,7 +132,7 @@ public class UsuarioController extends HttpServlet {
             request.setAttribute("listaUsuario", listaUsuario);
             dispatcher.forward(request, response);
         } else {
-            System.out.println("Contraseñas no son iguales");
+            response.sendRedirect("/capcr/pages/usuario/index.jsp");
         }
     }
 
