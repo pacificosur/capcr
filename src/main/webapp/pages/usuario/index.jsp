@@ -35,7 +35,7 @@
                     <td><c:out value="${usuario.nombre}"/></td>
                     <td><c:out value="${usuario.apellidos}"/></td>
                     <td><c:out value="${usuario.nombreUsuario}"/></td>
-                    <td><c:out value="${usuario.contraseña}"/></td>
+                    <td style="-webkit-text-security: disc;"><c:out value="${usuario.contraseña}"/></td>
                     <td><c:out value="${usuario.tipo}"/></td> 
                     <td><button type="button" class="btn btn-success class-actualizar-usuario"><i class="fa fa-edit"></i></button> </td>
                     <td><button type="button" class="btn btn-danger class-eliminar-usuario"><i class="fa fa-trash"></i></button> </td>
