@@ -59,47 +59,49 @@
                 <img class="img-logo-modal-header" src="${pageContext.request.contextPath}/resources/usuario/img/logo-modal-header.png" />
             </div>
             <div class="modal-body">
-                <form action="${pageContext.request.contextPath}/UsuarioController?accion=crear" method="POST" role="form">
 
-                    <div class="form-group">
-                        <input type="hidden" name="idUsuario" class="form-control" id="idUsuario" >
-                    </div>
+<!--<form action="${pageContext.request.contextPath}/UsuarioController?accion=crear" method="POST" role="form">-->
 
-                    <div class="form-group">
-                        <label for="nombre"><span class="fa fa-building"></span>&nbsp NOMBRE</label>
-                        <input type="text" name="idNombre" class="form-control" id="idNombre" required pattern="^[\w\.\-\s]+$" placeholder="Ingrese el nombre">
-                    </div>
-            
-                    <div class="form-group">
-                        <label for="psw"><span class="fa fa-user"></span>&nbsp APELLIDOS</label>
-                        <input type="text" name="idApellidos" class="form-control" id="idApellidos" required pattern="^[\w\.\-\s]+$" placeholder="Ingrese los apellidos">
-                    </div>
+                <div class="form-group">
+                    <input type="hidden" name="idUsuario" class="form-control" id="idUsuario" >
+                </div>
 
-                    <div class="form-group">
-                        <label for="psw"><span class="fa fa-list"></span>&nbsp USUARIO</label>
-                        <input type="text" name="idNombreUsuario" class="form-control" id="idNombreUsuario" placeholder="Ingrese el usuario">
-                    </div>
+                <div class="form-group">
+                    <label for="nombre"><span class="fa fa-building"></span>&nbsp NOMBRE</label>
+                    <input type="text" name="idNombre" class="form-control" id="idNombre" required pattern="^[\w\.\-\s]+$" placeholder="Ingrese el nombre">
+                </div>
 
-                    <div class="form-group">
-                        <label for="psw"><span class=" fa fa-lock"></span>&nbsp CONTRASEÑA</label>
-                        <input type="password" name="idContrasena" class="form-control" id="idContrasena" required pattern="^[\w\.\-\s]+$" placeholder="Ingrese la contraseña">
-                    </div>
+                <div class="form-group">
+                    <label for="psw"><span class="fa fa-user"></span>&nbsp APELLIDOS</label>
+                    <input type="text" name="idApellidos" class="form-control" id="idApellidos" required pattern="^[\w\.\-\s]+$" placeholder="Ingrese los apellidos">
+                </div>
 
-                    <div class="form-group">
-                        <label for="psw"><span class=" fa fa-lock"></span>&nbsp REPETIR CONTRASEÑA</label>
-                        <input type="password" name="idContrasena2" class="form-control" id="idContrasena2" required pattern="^[\w\.\-\s]+$" placeholder="Confirme la contraseña">
-                    </div>
+                <div class="form-group">
+                    <label for="psw"><span class="fa fa-list"></span>&nbsp USUARIO</label>
+                    <input type="text" name="idNombreUsuario" class="form-control" id="idNombreUsuario" placeholder="Ingrese el usuario">
+                </div>
 
-                    <div class="form-group">
-                        <label for="psw"><span class="fa fa-user"></span>&nbsp TIPO</label>
-                        <input type="text" name="idTipo" class="form-control" id="idTipo" required pattern="^[\w\.\-\s]+$" placeholder="Ingrese el tipo">
-                    </div>
+                <div class="form-group">
+                    <label for="psw"><span class=" fa fa-lock"></span>&nbsp CONTRASEÑA</label>
+                    <input type="password" name="idContrasena" class="form-control" id="idContrasena" required pattern="^[\w\.\-\s]+$" placeholder="Ingrese la contraseña">
+                </div>
 
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-default btn-success" ><span class="fa fa-save"></span>&nbsp Guardar</button>
-                        <button type="submit" class="btn btn-default btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Cancel</button>          
-                    </div>
-                </form>
+                <div class="form-group">
+                    <label for="psw"><span class=" fa fa-lock"></span>&nbsp REPETIR CONTRASEÑA</label>
+                    <input type="password" name="idContrasena2" class="form-control" id="idContrasena2" required pattern="^[\w\.\-\s]+$" placeholder="Confirme la contraseña">
+                </div>
+
+                <div class="form-group">
+                    <label for="psw"><span class="fa fa-user"></span>&nbsp TIPO</label>
+                    <input type="text" name="idTipo" class="form-control" id="idTipo" required pattern="^[\w\.\-\s]+$" placeholder="Ingrese el tipo">
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" id="boton-enviar-datos" class="btn btn-default btn-success" ><span class="fa fa-save"></span>&nbsp Guardar</button>
+
+                    <button type="submit" class="btn btn-default btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Cancel</button>          
+                </div>
+                <!--</form>-->
             </div>
         </div>
     </div>
@@ -154,6 +156,30 @@
         </div>
     </div>
 </div> 
+
+
+<!-- Modal mensaje -->
+<div class="modal fade" id="id-modal-usuario-pwd-igual" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h1>Contrasenia</h1>
+            </div>
+            <div class="modal-body">
+                <div class="modal-header text-center">
+                    <h1>Las contraseñas insertadas no son iguales.</h1>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-default btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Aceptar</button>  
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>                 
 
 <%-- El footer se encuentra en la carperta layouts en la carpeta pages.
 el footer incluye dos div arriba de section y incluye todo (el footer y los archivos JavaScript) antes de donde cierra la etiqueta body

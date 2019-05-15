@@ -26,6 +26,8 @@ public class UsuarioController extends HttpServlet {
             throws ServletException, IOException {
         String accion = request.getParameter("accion");
 
+        System.out.println("------->" + accion);
+
         if (accion.equals("crear") && request.getParameter("idUsuario") != null && !request.getParameter("idUsuario").equals("")) {
             accion = "actualizar";
         }
@@ -78,28 +80,21 @@ public class UsuarioController extends HttpServlet {
         String Apellidos = request.getParameter("idApellidos");
         String idNombreUsuario = request.getParameter("idNombreUsuario");
         String idContraseña = request.getParameter("idContrasena");
-        String idContraseña2 = request.getParameter("idContrasena2");
         int idTipo = Integer.parseInt(request.getParameter("idTipo").trim());
-        if (idContraseña.equals(idContraseña2)) {
+        Usuario usuario = new Usuario();
+        usuario.setNombre(Nombre);
+        usuario.setApellidos(Apellidos);
+        usuario.setNombreUsuario(idNombreUsuario);
+        usuario.setContraseña(idContraseña);
+        usuario.setTipo(idTipo);
 
-            Usuario usuario = new Usuario();
-            usuario.setNombre(Nombre);
-            usuario.setApellidos(Apellidos);
-            usuario.setNombreUsuario(idNombreUsuario);
-            usuario.setContraseña(idContraseña);
-            usuario.setTipo(idTipo);
+        IUsuarioService iUsuarioService = new UsuarioService();
+        iUsuarioService.crearRegistro(usuario);
+        List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
+        request.setAttribute("listaUsuario", listaUsuario);
+        dispatcher.forward(request, response);
 
-            IUsuarioService iUsuarioService = new UsuarioService();
-            iUsuarioService.crearRegistro(usuario);
-
-            List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
-            request.setAttribute("listaUsuario", listaUsuario);
-            dispatcher.forward(request, response);
-
-        } else {
-            response.sendRedirect("/capcr/pages/usuario/index.jsp");
-        }
-
+        response.sendRedirect("/pages/usuario/index.jsp");
     }
 
     private void actualizar(HttpServletRequest request, HttpServletResponse response)
@@ -111,29 +106,26 @@ public class UsuarioController extends HttpServlet {
         String Apellidos = request.getParameter("idApellidos");
         String idNombreUsuario = request.getParameter("idNombreUsuario");
         String idContraseña = request.getParameter("idContrasena");
-        String idContraseña2 = request.getParameter("idContrasena2");
         int idTipo = Integer.parseInt(request.getParameter("idTipo").trim());
 
-        if (idContraseña.equals(idContraseña2)) {
+        Usuario usuario = new Usuario();
+        usuario.setIdUsuario(idUsuario);
+        usuario.setNombre(Nombre);
+        usuario.setApellidos(Apellidos);
+        usuario.setNombreUsuario(idNombreUsuario);
+        usuario.setContraseña(idContraseña);
+        usuario.setTipo(idTipo);
+        usuario.setIdUsuario(idUsuario);
 
-            Usuario usuario = new Usuario();
-            usuario.setIdUsuario(idUsuario);
-            usuario.setNombre(Nombre);
-            usuario.setApellidos(Apellidos);
-            usuario.setNombreUsuario(idNombreUsuario);
-            usuario.setContraseña(idContraseña);
-            usuario.setTipo(idTipo);
-            usuario.setIdUsuario(idUsuario);
+        IUsuarioService iUsuarioService = new UsuarioService();
+        iUsuarioService.actualizarRegistro(usuario);
 
-            IUsuarioService iUsuarioService = new UsuarioService();
-            iUsuarioService.actualizarRegistro(usuario);
+        List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
+        request.setAttribute("listaUsuario", listaUsuario);
+        dispatcher.forward(request, response);
 
-            List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
-            request.setAttribute("listaUsuario", listaUsuario);
-            dispatcher.forward(request, response);
-        } else {
-            response.sendRedirect("/capcr/pages/usuario/index.jsp");
-        }
+        response.sendRedirect("/pages/usuario/index.jsp");
+
     }
 
     private void eliminar(HttpServletRequest request, HttpServletResponse response)
