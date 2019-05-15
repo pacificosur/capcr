@@ -28,11 +28,8 @@
             <tr>
                 <th>Código</th>
                 <th>Nombre</th>
-                <th>Id Semestre</th>
-                <th>Id Carrera</th>
-                <th>Fecha creación</th>
-                <th>Fecha Actualización</th>
-                <th>Fecha Eliminación</th>
+                <th>Semestre</th>
+                <th>Carrera</th>
                 <th colspan=2>ACCIONES</th>
             </tr>
         </thead>
@@ -43,9 +40,6 @@
             <td><c:out value="${practica.nombre}"/></td>
             <td><c:out value="${practica.idSemestre}"/></td>
             <td><c:out value="${practica.idCarrera}"/></td>
-            <td><c:out value="${practica.fechaCreacion}"/></td>
-            <td><c:out value="${practica.fechaActualizacion}"/></td>
-            <td><c:out value="${practica.fechaEliminacion}"/></td>
             <td><button type="button" class="btn btn-success class-actualizar-practica"><i class="fa fa-edit"></i></button> </td>	
             <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/PracticaController?accion=eliminar&codigoPractica=<c:out value="${practica.codigo}"/>"><i class="fa fa-trash"></i></a> </td>				
         </tr>
@@ -65,7 +59,7 @@
         <div class="modal-content">
             <div class="modal-header text-center" >
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <img class="img-logo-modal-header" src="${pageContext.request.contextPath}/resources/practica/img/logo-modal-header.png" />
+                <img class="img-logo-modal-header" src="${pageContext.request.contextPath}/resources/practica/img/logo-modal-practica.png" />
             </div>
             <div class="modal-body">
                 <form action="${pageContext.request.contextPath}/PracticaController?accion=crear" method="POST" role="form" id="formulario">

@@ -139,11 +139,4 @@ public class PracticaModel implements IPracticaModel{
             System.err.println("Error "+ e.getMessage());
         }
     }
-    public static void main(String[] args) {
-        IPracticaModel pm = new PracticaModel();
-        java.util.Date d = new java.util.Date(); 
-        Practica practica = new Practica("1003","lavado de manos","01","03",new java.sql.Date(d.getTime()),null,null);
-        pm.actualizarPractica(practica);
-    }
-    
 }

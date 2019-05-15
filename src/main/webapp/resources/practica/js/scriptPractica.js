@@ -20,8 +20,6 @@ $(document).ready(function () {
                 else {
                     e.target.setCustomValidity("El valor es incorrecto");
                 }
-
-
             }
         };
     }
