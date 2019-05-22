@@ -160,4 +160,21 @@ public class UsuarioModel implements IUsuarioModel {
         }
         return c;
     }
+
+    @Override
+    public void asignarRol(Usuario usuario) {
+        try{
+            connection = (Connection) new ConnectionPostgreSQL().conecta();
+            query = "UPDATE usuario SET tipo=? WHERE idUsuario = ?;";
+            statement = connection.prepareStatement(query);
+            statement.setLong(1, usuario.getTipo());
+            statement.setLong(2, usuario.getIdUsuario());
+            statement.executeUpdate();
+            statement.close();
+            connection.close();
+        }catch(Exception e){
+            System.out.println("Error: "+e.getMessage());
+        }
+        
+    }
 }
