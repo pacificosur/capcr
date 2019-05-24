@@ -26,6 +26,9 @@ public class RolesController extends HttpServlet {
             case "index":
                 listar(request,response);
                 break;
+            case "asignar":
+                listar(request,response);
+                break;
             default:
                 break;
         }
@@ -39,6 +42,23 @@ public class RolesController extends HttpServlet {
     }
 
     private void listar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/roles/roles.jsp");
+        Usuario user = new Usuario();
+        user.setIdUsuario(Long.MIN_VALUE);
+        
+        IUsuarioService iUsuarioService = new UsuarioService();
+        List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
+        request.setAttribute("listaUsuario", listaUsuario); 
+        
+        IRolService iRolService = new RolService();
+        List<Rol> listaRol = iRolService.obtenerRoles();
+        request.setAttribute("listaRol", listaRol);
+        
+	dispatcher.forward(request, response);        
+    }
+
+    private void asignar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/roles/roles.jsp");
         

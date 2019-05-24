@@ -16,18 +16,48 @@ $(document).ready(function () {
         jQuery.each($columns, function (i, item) {
             values[i] = item.innerHTML;
         });
-        if(values[5]==$('#radio4').val()){
-            $("#radio4").attr("checked", this.checked);
-        };
-        
+        $('.idusuario').val(values[1]);
+        /*busca en la tabla cual es su rol anterior*/
+        switch(values[5].trim()){
+            case "invitado" :
+                $('.radio1').attr('checked',"checked");
+                break;
+            case "administrador":
+                $('.radio2').attr('checked',"checked");
+                break;
+            case "encargado":
+                $('.radio3').attr('checked',"checked");
+                break;
+            case "profesor":
+                $('.radio4').attr('checked',"checked"); 
+                break;
+            case "alumno":
+                $('.radio5').attr('checked',"checked");
+                break;
+        } 
+        $('#id-modal-rol').modal();
     });
     
-    $('#radio1').click(function(){
-       alert('hola'); 
+    $('#modificar_rol').click(function(){
+        deschequear();
     });
     
+    $('#cancelar').click(function(){
+       deschequear(); 
+    });
+    $('#cerrar-model').click(function(){
+       deschequear(); 
+    });
     
-
     
 });
 
+    function deschequear(){
+        
+        $('.radio1').removeAttr("checked");
+        $('.radio2').removeAttr("checked");
+        $('.radio3').removeAttr("checked");
+        $('.radio4').removeAttr("checked");
+        $('.radio5').removeAttr("checked");
+    }
+    
