@@ -161,33 +161,20 @@ public class UsuarioModel implements IUsuarioModel {
         return c;
     }
 
-    /*public static void main(String[] args) {
-        IUsuarioModel um = new UsuarioModel();
-        Usuario u = new Usuario();   
-        /*u.setNombre("Hiraldas");
-        u.setApellidos("Castro");
-        u.setNombreUsuario("unsis3");
-        u.setContraseña("12345");
-        u.setTipo(2);
-        um.crearRegistro(u);*/
-    //Para probar obtenerUsuarios.
-    /*for (Usuario u : um.obtenerUsuarios()) {
-            System.out.println(u.getNombre());
-        }*/
-    //Para probar obtenerUsuario.
-    /*Usuario u = new Usuario();
-        u = um.obtenerUsuario(new Long(1));
-        System.out.println(u.getNombre()+u.getApellidos());*/
-    //Para probar ActualizarRegistro.
-    /*Usuario u = new Usuario();   
-        u.setNombre("Hiraldas");
-        u.setApellidos("Castro");
-        u.setNombreUsuario("unsis3");
-        u.setContraseña("12345");
-        u.setTipo(2);
-        u.setIdUsuario(new Long(1));
-        um.actualizarRegistro(u);*/
-    //para eliminar.
-    // um.eliminarRegistro(new Long(6));
-    //}
+    @Override
+    public void asignarRol(Usuario usuario) {
+        try{
+            connection = (Connection) new ConnectionPostgreSQL().conecta();
+            query = "UPDATE usuario SET tipo=? WHERE idUsuario = ?;";
+            statement = connection.prepareStatement(query);
+            statement.setLong(1, usuario.getTipo());
+            statement.setLong(2, usuario.getIdUsuario());
+            statement.executeUpdate();
+            statement.close();
+            connection.close();
+        }catch(Exception e){
+            System.out.println("Error: "+e.getMessage());
+        }
+        
+    }
 }

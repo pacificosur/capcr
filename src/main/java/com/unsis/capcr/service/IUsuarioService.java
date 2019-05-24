@@ -15,4 +15,6 @@ public interface IUsuarioService {
     public void eliminarRegistro(Long idUsuario);
     
     public boolean logueo(Usuario usuario);
+    
+    public void asignarRol(Usuario usuario);
 }

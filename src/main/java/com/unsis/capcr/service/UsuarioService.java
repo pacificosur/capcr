@@ -46,4 +46,9 @@ public class UsuarioService implements IUsuarioService {
        return iUsuarioModel.logueo(usuario);
     }
 
+    @Override
+    public void asignarRol(Usuario usuario) {
+        iUsuarioModel.asignarRol(usuario);
+    }
+
 }
