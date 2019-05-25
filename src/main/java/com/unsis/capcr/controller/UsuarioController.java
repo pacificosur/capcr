@@ -93,7 +93,6 @@ public class UsuarioController extends HttpServlet {
         List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
         request.setAttribute("listaUsuario", listaUsuario);
         dispatcher.forward(request, response);
-
         response.sendRedirect("/pages/usuario/index.jsp");
     }
 
@@ -123,7 +122,6 @@ public class UsuarioController extends HttpServlet {
         List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
         request.setAttribute("listaUsuario", listaUsuario);
         dispatcher.forward(request, response);
-
         response.sendRedirect("/pages/usuario/index.jsp");
 
     }
@@ -140,5 +138,4 @@ public class UsuarioController extends HttpServlet {
         request.setAttribute("listaUsuario", listaUsuario);
         dispatcher.forward(request, response);
     }
-
 }

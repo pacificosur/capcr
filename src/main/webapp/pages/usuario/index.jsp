@@ -56,12 +56,10 @@
         <div class="modal-content">
             <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <img class="img-logo-modal-header" src="${pageContext.request.contextPath}/resources/usuario/img/logo-modal-header.png" />
+                <img class="img-logo-modal-header" src="${pageContext.request.contextPath}/resources/usuario/img/usuario.png" />
             </div>
             <div class="modal-body">
-
-<!--<form action="${pageContext.request.contextPath}/UsuarioController?accion=crear" method="POST" role="form">-->
-
+                
                 <div class="form-group">
                     <input type="hidden" name="idUsuario" class="form-control" id="idUsuario" >
                 </div>
@@ -161,11 +159,10 @@
 <!-- Modal mensaje -->
 <div class="modal fade" id="id-modal-usuario-pwd-igual" role="dialog">
     <div class="modal-dialog">
-
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header text-center">
-                <h1>Contrasenia</h1>
+                <h1 style="color: red">! Alerta ¡ </h1>
             </div>
             <div class="modal-body">
                 <div class="modal-header text-center">

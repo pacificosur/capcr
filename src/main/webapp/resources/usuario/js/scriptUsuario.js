@@ -8,7 +8,7 @@
  */
 $(document).ready(function () {
     $("#boton-enviar-datos").click(function () {
-        if ($("#idContrasena").val() == $("#idContrasena2").val()) {
+        if ($("#idContrasena").val() === $("#idContrasena2").val()) {
             $.ajax({
                 url: 'UsuarioController',
                 data: {
@@ -22,6 +22,7 @@ $(document).ready(function () {
                 },
                 success: function (responseText) {
                     $("#id-modal-usuario").modal().hide();
+                    location.reload();
                 }
             });
         } else {
@@ -98,11 +99,11 @@ $.fn.pageMe = function (opts) {
     var children = listElement.children();
     var pager = $('.pager');
 
-    if (typeof settings.childSelector != "undefined") {
+    if (typeof settings.childSelector !== "undefined") {
         children = listElement.find(settings.childSelector);
     }
 
-    if (typeof settings.pagerSelector != "undefined") {
+    if (typeof settings.pagerSelector !== "undefined") {
         pager = $(settings.pagerSelector);
     }
 
@@ -116,7 +117,7 @@ $.fn.pageMe = function (opts) {
     }
 
     var curr = 0;
-    while (numPages > curr && (settings.hidePageNumbers == false)) {
+    while (numPages > curr && (settings.hidePageNumbers === false)) {
         $('<li><a href="#" class="page_link">' + (curr + 1) + '</a></li>').appendTo(pager);
         curr++;
     }
