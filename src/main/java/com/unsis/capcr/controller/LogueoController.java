@@ -20,6 +20,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 
@@ -38,13 +39,13 @@ public class LogueoController extends HttpServlet {
             usr.setNombreUsuario(user);
             usr.setContraseña(password);
             if(iuser.logueo(usr)){
-                Cookie ck=new Cookie("user",user);  /**Creación de un objeto cookie*/
-                response.addCookie(ck);/*si el usuario y contraseña es correcto agrega una cookie*/
-                response.sendRedirect("/capcr/pages/index.jsp");/*Manda a la página inicial del proyecto*/
+                HttpSession nueva_sesion = request.getSession();
+                nueva_sesion.setAttribute("user", usr);
+                request.getRequestDispatcher("/capcr/pages/index.jsp").forward(request, response);/*Manda a la página inicial del proyecto*/
 
             }
             else{
-                response.sendRedirect("/capcr/pages/logueo/index.jsp");/*Contraseña incorrecta vuelve a recargar la página*/
+                request.getRequestDispatcher("/capcr/pages/logueo/index.jsp").forward(request, response);/*Contraseña incorrecta vuelve a recargar la página*/
             }
             
     }
