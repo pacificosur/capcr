@@ -41,11 +41,11 @@ public class LogueoController extends HttpServlet {
             if(iuser.logueo(usr)){
                 HttpSession nueva_sesion = request.getSession();
                 nueva_sesion.setAttribute("user", usr);
-                request.getRequestDispatcher("/capcr/pages/index.jsp").forward(request, response);/*Manda a la página inicial del proyecto*/
+                response.sendRedirect("/capcr/pages/index.jsp");/*Manda a la página inicial del proyecto*/
 
             }
             else{
-                request.getRequestDispatcher("/capcr/pages/logueo/index.jsp").forward(request, response);/*Contraseña incorrecta vuelve a recargar la página*/
+                response.sendRedirect("/capcr/pages/logueo/index.jsp");/*Contraseña incorrecta vuelve a recargar la página*/
             }
             
     }

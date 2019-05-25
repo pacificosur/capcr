@@ -4,6 +4,14 @@
         <servlet-name>UsuarioController</servlet-name>
         <servlet-class>com.unsis.capcr.controller.UsuarioController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogueoController</servlet-name>
+        <servlet-class>com.unsis.capcr.controller.LogueoController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutController</servlet-name>
+        <servlet-class>com.unsis.capcr.controller.LogoutController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UsuarioController</servlet-name>
         <url-pattern>/UsuarioController</url-pattern>
@@ -33,14 +41,6 @@
         <url-pattern>/ReservacionController</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>LogueoController</servlet-name>
-        <servlet-class>com.unsis.capcr.controller.LogueoController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>LogueoController</servlet-name>
-        <url-pattern>/LogueoController</url-pattern>
-    </servlet-mapping>
-    <servlet>
         <servlet-name>ReporteAlumnosController</servlet-name>
         <servlet-class>com.unsis.capcr.controller.ReporteAlumnosController</servlet-class>
     </servlet>
@@ -65,20 +65,20 @@
         <url-pattern>/GeneralController</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>LogoutController</servlet-name>
-        <servlet-class>com.unsis.capcr.controller.LogoutController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>LogoutController</servlet-name>
-        <url-pattern>/LogoutController</url-pattern>
-    </servlet-mapping>
-    <servlet>
         <servlet-name>RegistroController</servlet-name>
         <servlet-class>com.unsis.capcr.controller.RegistroController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegistroController</servlet-name>
         <url-pattern>/RegistroController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogueoController</servlet-name>
+        <url-pattern>/LogueoController.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutController</servlet-name>
+        <url-pattern>/LogoutController.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

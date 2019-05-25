@@ -86,7 +86,7 @@
                             <li><a href="${pageContext.request.contextPath}/ReservacionController?accion=index">Reservaciones</a></li>
                             <li><a href="${pageContext.request.contextPath}/UsuarioController?accion=index">Usuario</a></li>
                             <li><a href="${pageContext.request.contextPath}/RolesController?accion=index">Asignar Roles</a></li>
-                            <li><a href="${pageContext.request.contextPath}/pages/logueo/index.jsp">Logout</a></li><!-- Función para desloguearse-->
+                            <li><a href="${pageContext.request.contextPath}/pages/logueo/index.jsp; LogoutController.do">Logout</a></li><!-- Función para desloguearse-->
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->

@@ -3,21 +3,6 @@
     Created on : 29/04/2019, 11:55:37 PM
     Author     : LabTW08
 --%>
-<%
-    response.setHeader("Pragma", "no-cache");
-    response.addHeader("Cache-control", "must-revalidate");
-    response.addHeader("Cache-control", "no-cache");
-    response.addHeader("Cache-control", "no-store");
-    response.setDateHeader("Expires", 0);
-    try {
-        if (session.getAttribute("user") == null) {
-
-            request.getRequestDispatcher("index.jsp").forward(request, response);
-        }
-    } catch (Exception e) {
-        request.getRequestDispatcher("index.jsp").forward(request, response);
-    }
-%>
 <%--El header se encuentra en la carpeta layouts en la carpeta pages
     El header incluye desde la etiqueta <!DOCTYPE html> hasta el segundo div dentro de Section: intro--%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

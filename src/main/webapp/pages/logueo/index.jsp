@@ -41,26 +41,26 @@
                         </li>
                       </ul>
                     </div>
-                    <div class="card-body pb-4">
-                        <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
-                                <form action="${pageContext.request.contextPath}/LogueoController" method="GET">
-                                <div class="form-group">
-                                  <input onkeypress="return soloLetras(event)" type="text" name="user" class="form-control" id="user" placeholder="Usuario" required autofocus>
+                        <div class="card-body pb-4">
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
+                                    <form action="${pageContext.request.contextPath}/LogueoController.do" method="GET">
+                                    <div class="form-group">
+                                      <input onkeypress="return soloLetras(event)" type="text" name="user" class="form-control" id="user" placeholder="Usuario" required autofocus>
+                                    </div>
+                                    <div class="form-group">
+                                      <input type="password" name="password" class="form-control" id="password" id="Contraseña" placeholder="Contraseña" required>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" name="boton" class="btn btn-primary  btn-block">Iniciar</button>
+                                    </div>                               
+                                    <div class="text-center pt-2">
+                                        <a href="/capcr/pages/index.jsp">Haz olvidado la contraseña</a>
+                                    </div>
+                                  </form>
                                 </div>
-                                <div class="form-group">
-                                  <input type="password" name="password" class="form-control" id="password" id="Contraseña" placeholder="Contraseña" required>
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" name="boton" class="btn btn-primary  btn-block">Iniciar</button>
-                                </div>                               
-                                <div class="text-center pt-2">
-                                    <a href="/capcr/pages/index.jsp">Haz olvidado la contraseña</a>
-                                </div>
-                              </form>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

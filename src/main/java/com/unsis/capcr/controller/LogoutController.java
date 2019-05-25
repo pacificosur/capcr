@@ -23,9 +23,7 @@ import javax.servlet.http.HttpSession;
 public class LogoutController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html");  
-        PrintWriter out=response.getWriter();   
+            throws ServletException, IOException {   
         HttpSession cerrar_sesion = request.getSession();
         cerrar_sesion.removeAttribute("user");
         cerrar_sesion.invalidate();
