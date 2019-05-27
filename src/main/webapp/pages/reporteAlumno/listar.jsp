@@ -4,7 +4,15 @@
   Fecha Creación: 23/04/2019
   Fecha Modificación: -/-/-
 --%>
-
+<%
+		if (session != null) {
+			if (session.getAttribute("user") != null) {
+				String name = (String) session.getAttribute("user");
+			} else {
+				response.sendRedirect("/capcr/pages/logueo/index.jsp");
+			}
+		}
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
