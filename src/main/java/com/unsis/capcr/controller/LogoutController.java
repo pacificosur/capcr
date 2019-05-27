@@ -14,6 +14,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -22,13 +23,11 @@ import javax.servlet.http.HttpServletResponse;
 public class LogoutController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html");  
-        PrintWriter out=response.getWriter();     
-        request.getRequestDispatcher("/capcr/pages/index.jsp").include(request, response);    /*Al hacer click en Logout nos redirecciona a la página de logueo*/  
-        Cookie ck=new Cookie("user","");  
-        ck.setMaxAge(0);  
-        response.addCookie(ck);  
+            throws ServletException, IOException {   
+        HttpSession cerrar_sesion = request.getSession();
+        cerrar_sesion.removeAttribute("user");
+        cerrar_sesion.invalidate();
+        request.getRequestDispatcher("/capcr/pages/index.jsp").forward(request, response);    /*Al hacer click en Logout nos redirecciona a la página de logueo*/   
     }
 
 

@@ -46,7 +46,7 @@ public class UsuarioModel implements IUsuarioModel {
             connection.close();
             statement.close();
             return listaUsuario;
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
@@ -74,7 +74,7 @@ public class UsuarioModel implements IUsuarioModel {
             resultSet.close();
             connection.close();
             statement.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return null;
@@ -155,9 +155,25 @@ public class UsuarioModel implements IUsuarioModel {
             connection.close();
             statement.close();
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return c;
+    }
+
+    @Override
+    public void asignarRol(Usuario usuario) {
+        try{
+            connection = (Connection) new ConnectionPostgreSQL().conecta();
+            query = "UPDATE usuario SET tipo=? WHERE idUsuario = ?;";
+            statement = connection.prepareStatement(query);
+            statement.setLong(1, usuario.getTipo());
+            statement.setLong(2, usuario.getIdUsuario());
+            statement.executeUpdate();
+            statement.close();
+            connection.close();
+        }catch(SQLException e){
+            System.out.println("Error: "+e.getMessage());
+        }
     }
 }
