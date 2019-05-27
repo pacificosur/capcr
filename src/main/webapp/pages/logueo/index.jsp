@@ -44,7 +44,7 @@
                         <div class="card-body pb-4">
                             <div class="tab-content" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
-                                    <form action="${pageContext.request.contextPath}/LogueoController.do" method="GET">
+                                    <form action="${pageContext.request.contextPath}/LogueoController" method="GET">
                                     <div class="form-group">
                                       <input onkeypress="return soloLetras(event)" type="text" name="user" class="form-control" id="user" placeholder="Usuario" required autofocus>
                                     </div>
