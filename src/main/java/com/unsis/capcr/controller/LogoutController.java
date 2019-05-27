@@ -24,10 +24,11 @@ public class LogoutController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {   
-        HttpSession cerrar_sesion = request.getSession();
+        HttpSession cerrar_sesion = request.getSession(false);
         cerrar_sesion.removeAttribute("user");
-        cerrar_sesion.invalidate();
-        request.getRequestDispatcher("/capcr/pages/index.jsp").forward(request, response);    /*Al hacer click en Logout nos redirecciona a la página de logueo*/   
+        cerrar_sesion.getMaxInactiveInterval();
+        response.sendRedirect("/capcr/pages/logueo/index.jsp");
+        //request.getRequestDispatcher("/capcr/pages/index.jsp").forward(request, response);    /*Al hacer click en Logout nos redirecciona a la página de logueo*/   
     }
 
 
