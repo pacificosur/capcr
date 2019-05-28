@@ -38,7 +38,7 @@
         <link id="bodybg" href="${pageContext.request.contextPath}/resources/bodybg/bg1.css" rel="stylesheet" type="text/css" />
         <!-- template skin -->
         <link id="t-colors" href="${pageContext.request.contextPath}/resources/color/default.css" rel="stylesheet">
-
+<link href="${pageContext.request.contextPath}/resources/css/myStyle.css" rel="stylesheet" />
         <!-- =======================================================
           Theme Name: Medicio
           Theme URL: https://bootstrapmade.com/medicio-free-bootstrap-theme/

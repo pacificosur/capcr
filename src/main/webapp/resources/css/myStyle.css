@@ -1,0 +1,80 @@
+/* 
+    Autor: Castro Cisneros Hiralda
+    E-mail:hiraldac.cisneros@gmail.com
+    Fecha Creación: 27/05/2019
+    Descripción: CSS para modificaciones de colores.
+    
+*/
+.top-area {
+    background: #B43936;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #B43936, #FF9DA8);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #B43936, #FF9DA8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.navbar-custom ul.nav li a:hover { 
+    color: #2C7D44;
+    font-size: 16px;
+}
+
+.btn-skin {
+    background-color: #B43936;
+    border-color: #B43936;
+}
+.bg-skin {
+    background: #B43936;
+}
+.fa-inverse {
+    color: #FFA09D;
+}
+
+.btn {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+.btn-success:hover {
+    color: #fff;
+    background-color: #d8ebde;
+    border-color: #2C7D44;
+    background: -webkit-linear-gradient(top, #d8ebde, #2C7D44);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(top, #d8ebde, #2C7D44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+.btn-danger:hover {
+    color: #fff;
+    background-color: #d8ebde;
+    border-color: #2C7D44;
+    background: -webkit-linear-gradient(top, #d8ebde, #2C7D44);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(top, #d8ebde, #2C7D44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.pagination>.active>a, .pagination>.active>span{
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #B43936;
+}
+.pagination>.active>a:hover {
+    z-index: 2;
+    cursor: default;
+    color: #fff;
+    background-color: #2C7D44;
+    border-color: 1px solid #2C7D44;
+}
+
+.pagination>li>a, .pagination>li>span {
+    color: #B43936;
+    background-color: #fff;
+    border: #ddd;
+}
+.pagination>li>a:hover, .pagination>li>span:hover {
+    z-index: 2;
+    cursor: default;
+    color: #2C7D44;
+    background-color: #d8ebde;
+    border: 1px solid #2C7D44;
+}
