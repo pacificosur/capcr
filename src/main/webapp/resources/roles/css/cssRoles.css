@@ -7,3 +7,7 @@
         background-position: top center;
 
 }
+
+.modal-dialog {
+    margin-top: 70px;
+}
