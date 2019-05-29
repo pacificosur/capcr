@@ -28,27 +28,38 @@ $(document).ready(function () {
         switch(values[5].trim()){
             case "invitado" :
                 $('.radio1').prop('checked',"checked");
+                $('#tipoUsuario').val('1');
                 break;
             case "administrador":
                 $('.radio2').prop('checked',"checked");
+                $('#tipoUsuario').val('2');
                 break;
             case "encargado":
                 $('.radio3').prop('checked',"checked");
+                $('#tipoUsuario').val('3');
                 break;
             case "profesor":
-                $('.radio4').prop('checked',"checked"); 
+                $('.radio4').prop('checked',"checked");
+                $('#tipoUsuario').val('4');
                 break;
             case "alumno":
                 $('.radio5').prop('checked',"checked");
+                $('#tipoUsuario').val('5');
                 break;
         } 
         //oculta el cuadro donde almacenamos la informacion
         
-        //$('#valores-de-usuario').hide();
+        var windowHeight = $(window).height();
+        var windowWidth = $(window).width();
+        var boxHeight = $('.modal-dialog').height();
+        var boxWidth = $('.modal-dialog').width();
+$('.modal-dialog').css({'left' : ((windowWidth - boxWidth)/2), 'top' : ((windowHeight - boxHeight)/2)});
+        
+        $('#valores-de-usuario').hide();
         $('#id-modal-rol').modal();
     });
     
-
+    //cambia el valor del tipo del usuario por cada de hacen click en los checkbox
     $('.radio1').click(function(){
         $('#tipoUsuario').val('1');
     });

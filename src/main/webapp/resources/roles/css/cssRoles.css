@@ -1,0 +1,9 @@
+
+/*reestructurar el codigo*/
+.intro-content {
+	background: url(../img/fondo-intro1.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top center;
+
+}

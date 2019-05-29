@@ -8,13 +8,13 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%
-		if (session != null) {
-			if (session.getAttribute("user") != null) {
-				String name = (String) session.getAttribute("user");
-			} else {
-				response.sendRedirect("/capcr/pages/logueo/index.jsp");
-			}
-		}
+//		if (session != null) {
+//			if (session.getAttribute("user") != null) {
+//				String name = (String) session.getAttribute("user");
+//			} else {
+//				response.sendRedirect("/capcr/pages/logueo/index.jsp");
+//			}
+//		}
 %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -65,7 +65,7 @@
         <div class="modal-content">
             <div class="modal-header text-center" >
                 <button type="button" class="close" id="cerrar-model" data-dismiss="modal">&times;</button>
-                <img class="img-logo-modal-header" src="${pageContext.request.contextPath}/resources/usuario/img/logo-modal-header.png" />
+                <img class="img-logo-modal-header" src="${pageContext.request.contextPath}/resources/roles/img/usuario.png" />
             </div>
             <form action="${pageContext.request.contextPath}/RolesController?accion=asignar" method="POST" role="form" id="formulario">
                 <div class="modal-body">
@@ -96,5 +96,6 @@
 
 <jsp:include page="../../pages/layouts/footer.jsp"></jsp:include>
 <script src="${pageContext.request.contextPath}/resources/roles/js/scriptRoles.js"></script>
+<link href="${pageContext.request.contextPath}/resources/roles/css/cssRoles.css" rel="stylesheet" />
 </body>
 </html>

@@ -29,7 +29,7 @@ public class RolesController extends HttpServlet {
                 listar(request,response);
                 break;
             case "asignar":
-                listar(request,response);
+                asignar(request,response);
                 break;
             default:
                 break;
@@ -48,8 +48,6 @@ public class RolesController extends HttpServlet {
     private void listar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/roles/roles.jsp");
-        Usuario user = new Usuario();
-        user.setIdUsuario(Long.MIN_VALUE);
         //cargar la lista de los usuarios
         IUsuarioService iUsuarioService = new UsuarioService();
         List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
@@ -69,16 +67,20 @@ public class RolesController extends HttpServlet {
     private void asignar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/roles/roles.jsp");
+        
         //recibir los parametros necesarios para la obtencion de valores
         Long idUsuario= Long.parseLong(request.getParameter("idUsuario"));
         int tipo = Integer.parseInt(request.getParameter("tipoUsuario"));
-        //creacion de usuario asignacion deparametros 
+        
+        //creacion de usuario asignacion de parametros 
         Usuario usuario = new Usuario();
         usuario.setIdUsuario(idUsuario);
         usuario.setTipo(tipo);
+        
         //cargar lista de los usuarios
         IUsuarioService iUsuarioService = new UsuarioService();
         iUsuarioService.asignarRol(usuario);
+        
         List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
         request.setAttribute("listaUsuario", listaUsuario); 
         //cargar la lista de los roles
