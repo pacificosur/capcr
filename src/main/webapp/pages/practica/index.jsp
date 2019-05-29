@@ -9,14 +9,22 @@
 --%>
 <%@ page language="java" contentType="text/html"
          %>
+<%@ page import="com.unsis.capcr.util.*" %>
 <%
-		if (session != null) {
-			if (session.getAttribute("user") != null) {
-				String name = (String) session.getAttribute("user");
-			} else {
-				response.sendRedirect("/capcr/pages/logueo/index.jsp");
-			}
-		}
+    if (session != null) {
+        if (session.getAttribute("user") != null) {
+            String name = (String) session.getAttribute("user");
+        } else {
+            response.sendRedirect("/capcr/pages/logueo/index.jsp");
+        }
+    }
+
+    Carrera ENFERMERIA = Carrera.ENFERMERIA;
+    pageContext.setAttribute("ENFERMERIA", ENFERMERIA);
+    Carrera ODONTOLOGIA = Carrera.ODONTOLOGIA;
+    pageContext.setAttribute("ODONTOLOGIA", ODONTOLOGIA);
+    Carrera MEDICINA = Carrera.MEDICINA;
+    pageContext.setAttribute("MEDICINA", MEDICINA);
 %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -32,30 +40,40 @@
 
     <div class="table-responsive">
         <table id="idTable" class="table table-hover" style="width:100%">
-        <thead class="thead-dark">
-            <tr>
-                <th>Código</th>
-                <th>Nombre</th>
-                <th>Semestre</th>
-                <th>Carrera</th>
-                <th colspan=2>ACCIONES</th>
-            </tr>
-        </thead>
-        <tbody id="miTabla">
-    <c:forEach var="practica" items="${listaPractica}">
-        <tr>
-            <td><c:out value="${practica.codigo}"/></td>
-            <td><c:out value="${practica.nombre}"/></td>
-            <td><c:out value="${practica.idSemestre}"/></td>
-            <td><c:out value="${practica.idCarrera}"/></td>
-            <td><button type="button" class="btn btn-success class-actualizar-practica"><i class="fa fa-edit"></i></button> </td>	
-            <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/PracticaController?accion=eliminar&codigoPractica=<c:out value="${practica.codigo}"/>"><i class="fa fa-trash"></i></a> </td>				
-        </tr>
-    </c:forEach>
+            <thead class="thead-dark">
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Semestre</th>
+                    <th>Carrera</th>
+                    <th colspan=2>ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody id="miTabla">
+            <c:forEach var="practica" items="${listaPractica}">
+                <tr>
+                    <td><c:out value="${practica.codigo}"/></td>
+                    <td><c:out value="${practica.nombre}"/></td>
+                    <td><c:out value="${practica.idSemestre}"/></td>
+                    <td>
+                        <c:if test="${practica.idCarrera ==ENFERMERIA.getCodigoCarrera()}">
+                            <c:out value="${ENFERMERIA.getNombreCarrera()}"/>
+                        </c:if>
+                        <c:if test="${practica.idCarrera ==ODONTOLOGIA.getCodigoCarrera()}">
+                            <c:out value="${ODONTOLOGIA.getNombreCarrera()}"/>
+                        </c:if>
+                        <c:if test="${practica.idCarrera ==MEDICINA.getCodigoCarrera()}">
+                            <c:out value="${MEDICINA.getNombreCarrera()}"/>
+                        </c:if>
+                    </td>
+                    <td><button type="button" class="btn btn-success class-actualizar-practica"><i class="fa fa-edit"></i></button> </td>	
+                    <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/PracticaController?accion=eliminar&codigoPractica=<c:out value="${practica.codigo}"/>"><i class="fa fa-trash"></i></a> </td>				
+                </tr>
+            </c:forEach>
         </tbody>
-</table>
- </div>
- <div class="col-md-12 text-center">
+    </table>
+</div>
+<div class="col-md-12 text-center">
     <ul class="pagination pagination-lg pager" id="myPager"></ul>
 </div>
 
@@ -104,8 +122,8 @@
 
 <%-- El footer se encuentra en la carperta layouts en la carpeta pages.
       el footer incluye dos div arriba de section y incluye todo (el footer y los archivos JavaScript) antes de donde cierra la etiqueta body
-        --%> 
-        <jsp:include page="../../pages/layouts/footer.jsp"></jsp:include>
+--%> 
+<jsp:include page="../../pages/layouts/footer.jsp"></jsp:include>
 <script src="${pageContext.request.contextPath}/resources/practica/js/scriptPractica.js"></script>
 </body>
 </html>

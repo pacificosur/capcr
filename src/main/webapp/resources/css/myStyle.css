@@ -32,7 +32,7 @@
     background-color: #d9534f;
     border-color: #d43f3a;
 }
-.btn-success:hover {
+.btn-success:hover, .btn-success:focus, .btn-success:active {
     color: #fff;
     background-color: #d8ebde;
     border-color: #2C7D44;
@@ -45,7 +45,7 @@
     background-color: #d9534f;
     border-color: #d43f3a;
 }
-.btn-danger:hover {
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active {
     color: #fff;
     background-color: #d8ebde;
     border-color: #2C7D44;
@@ -53,25 +53,22 @@
     background: linear-gradient(top, #d8ebde, #2C7D44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.pagination>.active>a, .pagination>.active>span{
+.pagination>.active>a, .pagination>.active>span,  .pagination>.active>a:hover, .pagination>.active>a:active{
     color: #fff;
     background-color: #d9534f;
     border-color: #B43936;
 }
-.pagination>.active>a:hover {
-    z-index: 2;
-    cursor: default;
-    color: #fff;
-    background-color: #2C7D44;
-    border-color: 1px solid #2C7D44;
-}
 
+.pagination>.active>a:focus{
+    color: #fff;
+    background-color: #d9534f;
+}
 .pagination>li>a, .pagination>li>span {
     color: #B43936;
     background-color: #fff;
     border: #ddd;
 }
-.pagination>li>a:hover, .pagination>li>span:hover {
+.pagination>li>a:hover, .pagination>li>span:hover, .pagination>li>a:focus, .pagination>li>span:focus, .pagination>li>a:active, .pagination>li>span:active {
     z-index: 2;
     cursor: default;
     color: #2C7D44;
