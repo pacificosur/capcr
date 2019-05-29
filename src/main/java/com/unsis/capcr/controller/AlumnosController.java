@@ -135,7 +135,7 @@ public class AlumnosController extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/alumno/index.jsp");
 
-        String idAlumno = (request.getParameter("idAlumno"));
+        String idAlumno = (request.getParameter("idAlumno-eliminar"));
 
         IAlumnoService iAlumnoService = new AlumnoService();
         iAlumnoService.eliminarAlumno(idAlumno);
