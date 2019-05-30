@@ -33,7 +33,7 @@
             <td colspan=2> Rol</td>
         </tr>
     </thead>
-
+    <thbody>
     <%-- cargar la lista de los usuarios con su respectivo rol --%>
     <c:forEach var="usuario" items="${listaUsuario}">
         <tr>
@@ -53,6 +53,7 @@
         </tr>
 
     </c:forEach>
+    </thbody>
     <%--fin del listado--%>
 </table>
 <!-- din de la tabla  -->
