@@ -2,15 +2,14 @@
   Autor: García Ramírez Pedro Eliezer
   E-mail: pg548169@gmail.com  
   Fecha Creación: 07/05/2019
+  Descripción: Servlet que desloguea 
   Fecha Modificación: 08/05/2019
 Tecnologias web I
 */
 package com.unsis.capcr.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
