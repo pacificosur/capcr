@@ -15,3 +15,6 @@ function soloLetras(e){
         return false;
       }
 }
+
+window.history.go(-1);
+window.history.back();
