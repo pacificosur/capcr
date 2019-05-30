@@ -8,6 +8,7 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%
+    /*Bloque de código que nusca si existe una sesión*/
 //		if (session != null) {
 //			if (session.getAttribute("user") != null) {
 //				String name = (String) session.getAttribute("user");
@@ -33,7 +34,7 @@
             <td colspan=2> ROL</td>
         </tr>
     </thead>
-    
+
     <%-- cargar la lista de los usuarios con su respectivo rol --%>
     <c:forEach var="usuario" items="${listaUsuario}">
         <tr>
@@ -75,9 +76,9 @@
                     </div>
                     <c:forEach var="rol" items="${listaRol}">
                         <!--<div class="form-check"> -->
-                            <label class="form-check-label" for="radio<c:out value="${rol.idRol}"/>">
-                                <input type="radio" class="radio<c:out value="${rol.idRol}"/>" name="optradio" >&nbsp;<c:out value="${rol.nombre}"/>         
-                            </label> <br>
+                        <label class="form-check-label" for="radio<c:out value="${rol.idRol}"/>">
+                            <input type="radio" class="radio<c:out value="${rol.idRol}"/>" name="optradio" >&nbsp;<c:out value="${rol.nombre}"/>         
+                        </label> <br>
                         <!--</div> -->
                     </c:forEach>
                 </div>
