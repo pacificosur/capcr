@@ -2,6 +2,8 @@
   Autor: García Ramírez Pedro Eliezer
   E-mail: pg548169@gmail.com  
   Fecha Creación: 07/05/2019
+  Descripción: Funciones en javascript que validan que el 
+    usuario inserte solo letras.
   Fecha Modificación: 08/05/2019
   Tecnologias web I
 */

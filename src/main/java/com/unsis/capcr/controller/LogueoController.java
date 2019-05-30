@@ -41,7 +41,6 @@ public class LogueoController extends HttpServlet {
                 HttpSession nueva_sesion = request.getSession(true);
                 nueva_sesion.setAttribute("user", user);
                 response.sendRedirect("/capcr/pages/index.jsp");/*Manda a la página inicial del proyecto*/
-
             }
             else{
                 response.sendRedirect("/capcr/pages/logueo/index.jsp");/*Contraseña incorrecta vuelve a recargar la página*/
