@@ -43,5 +43,4 @@ public class LogueoController extends HttpServlet {
             response.sendRedirect("/capcr/pages/logueo/index.jsp");/*Contraseña incorrecta vuelve a recargar la página*/
         }
     }
-
 }
