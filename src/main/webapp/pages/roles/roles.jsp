@@ -26,12 +26,11 @@
 <table id="idTable" class="table">
     <thead class="thead-dark">
         <tr>
-            <td> IDUSARIO</td>
-            <td> NOMBRE</td>
-            <td> APELLIDOS</td>
-            <td> NOMBREUSUARIO</td>
-            <td> CONTRASEÑA</td>
-            <td colspan=2> ROL</td>
+            <td> ID Usuario</td>
+            <td> Nombre</td>
+            <td> Apellidos</td>
+            <td> Nombre Usuario</td>
+            <td colspan=2> Rol</td>
         </tr>
     </thead>
 
@@ -42,7 +41,6 @@
             <td><c:out value="${usuario.nombre}"/></td>
             <td><c:out value="${usuario.apellidos}"/></td>
             <td><c:out value="${usuario.nombreUsuario}"/></td>
-            <td style="-webkit-text-security: disc;"><c:out value="${usuario.contraseña}"/></td>
             <td>       
                 <c:forEach var="rol" items="${listaRol}"> <%-- Por cada que recorre un usuario recorre toda la lista de rol para ver que rol es el que tiene--%>
                     <%-- Bloque de comparacion del tipo del usuario con el id del rol si sale un verdadero impime el nombre del rol --%>
