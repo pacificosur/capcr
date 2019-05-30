@@ -4,8 +4,8 @@
   Fecha Creación: 07/05/2019
   Descripción: Servlet que desloguea 
   Fecha Modificación: 08/05/2019
-Tecnologias web I
- */
+  Tecnologias web I*/
+
 package com.unsis.capcr.controller;
 import java.io.IOException;
 import javax.servlet.ServletException;

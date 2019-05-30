@@ -4,8 +4,8 @@
   Fecha Creación: 24/04/2019
   Fecha Modificación: 03/05/2019
   Descripción: Servlet que comprueba si el logueo es correcto
-Tecnologias web I
- */
+  Tecnologias web I*/
+
 package com.unsis.capcr.controller;
 import com.unsis.capcr.entity.Usuario;
 import com.unsis.capcr.model.IUsuarioModel;
@@ -36,9 +36,9 @@ public class LogueoController extends HttpServlet {
         if (iuser.logueo(usr)) {
             HttpSession nueva_sesion = request.getSession(true);
             nueva_sesion.setAttribute("user", user);
-            response.sendRedirect("/capcr/pages/index.jsp");/*Manda a la página inicial del proyecto*/
+            response.sendRedirect("/capcr/pages/index.jsp");
         } else {
-            response.sendRedirect("/capcr/pages/logueo/index.jsp");/*Contraseña incorrecta vuelve a recargar la página*/
+            response.sendRedirect("/capcr/pages/logueo/index.jsp");
         }
     }
 }
