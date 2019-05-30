@@ -22,9 +22,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class LogueoController extends HttpServlet {
-
+    
     @Override
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         IUsuarioService iuser = new UsuarioService();
@@ -43,7 +42,6 @@ public class LogueoController extends HttpServlet {
         } else {
             response.sendRedirect("/capcr/pages/logueo/index.jsp");/*Contraseña incorrecta vuelve a recargar la página*/
         }
-
     }
 
 }

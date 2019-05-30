@@ -28,5 +28,4 @@ public class LogoutController extends HttpServlet {
         cerrar_sesion.removeAttribute("user");
         response.sendRedirect("/capcr/pages/logueo/index.jsp");
     }
-
 }
