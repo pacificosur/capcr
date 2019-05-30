@@ -7,7 +7,6 @@
 Tecnologias web I
  */
 package com.unsis.capcr.controller;
-
 import com.unsis.capcr.entity.Usuario;
 import com.unsis.capcr.model.IUsuarioModel;
 import com.unsis.capcr.model.UsuarioModel;
@@ -21,8 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class LogueoController extends HttpServlet {
-    
+public class LogueoController extends HttpServlet {   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
