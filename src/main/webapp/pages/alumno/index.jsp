@@ -67,23 +67,23 @@
                 <form action="${pageContext.request.contextPath}/AlumnosController?accion=crear" method="POST" role="form">
                     
                     <div class="form-group">
-                        <label for="matricula"><span class="glyphicon glyphicon-user"></span>&nbsp Matrícula</label>
+                        <label for="matricula"><span class="glyphicon glyphicon-tag"></span>&nbsp Matrícula</label>
                         <input type="text" name="matricula" class="form-control" id="idMatricula" placeholder="Ingrese la matrícula" required pattern="[0-9]{10}" required>  
                     </div>
                     <div class="form-group">
                         <label for="nombre"><span class="glyphicon glyphicon-user"></span>&nbsp Nombre</label>
-                        <input type="text" name="nombre" class="form-control" id="idNombre" placeholder="Ingrese el nombre" required pattern="^[\w\.\-\s]+$" >
+                        <input type="text" name="nombre" class="form-control" id="idNombre" placeholder="Ingrese el nombre" required pattern= "/[A-Za-zñÑ-áéíóúÁÉÍÓÚ\s\t-]/{5-40}" >
                     </div>
                     <div class="form-group">
-                        <label for="grupo"><span class="glyphicon glyphicon-user"></span>&nbsp Grupo</label>
+                        <label for="grupo"><span class="glyphicon glyphicon-home"></span>&nbsp Grupo</label>
                         <input type="text" name="grupo" class="form-control" id="idGrupo" placeholder="Ingrese el grupo" required pattern="[0-9]{3}" required>
                     </div>
                     <div class="form-group">
-                        <label for="semestre"><span class="glyphicon glyphicon-user"></span>&nbsp Semestre</label>
+                        <label for="semestre"><span class="glyphicon glyphicon-road"></span>&nbsp Semestre</label>
                         <input type="text" name="semestre" class="form-control" id="idCodigoSemestre" placeholder="Ingrese el semestre" required pattern="[0-9]{2}" required>
                     </div>
                     <div class="form-group">
-                        <label for="carrera"><span class="glyphicon glyphicon-user"></span>&nbsp Carrera</label>
+                        <label for="carrera"><span class="glyphicon glyphicon-heart"></span>&nbsp Carrera</label>
                         <input type="text" name="carrera" class="form-control" id="idCodigoCarrera" placeholder="Ingrese la carrera" required pattern="[0-9]{2}" required>
                     </div>
                     <button type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Guardar</button>
