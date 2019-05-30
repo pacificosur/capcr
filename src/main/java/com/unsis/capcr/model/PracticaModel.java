@@ -18,10 +18,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author LabTW08
- */
 public class PracticaModel implements IPracticaModel{
     private Connection connection;
     private PreparedStatement statement;

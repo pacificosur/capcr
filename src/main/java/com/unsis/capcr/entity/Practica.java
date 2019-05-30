@@ -9,10 +9,6 @@ package com.unsis.capcr.entity;
 
 import java.sql.Date;
 
-/**
- *
- * @author LabTW08
- */
 public class Practica {
     private String codigo;
     private String nombre;

@@ -12,10 +12,6 @@ import com.unsis.capcr.model.IPracticaModel;
 import com.unsis.capcr.model.PracticaModel;
 import java.util.List;
 
-/**
- *
- * @author LabTW08
- */
 public class PracticaService implements IPracticaService{
 
     IPracticaModel iPracticaModel=new PracticaModel();

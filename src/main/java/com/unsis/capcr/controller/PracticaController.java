@@ -20,10 +20,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author LabTW08
- */
 public class PracticaController extends HttpServlet {
     
     @Override
@@ -31,14 +27,10 @@ public class PracticaController extends HttpServlet {
             throws ServletException, IOException {
         String accion = request.getParameter("accion"); 
         
-        System.out.println("Acion----------------: " + accion + " **** crear practica:   " + request.getParameter("crearPractica"));
-        
         if (accion.equals("crear") && request.getParameter("crearPractica").equals("")) {
             accion = "actualizar";
         }
-        
-        System.out.println("Aaaction: " + accion);
-        
+
         try {
             switch(accion) {
                 case "index":
@@ -71,7 +63,6 @@ public class PracticaController extends HttpServlet {
         doGet(request, response);
     }
 
-    //
     private void listar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/practica/index.jsp");
