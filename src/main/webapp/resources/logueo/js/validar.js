@@ -3,7 +3,6 @@
   E-mail: pg548169@gmail.com  
   Fecha Creación: 07/05/2019
   Fecha Modificación: 08/05/2019
-  Descripción: Creación de jsp del logueo
   Tecnologias web I
 */
 function soloLetras(e){
