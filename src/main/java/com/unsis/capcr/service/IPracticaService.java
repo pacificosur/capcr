@@ -10,10 +10,6 @@ package com.unsis.capcr.service;
 import com.unsis.capcr.entity.Practica;
 import java.util.List;
 
-/**
- *
- * @author LabTW08
- */
 public interface IPracticaService {
     public Practica getPractica(String IdPractica);
     public List<Practica> getPracticas(String IdSemestre,String IdCarrera);

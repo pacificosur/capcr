@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.unsis.capcr.util;
 
-/**
- *
- * @author LabTW04
- */
 public enum Carrera {
 
     ENFERMERIA("Enfermería", "03"), ODONTOLOGIA("Odontología", "13"), MEDICINA("Medicina", "14");
