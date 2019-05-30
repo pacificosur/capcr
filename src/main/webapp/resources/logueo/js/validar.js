@@ -1,4 +1,10 @@
-
+/*
+  Autor: García Ramírez Pedro Eliezer
+  E-mail: pg548169@gmail.com  
+  Fecha Creación: 07/05/2019
+  Descripción: Funciones en javascript que validan que el usuario inserte solo letras.
+  Fecha Modificación: 08/05/2019
+  Tecnologias web I*/
 function soloLetras(e){
     key = e.keyCode || e.which;
     tecla = String.fromCharCode(key).toLowerCase();
@@ -15,3 +21,6 @@ function soloLetras(e){
         return false;
       }
 }
+
+window.history.go(-1);
+window.history.back();

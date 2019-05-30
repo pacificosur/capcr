@@ -5,13 +5,14 @@
   Fecha Modificación: -/-/-
 --%>
 <%
-		if (session != null) {
-			if (session.getAttribute("user") != null) {
-				String name = (String) session.getAttribute("user");
-			} else {
-				response.sendRedirect("/capcr/pages/logueo/index.jsp");
-			}
-		}
+    /*Bloque de código que nusca si existe una sesión*/
+    if (session != null) {
+        if (session.getAttribute("user") != null) {
+            String name = (String) session.getAttribute("user");
+        } else {
+            response.sendRedirect("/capcr/pages/logueo/index.jsp");
+        }
+    }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

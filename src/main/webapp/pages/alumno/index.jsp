@@ -7,49 +7,50 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <%
-		if (session != null) {
-			if (session.getAttribute("user") != null) {
-				String name = (String) session.getAttribute("user");
-			} else {
-				response.sendRedirect("/capcr/pages/logueo/index.jsp");
-			}
-		}
+    /*Bloque de código que nusca si existe una sesión*/
+    if (session != null) {
+        if (session.getAttribute("user") != null) {
+            String name = (String) session.getAttribute("user");
+        } else {
+            response.sendRedirect("/capcr/pages/logueo/index.jsp");
+        }
+    }
 %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%--El header se encuentra en la carpeta layouts en la carpeta pages
     El header incluye desde la etiqueta <!DOCTYPE html> hasta el segundo div dentro de Section: intro--%>
 <jsp:include page="../../pages/layouts/header.jsp"></jsp:include>
-<br/>
-<button type="button" class="btn btn-success" id="id-btn-crear-alumno"><i class="fa fa-plus"></i>&nbsp;Crear Alumno</button>
-<br/>
-<div class="table-responsive">
-<table id="idTable" class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th>MATRÍCULA</th>
-            <th>NOMBRE</th>
-            <th>GRUPO</th>
-            <th>SEMESTRE</th>
-            <th>CARRERA</th>
-            <th colspan=2>ACCIONES</th>
-        </tr>
-    </thead>
-    <tbody id="miTabla"> 
-    <c:forEach var="alumno" items="${listaAlumno}">
-        <tr>
-            <td><c:out value="${alumno.matricula}"/></td>
-            <td><c:out value="${alumno.nombre}"/></td>
-            <td><c:out value="${alumno.grupo}"/></td>
-            <td><c:out value="${alumno.codigoSemestre}"/></td>
-            <td><c:out value="${alumno.codigoCarrera}"/></td>
-            <td><button type="button" class="btn btn-success class-actualizar-alumno"><i class="fa fa-edit"></i></button> </td>	
-            <td><button type="button" class="btn btn-success class-eliminar-alumno"><i class="fa fa-trash"></i></button> </td>				
-        </tr>
-    </c:forEach>
-    </tbody>
-</table>
+    <br/>
+    <button type="button" class="btn btn-success" id="id-btn-crear-alumno"><i class="fa fa-plus"></i>&nbsp;Crear Alumno</button>
+    <br/>
+    <div class="table-responsive">
+        <table id="idTable" class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>MATRÍCULA</th>
+                    <th>NOMBRE</th>
+                    <th>GRUPO</th>
+                    <th>SEMESTRE</th>
+                    <th>CARRERA</th>
+                    <th colspan=2>ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody id="miTabla"> 
+            <c:forEach var="alumno" items="${listaAlumno}">
+                <tr>
+                    <td><c:out value="${alumno.matricula}"/></td>
+                    <td><c:out value="${alumno.nombre}"/></td>
+                    <td><c:out value="${alumno.grupo}"/></td>
+                    <td><c:out value="${alumno.codigoSemestre}"/></td>
+                    <td><c:out value="${alumno.codigoCarrera}"/></td>
+                    <td><button type="button" class="btn btn-success class-actualizar-alumno"><i class="fa fa-edit"></i></button> </td>	
+                    <td><button type="button" class="btn btn-success class-eliminar-alumno"><i class="fa fa-trash"></i></button> </td>				
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
 </div>
- <div class="col-md-12 text-center">
+<div class="col-md-12 text-center">
     <ul class="pagination pagination-lg pager" id="myPager"></ul>
 </div>
 
@@ -62,10 +63,10 @@
                 <button type="button" class="close" id="cerrar-model" data-dismiss="modal">&times;</button>
                 <img class="img-logo-modal-header" src="${pageContext.request.contextPath}/resources/alumno/img/logo-modal-header.png" />
             </div>
-            
+
             <div class="modal-body">
                 <form action="${pageContext.request.contextPath}/AlumnosController?accion=crear" method="POST" role="form">
-                    
+
                     <div class="form-group">
                         <label for="matricula"><span class="glyphicon glyphicon-tag"></span>&nbsp Matrícula</label>
                         <input type="text" name="matricula" class="form-control" id="idMatricula" placeholder="Ingrese la matrícula" required pattern="[0-9]{10}" required>  
@@ -89,12 +90,12 @@
                     <button type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Guardar</button>
                 </form>
             </div>
-                <div class="modal-footer">
+            <div class="modal-footer">
                 <button type="submit" class="btn btn-default btn-default btn-danger btn-block" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>          
             </div>
         </div>
     </div>
- </div>  
+</div>  
 
 
 
@@ -111,7 +112,7 @@
             </div>
             <div class="modal-body">
                 <form action="${pageContext.request.contextPath}/AlumnoController?accion=eliminar" method="POST" role="form">
-                    
+
                     <div class="form-group">
                         <label for="matricula">Matrícula:</label>
                         <p id="idMatricula-eliminar"></p>
@@ -120,7 +121,7 @@
                         <label for="nombre">Nombre</label>
                         <p id="idNombre-eliminar"></p>                       
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="grupo">Grupo</label>
                         <p id="idGrupo-eliminar"></p>                       
@@ -146,9 +147,9 @@
 </div> 
 
 
-    <%-- El footer se encuentra en la carperta layouts en la carpeta pages.
-    el footer incluye dos div arriba de section y incluye todo (el footer y los archivos JavaScript) antes de donde cierra la etiqueta body--%> 
-    <jsp:include page="../../pages/layouts/footer.jsp"></jsp:include>
-    <script src="${pageContext.request.contextPath}/resources/alumno/js/scriptAlumnos.js"></script><%--lugar donde se encuentra el script encargado de la creación del alumno--%>
-    </body>
+<%-- El footer se encuentra en la carperta layouts en la carpeta pages.
+el footer incluye dos div arriba de section y incluye todo (el footer y los archivos JavaScript) antes de donde cierra la etiqueta body--%> 
+<jsp:include page="../../pages/layouts/footer.jsp"></jsp:include>
+<script src="${pageContext.request.contextPath}/resources/alumno/js/scriptAlumnos.js"></script><%--lugar donde se encuentra el script encargado de la creación del alumno--%>
+</body>
 </html>

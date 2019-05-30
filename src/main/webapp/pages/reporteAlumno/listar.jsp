@@ -5,13 +5,14 @@
   Fecha Modificación: -/-/-
 --%>
 <%
-		if (session != null) {
-			if (session.getAttribute("user") != null) {
-				String name = (String) session.getAttribute("user");
-			} else {
-				response.sendRedirect("/capcr/pages/logueo/index.jsp");
-			}
-		}
+    /*Bloque de código que nusca si existe una sesión*/
+    if (session != null) {
+        if (session.getAttribute("user") != null) {
+            String name = (String) session.getAttribute("user");
+        } else {
+            response.sendRedirect("/capcr/pages/logueo/index.jsp");
+        }
+    }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,7 +24,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/webjars/fontawesome/4.7.0/css/font-awesome.min.css">
         <script src="${pageContext.request.contextPath}/webjars/jquery/3.0.0/jquery.min.js"></script>
         <script src="${pageContext.request.contextPath}/webjars/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-        
+
     </head>
     <body>
         <div class="container">
@@ -62,8 +63,8 @@
                     </ul>
                 </div>                
             </nav>
-                        
-                        <table id="idTable" class="table">
+
+            <table id="idTable" class="table">
                 <thead class="thead-dark">
                     <tr>
                         <td>Codigo</td>
@@ -79,14 +80,14 @@
                 <c:forEach var="practica" items="${listaPractica}">
                     <tr>
                         <td><c:out value="${practica.codigo}"/></td>
-                        <td><c:out value="${practica.nombre}"/></td>
-                        <td><c:out value="${practica.idSemestre}"/></td>
-                        <td><c:out value="${practica.idCarrera}"/></td>
-                        <td><c:out value="${practica.fechaCreacion}"/></td>
-                        <td><c:out value="${practica.fechaActualizacion}"/></td>
-                        <td><c:out value="${practica.fechaEliminacion}"/></td>
-                        <td><i class="fa fa-edit"></i></td>	
-                        <td><i class="fa fa-trash"></i> </td>				
+                    <td><c:out value="${practica.nombre}"/></td>
+                    <td><c:out value="${practica.idSemestre}"/></td>
+                    <td><c:out value="${practica.idCarrera}"/></td>
+                    <td><c:out value="${practica.fechaCreacion}"/></td>
+                    <td><c:out value="${practica.fechaActualizacion}"/></td>
+                    <td><c:out value="${practica.fechaEliminacion}"/></td>
+                    <td><i class="fa fa-edit"></i></td>	
+                    <td><i class="fa fa-trash"></i> </td>				
                     </tr>
                 </c:forEach>
             </table>

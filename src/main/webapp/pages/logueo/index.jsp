@@ -7,14 +7,6 @@
   Tecnologias web I
 --%>
 
-<%
-    response.setHeader("Pragma", "no-cache");
-    response.addHeader("Cache-control", "must-revalidate");
-    response.addHeader("Cache-control", "no-cache");
-    response.addHeader("Cache-control", "no-store");
-    response.setDateHeader("Expires", 0);
-%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -34,33 +26,30 @@
             <div class="container mt-5 pt-5">
                 <div class="card mx-auto border-0">
                     <div class="card-header border-bottom-0 bg-transparent">
-                      <ul class="nav nav-tabs justify-content-center pt-4" id="pills-tab" role="tablist">
-                        <li class="nav-item">
-                          <a class="nav-link active text-primary" id="pills-login-tab" data-toggle="pill" href="#pills-login" role="tab" aria-controls="pills-login"
-                             aria-selected="true">Login</a>
-                        </li>
-                      </ul>
+                        <ul class="nav nav-tabs justify-content-center pt-4" id="pills-tab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active text-primary" id="pills-login-tab" data-toggle="pill" href="#pills-login" role="tab" aria-controls="pills-login"
+                                   aria-selected="true">Login</a>
+                            </li>
+                        </ul>
                     </div>
-                        <div class="card-body pb-4">
-                            <div class="tab-content" id="pills-tabContent">
-                                <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
-                                    <form action="${pageContext.request.contextPath}/LogueoController" method="GET">
+                    <div class="card-body pb-4">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
+                                <form action="${pageContext.request.contextPath}/LogueoController" method="GET">
                                     <div class="form-group">
-                                      <input onkeypress="return soloLetras(event)" type="text" name="user" class="form-control" id="user" placeholder="Usuario" required autofocus>
+                                        <input onkeypress="return soloLetras(event)" type="text" name="user" class="form-control" id="user" placeholder="Usuario" required autofocus>
                                     </div>
                                     <div class="form-group">
-                                      <input type="password" name="password" class="form-control" id="password" id="Contraseña" placeholder="Contraseña" required>
+                                        <input type="password" name="password" class="form-control" id="password" id="Contraseña" placeholder="Contraseña" required>
                                     </div>
                                     <div class="text-center">
                                         <button type="submit" name="boton" class="btn btn-primary  btn-block">Iniciar</button>
                                     </div>                               
-                                    <div class="text-center pt-2">
-                                        <a href="/capcr/pages/index.jsp">Haz olvidado la contraseña</a>
-                                    </div>
-                                  </form>
-                                </div>
+                                </form>
                             </div>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
