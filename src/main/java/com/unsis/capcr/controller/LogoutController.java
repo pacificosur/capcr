@@ -26,7 +26,6 @@ public class LogoutController extends HttpServlet {
             throws ServletException, IOException {
         HttpSession cerrar_sesion = request.getSession(false);
         cerrar_sesion.removeAttribute("user");
-        cerrar_sesion.getMaxInactiveInterval();
         response.sendRedirect("/capcr/pages/logueo/index.jsp");
     }
 

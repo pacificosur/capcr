@@ -47,9 +47,6 @@
                                     <div class="text-center">
                                         <button type="submit" name="boton" class="btn btn-primary  btn-block">Iniciar</button>
                                     </div>                               
-                                    <div class="text-center pt-2">
-                                        <a href="/capcr/pages/index.jsp">Haz olvidado la contraseña</a>
-                                    </div>
                                   </form>
                                 </div>
                             </div>
