@@ -3,10 +3,11 @@
  * E-mail: unsis.b@gmail.com
  * Fecha Creación: 08/05/2019
  * Fecha Modificación: 08/05/2019
- * Descripción: scritp para manipular la creacion y actualizacion del modulo de
- *              usuario.
+ * Descripción: scritp para manipular la creacion y actualizacion del modulo de usuario.
  */
+
 $(document).ready(function () {
+
     $("#boton-enviar-datos").click(function () {
         if ($("#idContrasena").val() === $("#idContrasena2").val()) {
             $.ajax({
@@ -17,7 +18,6 @@ $(document).ready(function () {
                     'idApellidos': $('#idApellidos').val(),
                     'idNombreUsuario': $('#idNombreUsuario').val(),
                     'idContrasena': $('#idContrasena').val(),
-                    'idTipo': $('#idTipo').val(),
                     'accion': 'crear'
                 },
                 success: function (responseText) {
@@ -54,9 +54,6 @@ $(document).ready(function () {
         $('#idNombre-eliminar').text(values[1]);
         $('#idApellidos-eliminar').text(values[2]);
         $('#idNombreUsuario-eliminar').text(values[3]);
-        $('#idContrasena-eliminar').text(values[4]);
-        $('#idTipo-eliminar').text(values[5]);
-
         $("#id-modal-usuario-eliminar").modal();
     });
 
@@ -75,10 +72,8 @@ $(document).ready(function () {
         $('#idNombre').val(values[1]);
         $('#idApellidos').val(values[2]);
         $('#idNombreUsuario').val(values[3]);
-        $('#idContrasena').val(values[4]);
-        $('#idContrasena2').val(values[4]);
-        $('#idTipo').val(values[5]);
-
+        $('#idContrasena').val();
+        $('#idContrasena2').val();
         $("#id-modal-usuario").modal();
     });
 });

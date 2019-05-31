@@ -26,8 +26,6 @@ public class UsuarioController extends HttpServlet {
             throws ServletException, IOException {
         String accion = request.getParameter("accion");
 
-        System.out.println("------->" + accion);
-
         if (accion.equals("crear") && request.getParameter("idUsuario") != null && !request.getParameter("idUsuario").equals("")) {
             accion = "actualizar";
         }
@@ -80,7 +78,8 @@ public class UsuarioController extends HttpServlet {
         String Apellidos = request.getParameter("idApellidos");
         String idNombreUsuario = request.getParameter("idNombreUsuario");
         String idContraseña = request.getParameter("idContrasena");
-        int idTipo = Integer.parseInt(request.getParameter("idTipo").trim());
+        int idTipo = 1;
+        
         Usuario usuario = new Usuario();
         usuario.setNombre(Nombre);
         usuario.setApellidos(Apellidos);
@@ -90,6 +89,8 @@ public class UsuarioController extends HttpServlet {
 
         IUsuarioService iUsuarioService = new UsuarioService();
         iUsuarioService.crearRegistro(usuario);
+        
+        
         List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
         request.setAttribute("listaUsuario", listaUsuario);
         dispatcher.forward(request, response);
@@ -105,7 +106,7 @@ public class UsuarioController extends HttpServlet {
         String Apellidos = request.getParameter("idApellidos");
         String idNombreUsuario = request.getParameter("idNombreUsuario");
         String idContraseña = request.getParameter("idContrasena");
-        int idTipo = Integer.parseInt(request.getParameter("idTipo").trim());
+        int idTipo = 1;
 
         Usuario usuario = new Usuario();
         usuario.setIdUsuario(idUsuario);
