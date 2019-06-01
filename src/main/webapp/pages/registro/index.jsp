@@ -23,7 +23,7 @@
 
   <div class="row">
         <div class="col-md-6">
-            <input type="text" class="form-control form-control-lg col-md-3 input-matricula-registro" placeholder="Matricula del alumno" name="matricula">
+            <input type="text" class="form-control form-control-lg col-md-3 input-matricula-registro" placeholder="Matricula del alumno" name="matricula" onkeypress=" return soloNumeros(event)">
         </div>
         <div class="col-md-6">
             <button type="button" class="btn btn-success boton-agregar-registro" id="id-btn-crear-registro"><i class="fa fa-user" aria-hidden="true"></i>Agregar</button>
@@ -77,32 +77,28 @@
                         </div>
                         <div class="form-group">
                             <label for="nombre-practica"><span class="fa fa-building"></span>&nbsp Nombre de la Practica</label>
-                            <input type="text" name="nombre-practica" class="form-control" id="idArea" placeholder="Nombre de la practica">
-                        </div>
-                        <div class="form-group">
-                            <label for="sustituye"><span class="fa fa-user"></span>&nbsp Sustituye</label>
-                            <input type="text" name="sustituye" class="form-control" id="idSustituye" required pattern="^[\w\.\-\s]+$" placeholder="Hora que sustituye">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-default btn-success"><span class="fa fa-save"></span>&nbsp Guardar</button>
-                            <button type="submit" class="btn btn-default btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Cancel</button>          
-                        </div>
-                        <form>
-                            <select name="hora-sustituye" class="custom-select">
-                                <option selected>Hora que sustituye</option>
-                                <option value="Biblioteca">Biblioteca</option>
-                                <option value="Tutoria">Tutoria/Asesotia</option>
-                                <option value="Libre">Libre</option>
-                            </select>
-                        </form>
-                        <form>
-                            <select name="seleccionar-practica" class="custom-select">
+                            <select name="seleccionar-practica" class="form-control custom-select" style="border-radius: 1em;">
                                 <option selected>Practica que realiza</option>
                                 <option value="volvo">Volvo</option>
                                 <option value="fiat">Fiat</option>
                                 <option value="audi">Audi</option>
                             </select>
-                        </form>
+<!--                            <input type="text" name="nombre-practica" class="form-control" id="idArea" placeholder="Nombre de la practica">-->
+                        </div>
+                        <div class="form-group">
+                            <label for="sustituye"><span class="fa fa-user"></span>&nbsp Sustituye</label>
+                            <select name="hora-sustituye" class="form-control custom-select" style="border-radius: 1em;">
+                                <option selected>Hora que sustituye</option>
+                                <option value="Biblioteca">Biblioteca</option>
+                                <option value="Tutoria">Tutoria/Asesotia</option>
+                                <option value="Libre">Libre</option>
+                            </select>
+<!--                            <input type="text" name="sustituye" class="form-control" id="idSustituye" required pattern="^[\w\.\-\s]+$" placeholder="Hora que sustituye">-->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-default btn-success"><span class="fa fa-save"></span>&nbsp Guardar</button>
+                            <button type="submit" class="btn btn-default btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Cancel</button>          
+                        </div>
                     </form>
                 </div>
             </div>
@@ -114,5 +110,6 @@ el footer incluye dos div arriba de section y incluye todo (el footer y los arch
 <jsp:include page="../../pages/layouts/footer.jsp"></jsp:include>
 
     <script src="${pageContext.request.contextPath}/resources/registro/js/scriptRegistro.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/registro/js/validaciones.js"></script>
 </body>
 </html>
