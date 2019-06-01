@@ -23,7 +23,7 @@
 
   <div class="row">
         <div class="col-md-6">
-            <input type="text" class="form-control form-control-lg col-md-3 input-matricula-registro" placeholder="Matricula del alumno" name="matricula">
+            <input type="text" class="form-control form-control-lg col-md-3 input-matricula-registro" placeholder="Matricula del alumno" name="matricula" onkeypress=" return soloNumeros(event)">
         </div>
         <div class="col-md-6">
             <button type="button" class="btn btn-success boton-agregar-registro" id="id-btn-crear-registro"><i class="fa fa-user" aria-hidden="true"></i>Agregar</button>
@@ -114,5 +114,6 @@ el footer incluye dos div arriba de section y incluye todo (el footer y los arch
 <jsp:include page="../../pages/layouts/footer.jsp"></jsp:include>
 
     <script src="${pageContext.request.contextPath}/resources/registro/js/scriptRegistro.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/registro/js/validaciones.js"></script>
 </body>
 </html>
