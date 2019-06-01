@@ -108,7 +108,11 @@
                     </div>
                     <div class="form-group">
                         <label for="idCarreraPractica"><span class="glyphicon glyphicon-eye-open"></span>Carrera</label>
-                        <input type="text" name="idCarreraPractica" class="form-control" id="idCarreraPractica" placeholder="Ingrese el codigo de carrera" required pattern="[0-9]{2}" required>
+                        <select name="idCarreraPractica" id="idCarreraPractica">
+                            <option value="03">Enfermería</option>
+                            <option value="13">Odontología</option>
+                            <option value="14">Medicina</option>
+                        </select>
                     </div>
 
                     <button id="guardarPractica" type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Guardar</button>
