@@ -14,7 +14,7 @@
         } else {
             response.sendRedirect("/capcr/pages/logueo/index.jsp");
         }
-    }
+   }
 %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%--El header se encuentra en la carpeta layouts en la carpeta pages
@@ -110,12 +110,15 @@
             <div class="modal-header text-center">
                 <h1>¿Desea eliminar el alumno?</h1>
             </div>
-            <div class="modal-body">
+            <div class="modal-body">             
+                
                 <form action="${pageContext.request.contextPath}/AlumnoController?accion=eliminar" method="POST" role="form">
-
+                    <div class="form-group">
+                        <input type="hidden" name="idMatricula-eliminar-no-mostrar" id="idMatricula-eliminar-no-mostrar" >                 
+                    </div>
                     <div class="form-group">
                         <label for="matricula">Matrícula:</label>
-                        <p id="idMatricula-eliminar"></p>
+                        <p id="idMatricula-eliminar-mostrar"></p>
                     </div>
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
@@ -136,6 +139,7 @@
                         <label for="carrera">Carrera</label>
                         <p id="idCodigoCarrera-eliminar"></p>                         
                     </div>
+                    
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-default btn-success"><span class="fa fa-trash"></span>&nbsp Eliminar</button>
                         <button type="submit" class="btn btn-default btn-danger" data-dismiss="modal"><span class="fa fa-close"></span>Cancelar</button> 
