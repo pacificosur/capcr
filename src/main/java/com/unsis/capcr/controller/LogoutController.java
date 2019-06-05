@@ -19,7 +19,8 @@ public class LogoutController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession cerrar_sesion = request.getSession(false);
-        cerrar_sesion.removeAttribute("user");
-        response.sendRedirect("/capcr/pages/logueo/index.jsp");
+        cerrar_sesion.removeValue("user");
+        cerrar_sesion.invalidate();
+        response.sendRedirect("/capcr/pages/logueo/     ");
     }
 }

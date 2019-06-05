@@ -36,6 +36,7 @@ public class LogueoController extends HttpServlet {
         if (iuser.logueo(usr)) {
             HttpSession nueva_sesion = request.getSession(true);
             nueva_sesion.setAttribute("user", user);
+       //     int opcion=iuser.RolUsuario(usr);
             response.sendRedirect("/capcr/pages/index.jsp");
         } else {
             response.sendRedirect("/capcr/pages/logueo/index.jsp");

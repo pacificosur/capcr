@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class UsuarioModel implements IUsuarioModel {
 
@@ -175,5 +176,26 @@ public class UsuarioModel implements IUsuarioModel {
         }catch(SQLException e){
             System.out.println("Error: "+e.getMessage());
         }
+    }
+
+    @Override
+    public boolean RolUsuario(Usuario usuario) {
+        try{
+            connection= new ConnectionPostgreSQL().conecta();   
+            query="SELECT * FROM usuario where tipo=? AND idusuario=?";
+            statement=connection.prepareStatement(query);
+            statement.setLong(1,usuario.getTipo());
+            statement.setLong(2,usuario.getIdUsuario());
+             resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                break;
+            }
+            resultSet.close();
+            connection.close();
+            statement.close();        
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        return false;
     }
 }
