@@ -23,7 +23,7 @@
 
   <div class="row">
         <div class="col-md-6">
-            <input type="text" class="form-control form-control-lg col-md-3 input-matricula-registro" placeholder="Matricula del alumno" name="matricula" onkeypress=" return soloNumeros(event)">
+            <input type="text" class="form-control form-control-lg col-md-3 input-matricula-registro" placeholder="Matricula del alumno" name="matricula" onkeypress=" return soloNumeros(event)" maxlength="10" onkeyup = "abrirModal(event)" autofocus>
         </div>
         <div class="col-md-6">
             <button type="button" class="btn btn-success boton-agregar-registro" id="id-btn-crear-registro"><i class="fa fa-user" aria-hidden="true"></i>Agregar</button>
