@@ -62,16 +62,24 @@ $(document).ready(function () {
         $('#codigoPractica').val(values[0]);
         $('#nombrePractica').val(values[1]);
         $('#idSemestrePractica').val(values[2]);
-
+        
+        var carrera=values[3].trim();
         //buscamos el nombre de carrera para mostrarlo en el modal
-       switch(values[3].trim()){
-            case "Enfermeria" :
+       switch(carrera){
+           //Se utilizó el codigo '\u00ED' que representa 'í' en el estándar unicode
+            case "Enfermer\u00EDa" :
+                $("#idCarreraPractica option[value='13']").removeAttr("selected");
+                $("#idCarreraPractica option[value='14']").removeAttr("selected");
                $("#idCarreraPractica option[value='03']").attr("selected", true);
                 break;
-            case "Odontologia":
+            case "Odontolog\u00EDa":
+                $("#idCarreraPractica option[value='03']").removeAttr("selected");
+                $("#idCarreraPractica option[value='14']").removeAttr("selected");
                 $("#idCarreraPractica option[value='13']").attr("selected", true);
                 break;
             case "Medicina":
+                $("#idCarreraPractica option[value='03']").removeAttr("selected");
+                $("#idCarreraPractica option[value='13']").removeAttr("selected");
                 $("#idCarreraPractica option[value='14']").attr("selected", true);
                 break;
         } 

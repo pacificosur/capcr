@@ -12,12 +12,12 @@
 <%@ page import="com.unsis.capcr.util.*" %>
 <%
     /*Bloque de código que nusca si existe una sesión*/
-    if (session != null) {
-        if (session.getAttribute("user") == null) {
-           response.sendRedirect("/capcr/pages/logueo/index.jsp");
-        } 
-    }
-
+//    if (session != null) {
+//        if (session.getAttribute("user") == null) {
+//           response.sendRedirect("/capcr/pages/logueo/index.jsp");
+//        } 
+//    }
+//
     Carrera ENFERMERIA = Carrera.ENFERMERIA;
     pageContext.setAttribute("ENFERMERIA", ENFERMERIA);
     Carrera ODONTOLOGIA = Carrera.ODONTOLOGIA;
