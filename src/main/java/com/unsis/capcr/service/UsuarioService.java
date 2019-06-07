@@ -51,4 +51,13 @@ public class UsuarioService implements IUsuarioService {
         iUsuarioModel.asignarRol(usuario);
     }
 
+    @Override
+    public boolean RolUsuario(Usuario usuario) {
+     //   return iUsuarioModel.RolUsuario(usuario);
+     return false;
+    }
+
+ 
+    
+
 }

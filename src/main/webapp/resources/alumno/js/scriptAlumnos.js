@@ -43,7 +43,8 @@ $(document).ready(function () {
             values[i] = item.innerHTML;
         });
 
-        $('#idMatricula-eliminar').text(values[0]);
+        $('#idMatricula-eliminar-no-mostrar').text(values[0]);
+        $('#idMatricula-eliminar-mostrar').text(values[0]);
         $('#idNombre-eliminar').text(values[1]);
         $('#idGrupo-eliminar').text(values[2]);
         $('#idCodigoSemestre-eliminar').text(values[3]);

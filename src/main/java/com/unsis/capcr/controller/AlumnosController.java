@@ -24,6 +24,7 @@ public class AlumnosController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String accion = request.getParameter("accion");
+       System.out.println(accion);
         try { //este try implementa un switch case para saber el método que sera seleccionado
             switch (accion) {
                 case "index":
@@ -32,7 +33,7 @@ public class AlumnosController extends HttpServlet {
                 case "crear":
                     crear(request, response);
                     break;
-                case "eliminar":
+                case "eliminar":  
                     eliminar(request, response);
                     break;
                 case "actualizar":
@@ -135,8 +136,8 @@ public class AlumnosController extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/alumno/index.jsp");
 
-        String idAlumno = (request.getParameter("idAlumno-eliminar"));
-
+        String idAlumno = request.getParameter("idMatricula-eliminar-no-mostrar");
+        System.out.println("----->: " + idAlumno);
         IAlumnoService iAlumnoService = new AlumnoService();
         iAlumnoService.eliminarAlumno(idAlumno);
 

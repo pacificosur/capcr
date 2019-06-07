@@ -8,21 +8,21 @@
  */
 
 $(document).ready(function () {
-//    $('.boton-agregar-registro').click(function () {        
-//        $.ajax({
-//            url: 'RegistroController',
-//            data: {
-//                'matriculaAlumno': $('.input-matricula-registro').val()
-//            },
-//            success: function (responseText) {
-//                $(".tabla-data").text(responseText);
-//                $(".tabla-data").text(responseText);
-//                $(".tabla-data").text(responseText);
-//                $(".tabla-data").text(responseText);
-//                $(".tabla-data").text(responseText);
-//            }
-//        });
-//    });
+    $('.boton-agregar-registro').click(function () {        
+        $.ajax({
+            url: 'RegistroController',
+            data: {
+                'matriculaAlumno': $('.input-matricula-registro').val()
+            },
+            success: function (responseText) {
+                $(".tabla-data").text(responseText);
+                $(".tabla-data").text(responseText);
+                $(".tabla-data").text(responseText);
+                $(".tabla-data").text(responseText);
+                $(".tabla-data").text(responseText);
+            }
+        });
+    });
 
 
     $("#id-btn-crear-registro").click(function(){
