@@ -7,7 +7,8 @@
 --%>
 <!DOCTYPE html>
 <html lang="en">
-
+<%
+%>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -86,9 +87,10 @@
                             <li><a href="${pageContext.request.contextPath}/ReservacionController?accion=index">Reservaciones</a></li>
                             <li><a href="${pageContext.request.contextPath}/UsuarioController?accion=index">Usuario</a></li>
                             <li><a href="${pageContext.request.contextPath}/RolesController?accion=index">Asignar Roles</a></li>
-                            <li><a href="${pageContext.request.contextPath}/LogoutController">Logout</a></li><!-- Función para desloguearse-->
+                            <li><a href="${pageContext.request.contextPath}/RegistroController?accion=index">salir</a></li>
                         </ul>
                     </div>
+
                     <!-- /.navbar-collapse -->
                 </div>
                 <!-- /.container -->

@@ -179,23 +179,27 @@ public class UsuarioModel implements IUsuarioModel {
     }
 
     @Override
-    public boolean RolUsuario(Usuario usuario) {
+    public  int RolUsuario(Usuario usuario) {
+        int tipo=-1;
         try{
             connection= new ConnectionPostgreSQL().conecta();   
-            query="SELECT * FROM usuario where tipo=? AND idusuario=?";
+            query="SELECT * FROM usuario where nombreusuario=? AND contraseña=?";
             statement=connection.prepareStatement(query);
-            statement.setLong(1,usuario.getTipo());
-            statement.setLong(2,usuario.getIdUsuario());
-             resultSet = statement.executeQuery();
+            statement.setString(1,usuario.getNombreUsuario());
+            statement.setString(2,usuario.getContraseña());
+            resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                break;
+               tipo = resultSet.getInt("tipo"); 
+//               System.out.println("Tipo: "+tipo);
+               break;
             }
             resultSet.close();
             connection.close();
             statement.close();        
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());           
         }
-        return false;
+        return tipo;
+
     }
 }

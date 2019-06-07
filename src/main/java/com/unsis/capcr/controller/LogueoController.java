@@ -24,6 +24,7 @@ public class LogueoController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+//        PrintWriter out= new PrintWriter();
         IUsuarioService iuser = new UsuarioService();
         response.setContentType("Text/html");
         PrintWriter salida = response.getWriter();
@@ -36,8 +37,27 @@ public class LogueoController extends HttpServlet {
         if (iuser.logueo(usr)) {
             HttpSession nueva_sesion = request.getSession(true);
             nueva_sesion.setAttribute("user", user);
-       //     int opcion=iuser.RolUsuario(usr);
-            response.sendRedirect("/capcr/pages/index.jsp");
+            int opcion=iuser.RolUsuario(usr);  
+            switch(opcion){
+                case 1:
+                      response.sendRedirect("/capcr/pages/index.jsp");
+                break;
+                case 2:
+                      response.sendRedirect("/capcr/pages/index.jsp");
+                break;
+                case 3:
+                      response.sendRedirect("/capcr/pages/index.jsp");
+                break;
+                case 4:
+                      response.sendRedirect("/capcr/pages/index.jsp");
+                break;
+                case 5:
+                      response.sendRedirect("/capcr/pages/index.jsp");
+                break;
+                default:
+                     response.sendRedirect("/capcr/pages/logueo/index.jsp");
+                break;
+            }
         } else {
             response.sendRedirect("/capcr/pages/logueo/index.jsp");
         }

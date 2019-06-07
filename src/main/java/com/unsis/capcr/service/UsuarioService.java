@@ -52,12 +52,7 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public boolean RolUsuario(Usuario usuario) {
-     //   return iUsuarioModel.RolUsuario(usuario);
-     return false;
+    public int RolUsuario(Usuario usuario) {
+        return iUsuarioModel.RolUsuario(usuario);
     }
-
- 
-    
-
 }
