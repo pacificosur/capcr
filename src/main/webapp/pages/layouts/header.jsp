@@ -5,10 +5,13 @@
    Fecha Modificación: 02/05/2019
    Descripción: header plantilla
 --%>
+    <%
+        System.out.println( "Hola ----"+ request.getAttribute("opcion"));
+        int opcion=Integer.parseInt(request.getAttribute("opcion").toString());
+        pageContext.setAttribute("opcion", opcion);
+    %>
 <!DOCTYPE html>
 <html lang="en">
-<%
-%>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,6 +84,8 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                         <ul class="nav navbar-nav">
+                            <c:if test="${opcion==2}">
+                            <c:out value="${ENFERMERIA.getNombreCarrera()}"/>
                             <li><a href="${pageContext.request.contextPath}/AlumnosController?accion=index">Alumno</a></li>
                             <li><a href="${pageContext.request.contextPath}/PracticaController?accion=index">Práctica</a></li>
                             <li><a href="${pageContext.request.contextPath}/RegistroController?accion=index">Registro</a></li>
