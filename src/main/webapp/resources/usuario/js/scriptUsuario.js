@@ -7,7 +7,6 @@
  */
 
 $(document).ready(function () {
-
     $("#boton-enviar-datos").click(function () {
         if ($("#idContrasena").val() === $("#idContrasena2").val()) {
             $.ajax({
@@ -23,6 +22,11 @@ $(document).ready(function () {
                 success: function (responseText) {
                     $("#id-modal-usuario").modal().hide();
                     location.reload();
+                    $('#idNombre').val('');
+                    $('#idApellidos').val('');
+                    $('#idNombreUsuario').val('');
+                    $('#idContrasena').val('');
+                    $('#idContrasena2').val('');
                 }
             });
         } else {
@@ -30,41 +34,50 @@ $(document).ready(function () {
         }
     });
 
-    /*Panginar los registros en la tabla usuario*/
-    $('#miTabla').pageMe({pagerSelector: '#myPager', showPrevNext: true, hidePageNumbers: false, perPage: 5});
-
-    /* Este id Selector es para mostrar el modal para crear un nuevo usuario*/
-    $("#id-btn-crear-usuario").click(function () {
-        $("#id-modal-usuario").modal();
+    $("#boton-cancelar").click(function () {
+        location.reload();
+        $('#idNombre').val('');
+        $('#idApellidos').val('');
+        $('#idNombreUsuario').val('');
+        $('#idContrasena').val('');
+        $('#idContrasena2').val('');
     });
 
+
+    /*Panginar los registros en la tabla usuario*/
+    $('#miTabla').pageMe({pagerSelector: '#myPager', showPrevNext: true, hidePageNumbers: false, perPage: 5});
+    /* Este id Selector es para mostrar el modal para crear un nuevo usuario*/
+    $("#id-btn-crear-usuario").click(function () {
+        $('#idNombre').val('');
+        $('#idApellidos').val('');
+        $('#idNombreUsuario').val('');
+        $('#idContrasena').val('');
+        $('#idContrasena2').val('');
+        $("#id-modal-usuario").modal();
+    });
+    
     /* Esta clase Selector es para mostrar el modal para eliminar un usuario*/
     $('.class-eliminar-usuario').click(function () {
         var $row = jQuery(this).closest('tr');
         var $columns = $row.find('td');
-
         $columns.addClass('row-highlight');
         var values = [8];
-
         jQuery.each($columns, function (i, item) {
             values[i] = item.innerHTML;
         });
-
         $('#idUsuario-eliminar').val(values[0]);
         $('#idNombre-eliminar').text(values[1]);
         $('#idApellidos-eliminar').text(values[2]);
         $('#idNombreUsuario-eliminar').text(values[3]);
         $("#id-modal-usuario-eliminar").modal();
     });
-
+    
     /* Esta clase Selector es para mostrar el modal para actualizar un usuario*/
     $('.class-actualizar-usuario').click(function () {
         var $row = jQuery(this).closest('tr');
         var $columns = $row.find('td');
-
         $columns.addClass('row-highlight');
         var values = [8];
-
         jQuery.each($columns, function (i, item) {
             values[i] = item.innerHTML;
         });
@@ -76,9 +89,8 @@ $(document).ready(function () {
         $('#idContrasena2').val();
         $("#id-modal-usuario").modal();
     });
-});
-
-
+}
+);
 /* función para paginar los usuario*/
 $.fn.pageMe = function (opts) {
     var $this = this,
@@ -88,12 +100,10 @@ $.fn.pageMe = function (opts) {
                 hidePageNumbers: false
             },
             settings = $.extend(defaults, opts);
-
     var listElement = $this;
     var perPage = settings.perPage;
     var children = listElement.children();
     var pager = $('.pager');
-
     if (typeof settings.childSelector !== "undefined") {
         children = listElement.find(settings.childSelector);
     }
@@ -104,9 +114,7 @@ $.fn.pageMe = function (opts) {
 
     var numItems = children.size();
     var numPages = Math.ceil(numItems / perPage);
-
     pager.data("curr", 0);
-
     if (settings.showPrevNext) {
         $('<li><a href="#" class="prev_link"><span><i class="fa fa-arrow-left"></i></span></a></li>').appendTo(pager);
     }
@@ -127,10 +135,8 @@ $.fn.pageMe = function (opts) {
         pager.find('.next_link').hide();
     }
     pager.children().eq(1).addClass("active");
-
     children.hide();
     children.slice(0, perPage).show();
-
     pager.find('li .page_link').click(function () {
         var clickedPage = $(this).html().valueOf() - 1;
         goTo(clickedPage, perPage);
@@ -144,7 +150,6 @@ $.fn.pageMe = function (opts) {
         next();
         return false;
     });
-
     function previous() {
         var goToPage = parseInt(pager.data("curr")) - 1;
         goTo(goToPage);
@@ -158,9 +163,7 @@ $.fn.pageMe = function (opts) {
     function goTo(page) {
         var startAt = page * perPage,
                 endOn = startAt + perPage;
-
         children.css('display', 'none').slice(startAt, endOn).show();
-
         if (page >= 1) {
             pager.find('.prev_link').show();
         } else {

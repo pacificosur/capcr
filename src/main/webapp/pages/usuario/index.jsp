@@ -15,7 +15,7 @@
     <br/>
     <button type="button" class="btn btn-success" id="id-btn-crear-usuario"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Crear usuario</button>
     <br/>
-    <div class="table-responsive">
+    <div class="table-responsive1">
         <table id="idTable" class="table table-hover" style="width:100%">
             <thead>
                 <tr>
@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="nombre"><span class="fa fa-building"></span>&nbsp NOMBRE</label>
+                    <label for="nombre"><span class="fa fa-user"></span>&nbsp NOMBRE</label>
                     <input type="text" name="idNombre" class="form-control" id="idNombre" placeholder="Ingrese el nombre" onkeypress="return soloLetras(event)" required>
                 </div>
 
@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="psw"><span class="fa fa-list"></span>&nbsp USUARIO</label>
+                    <label for="psw"><span class="fa fa-user"></span>&nbsp USUARIO</label>
                     <input type="text" name="idNombreUsuario" class="form-control" id="idNombreUsuario" placeholder="Ingrese el usuario solo numeros,letras,guiones y puntos" onkeypress="return soloLetrasYnumeros(event)" required>
                 </div>
 
@@ -180,6 +180,7 @@
 el footer incluye dos div arriba de section y incluye todo (el footer y los archivos JavaScript) antes de donde cierra la etiqueta body
 --%> 
 <jsp:include page="../../pages/layouts/footer.jsp"></jsp:include>
+<link href="${pageContext.request.contextPath}/resources/usuario/css/cssUsuario.css" rel="stylesheet" />
 <script src="${pageContext.request.contextPath}/resources/usuario/js/scriptUsuario.js"></script>
 <script src="${pageContext.request.contextPath}/resources/usuario/js/validaciones.js"></script>
 </body>
