@@ -38,8 +38,7 @@ public class LogueoController extends HttpServlet {
             HttpSession nueva_sesion = request.getSession(true);
             nueva_sesion.setAttribute("user", user);
             int opcion=iuser.RolUsuario(usr); 
-            request.setAttribute("opcion",opcion);
-            
+            request.setAttribute("opcion",opcion);   
             RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/index.jsp");
             dispatcher.forward(request, response);
             
