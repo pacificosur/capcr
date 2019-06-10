@@ -85,7 +85,6 @@
                     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                         <ul class="nav navbar-nav">
                             <c:if test="${opcion==2}">
-                            <c:out value="${ENFERMERIA.getNombreCarrera()}"/>
                             <li><a href="${pageContext.request.contextPath}/AlumnosController?accion=index">Alumno</a></li>
                             <li><a href="${pageContext.request.contextPath}/PracticaController?accion=index">Práctica</a></li>
                             <li><a href="${pageContext.request.contextPath}/RegistroController?accion=index">Registro</a></li>
