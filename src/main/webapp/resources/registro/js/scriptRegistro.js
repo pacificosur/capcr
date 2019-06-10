@@ -30,3 +30,10 @@ $(document).ready(function () {
     });
 });
 
+function abrirModal(e){
+    if(e.keyCode === 13){
+        $("#id-modal-registro").modal();
+    }
+    
+}
+
