@@ -13,4 +13,6 @@ public interface IUsuarioModel {
     public boolean logueo(Usuario usuario);
     public void asignarRol(Usuario usuario);
     public int RolUsuario(Usuario usuario);
+    public Usuario obtenerUsuarioPorNombre(String nombreUsuario);
+    public Usuario obtenerUsuarioDiferentes(String nombreUsuario,Long idUsuario);
 }

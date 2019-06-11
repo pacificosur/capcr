@@ -88,9 +88,9 @@ public class UsuarioController extends HttpServlet {
         usuario.setTipo(idTipo);
 
         IUsuarioService iUsuarioService = new UsuarioService();
-        iUsuarioService.crearRegistro(usuario);
-        
-        
+        if (iUsuarioService.obtenerUsuarioPorNombre(idNombreUsuario)==null){
+            iUsuarioService.crearRegistro(usuario);
+        }      
         List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
         request.setAttribute("listaUsuario", listaUsuario);
         dispatcher.forward(request, response);
@@ -118,8 +118,9 @@ public class UsuarioController extends HttpServlet {
         usuario.setIdUsuario(idUsuario);
 
         IUsuarioService iUsuarioService = new UsuarioService();
-        iUsuarioService.actualizarRegistro(usuario);
-
+         if (iUsuarioService.obtenerUsuarioDiferentes(idNombreUsuario, idUsuario)==null){
+            iUsuarioService.actualizarRegistro(usuario);
+        }
         List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
         request.setAttribute("listaUsuario", listaUsuario);
         dispatcher.forward(request, response);
@@ -134,9 +135,10 @@ public class UsuarioController extends HttpServlet {
 
         IUsuarioService iUsuarioService = new UsuarioService();
         iUsuarioService.eliminarRegistro(idUsuario);
-
+        
         List<Usuario> listaUsuario = iUsuarioService.obtenerUsuarios();
         request.setAttribute("listaUsuario", listaUsuario);
         dispatcher.forward(request, response);
+        response.sendRedirect("/pages/usuario/index.jsp");
     }
 }

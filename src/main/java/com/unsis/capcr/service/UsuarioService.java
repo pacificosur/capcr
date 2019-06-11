@@ -55,4 +55,14 @@ public class UsuarioService implements IUsuarioService {
     public int RolUsuario(Usuario usuario) {
         return iUsuarioModel.RolUsuario(usuario);
     }
+    
+    @Override
+    public Usuario obtenerUsuarioPorNombre(String idNombreUsuario){
+        return iUsuarioModel.obtenerUsuarioPorNombre(idNombreUsuario);
+    }
+
+    @Override
+    public Usuario obtenerUsuarioDiferentes(String nombreUsuario, Long idUsuario) {
+        return iUsuarioModel.obtenerUsuarioDiferentes(nombreUsuario, idUsuario);
+    }
 }
