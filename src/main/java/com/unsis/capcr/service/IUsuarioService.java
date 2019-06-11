@@ -18,5 +18,5 @@ public interface IUsuarioService {
     
     public void asignarRol(Usuario usuario);
     
-    public boolean RolUsuario(Usuario usuario);
+    public int RolUsuario(Usuario usuario);
 }

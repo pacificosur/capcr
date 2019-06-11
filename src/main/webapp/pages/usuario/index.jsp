@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="nombre"><span class="fa fa-building"></span>&nbsp NOMBRE</label>
+                    <label for="nombre"><span class="fa fa-user"></span>&nbsp NOMBRE</label>
                     <input type="text" name="idNombre" class="form-control" id="idNombre" placeholder="Ingrese el nombre" onkeypress="return soloLetras(event)" required>
                 </div>
 
@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="psw"><span class="fa fa-list"></span>&nbsp USUARIO</label>
+                    <label for="psw"><span class="fa fa-user"></span>&nbsp USUARIO</label>
                     <input type="text" name="idNombreUsuario" class="form-control" id="idNombreUsuario" placeholder="Ingrese el usuario solo numeros,letras,guiones y puntos" onkeypress="return soloLetrasYnumeros(event)" required>
                 </div>
 

@@ -14,6 +14,7 @@ import com.unsis.capcr.service.IUsuarioService;
 import com.unsis.capcr.service.UsuarioService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -36,8 +37,34 @@ public class LogueoController extends HttpServlet {
         if (iuser.logueo(usr)) {
             HttpSession nueva_sesion = request.getSession(true);
             nueva_sesion.setAttribute("user", user);
-       //     int opcion=iuser.RolUsuario(usr);
-            response.sendRedirect("/capcr/pages/index.jsp");
+            int opcion=iuser.RolUsuario(usr); 
+            request.setAttribute("opcion",opcion);   
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/index.jsp");
+            dispatcher.forward(request, response);
+            
+          //  request.getRequestDispatcher(opcion);
+            /*switch(opcion){
+                case 1:
+                     dispatcher = request.getRequestDispatcher("/capcr/pages/index.jsp");
+                     dispatcher.forward(request, response);
+                break;
+                case 2:
+                       response.sendRedirect("/capcr/pages/index.jsp");
+                       //dispatcher.forward(request, response);
+                break;
+                case 3:
+                      response.sendRedirect("/capcr/pages/index.jsp");
+                break;
+                case 4:
+                      response.sendRedirect("/capcr/pages/index.jsp");
+                break;
+                case 5:
+                      response.sendRedirect("/capcr/pages/index.jsp");
+                break;
+                default:
+                     response.sendRedirect("/capcr/pages/logueo/index.jsp");
+                break;
+            }*/
         } else {
             response.sendRedirect("/capcr/pages/logueo/index.jsp");
         }

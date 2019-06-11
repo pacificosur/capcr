@@ -18,9 +18,16 @@ public class LogoutController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+       // HttpSession cerrar_sesion = request.getSession(false);
+        //cerrar_sesion.removeAttribute("user");
+        
+        //String ruta = "localhost:8080"+request.getContextPath()+"/pages/logueo/index.jsp";
+        //System.out.println("ruta: " + ruta);
+    // request.getRequestDispatcher(request.getContextPath()+"/pages/logueo/index.jsp").include(request, response);
+        //response.sendRedirect("/capcr/pages/logueo/index.jsp");
         HttpSession cerrar_sesion = request.getSession(false);
-        cerrar_sesion.removeValue("user");
-        cerrar_sesion.invalidate();
-        response.sendRedirect("/capcr/pages/logueo/     ");
+        cerrar_sesion.removeAttribute("user");
+        cerrar_sesion.getMaxInactiveInterval();
+        response.sendRedirect("/capcr/pages/logueo/index.jsp");
     }
 }
