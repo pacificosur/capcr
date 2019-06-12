@@ -6,9 +6,20 @@
    Descripción: header plantilla
 --%>
 <!DOCTYPE html>
-<html lang="en">
 <%
+    if (request.getAttribute("opcion") != null) {
+        System.out.println("Hola ----" + request.getAttribute("opcion"));
+        int opcion = Integer.parseInt(request.getAttribute("opcion").toString());
+        pageContext.setAttribute("opcion", opcion);
+    } else {
+        response.sendRedirect("/capcr/pages/logueo/index.jsp");
 %>
+<jsp:forward page="/pages/logueo/index.jsp"></jsp:forward>
+<%
+    }
+
+%>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +40,7 @@
         <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
         <link href="${pageContext.request.contextPath}/resources/img/lamp.ico" rel="shortcut icon">
 
-         <link href="${pageContext.request.contextPath}/resources/alumno/css/cssAlumno.css" rel="stylesheet" />
+        <link href="${pageContext.request.contextPath}/resources/alumno/css/cssAlumno.css" rel="stylesheet" />
         <link href="${pageContext.request.contextPath}/resources/reservacion/css/cssReservacion.css" rel="stylesheet" />
         <link href="${pageContext.request.contextPath}/resources/practica/css/cssPractica.css" rel="stylesheet" />
 
@@ -39,7 +50,7 @@
         <link id="bodybg" href="${pageContext.request.contextPath}/resources/bodybg/bg1.css" rel="stylesheet" type="text/css" />
         <!-- template skin -->
         <link id="t-colors" href="${pageContext.request.contextPath}/resources/color/default.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/resources/css/myStyle.css" rel="stylesheet" />
+        <link href="${pageContext.request.contextPath}/resources/css/myStyle.css" rel="stylesheet" />
         <!-- =======================================================
           Theme Name: Medicio
           Theme URL: https://bootstrapmade.com/medicio-free-bootstrap-theme/
@@ -78,7 +89,6 @@
                         </a>
                     </div>
 
-                    <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                         <ul class="nav navbar-nav">
                             <li><a href="${pageContext.request.contextPath}/AlumnosController?accion=index">Alumno</a></li>

@@ -8,6 +8,7 @@
 
 package com.unsis.capcr.controller;
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,7 +28,7 @@ public class LogoutController extends HttpServlet {
         //response.sendRedirect("/capcr/pages/logueo/index.jsp");
         HttpSession cerrar_sesion = request.getSession(false);
         cerrar_sesion.removeAttribute("user");
-        cerrar_sesion.getMaxInactiveInterval();
-        response.sendRedirect("/capcr/pages/logueo/index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logueo/index.jsp");
+        dispatcher.forward(request, response);
     }
 }
