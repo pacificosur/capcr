@@ -202,4 +202,59 @@ public class UsuarioModel implements IUsuarioModel {
         return tipo;
 
     }
+    
+     @Override
+    public Usuario obtenerUsuarioPorNombre(String nombreUsuario) {
+        Usuario usuario = new Usuario();
+        try {
+            connection = (Connection) new ConnectionPostgreSQL().conecta();
+            query = "SELECT * FROM usuario WHERE nombreusuario = ?";
+            statement = connection.prepareStatement(query);
+            statement.setString(1, nombreUsuario);
+            resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                usuario.setIdUsuario(resultSet.getLong("idUsuario"));
+                usuario.setNombre(resultSet.getString("nombre"));
+                usuario.setApellidos(resultSet.getString("apellido"));
+                usuario.setNombreUsuario(resultSet.getString("nombreusuario"));
+                usuario.setContraseña(resultSet.getString("contraseña"));
+                usuario.setTipo(resultSet.getInt("tipo"));
+                return usuario;
+            }
+            resultSet.close();
+            connection.close();
+            statement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
+    @Override
+    public Usuario obtenerUsuarioDiferentes(String nombreUsuario, Long idUsuario) {
+        Usuario usuario = new Usuario();
+        try {
+            connection = (Connection) new ConnectionPostgreSQL().conecta();
+            query = "SELECT * FROM usuario WHERE nombreusuario = ? AND idusuario != ?";
+            statement = connection.prepareStatement(query);
+            statement.setString(1, nombreUsuario);
+            statement.setLong(2, idUsuario);
+            resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                usuario.setIdUsuario(resultSet.getLong("idUsuario"));
+                usuario.setNombre(resultSet.getString("nombre"));
+                usuario.setApellidos(resultSet.getString("apellido"));
+                usuario.setNombreUsuario(resultSet.getString("nombreusuario"));
+                usuario.setContraseña(resultSet.getString("contraseña"));
+                usuario.setTipo(resultSet.getInt("tipo"));
+                return usuario;
+            }
+            resultSet.close();
+            connection.close();
+            statement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
 }

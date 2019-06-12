@@ -8,6 +8,11 @@
 
 $(document).ready(function () {
     $("#boton-enviar-datos").click(function () {
+        if ($("#idNombre").val() === '' || $("#idApellidos").val() === '' || $("#idNombreUsuario").val() === '' || $("#idContrasena").val() === '' || $("#idContrasena2").val() === '')
+        {
+            alert("No se aceptan campos vacios");
+            return false;
+        }
         if ($("#idContrasena").val() === $("#idContrasena2").val()) {
             $.ajax({
                 url: 'UsuarioController',
