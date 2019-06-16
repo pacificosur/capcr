@@ -2,7 +2,82 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d2e70e9d-5d5a-494e-81bb-8ae0a9785b1a">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="72"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFF8DC">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFF2BF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#FFFBEF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#FAEBD7">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#FFE4BF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#FFF8EF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="Reportes" uuid="00aa4356-769c-46aa-822c-e3ac9a74b3e8">
+		<parameter name="_grupo" class="java.lang.String"/>
+		<parameter name="_fechaInicio" class="java.util.Date"/>
+		<parameter name="_fechaFin" class="java.util.Date"/>
+		<parameter name="_nombrePractica" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select Alumno.Matricula as Matricula, Alumno.nombre as Nombre, Practica.nombre as Practica, Registro.horaEntrada as HoraEntrada,Registro.horaSalida as HoraSalida,
+        Registro.sustituye as Sustituye, Alumno.grupo as Grupo, Registro.fecha as Fecha from Carrera inner join Alumno on Carrera.codigo = Alumno.codigoCarrera
+		inner join Registro on Alumno.matricula = Registro.matriculaAlumno
+		inner join Semestre on Alumno.codigoSemestre = Semestre.codigo
+		inner join Practica on Semestre.codigo = Practica.codigoSemestre and Practica.codigo = Registro.codigoPractica
+		and Carrera.codigo = Practica.codigoCarrera where Alumno.grupo= $P{_grupo} and (fecha between $P{_fechaInicio} and $P{_fechaFin})
+        and Practica.nombre = $P{_nombrePractica} and estado = 'realizado' ;]]>
+		</queryString>
+		<field name="matricula" class="java.lang.String"/>
+		<field name="nombre" class="java.lang.String"/>
+		<field name="practica" class="java.lang.String"/>
+		<field name="horaentrada" class="java.sql.Time"/>
+		<field name="horasalida" class="java.sql.Time"/>
+		<field name="sustituye" class="java.lang.String"/>
+		<field name="grupo" class="java.lang.String"/>
+		<field name="fecha" class="java.sql.Date"/>
+	</subDataset>
+	<parameter name="varGrupo" class="java.lang.String"/>
+	<parameter name="varFecha_inicio" class="java.util.Date"/>
+	<parameter name="varFecha_fin" class="java.util.Date"/>
+	<parameter name="varNombre_practica" class="java.lang.String"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT
      alumno."matricula" AS alumno_matricula,
@@ -149,7 +224,169 @@ FROM
 		<band height="2" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="386" splitType="Stretch"/>
+		<band height="358" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 1" x="0" y="0" width="802" height="358" uuid="61c4e2d3-f7ff-4c1d-b5e5-20397fd79fbc"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Reportes" uuid="4fe24276-818a-494a-b45e-39292da8a663">
+						<datasetParameter name="_grupo">
+							<datasetParameterExpression><![CDATA[$P{varGrupo}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="_fechaInicio">
+							<datasetParameterExpression><![CDATA[$P{varFecha_inicio}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="_fechaFin">
+							<datasetParameterExpression><![CDATA[$P{varFecha_fin}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="_nombrePractica">
+							<datasetParameterExpression><![CDATA[$P{varNombre_practica}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="63" uuid="7323f81c-67c2-4bad-84cb-98088df15d7e">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="56" height="30" uuid="514c36cd-47c8-4bf7-8054-e807c179f841"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Matrícula]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="47" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="10" width="56" height="20" uuid="3261ee6b-b6f9-4913-ad12-fb7a514189e4"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{matricula}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="127" uuid="28696d27-f5b8-4542-8ada-51968c9f47c3">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="867e7890-5ed5-4e4f-aa99-47ffc553e3e7"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Nombre]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="47" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="117" height="46" uuid="a918ceab-6f77-4435-94ed-29b4fab240e8"/>
+								<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="176" uuid="4d53354a-3504-4aaf-83e3-cd0adef69cc1">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="0f5a4128-583e-4607-acbc-73b2af79becb"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Práctica]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="47" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="165" height="46" uuid="c58ca73d-c005-4a45-9570-555719ca5d88"/>
+								<textFieldExpression><![CDATA[$F{practica}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="91" uuid="2a4f4a0d-5ed9-492e-913b-bb49f7b5d08d">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="049bff9a-cfa9-4c4a-aa62-38343d9224c4"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Hora Entrada]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="47" rowSpan="1">
+							<textField>
+								<reportElement x="1" y="10" width="90" height="20" uuid="2ca1919c-8bbf-4ece-9ec8-bd6a64209d2d"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{horaentrada}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="108" uuid="8e9b0494-ea80-453a-8de4-3d77a705093e">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="465145cd-9d81-4db3-83b1-45396c8083a9"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Hora Salida]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="47" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="10" width="90" height="20" uuid="04e55f14-05ad-427f-ad95-08cb054ba7ba"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{horasalida}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="98" uuid="df3a1d0b-ce4a-4603-9e15-16770a6fd281">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="bbec1182-5cb2-40c7-aa8b-4433399dcfcc"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Sustituye]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="47" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="10" width="90" height="20" uuid="ade62a9e-2a7a-45af-ba53-608927be06f6"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{sustituye}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="51" uuid="ffa9c5f7-c872-46e2-8c0d-706478becbd7">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="44" height="30" uuid="904f946b-fcba-432e-8014-d29a18bc814b"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Grupo]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="47" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="10" width="44" height="20" uuid="3964dac0-5ae2-464b-b02f-3004a4f695e4"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{grupo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="99" uuid="1c840990-b7c1-4e32-a6df-ec847d0aecdd">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="b4e30e3f-117b-42b8-a291-996744afc1fa"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Fecha]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="47" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="10" width="90" height="20" uuid="4216b4b4-bcad-4669-9191-929aa103093a"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="07f23e54-802b-4879-af0e-da7a699bfdb2">
+						<jr:tableHeader height="0" rowSpan="1"/>
+						<jr:tableFooter height="0" rowSpan="1"/>
+						<jr:columnHeader height="30" rowSpan="1"/>
+						<jr:columnFooter height="30" rowSpan="1"/>
+						<jr:detailCell height="47" rowSpan="1"/>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
 	</detail>
 	<columnFooter>
 		<band splitType="Stretch"/>
