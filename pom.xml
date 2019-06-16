@@ -84,6 +84,23 @@
             <scope>test</scope>
             <type>jar</type>
         </dependency>-->
+     <!-- Dependencias para modulo de reportes -->        
+        
+         <!-- https://mvnrepository.com/artifact/org.netbeans.external/AbsoluteLayout -->
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE110</version>
+        </dependency>
+        
+    <!-- Dependencia Correspondiente a Jasperreports  -->
+        <!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>6.8.1</version>
+        </dependency>
+    <!-- Terminan Dependencias para modulo de reportes --> 
 
     </dependencies>
     
