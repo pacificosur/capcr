@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d2e70e9d-5d5a-494e-81bb-8ae0a9785b1a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     alumno."matricula" AS alumno_matricula,
+     alumno."nombre" AS alumno_nombre,
+     alumno."grupo" AS alumno_grupo,
+     alumno."fechacreacion" AS alumno_fechacreacion,
+     alumno."fechaactualizacion" AS alumno_fechaactualizacion,
+     alumno."fechaeliminacion" AS alumno_fechaeliminacion,
+     alumno."codigosemestre" AS alumno_codigosemestre,
+     alumno."codigocarrera" AS alumno_codigocarrera,
+     carrera."codigo" AS carrera_codigo,
+     carrera."nombre" AS carrera_nombre,
+     practica."codigo" AS practica_codigo,
+     practica."nombre" AS practica_nombre,
+     practica."codigosemestre" AS practica_codigosemestre,
+     practica."codigocarrera" AS practica_codigocarrera,
+     practica."fechacreacion" AS practica_fechacreacion,
+     practica."fechaactualizacion" AS practica_fechaactualizacion,
+     practica."fechaeliminacion" AS practica_fechaeliminacion,
+     registro."matriculaalumno" AS registro_matriculaalumno,
+     registro."codigopractica" AS registro_codigopractica,
+     registro."horaentrada" AS registro_horaentrada,
+     registro."horasalida" AS registro_horasalida,
+     registro."fecha" AS registro_fecha,
+     registro."sustituye" AS registro_sustituye,
+     registro."estado" AS registro_estado,
+     registro."comentario" AS registro_comentario,
+     reservacion."idreservacion" AS reservacion_idreservacion,
+     reservacion."fechainicio" AS reservacion_fechainicio,
+     reservacion."fechafin" AS reservacion_fechafin,
+     reservacion."area" AS reservacion_area,
+     reservacion."responsablearea" AS reservacion_responsablearea,
+     reservacion."practica" AS reservacion_practica,
+     reservacion."responsablepractica" AS reservacion_responsablepractica,
+     semestre."codigo" AS semestre_codigo,
+     semestre."nombre" AS semestre_nombre,
+     usuario."idusuario" AS usuario_idusuario,
+     usuario."nombre" AS usuario_nombre,
+     usuario."apellido" AS usuario_apellido,
+     usuario."nombreusuario" AS usuario_nombreusuario,
+     usuario."contraseña" AS usuario_contraseña,
+     usuario."tipo" AS usuario_tipo,
+     rol."idrol" AS rol_idrol,
+     rol."nombre" AS rol_nombre
+FROM
+     "public"."carrera" carrera INNER JOIN "public"."alumno" alumno ON carrera."codigo" = alumno."codigocarrera"
+     INNER JOIN "public"."practica" practica ON carrera."codigo" = practica."codigocarrera"
+     INNER JOIN "public"."registro" registro ON practica."codigo" = registro."codigopractica"
+     INNER JOIN "public"."semestre" semestre ON practica."codigosemestre" = semestre."codigo"
+     AND semestre."codigo" = alumno."codigosemestre"
+     AND alumno."matricula" = registro."matriculaalumno",
+     "public"."rol" rol INNER JOIN "public"."usuario" usuario ON rol."idrol" = usuario."tipo",
+     "public"."reservacion" reservacion]]>
+	</queryString>
+	<field name="alumno_matricula" class="java.lang.String"/>
+	<field name="alumno_nombre" class="java.lang.String"/>
+	<field name="alumno_grupo" class="java.lang.String"/>
+	<field name="alumno_fechacreacion" class="java.sql.Timestamp"/>
+	<field name="alumno_fechaactualizacion" class="java.sql.Timestamp"/>
+	<field name="alumno_fechaeliminacion" class="java.sql.Timestamp"/>
+	<field name="alumno_codigosemestre" class="java.lang.String"/>
+	<field name="alumno_codigocarrera" class="java.lang.String"/>
+	<field name="carrera_codigo" class="java.lang.String"/>
+	<field name="carrera_nombre" class="java.lang.String"/>
+	<field name="practica_codigo" class="java.lang.String"/>
+	<field name="practica_nombre" class="java.lang.String"/>
+	<field name="practica_codigosemestre" class="java.lang.String"/>
+	<field name="practica_codigocarrera" class="java.lang.String"/>
+	<field name="practica_fechacreacion" class="java.sql.Timestamp"/>
+	<field name="practica_fechaactualizacion" class="java.sql.Timestamp"/>
+	<field name="practica_fechaeliminacion" class="java.sql.Timestamp"/>
+	<field name="registro_matriculaalumno" class="java.lang.String"/>
+	<field name="registro_codigopractica" class="java.lang.String"/>
+	<field name="registro_horaentrada" class="java.sql.Time"/>
+	<field name="registro_horasalida" class="java.sql.Time"/>
+	<field name="registro_fecha" class="java.sql.Date"/>
+	<field name="registro_sustituye" class="java.lang.String"/>
+	<field name="registro_estado" class="java.lang.String"/>
+	<field name="registro_comentario" class="java.lang.String"/>
+	<field name="reservacion_idreservacion" class="java.lang.Long"/>
+	<field name="reservacion_fechainicio" class="java.sql.Timestamp"/>
+	<field name="reservacion_fechafin" class="java.sql.Timestamp"/>
+	<field name="reservacion_area" class="java.lang.String"/>
+	<field name="reservacion_responsablearea" class="java.lang.String"/>
+	<field name="reservacion_practica" class="java.lang.String"/>
+	<field name="reservacion_responsablepractica" class="java.lang.String"/>
+	<field name="semestre_codigo" class="java.lang.String"/>
+	<field name="semestre_nombre" class="java.lang.String"/>
+	<field name="usuario_idusuario" class="java.lang.Long"/>
+	<field name="usuario_nombre" class="java.lang.String"/>
+	<field name="usuario_apellido" class="java.lang.String"/>
+	<field name="usuario_nombreusuario" class="java.lang.String"/>
+	<field name="usuario_contraseña" class="java.lang.String"/>
+	<field name="usuario_tipo" class="java.lang.Integer"/>
+	<field name="rol_idrol" class="java.lang.Long"/>
+	<field name="rol_nombre" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="124" splitType="Stretch">
+			<staticText>
+				<reportElement x="197" y="2" width="406" height="48" uuid="d9cd342d-7ffe-40b3-b36c-4af5fcfda0c9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="24"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD DE LA SIERRA SUR]]></text>
+			</staticText>
+			<image>
+				<reportElement x="54" y="6" width="99" height="102" uuid="fff31d04-febb-4dba-bb2c-5889bcb765dd"/>
+				<imageExpression><![CDATA["C:\\Users\\Uriel\\Documents\\NetBeansProjects\\ProyectoWEB\\capcr\\src\\main\\webapp\\resources\\reportes\\img\\logoUnsis1.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="657" y="6" width="99" height="102" uuid="f0da38a4-a0b5-416f-b4ab-ea89477c99b0"/>
+				<imageExpression><![CDATA["C:\\Users\\Uriel\\Documents\\NetBeansProjects\\ProyectoWEB\\capcr\\src\\main\\webapp\\resources\\reportes\\img\\Imagen1.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="197" y="50" width="406" height="20" uuid="41530412-3086-4ee3-89b9-57fe0350ed19"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[DEPARTAMENTO DE SERVICIOS ESCOLARES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="197" y="70" width="406" height="20" uuid="a1ee007a-a6e0-4f67-893b-0fe1fae9337b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[CLINICA ROBOTIZADA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="197" y="90" width="406" height="20" uuid="367b6f5b-84af-47bd-b7e7-12b6c7dc74f9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LISTA DE ASISTENCIAS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="2" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="386" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="37" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="12" y="11" width="100" height="20" uuid="20dc9eb4-b471-4439-a85b-2afdefb731e1"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="676" y="11" width="80" height="20" uuid="80c37cae-3bdc-4089-8884-2086503f95f8"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="756" y="11" width="40" height="20" uuid="c02a5df0-856b-40b5-aa2b-7516349a8d17"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
