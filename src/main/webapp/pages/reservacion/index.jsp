@@ -25,8 +25,8 @@
     <br/>
     <button type="button" class="btn btn-success" id="id-btn-crear-reservacion"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Crear Registro</button>
     <br/>
-    <div class="table-responsive">
-        <table id="idTable" class="table table-hover" style="width:100%">
+    <div class="container-table">
+        <table id="idTable" class="table">
             <thead>
                 <tr>
                     <th> ID</th>
@@ -55,10 +55,11 @@
             </c:forEach>
         </tbody>
     </table>
+    <div class="col-md-12 text-right">
+        <ul class="pagination pagination-lg pager" id="myPager"></ul>
+    </div>  
 </div>
-<div class="col-md-12 text-center">
-    <ul class="pagination pagination-lg pager" id="myPager"></ul>
-</div>
+
 
 <!-- Modal -->
 <div class="modal fade" id="id-modal-reservacion" role="dialog">
