@@ -23,7 +23,8 @@
 <jsp:include page="../../pages/layouts/header.jsp"></jsp:include>
 
 <%-- cuerpo de la pagina --%>
-<table id="idTable" class="table">
+<div class="container-table">
+    <table id="idTable" class="table">
     <thead class="thead-dark">
         <tr>
             <td> ID Usuario</td>
@@ -33,7 +34,7 @@
             <td colspan=2> Rol</td>
         </tr>
     </thead>
-    <thbody>
+    <tbody id="miTabla">
     <%-- cargar la lista de los usuarios con su respectivo rol --%>
     <c:forEach var="usuario" items="${listaUsuario}">
         <tr>
@@ -53,11 +54,14 @@
         </tr>
 
     </c:forEach>
-    </thbody>
+    </tbody>
     <%--fin del listado--%>
-</table>
-<!-- din de la tabla  -->
-
+    </table>    
+    <!-- din de la tabla  -->
+    <div class="col-md-12 text-right">
+        <ul class="pagination pagination-lg pager" id="myPager"></ul>
+    </div>
+</div>
 <!-- Modal -->
 <div class="modal fade" id="id-modal-rol" role="dialog">
     <div class="modal-dialog">
