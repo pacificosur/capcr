@@ -6,18 +6,18 @@
    Descripción: header plantilla
 --%>
 <!DOCTYPE html>
-<%
+<% /*
     if (request.getAttribute("opcion") != null) {
         System.out.println("Hola ----" + request.getAttribute("opcion"));
         int opcion = Integer.parseInt(request.getAttribute("opcion").toString());
         pageContext.setAttribute("opcion", opcion);
     } else {
-        response.sendRedirect("/capcr/pages/logueo/index.jsp");
+        response.sendRedirect("/capcr/pages/logueo/index.jsp"); */
 %>
 <jsp:forward page="/pages/logueo/index.jsp"></jsp:forward>
 <%
+    
     }
-
 %>
 <html lang="en">
     <head>
@@ -91,12 +91,12 @@
 
                     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                         <ul class="nav navbar-nav">
-                            <li><a href="${pageContext.request.contextPath}/AlumnosController?accion=index">Alumno</a></li>
-                            <li><a href="${pageContext.request.contextPath}/PracticaController?accion=index">Práctica</a></li>
-                            <li><a href="${pageContext.request.contextPath}/RegistroController?accion=index">Registro</a></li>
-                            <li><a href="${pageContext.request.contextPath}/ReservacionController?accion=index">Reservaciones</a></li>
-                            <li><a href="${pageContext.request.contextPath}/UsuarioController?accion=index">Usuario</a></li>
-                            <li><a href="${pageContext.request.contextPath}/RolesController?accion=index">Asignar Roles</a></li>
+                            <li><a id="link-alumno" href="${pageContext.request.contextPath}/AlumnosController?accion=index">Alumno</a></li>
+                            <li><a id="link-practica" href="${pageContext.request.contextPath}/PracticaController?accion=index">Práctica</a></li>
+                            <li><a id="link-registro" href="${pageContext.request.contextPath}/RegistroController?accion=index">Registro</a></li>
+                            <li><a id="link-reservacion" href="${pageContext.request.contextPath}/ReservacionController?accion=index">Reservaciones</a></li>
+                            <li><a id="link-usuario" href="${pageContext.request.contextPath}/UsuarioController?accion=index">Usuario</a></li>
+                            <li><a id="link-roles" href="${pageContext.request.contextPath}/RolesController?accion=index">Asignar Roles</a></li>
                             <li><a href="${pageContext.request.contextPath}/RegistroController?accion=index">salir</a></li>
                         </ul>
                     </div>
