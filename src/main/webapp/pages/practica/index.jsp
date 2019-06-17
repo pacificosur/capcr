@@ -37,8 +37,8 @@
     <button type="button" class="btn btn-success" id="id-btn-crear-practica"><i class="fa fa-plus"></i>&nbsp;Crear Practica</button>
     <br/>
 
-    <div class="table-responsive">
-        <table id="idTable" class="table table-hover" style="width:100%">
+    <div class="container-table">
+        <table id="idTable" class="table table-hover">
             <thead class="thead-dark">
                 <tr>
                     <th>Código</th>
@@ -69,12 +69,13 @@
                     <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/PracticaController?accion=eliminar&codigoPractica=<c:out value="${practica.codigo}"/>"><i class="fa fa-trash"></i></a> </td>				
                 </tr>
             </c:forEach>
-        </tbody>
-    </table>
-</div>
-<div class="col-md-12 text-center">
-    <ul class="pagination pagination-lg pager" id="myPager"></ul>
-</div>
+            </tbody>
+        </table>
+        <div class="col-md-12 text-right">
+            <ul class="pagination pagination-lg pager" id="myPager"></ul>
+        </div>
+    </div>
+
 
 <!-- Modal -->
 <div class="modal fade" id="id-modal-practica" role="dialog">
