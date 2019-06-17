@@ -8,7 +8,8 @@
  */
 
 $(document).ready(function () {
-
+    $( "#link-practica" ).css( "color", "#9A3633");
+    $( "#link-practica" ).css( "font-size", "16px");
     /*Modifica los mensajes de error en el input*/
     var intputElements = document.getElementsByTagName("INPUT");
     for (var i = 0; i < intputElements.length; i++) {

@@ -7,7 +7,8 @@
  */
 
 $(document).ready(function () {
-    
+    $( "#link-alumno" ).css( "color", "#9A3633");
+    $( "#link-alumno" ).css( "font-size", "16px");   
 
 
     /*Modifica los mensajes de error en el input*/

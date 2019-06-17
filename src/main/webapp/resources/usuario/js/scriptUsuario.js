@@ -7,6 +7,9 @@
  */
 
 $(document).ready(function () {
+    $( "#link-usuario" ).css( "color", "#9A3633");
+    $( "#link-usuario" ).css( "font-size", "16px");    
+
     $("#boton-enviar-datos").click(function () {
         if ($("#idNombre").val() === '' || $("#idApellidos").val() === '' || $("#idNombreUsuario").val() === '' || $("#idContrasena").val() === '' || $("#idContrasena2").val() === '')
         {

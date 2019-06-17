@@ -6,11 +6,14 @@
  */
 
 $(document).ready(function () {
-    
+    $( "#link-roles" ).css( "color", "#9A3633");
+    $( "#link-roles" ).css( "font-size", "16px");
+        
     /**
      *  Esta clase Selector es para mostrar el modal para actualizar una practica
      */
     $('.class-asignar-rol').click(function () {
+
         //busca los datos delusuario en la fila seleccionada
         var $row = jQuery(this).closest('tr');
         var $columns = $row.find('td');

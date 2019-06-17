@@ -8,6 +8,8 @@
  */
 
 $(document).ready(function () {
+    $( "#link-reservacion" ).css( "color", "#9A3633");
+    $( "#link-reservacion" ).css( "font-size", "16px");
     /* Este id Selector es para mostrar el modal para crear un nuevo registro*/
     $("#id-btn-crear-reservacion").click(function () {
         $("#id-modal-reservacion").modal();

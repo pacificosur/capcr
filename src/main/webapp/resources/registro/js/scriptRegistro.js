@@ -8,6 +8,8 @@
  */
 
 $(document).ready(function () {
+    $( "#link-registro" ).css( "color", "#9A3633");
+    $( "#link-registro" ).css( "font-size", "16px");
     $('.boton-agregar-registro').click(function () {        
         $.ajax({
             url: 'RegistroController',
