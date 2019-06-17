@@ -15,11 +15,11 @@
     <br/>
     <button type="button" class="btn btn-success" id="id-btn-crear-usuario"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Crear usuario</button>
     <br/>
-    <div class="table-responsive1">
-        <table id="idTable" class="table table-hover" style="width:100%">
+    <div class="container-table">
+        <table id="idTable" class="table">
             <thead>
                 <tr>
-                    <th style="visibility: hidden">ID</th>
+                    <th style="display: none;">ID</th>
                     <th>NOMBRE</th>
                     <th>APELLIDO</th>
                     <th>USUARIO</th>
@@ -29,7 +29,7 @@
             <tbody id="miTabla">
             <c:forEach var="usuario" items="${listaUsuario}">
                 <tr>
-                    <td style="visibility: hidden"><c:out value="${usuario.idUsuario}"/></td>
+                    <td style="display: none;"><c:out value="${usuario.idUsuario}"/></td>
                     <td><c:out value="${usuario.nombre}"/></td>
                     <td><c:out value="${usuario.apellidos}"/></td>
                     <td><c:out value="${usuario.nombreUsuario}"/></td>
@@ -37,12 +37,13 @@
                     &nbsp&nbsp&nbsp<button type="button" class="btn btn-danger class-eliminar-usuario"><i class="fa fa-trash"></i></button> </td>
                 </tr>
             </c:forEach>
-        </tbody>
-    </table>
-</div>
-<div class="col-md-12 text-center">
-    <ul class="pagination pagination-lg pager" id="myPager"></ul>
-</div>
+            </tbody>
+        </table>
+        <div class="col-md-12 text-right">
+            <ul class="pagination pagination-lg pager" id="myPager"></ul>
+        </div>
+
+    </div>
 
 <!-- Modal -->
 <div class="modal fade" id="id-modal-usuario" role="dialog">
