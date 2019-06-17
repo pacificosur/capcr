@@ -20,6 +20,11 @@
     font-size: 16px;
 }
 
+.link-activo{
+    color: #9A3633;
+    font-size: 16px;
+}
+
 /*todos los botones*/
 .btn {
     color: #fff;
