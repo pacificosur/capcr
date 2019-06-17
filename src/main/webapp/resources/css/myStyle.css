@@ -5,73 +5,130 @@
     Descripción: CSS para modificaciones de colores.
     
 */
-.top-area {
-    background: #B43936;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #B43936, #FF9DA8);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #B43936, #FF9DA8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
 
+/* encabezado */
+.top-area {
+    background: -webkit-linear-gradient(to right, #670300, #9A3633); 
+    background: linear-gradient(to right, #670300, #9A3633);  
+    /*texto*/
+    color: #FFFF99;
+    text-shadow: 2px 2px 2px #000000;
+}
+/*mouse sobre los links*/
 .navbar-custom ul.nav li a:hover { 
-    color: #2C7D44;
+    color: #9A3633;
     font-size: 16px;
 }
 
-.btn-skin {
-    background-color: #B43936;
-    border-color: #B43936;
-}
-.bg-skin {
-    background: #B43936;
-}
-.fa-inverse {
-    color: #FFA09D;
-}
-
+/*todos los botones*/
 .btn {
     color: #fff;
-    background-color: #d9534f;
-    border-color: #d43f3a;
+    background-color: #670300;
+    border-color: #670300;
 }
+
+/*sobrepasar un boton-success*/
 .btn-success:hover, .btn-success:focus, .btn-success:active {
     color: #fff;
-    background-color: #d8ebde;
-    border-color: #2C7D44;
-    background: -webkit-linear-gradient(top, #d8ebde, #2C7D44);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(top, #d8ebde, #2C7D44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-color: #000;
+    border-color: #670300;
+    background: -webkit-linear-gradient(top, #CD6966, #670300);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(top, #CD6966, #670300); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
 
 .btn-danger {
     color: #fff;
-    background-color: #d9534f;
-    border-color: #d43f3a;
+    background-color: #670300;
+    border-color: #670300;
 }
+
 .btn-danger:hover, .btn-danger:focus, .btn-danger:active {
     color: #fff;
-    background-color: #d8ebde;
-    border-color: #2C7D44;
-    background: -webkit-linear-gradient(top, #d8ebde, #2C7D44);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(top, #d8ebde, #2C7D44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-color: #000;
+    border-color: #670300;
+    background: -webkit-linear-gradient(top, #CD6966, #670300);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(top, #CD6966, #670300); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.btn-block:hover{
+    color: #fff;
+    background-color: #000;
+    border-color: #670300;
+    background: -webkit-linear-gradient(top, #CD6966, #670300);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(top, #CD6966, #670300); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */}
+.pagination>li> a{
+    border-radius: 50%;
+    margin: 0 2px;
+}
+
+/*sobre pagination activo*/
 .pagination>.active>a, .pagination>.active>span,  .pagination>.active>a:hover, .pagination>.active>a:active{
-    color: #fff;
-    background-color: #d9534f;
-    border-color: #B43936;
+    color: #ff9;
+    background-color: #670300;
+    border:none;
+}
+/*sobre pagination seleccionado*/
+.pagination>.active>a:focus{
+    color: #ff9;
+    background-color: #670300;
+    border:none;
 }
 
-.pagination>.active>a:focus{
-    color: #fff;
-    background-color: #d9534f;
-}
+/*pagination normal*/
 .pagination>li>a, .pagination>li>span {
-    color: #B43936;
+    color: #670300;
     background-color: #fff;
-    border: #ddd;
+    border:none;
 }
+
+/*sobre la paginacion que no esta en modo active*/
 .pagination>li>a:hover, .pagination>li>span:hover, .pagination>li>a:focus, .pagination>li>span:focus, .pagination>li>a:active, .pagination>li>span:active {
     z-index: 2;
     cursor: default;
-    color: #2C7D44;
-    background-color: #d8ebde;
-    border: 1px solid #2C7D44;
+    color:#670300;
+    background-color: white;
+    border: none;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.8);
+}
+
+/*diseño de la cabecera de la tabla*/
+table > thead {
+    background: #ff9;
+    font-weight: bold;  
+    color: #670300;
+}
+
+/*rediseño del cuerpo de la tabla*/
+table > tbody > tr:nth-child(odd) > td,
+table > tbody > tr:nth-child(odd) > th {
+  background-color: rgba(255,255,255,0.6);
+}
+table > tbody > tr:nth-child(even) > td,
+table > tbody > tr:nth-child(even) > th {
+  background-color: rgba(255,255,255,0.4);
+}
+
+/*contenedor de la tabla y la paginacion*/
+.container-table{
+    background-color: rgb(255,255,255);
+    padding: 0 20px;
+}
+.col-md-12{
+    float: none;
+    padding: 0;
+}
+.pagination-lg > li:first-child,.pagination-lg > li:first-child >a,.pagination-lg > li:last-child,.pagination-lg > li:last-child >a{
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+.pager{
+    margin: 5px 30px;
+}
+.intro-content{
+    padding: 140px 0 60px;
+}
+.bg-skin {
+    background: #670300;
 }
