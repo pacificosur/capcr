@@ -130,3 +130,4 @@
 <script src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/nivo-lightbox.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/script.js"></script>
