@@ -28,7 +28,7 @@ public class LogoutController extends HttpServlet {
         //response.sendRedirect("/capcr/pages/logueo/index.jsp");
         HttpSession cerrar_sesion = request.getSession(false);
         cerrar_sesion.removeAttribute("user");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/logueo/index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/logueo/index.jsp");
         dispatcher.forward(request, response);
     }
 }
