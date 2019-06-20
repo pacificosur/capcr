@@ -23,7 +23,7 @@
                     <th>NOMBRE</th>
                     <th>APELLIDO</th>
                     <th>USUARIO</th>
-                    <th colspan=2>ACCIONES</th>
+                    <th>ACCIONES</th>
                 </tr>
             </thead>
             <tbody id="miTabla">
