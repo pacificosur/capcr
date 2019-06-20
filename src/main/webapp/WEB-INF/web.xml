@@ -16,6 +16,10 @@
         <servlet-name>CargarListasController</servlet-name>
         <servlet-class>com.unsis.capcr.controller.CargarListasController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReporteControler</servlet-name>
+        <servlet-class>com.unsis.capcr.controller.ReporteControler</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UsuarioController</servlet-name>
         <url-pattern>/UsuarioController</url-pattern>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>CargarListasController</servlet-name>
         <url-pattern>/CargarListasController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReporteControler</servlet-name>
+        <url-pattern>/ReporteControler</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
