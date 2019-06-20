@@ -12,6 +12,10 @@
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>com.unsis.capcr.controller.LogoutController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CargarListasController</servlet-name>
+        <servlet-class>com.unsis.capcr.controller.CargarListasController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UsuarioController</servlet-name>
         <url-pattern>/UsuarioController</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/LogoutController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CargarListasController</servlet-name>
+        <url-pattern>/CargarListasController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

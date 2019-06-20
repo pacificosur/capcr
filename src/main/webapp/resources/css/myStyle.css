@@ -177,4 +177,16 @@ table > tbody > tr:nth-child(even) > th {
     background: -webkit-linear-gradient(top, #CD6966, #670300);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(top, #CD6966, #670300); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+.container-files{
+    background: #fff;
+    padding: 20px 40px;
+    width: 350px;
+    margin: 0 auto;
+    
+}
 
+.container-files > p{
+    color: #000;
+    font-size: 1.2em;
+    font-weight: bold;
+}
