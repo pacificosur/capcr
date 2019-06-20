@@ -58,7 +58,9 @@ public class CargarListasController extends HttpServlet {
         FileNameExtensionFilter filtro = new FileNameExtensionFilter(".xls,.xlsx",".xls, .xls");
         selector.setFileFilter(filtro);
         int flag=selector.showOpenDialog(null);
-        if()
+        if(flag==JFileChooser.APPROVE_OPTION){
+            
+        }
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/cargarlista/tablaAlumnos.jsp");
         IAlumnoService iAlumnoService = new AlumnoService();
         List<Alumno> listaAlumno = iAlumnoService.obtenerAlumnos();
