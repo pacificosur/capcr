@@ -14,23 +14,23 @@
     <br/>
     <button type="button" class="btn btn-success" id="id-btn-crear-usuario"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Generar reporte</button>
     <br/>
-    
-<div class="col-md-12 text-center">
-    <ul class="pagination pagination-lg pager" id="myPager"></ul>
-</div>
 
-<!-- Modal -->
-<div class="modal fade" id="id-modal-usuario" role="dialog">
-    <div class="modal-dialog">
+    <div class="col-md-12 text-center">
+        <ul class="pagination pagination-lg pager" id="myPager"></ul>
+    </div>
 
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <img class="img-logo-modal-header" src="${pageContext.request.contextPath}/resources/usuario/img/usuario.png" />
+    <!-- Modal -->
+    <div class="modal fade" id="id-modal-usuario" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <img class="img-logo-modal-header" src="${pageContext.request.contextPath}/resources/usuario/img/usuario.png" />
             </div>
             <div class="modal-body">
-                
+
                 <div class="form-group">
                     <label for="semestre"><span class="fa fa-user"></span>&nbsp Semestre</label>
                     <input type="text" name="idSemestre" class="form-control" id="idSemestre" placeholder="Ingrese el semestre" required>
@@ -76,6 +76,9 @@ el footer incluye dos div arriba de section y incluye todo (el footer y los arch
 <link href="${pageContext.request.contextPath}/resources/usuario/css/cssUsuario.css" rel="stylesheet" />
 <script src="${pageContext.request.contextPath}/resources/usuario/js/scriptUsuario.js"></script>
 <script src="${pageContext.request.contextPath}/resources/usuario/js/validaciones.js"></script>
+<script>
+    document.title = "Reporte";
+</script>
 </body>
 </html>
 
