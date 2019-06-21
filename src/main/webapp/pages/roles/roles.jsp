@@ -25,37 +25,37 @@
 <%-- cuerpo de la pagina --%>
 <div class="container-table">
     <table id="idTable" class="table">
-    <thead class="thead-dark">
-        <tr>
-            <td> ID Usuario</td>
-            <td> Nombre</td>
-            <td> Apellidos</td>
-            <td> Nombre Usuario</td>
-            <td colspan=2> Rol</td>
-        </tr>
-    </thead>
-    <tbody id="miTabla">
-    <%-- cargar la lista de los usuarios con su respectivo rol --%>
-    <c:forEach var="usuario" items="${listaUsuario}">
-        <tr>
-            <td><c:out value="${usuario.idUsuario}"/></td>
-            <td><c:out value="${usuario.nombre}"/></td>
-            <td><c:out value="${usuario.apellidos}"/></td>
-            <td><c:out value="${usuario.nombreUsuario}"/></td>
-            <td>       
-                <c:forEach var="rol" items="${listaRol}"> <%-- Por cada que recorre un usuario recorre toda la lista de rol para ver que rol es el que tiene--%>
-                    <%-- Bloque de comparacion del tipo del usuario con el id del rol si sale un verdadero impime el nombre del rol --%>
-                    <c:if test="${(usuario.tipo)==(rol.idRol)}">
-                        <c:out value = "${rol.nombre}"/>
-                    </c:if>   
-                </c:forEach>
-            </td>
-            <td><button type="button" class="btn btn-success class-asignar-rol"><i class="fa fa-edit"></i></button></td>
-        </tr>
+        <thead class="thead-dark">
+            <tr>
+                <td> ID Usuario</td>
+                <td> Nombre</td>
+                <td> Apellidos</td>
+                <td> Nombre Usuario</td>
+                <td colspan=2> Rol</td>
+            </tr>
+        </thead>
+        <tbody id="miTabla">
+            <%-- cargar la lista de los usuarios con su respectivo rol --%>
+            <c:forEach var="usuario" items="${listaUsuario}">
+                <tr>
+                    <td><c:out value="${usuario.idUsuario}"/></td>
+                    <td><c:out value="${usuario.nombre}"/></td>
+                    <td><c:out value="${usuario.apellidos}"/></td>
+                    <td><c:out value="${usuario.nombreUsuario}"/></td>
+                    <td>       
+                        <c:forEach var="rol" items="${listaRol}"> <%-- Por cada que recorre un usuario recorre toda la lista de rol para ver que rol es el que tiene--%>
+                            <%-- Bloque de comparacion del tipo del usuario con el id del rol si sale un verdadero impime el nombre del rol --%>
+                            <c:if test="${(usuario.tipo)==(rol.idRol)}">
+                                <c:out value = "${rol.nombre}"/>
+                            </c:if>   
+                        </c:forEach>
+                    </td>
+                    <td><button type="button" class="btn btn-success class-asignar-rol"><i class="fa fa-edit"></i></button></td>
+                </tr>
 
-    </c:forEach>
-    </tbody>
-    <%--fin del listado--%>
+            </c:forEach>
+        </tbody>
+        <%--fin del listado--%>
     </table>    
     <!-- din de la tabla  -->
     <div class="col-md-12 text-right">
@@ -101,5 +101,8 @@
 <jsp:include page="../../pages/layouts/footer.jsp"></jsp:include>
 <script src="${pageContext.request.contextPath}/resources/roles/js/scriptRoles.js"></script>
 <link href="${pageContext.request.contextPath}/resources/roles/css/cssRoles.css" rel="stylesheet" />
+<script>
+    document.title = "Asignar roles";
+</script>
 </body>
 </html>
