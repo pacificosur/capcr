@@ -157,5 +157,8 @@
 el footer incluye dos div arriba de section y incluye todo (el footer y los archivos JavaScript) antes de donde cierra la etiqueta body--%> 
 <jsp:include page="../../pages/layouts/footer.jsp"></jsp:include>
 <script src="${pageContext.request.contextPath}/resources/alumno/js/scriptAlumnos.js"></script><%--lugar donde se encuentra el script encargado de la creación del alumno--%>
+<script>
+    document.title="Alumno";
+</script>
 </body>
 </html>
