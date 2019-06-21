@@ -84,6 +84,7 @@
                             <li><a id="link-practica" href="${pageContext.request.contextPath}/PracticaController?accion=index">Práctica</a></li>
                             <li><a id="link-registro" href="${pageContext.request.contextPath}/RegistroController?accion=index">Registro</a></li>
                             <li><a id="link-reservacion" href="${pageContext.request.contextPath}/ReservacionController?accion=index">Reservaciones</a></li>
+                            <li><a id="link-reporte" href="${pageContext.request.contextPath}/ReportesController?accion=index">Reportes</a></li>
                             <li><a id="link-usuario" href="${pageContext.request.contextPath}/UsuarioController?accion=index">Usuario</a></li>
                             <li><a id="link-roles" href="${pageContext.request.contextPath}/RolesController?accion=index">Asignar Roles</a></li>
                             <li><a href="${pageContext.request.contextPath}/LogoutController">salir</a></li>
