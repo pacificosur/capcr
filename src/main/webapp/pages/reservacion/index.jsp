@@ -154,7 +154,7 @@ el footer incluye dos div arriba de section y incluye todo (el footer y los arch
 <jsp:include page="../../pages/layouts/footer.jsp"></jsp:include>
 <script src="${pageContext.request.contextPath}/resources/reservacion/js/scriptReservacion.js"></script>
 <script>
-    document.title = "Reservación";
+    document.title = "Reservaciones";
 </script>
 </body>
 </html>
