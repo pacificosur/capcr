@@ -21,6 +21,7 @@
     <div class="container-files margintop-20">
         <p class="text-center">Lista de alumnos</p>
         <form action="${pageContext.request.contextPath}/CargarListasController?accion=cargar_lista_alumno" method="POST" role="form" id="formulario" >
+            <input type="file" accept="xls,xlsx" id="input-file-practica" name="archivo-xml">
             <button type="submit" class="btn btn-default btn-success btn-block">Cargar lista</button>
         </form>
     </div>
@@ -30,7 +31,7 @@
     <div class="container-files margintop-20">
         <p class="text-center">Lista de prácticas</p>
         <form action="${pageContext.request.contextPath}/CargarListasController?accion=cargar_lista_practica" method="POST" role="form" id="formulario">
-
+            <input type="file" accept="xls,xlsx" id="input-file-practica" name="archivo-xml">
             <button type="submit" class="btn btn-default btn-success btn-block">Cargar lista</button>
         </form>
     </div>
@@ -39,5 +40,8 @@
 
 <jsp:include page="../../pages/layouts/footer.jsp"></jsp:include>
 <script src="${pageContext.request.contextPath}/resources/cargarlista/js/scriptListas.js"></script>
+<script>
+    document.title="Cargar listas";
+</script>
 </body>
 </html>
