@@ -18,8 +18,8 @@ public class ReporteService implements IReporteService{
     IReporteModel iReporteModel = new ReporteModel();
     
     @Override
-    public void generarReporte(String grupo, String practicaNombre, Date fechaInicio, Date fechaFin) {
-        iReporteModel.generarReporte(grupo, practicaNombre, fechaInicio, fechaFin);
+    public byte[] generarReporte(String grupo, String practicaNombre, Date fechaInicio, Date fechaFin) {
+       return iReporteModel.generarReporte(grupo, practicaNombre, fechaInicio, fechaFin);
     }
 
     @Override
