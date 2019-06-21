@@ -111,5 +111,8 @@ el footer incluye dos div arriba de section y incluye todo (el footer y los arch
 
     <script src="${pageContext.request.contextPath}/resources/registro/js/scriptRegistro.js"></script>
     <script src="${pageContext.request.contextPath}/resources/registro/js/validaciones.js"></script>
+    <script>
+        document.title="Registro";
+    </script>
 </body>
 </html>
