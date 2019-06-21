@@ -39,7 +39,7 @@ public class ReporteController extends HttpServlet {
     }
 
     private void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reportes/index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reporte/index.jsp");
         dispatcher.forward(request, response);
     }
 
