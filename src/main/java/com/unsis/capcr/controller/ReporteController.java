@@ -1,9 +1,13 @@
 package com.unsis.capcr.controller;
 
+import com.unsis.capcr.service.IReporteService;
+import com.unsis.capcr.service.ReporteService;
 import java.io.IOException;
+import java.sql.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,7 +47,27 @@ public class ReporteController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void generar(HttpServletRequest request, HttpServletResponse response) {
+    private void generar(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reporte/index.jsp");
+        IReporteService iReporteService = new ReporteService();
+        String grupo = request.getParameter("idGrupo");
+        String practicaNombre = request.getParameter("idNombrePractica");
+        Date fechaInicio = null;
+        Date fechaFin = null; 
+        System.out.println("Entra al controller");
+        
+        
+        
+        byte[] bytes = iReporteService.generarReporte(grupo, practicaNombre, fechaInicio, fechaFin);
+        
+        response.setContentType("application/reporte");
+        String archivo = practicaNombre+ "_" +grupo+ ".pdf";
+        response.addHeader("Content-disposition", "attachment; filename=" + archivo);
+        response.setContentLength(bytes.length);
+        ServletOutputStream outputStream = response.getOutputStream();
+        outputStream.write(bytes, 0, bytes.length);
+        outputStream.flush();
+        outputStream.close();
         
     }
 }
