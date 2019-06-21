@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" id="boton-enviar-datos" class="btn btn-default btn-success" ><span class="fa fa-save"></span>&nbsp Generar</button>
+                    <button type="button" id="boton-enviar-datos" class="btn btn-default btn-success"  action="generar"><span class="fa fa-save"></span>&nbsp Generar</button>
                     <button type="submit" class="btn btn-default btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Cancel</button>          
                 </div>
             </div>
@@ -74,8 +74,8 @@ el footer incluye dos div arriba de section y incluye todo (el footer y los arch
 --%> 
 <jsp:include page="../../pages/layouts/footer.jsp"></jsp:include>
 <link href="${pageContext.request.contextPath}/resources/usuario/css/cssUsuario.css" rel="stylesheet" />
-<script src="${pageContext.request.contextPath}/resources/usuario/js/scriptUsuario.js"></script>
-<script src="${pageContext.request.contextPath}/resources/usuario/js/validaciones.js"></script>
+<script src="${pageContext.request.contextPath}/resources/reportes/js/scriptReportes.js"></script>
+<script src="${pageContext.request.contextPath}/resources/reportes/js/validaciones.js"></script>
 <script>
     document.title = "Reporte";
 </script>

@@ -47,7 +47,7 @@ public class ReporteController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void generar(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void generar(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reporte/index.jsp");
         IReporteService iReporteService = new ReporteService();
         String grupo = request.getParameter("idGrupo");
@@ -55,9 +55,6 @@ public class ReporteController extends HttpServlet {
         Date fechaInicio = null;
         Date fechaFin = null; 
         System.out.println("Entra al controller");
-        
-        
-        
         byte[] bytes = iReporteService.generarReporte(grupo, practicaNombre, fechaInicio, fechaFin);
         
         response.setContentType("application/reporte");
@@ -68,6 +65,6 @@ public class ReporteController extends HttpServlet {
         outputStream.write(bytes, 0, bytes.length);
         outputStream.flush();
         outputStream.close();
-        
+        dispatcher.forward(request, response);  
     }
 }
