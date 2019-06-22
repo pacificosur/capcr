@@ -67,7 +67,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" id="boton-enviar-datos" class="btn btn-default btn-success"  action="generar"><span class="fa fa-save"></span>&nbsp Generar</button>
+                    <button type="button" id="boton-enviar-datos" class="btn btn-default btn-success"><span class="fa fa-save"></span>&nbsp Generar</button>
                     <button type="submit" class="btn btn-default btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Cancel</button>          
                 </div>
             </div>

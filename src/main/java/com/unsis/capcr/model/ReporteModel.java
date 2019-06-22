@@ -29,13 +29,14 @@ import net.sf.jasperreports.engine.JasperPrint;
 public class ReporteModel implements IReporteModel{
 
     @Override
-    public byte[] generarReporte(String grupo, String practicaNombre, Date fechaInicio, Date fechaFin) {
+    public byte[] generarReporte(String grupo, String practicaNombre, Date fechaInicio, Date fechaFin, String path) {
      
         ConnectionPostgreSQL con = new ConnectionPostgreSQL();
         Connection conn = con.conecta();
         byte[] pdfBytes = null;
        
-        String path = "src\\main\\java\\com\\unsis\\capcr\\reportes\\reportesPracticas.jasper";
+       //String path = "src\\main\\java\\com\\unsis\\capcr\\reportes\\reportesPracticas.jasper";
+       
         Map parametros = new HashMap();
         parametros.put("varGrupo",grupo);
         parametros.put("varFecha_inicio",fechaInicio);

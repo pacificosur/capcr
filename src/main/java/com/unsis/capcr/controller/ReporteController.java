@@ -48,14 +48,18 @@ public class ReporteController extends HttpServlet {
     }
 
     private void generar(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reporte/index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/reporte/reporte.jsp");
+        System.out.println("Entra al controler");
+        /*
         IReporteService iReporteService = new ReporteService();
         String grupo = request.getParameter("idGrupo");
         String practicaNombre = request.getParameter("idNombrePractica");
         Date fechaInicio = null;
         Date fechaFin = null; 
+       // String path =application.getRealPath("reportesPracticas.jasper");
+        String path =null;
         System.out.println("Entra al controller");
-        byte[] bytes = iReporteService.generarReporte(grupo, practicaNombre, fechaInicio, fechaFin);
+        byte[] bytes = iReporteService.generarReporte(grupo, practicaNombre, fechaInicio, fechaFin,path);
         
         response.setContentType("application/reporte");
         String archivo = practicaNombre+ "_" +grupo+ ".pdf";
@@ -65,6 +69,7 @@ public class ReporteController extends HttpServlet {
         outputStream.write(bytes, 0, bytes.length);
         outputStream.flush();
         outputStream.close();
+        */
         dispatcher.forward(request, response);  
     }
 }
