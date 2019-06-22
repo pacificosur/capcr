@@ -12,7 +12,7 @@
     El header incluye desde la etiqueta <!DOCTYPE html> hasta el segundo div dentro de Section: intro--%>
 <jsp:include page="../../pages/layouts/header.jsp"></jsp:include>
     <br/>
-    <button type="button" class="btn btn-success" id="id-btn-crear-usuario"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Generar reporte</button>
+    <button type="button" class="btn btn-success" id="id-btn-crear-reporte"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Generar reporte</button>
     <br/>
 
     <div class="col-md-12 text-center">
@@ -20,7 +20,7 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="id-modal-usuario" role="dialog">
+    <div class="modal fade" id="id-modal-reporte" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content-->
@@ -33,7 +33,17 @@
 
                 <div class="form-group">
                     <label for="semestre"><span class="fa fa-user"></span>&nbsp Semestre</label>
-                    <input type="text" name="idSemestre" class="form-control" id="idSemestre" placeholder="Ingrese el semestre" required>
+                    <select type="text" name="idSemestre" id="idSemestre">
+                        <option value="volvo">Primero</option>
+                        <option value="saab">Segundo</option>
+                        <option value="opel">Tercero</option>
+                        <option value="audi">Cuarto</option>
+                        <option value="volvo">Quinto</option>
+                        <option value="saab">Sexto</option>
+                        <option value="opel">Septimo</option>
+                        <option value="audi">Octavo</option>
+                        <option value="audi">Noveno</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -48,12 +58,12 @@
 
                 <div class="form-group">
                     <label for="FechaInicio"><span class=" fa fa-lock"></span>&nbsp Fecha Inicio</label>
-                    <input type="text" name="idFechaInicio" class="form-control" id="idFechaInicio" placeholder="Ingrese la fecha de inicio de parcial." required>
+                    <input type="date" name="idFechaInicio"  id="idFechaInicio" required>
                 </div>
 
                 <div class="form-group">
                     <label for="FechaFin"><span class=" fa fa-lock"></span>&nbsp Fecha Fin</label>
-                    <input type="text" name="idFechaFin" class="form-control" id="idFechaFin" placeholder="Ingrese la fecha de fin del parcial" required>
+                    <input type="date" name="idFechaFin" id="idFechaFin">
                 </div>
 
                 <div class="modal-footer">
