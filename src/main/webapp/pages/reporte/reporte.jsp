@@ -4,6 +4,9 @@
     Author     : Uriel
 --%>
 
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="net.sf.jasperreports.engine.export.JRPdfExporter"%>
 <%@page import="java.io.File"%>
 <%@page import="net.sf.jasperreports.engine.util.JRLoader"%>
@@ -15,9 +18,8 @@
 <%@page import="javax.servlet.ServletResponse"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="com.unsis.capcr.db.ConnectionPostgreSQL"%>
-<%@page import="java.time.LocalDate"%>
-<%@page import="java.sql.Date"%>
 <%@page import="net.sf.jasperreports.engine.JRException"%>
+<%@page import="java.time.LocalDate"%>
 
 
 <!DOCTYPE html>
@@ -27,21 +29,26 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Reporte Generado</h1>
         <%
             ConnectionPostgreSQL con = new ConnectionPostgreSQL();
             Connection conn = con.conecta();
+            System.out.println("Entró al JSP");
             String path = application.getRealPath("reportesPracticas.jasper");
             Map parametros = new HashMap();
-            String grupo = request.getParameter("grupo");
-            String practica = request.getParameter("practica");
-            Date fechaInicio = null;
-            Date fechaFin = null;
-         
+            String grupo = request.getParameter("idGrupo");
+            String practica = request.getParameter("idNombrePractica");
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+            Date fechaInicio = formato.parse(request.getParameter("idFechaInicio"));
+            Date fechaFin = formato.parse(request.getParameter("idFechaFin"));
+            System.out.println(fechaInicio);
+            System.out.println(fechaFin);
+            
+            
+          
             parametros.put("varNombre_practica",practica);
             parametros.put("varGrupo",grupo);
-            parametros.put("varFecha_inicio",Date.valueOf(LocalDate.of(2019,2,18)));
-            parametros.put("varFecha_fin", Date.valueOf(LocalDate.of(2019,5,18)));
+            parametros.put("varFecha_inicio",fechaInicio);
+            parametros.put("varFecha_fin", fechaFin);
            
             JasperReport reporte = null;
         
@@ -56,6 +63,8 @@
             outputStream.write(bytes,0,bytes.length);
             outputStream.flush();
             outputStream.close();
+            System.out.println("Terminó el JSP");
+            out.println("<h1>Reporte Generado</h1>");
   
            
         %>
