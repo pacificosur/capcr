@@ -63,7 +63,7 @@
 
                 <div class="form-group">
                     <label for="FechaFin"><span class=" fa fa-lock"></span>&nbsp Fecha Fin</label>
-                    <input type="date" name="idFechaFin" id="idFechaFin">
+                    <input type="date" name="idFechaFin" id="idFechaFin" >
                 </div>
 
                 <div class="modal-footer">
