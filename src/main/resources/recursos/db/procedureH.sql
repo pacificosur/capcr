@@ -72,7 +72,7 @@ $BODY$;
 --call spcrearpractica(?,?,?,?)
 
 -- Eliminar practica
-CREATE OR REPLACE PROCEDURE spcrearpractica(
+CREATE OR REPLACE PROCEDURE speliminarpractica(
 	_codigo text)
 LANGUAGE 'plpgsql'
 
@@ -85,7 +85,7 @@ $BODY$;
 --call speliminarpractica(?)
 
 -- Actualizar practica
-CREATE OR REPLACE PROCEDURE spcrearpractica(
+CREATE OR REPLACE PROCEDURE spactualizarpractica(
 	_codigo text,
 	_nombre text,
 	_codigosemestre text,
