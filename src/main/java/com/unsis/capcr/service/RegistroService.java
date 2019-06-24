@@ -19,12 +19,12 @@ public class RegistroService implements IRegistroService {
 
     @Override
     public List<Registro> obtenerRegistros() {
-        return iRegistroModel.obtenerRegistro();
+        return iRegistroModel.obtenerRegistros();
     }
 
     @Override
     public Registro obtenerRegistro(Long idRegistro) {
-        return iRegistroModel.obtenerRegistros(idRegistro);
+        return iRegistroModel.obtenerRegistro(idRegistro);
     }
 
     @Override

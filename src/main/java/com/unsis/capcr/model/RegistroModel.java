@@ -27,11 +27,11 @@ public class RegistroModel implements IRegistroModel{
     private String query;
 
     @Override
-    public List<Registro> obtenerRegistro() {
+    public List<Registro> obtenerRegistros() {
         ArrayList <Registro> listaRegistro = new ArrayList<>();
         try{
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "SELECT * FROM Registro;";
+            query = "SELECT * FROM Registro where horaSalida=null;";
             statement = connection.prepareStatement(query);
             resultSet = statement.executeQuery();
             while (resultSet.next()) {
@@ -56,10 +56,10 @@ public class RegistroModel implements IRegistroModel{
     }
 
     @Override
-    public Registro obtenerRegistros(Long idRegistro) {
+    public Registro obtenerRegistro(Long idRegistro) {
         try{    
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "SELECT * FROM Registro WHERE matriculaalumno = ?";
+            query = "SELECT * FROM Registro WHERE idregistro = ?";
             statement = connection.prepareStatement(query);
             statement.setLong(1, idRegistro);
             resultSet = statement.executeQuery();

@@ -27,18 +27,18 @@ public class ReservacionModel implements IReservacionModel {
         ArrayList<Reservacion> listaRegistro = new ArrayList<>();
         try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "SELECT * FROM Reservacion;";
+            query = "select * from fnobtenerreservaciones();";
             statement = connection.prepareStatement(query);
             resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 Reservacion reservacion = new Reservacion();
-                reservacion.setIdReservacion(resultSet.getLong("idReservacion"));
-                reservacion.setFechaInicio(resultSet.getDate("fechaInicio"));
-                reservacion.setFechaFin(resultSet.getDate("fechaFin"));
-                reservacion.setArea(resultSet.getString("area"));
-                reservacion.setResponsableArea(resultSet.getString("responsableArea"));
-                reservacion.setPractica(resultSet.getString("practica"));
-                reservacion.setResponsablePractica(resultSet.getString("responsablePractica"));
+                reservacion.setIdReservacion(resultSet.getLong("_idreservacion"));
+                reservacion.setFechaInicio(resultSet.getDate("_fechainicio"));
+                reservacion.setFechaFin(resultSet.getDate("_fechafin"));
+                reservacion.setArea(resultSet.getString("_area"));
+                reservacion.setResponsableArea(resultSet.getString("_responsablearea"));
+                reservacion.setPractica(resultSet.getString("_practica"));
+                reservacion.setResponsablePractica(resultSet.getString("_responsablepractica"));
                 listaRegistro.add(reservacion);
             }
             resultSet.close();
@@ -55,19 +55,19 @@ public class ReservacionModel implements IReservacionModel {
     public Reservacion obtenerRegistro(Long idReservacion) {
         try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "SELECT * FROM Reservacion WHERE idReservacion = ?";
+            query = "select * from fnobtenerreservacion(?);";
             statement = connection.prepareStatement(query);
             statement.setLong(1, idReservacion);
             resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 Reservacion reservacion = new Reservacion();
-                reservacion.setIdReservacion(resultSet.getLong("idReservacion"));
-                reservacion.setFechaInicio(resultSet.getDate("fechaInicio"));
-                reservacion.setFechaFin(resultSet.getDate("fechaFin"));
-                reservacion.setArea(resultSet.getString("area"));
-                reservacion.setResponsableArea(resultSet.getString("responsableArea"));
-                reservacion.setPractica(resultSet.getString("practica"));
-                reservacion.setResponsablePractica(resultSet.getString("responsablePractica"));
+                reservacion.setIdReservacion(resultSet.getLong("_idreservacion"));
+                reservacion.setFechaInicio(resultSet.getDate("_fechainicio"));
+                reservacion.setFechaFin(resultSet.getDate("_fechafin"));
+                reservacion.setArea(resultSet.getString("_area"));
+                reservacion.setResponsableArea(resultSet.getString("_responsablearea"));
+                reservacion.setPractica(resultSet.getString("_practica"));
+                reservacion.setResponsablePractica(resultSet.getString("_responsablepractica"));
                 return reservacion;
             }
             resultSet.close();
@@ -84,9 +84,7 @@ public class ReservacionModel implements IReservacionModel {
     public void crearRegistro(Reservacion reservacion) {
         try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "INSERT INTO reservacion(fechaInicio, fechaFin, "
-                    + "area, responsableArea, practica, responsablePractica) "
-                    + "VALUES(?,?,?,?,?,?); ";
+            query = "call spcrearreservacion(?,?,?,?,?,?); ";
             statement = connection.prepareStatement(query);
             statement.setDate(1, reservacion.getFechaInicio());
             statement.setDate(2, reservacion.getFechaFin());
@@ -106,8 +104,7 @@ public class ReservacionModel implements IReservacionModel {
     public void actualizarRegistro(Reservacion reservacion) {
         try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "UPDATE reservacion SET fechaInicio=?, fechaFin=?, "
-                    + "area=?, responsableArea=?, practica=?, responsablePractica=? WHERE idReservacion=?;";
+            query = "call spactualizarreservacion(?,?,?,?,?,?)";
             statement = connection.prepareStatement(query);
             statement.setDate(1, reservacion.getFechaInicio());
             statement.setDate(2, reservacion.getFechaFin());
@@ -128,7 +125,7 @@ public class ReservacionModel implements IReservacionModel {
     public void eliminarRegistro(Long idReservacion) {
         try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "DELETE FROM Reservacion WHERE idReservacion = ?";
+            query = "call speliminarreservacion(?);";
             statement = connection.prepareStatement(query);
             statement.setLong(1, idReservacion);
             statement.executeUpdate();
