@@ -12,7 +12,7 @@ import java.sql.Date;
  * @author Uriel
  */
 public interface IReporteModel {
-    public void generarReporte(String grupo,String practicaNombre, Date fechaInicio, Date fechaFin);
+    public byte[] generarReporte(String grupo,String practicaNombre, Date fechaInicio, Date fechaFin,String path);
     public void generarReportePorAlumno(String matricula,Date fechaInicio, Date fechaFin );
     public void generarReportePorPractica(String practicaNombre,Date fechaIncio, Date fechaFin);
 }
