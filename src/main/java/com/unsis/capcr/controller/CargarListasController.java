@@ -88,11 +88,13 @@ public class CargarListasController extends HttpServlet {
             Practica practica = new Practica();
             practica.setCodigo(codigo);
             practica.setNombre(nombre);
-            practica.setIdSemestre(semestre);
-            practica.setIdCarrera(carrera);
-
-            //IPracticaService iPracticaService = new PracticaService();
-            //iPracticaService.crearPractica(practica);
+            practica.setIdSemestre(ObtenerCodigoSemestre(semestre));
+            practica.setIdCarrera(ObtenerCodigoCarrera(carrera));
+            
+            System.out.println(practica.getCodigo()+" "+practica.getNombre()+" "+practica.getIdCarrera()+" "+practica.getIdSemestre());
+            
+            IPracticaService iPracticaService = new PracticaService();
+            iPracticaService.crearPractica(practica);
 
         }
 
@@ -123,7 +125,6 @@ public class CargarListasController extends HttpServlet {
             case "MEDICINA":
                 Codigo = "14";
                 break;
-
             default:
                 Codigo = "00";
                 break;
@@ -159,8 +160,6 @@ public class CargarListasController extends HttpServlet {
                 Codigo = "06";
                 break;
             case "SEPTIMO":
-                Codigo = "07";
-                break;
             case "SÉPTIMO":
                 Codigo = "07";
                 break;
@@ -171,8 +170,6 @@ public class CargarListasController extends HttpServlet {
                 Codigo = "09";
                 break;
             case "DECIMO":
-                Codigo = "10";
-                break;
             case "DÉCIMO":
                 Codigo = "10";
                 break;
