@@ -23,7 +23,7 @@
                     <th>NOMBRE</th>
                     <th>APELLIDO</th>
                     <th>USUARIO</th>
-                    <th colspan=2>ACCIONES</th>
+                    <th>ACCIONES</th>
                 </tr>
             </thead>
             <tbody id="miTabla">
@@ -34,16 +34,16 @@
                     <td><c:out value="${usuario.apellidos}"/></td>
                     <td><c:out value="${usuario.nombreUsuario}"/></td>
                     <td><button type="button" class="btn btn-success class-actualizar-usuario"><i class="fa fa-edit"></i></button>
-                    &nbsp&nbsp&nbsp<button type="button" class="btn btn-danger class-eliminar-usuario"><i class="fa fa-trash"></i></button> </td>
+                        &nbsp&nbsp&nbsp<button type="button" class="btn btn-danger class-eliminar-usuario"><i class="fa fa-trash"></i></button> </td>
                 </tr>
             </c:forEach>
-            </tbody>
-        </table>
-        <div class="col-md-12 text-right">
-            <ul class="pagination pagination-lg pager" id="myPager"></ul>
-        </div>
-
+        </tbody>
+    </table>
+    <div class="col-md-12 text-right">
+        <ul class="pagination pagination-lg pager" id="myPager"></ul>
     </div>
+
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="id-modal-usuario" role="dialog">
@@ -184,5 +184,8 @@ el footer incluye dos div arriba de section y incluye todo (el footer y los arch
 <link href="${pageContext.request.contextPath}/resources/usuario/css/cssUsuario.css" rel="stylesheet" />
 <script src="${pageContext.request.contextPath}/resources/usuario/js/scriptUsuario.js"></script>
 <script src="${pageContext.request.contextPath}/resources/usuario/js/validaciones.js"></script>
+<script>
+    document.title = "Usuario";
+</script>
 </body>
 </html>
