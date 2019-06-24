@@ -31,6 +31,7 @@ BEGIN
     RETURN;
 END
 $BODY$ LANGUAGE 'plpgsql';
+--select * from fnobtenerpractica()
 
 -- Obtener practica
 CREATE FUNCTION fnobtenerpractica(
@@ -52,6 +53,7 @@ BEGIN
     RETURN;
 END
 $BODY$ LANGUAGE 'plpgsql';
+--select * from fnobtenerpracticas('_codigo')
 
 -- Crear practica
 CREATE OR REPLACE PROCEDURE spcrearpractica(
@@ -67,6 +69,7 @@ INSERT INTO Practica VALUES(_codigo,_nombre,_codigosemestre,_codigocarrera,now()
     COMMIT;
 END;
 $BODY$;
+--call spcrearpractica(?,?,?,?)
 
 -- Eliminar practica
 CREATE OR REPLACE PROCEDURE spcrearpractica(
@@ -79,6 +82,7 @@ UPDATE Practica set fechaEliminacion=now() where codigo=_codigo;
     COMMIT;
 END;
 $BODY$;
+--call speliminarpractica(?)
 
 -- Actualizar practica
 CREATE OR REPLACE PROCEDURE spcrearpractica(
@@ -94,8 +98,9 @@ UPDATE Practica set nombre=_nombre, codigoSemestre=_codigosemestre, codigoCarrer
     COMMIT;
 END;
 $BODY$;
-
+--call spactualizarpractica(?,?,?,?)
 
 ------------------------------------------------------------
 -- Reservación
 ------------------------------------------------------------
+

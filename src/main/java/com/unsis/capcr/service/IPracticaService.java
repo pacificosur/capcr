@@ -17,5 +17,6 @@ public interface IPracticaService {
     public void crearPractica(Practica practica);
     public void actualizarPractica(Practica practica);
     public void eliminarPractica(String IdPractica);
+    public List<Practica> getPracticaRegistro(String IdSemestre, String IdCarrera);
     
 }

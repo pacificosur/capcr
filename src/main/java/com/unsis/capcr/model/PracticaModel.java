@@ -129,4 +129,30 @@ public class PracticaModel implements IPracticaModel{
             System.err.println("Error "+ e.getMessage());
         }
     }
+
+    @Override
+    public List<Practica> getPracticaRegistro(String IdSemestre, String IdCarrera) {
+        ArrayList<Practica> listaPractica= new ArrayList<>();
+        try {
+            connection=(Connection) new ConnectionPostgreSQL().conecta();
+            query="select * from practica where codigosemestre=? and codigocarrera=?;";
+            statement= connection.prepareStatement(query);
+            statement.setString(1, IdSemestre);
+            statement.setString(2, IdCarrera);
+            resultSet = statement.executeQuery();
+            
+            while (resultSet.next()) {
+                Practica practica=new Practica();
+                practica.setCodigo(resultSet.getString("codigo"));
+                practica.setNombre(resultSet.getString("nombre"));
+                listaPractica.add(practica);
+            }
+            resultSet.close();
+            statement.close();
+            connection.close();
+        } catch (SQLException e) {
+            System.err.println("Error "+ e.getMessage());
+        }
+        return listaPractica;
+    }
 }
