@@ -30,7 +30,13 @@
         <link href="${pageContext.request.contextPath}/resources/alumno/css/cssAlumno.css" rel="stylesheet" />
         <link href="${pageContext.request.contextPath}/resources/reservacion/css/cssReservacion.css" rel="stylesheet" />
         <link href="${pageContext.request.contextPath}/resources/practica/css/cssPractica.css" rel="stylesheet" />
+        <style>
+            input{
+                background: rgba(0,0,0,0);
+                border:none;
+            }
 
+        </style>
         <!-- boxed bg -->
         <link id="bodybg" href="${pageContext.request.contextPath}/resources/bodybg/bg1.css" rel="stylesheet" type="text/css" />
         <!-- template skin -->
@@ -104,36 +110,63 @@
                             <div>
                                 <form enctype="multipart/form-data">
                                     <input type="file" id="file">
-                                    <button type="submit" ng-click="uploadExcel()">Upload file</button>
+                                    <button id="btn-cargar-alumno" class="btn btn-default btn-success" type="submit" ng-click="uploadExcel()">cargar datos</button>
                                 </form>
                             </div>
                             <div>
-                                <table id="myTable" class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Matricula</th>
-                                            <th>Nombre</th>
-                                            <th>Grupo</th>
-                                            <th>Semestre</th>
-                                            <th>Carrera</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                                <form action="${pageContext.request.contextPath}/CargarListasController?accion=cargar-alumnos" method="POST" id="listaAlumnos">
+                                    <input id="numAlumnos" type="text" name="nAlumnos" style="">
+                                    <div class="table-responsive">
+                                        <table id="myTable" class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Matricula</th>
+                                                    <th>Nombre</th>
+                                                    <th>Grupo</th>
+                                                    <th>Semestre</th>
+                                                    <th>Carrera</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                    </tbody>
-                                </table>
-
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <button type="submit" class="btn btn-default btn-success" >Cargar lista</button>
+                                </form>
                             </div>
                         </div>
                     </div>
 
                     <div class="cargar-practicas" style="display:none;">
-                        <div class="container-files margintop-20">
-                            <p class="text-center">Lista de prácticas</p>
-                            <form action="${pageContext.request.contextPath}/CargarListasController?accion=cargar_lista_practica" method="POST" role="form" id="formulario">
-                                <input type="file" accept="xls,xlsx" id="input-file-practica" name="archivo-xml">
-                                <button type="submit" class="btn btn-default btn-success btn-block">Cargar lista</button>
-                            </form>
+                        <div class="container-table">
+                            <div>
+                                <form enctype="multipart/form-data">
+                                    <input type="file" id="file2">
+                                    <button id="btn-cargar-practica" class="btn btn-default btn-success" type="submit" ng-click="uploadExcel2()">cargar datos</button>
+                                </form>
+                            </div>
+                            <div>
+                                <form action="${pageContext.request.contextPath}/CargarListasController?accion=cargar-practicas" method="POST" id="listaAlumnos">
+                                     <input id="numPracticas" type="text" name="nPracticas" style="">
+                                    <div class="table-responsive">
+                                        <table id="myTable2" class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Código</th>
+                                                    <th>Nombre</th>
+                                                    <th>Semestre</th>
+                                                    <th>Carrera</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <button type="submit" class="btn btn-default btn-success" >Cargar lista</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
 
@@ -143,5 +176,6 @@
                     <script src="${pageContext.request.contextPath}/resources/cargarlista/js/angular.min.js" type="text/javascript"></script>
                     <script src="${pageContext.request.contextPath}/resources/cargarlista/js/xlsx.full.min.js" type="text/javascript"></script>
                     <script src="${pageContext.request.contextPath}/resources/cargarlista/js/customjs.js" type="text/javascript"></script>
+
                     </body>
                     </html>
