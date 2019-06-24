@@ -129,5 +129,8 @@
 --%> 
 <jsp:include page="../../pages/layouts/footer.jsp"></jsp:include>
 <script src="${pageContext.request.contextPath}/resources/practica/js/scriptPractica.js"></script>
+<script>
+    document.title="Práctica";
+</script>
 </body>
 </html>
