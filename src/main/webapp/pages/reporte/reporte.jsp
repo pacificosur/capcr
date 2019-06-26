@@ -4,6 +4,7 @@
     Author     : Uriel
 --%>
 
+<%@page import="javax.swing.JOptionPane"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -29,6 +30,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+        
         <%
             ConnectionPostgreSQL con = new ConnectionPostgreSQL();
             Connection conn = con.conecta();
@@ -38,11 +40,17 @@
             String grupo = request.getParameter("idGrupo");
             String practica = request.getParameter("idNombrePractica");
             SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+            String fecha = request.getParameter("idFechaInicio");
+            String fecha2 = request.getParameter("idFechaFin");
+            System.out.println("La fecha1 es "+fecha);
+            System.out.println("La fecha2 es "+fecha2);
+            System.out.println("Grupo "+ grupo);
+            System.out.println("Practica"+practica);
             Date fechaInicio = formato.parse(request.getParameter("idFechaInicio"));
             Date fechaFin = formato.parse(request.getParameter("idFechaFin"));
-            System.out.println(fechaInicio);
-            System.out.println(fechaFin);
-            
+            System.out.println("La fecha es:"+fechaInicio);
+            System.out.println("Lafecha es"+fechaFin);
+            JOptionPane.showMessageDialog(null,"Entró al JSP");
             
           
             parametros.put("varNombre_practica",practica);

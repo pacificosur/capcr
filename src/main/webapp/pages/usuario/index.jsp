@@ -87,8 +87,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" id="boton-enviar-datos" class="btn btn-default btn-success" ><span class="fa fa-save"></span>&nbsp Guardar</button>
-                    <button type="submit" class="btn btn-default btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Cancel</button>          
+                    
+                    <li><a href="${pageContext.request.contextPath}/reporte">Generar</a></li>
                 </div>
             </div>
         </div>
@@ -159,7 +159,7 @@
 
 <!-- Modal mensaje de usuario ya existe -->
 <div class="modal fade" id="id-modal-usuario-existe" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog" >
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header text-center">
@@ -170,7 +170,7 @@
                     <h1>El usuario que intenta registrar ya existe.</h1>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-default btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Aceptar</button>  
+                    <button type="submit" class="btn btn-default btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Aceptar</button>
                 </div>
             </div>
         </div>

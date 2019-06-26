@@ -16,23 +16,6 @@ $(document).ready(function () {
             alert("No se aceptan campos vacios");
             return false;
         }
-        $.ajax({
-            url: 'ReporteController',
-            data: {
-                'idSemestre': $('#idSemestre').val(),
-                'idNombrePractica': $('#idNombrePractica').val(),
-                'idGrupo': $('#idGrupo').val(),
-                'idFechaInicio': $('#idFechaInicio').val(),
-                'idFechaFin': $('#idFechaFin').val(),
-                'accion': 'generar'
-            },
-            success: function (responseText) {
-                $("#id-modal-reporte").modal().hide();
-                location.reload();
-                $('#idNombrePractica').val('');
-                $('#idGrupo').val('');
-            }
-        });
     });
 
     $("#boton-cancelar").click(function () {

@@ -45,7 +45,7 @@
                         <option value="audi">Noveno</option>
                     </select>
                 </div>
-
+                 <form action="/capcr1/pages/reporte/reporte.jsp">
                 <div class="form-group">
                     <label for="NombrePractica"><span class="fa fa-user"></span>&nbsp Nombre de practica</label>
                     <input type="text" name="idNombrePractica" class="form-control" id="idNombrePractica" placeholder="Ingrese el nombre de la practica" required>
@@ -67,9 +67,13 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" id="boton-enviar-datos" class="btn btn-default btn-success"><span class="fa fa-save"></span>&nbsp Generar</button>
-                    <button type="submit" class="btn btn-default btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Cancel</button>          
+                   
+                        <button type="submit" id="boton-enviar-datos" class="btn btn-default btn-success"><span class="fa fa-save"></span>&nbsp Generar</button>
+                        <!-- input type="submit" id="" value="Generar PDF" /-->
+                        <button type="submit" class="btn btn-default btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Cancel</button>
+                    
                 </div>
+               </form>
             </div>
         </div>
     </div>

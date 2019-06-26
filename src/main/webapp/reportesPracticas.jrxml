@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d2e70e9d-5d5a-494e-81bb-8ae0a9785b1a">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="44"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -216,7 +216,7 @@ FROM
 				<text><![CDATA[LISTA DE ASISTENCIAS]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement key="table 1" x="54" y="157" width="702" height="361" uuid="61c4e2d3-f7ff-4c1d-b5e5-20397fd79fbc"/>
+				<reportElement key="table 1" x="0" y="133" width="802" height="385" uuid="61c4e2d3-f7ff-4c1d-b5e5-20397fd79fbc"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="Reportes" uuid="4fe24276-818a-494a-b45e-39292da8a663">
 						<datasetParameter name="_grupo">
