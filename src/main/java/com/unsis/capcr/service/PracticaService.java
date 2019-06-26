@@ -40,5 +40,10 @@ public class PracticaService implements IPracticaService{
     public void eliminarPractica(String IdPractica) {
         iPracticaModel.eliminarPractica(IdPractica);
     }
+
+    @Override
+    public List<Practica> getPracticaRegistro(String IdSemestre, String IdCarrera) {
+        return iPracticaModel.getPracticaRegistro(IdSemestre, IdCarrera);
+    }
     
 }

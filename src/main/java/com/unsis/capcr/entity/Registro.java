@@ -11,18 +11,28 @@ package com.unsis.capcr.entity;
 import java.util.Date;
 
 public class Registro {
+    private Long idRegistro;
     private String matriculaAlumno;
     private String codigoPractica;
     private String horaEntrada;
     private String horaSalida;
     private String sustituye;
     
-    public Registro(String matriculaAlumno, String codigoPractica, String horaEntrada, String horaSalida, String sustituye){
+    public Registro(Long idRegistro,String matriculaAlumno, String codigoPractica, String horaEntrada, String horaSalida, String sustituye){
+        this.idRegistro=idRegistro;
         this.matriculaAlumno=matriculaAlumno;
         this.codigoPractica=codigoPractica;
         this.horaEntrada=horaEntrada;
         this.horaSalida=horaSalida;
         this.sustituye=sustituye;
+    }
+
+    public Long getIdRegistro() {
+        return idRegistro;
+    }
+
+    public void setIdRegistro(Long idRegistro) {
+        this.idRegistro = idRegistro;
     }
     
     public Registro(){
