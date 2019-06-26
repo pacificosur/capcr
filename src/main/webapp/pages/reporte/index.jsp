@@ -27,53 +27,54 @@
             <div class="modal-content">
                 <div class="modal-header text-center">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <img class="img-logo-modal-header" src="${pageContext.request.contextPath}/resources/usuario/img/usuario.png" />
+                    <img class="img-logo-modal-header" src="${pageContext.request.contextPath}/resources/reportes/img/icono.jpg" />
             </div>
             <div class="modal-body">
+                <form action="/capcr1/pages/reporte/reporte.jsp">
+                    <div class="form-group">
+                        <label for="NombrePractica"><span class="fa fa-user"></span>&nbsp Nombre de practica</label>
+                        <select type="text" name="idNombrePractica" class="form-control" id="idNombrePractica">
+                            <option value="Practica1 1 semestre enfermeria">Practica1 1 semestre enfermeria</option>
+                            <option value="Practica2 1 semestre enfermeria">Practica2 1 semestre enfermeria</option>
+                            <option value="Practica3 1 semestre enfermeria">Practica3 1 semestre enfermeria</option>
+                            <option value="Practica1 3 semestre enfermeria">Practica1 3 semestre enfermeria</option>
+                            <option value="Practica2 3 semestre enfermeria">Practica2 3 semestre enfermeria</option>
+                            <option value="Practica3 3 semestre enfermeria">Practica3 3 semestre enfermeria</option>
+                            <option value="Practica1 5 semestre enfermeria">Practica1 5 semestre enfermeria</option>
+                            <option value="Practica2 5 semestre enfermeria">Practica2 5 semestre enfermeria</option>
+                            <option value="Practica3 5 semestre enfermeria">Practica3 5 semestre enfermeria</option>
+                            <option value="Practica1 7 semestre enfermeria">Practica1 7 semestre enfermeria</option>
+                            <option value="Practica2 7 semestre enfermeria">Practica2 7 semestre enfermeria</option>
+                            <option value="Practica3 7 semestre enfermeria">Practica3 7 semestre enfermeria</option>
+                            <option value="Practica1 9 semestre enfermeria">Practica1 9 semestre enfermeria</option>
+                            <option value="Practica2 9 semestre enfermeria">Practica2 9 semestre enfermeria</option>
+                            <option value="Practica3 9 semestre enfermeria">Practica3 9 semestre enfermeria</option>
+                        </select>                       
+                    </div>
 
-                <div class="form-group">
-                    <label for="semestre"><span class="fa fa-user"></span>&nbsp Semestre</label>
-                    <select type="text" name="idSemestre" id="idSemestre">
-                        <option value="volvo">Primero</option>
-                        <option value="saab">Segundo</option>
-                        <option value="opel">Tercero</option>
-                        <option value="audi">Cuarto</option>
-                        <option value="volvo">Quinto</option>
-                        <option value="saab">Sexto</option>
-                        <option value="opel">Septimo</option>
-                        <option value="audi">Octavo</option>
-                        <option value="audi">Noveno</option>
-                    </select>
-                </div>
-                 <form action="/capcr1/pages/reporte/reporte.jsp">
-                <div class="form-group">
-                    <label for="NombrePractica"><span class="fa fa-user"></span>&nbsp Nombre de practica</label>
-                    <input type="text" name="idNombrePractica" class="form-control" id="idNombrePractica" placeholder="Ingrese el nombre de la practica" required>
-                </div>
+                    <div class="form-group">
+                        <label for="Grupo"><span class="fa fa-user"></span>&nbsp Grupo</label>
+                        <input type="text" name="idGrupo" class="form-control" id="idGrupo" placeholder="Ingrese el grupo" required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="Grupo"><span class="fa fa-user"></span>&nbsp Grupo</label>
-                    <input type="text" name="idGrupo" class="form-control" id="idGrupo" placeholder="Ingrese el grupo" required>
-                </div>
+                    <div class="form-group">
+                        <label for="FechaInicio"><span class=" fa fa-lock"></span>&nbsp Fecha Inicio</label>
+                        <input type="date" name="idFechaInicio"  id="idFechaInicio" required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="FechaInicio"><span class=" fa fa-lock"></span>&nbsp Fecha Inicio</label>
-                    <input type="date" name="idFechaInicio"  id="idFechaInicio" required>
-                </div>
+                    <div class="form-group">
+                        <label for="FechaFin"><span class=" fa fa-lock"></span>&nbsp Fecha Fin</label>
+                        <input type="date" name="idFechaFin" id="idFechaFin" >
+                    </div>
 
-                <div class="form-group">
-                    <label for="FechaFin"><span class=" fa fa-lock"></span>&nbsp Fecha Fin</label>
-                    <input type="date" name="idFechaFin" id="idFechaFin" >
-                </div>
+                    <div class="modal-footer">
 
-                <div class="modal-footer">
-                   
                         <button type="submit" id="boton-enviar-datos" class="btn btn-default btn-success"><span class="fa fa-save"></span>&nbsp Generar</button>
                         <!-- input type="submit" id="" value="Generar PDF" /-->
                         <button type="submit" class="btn btn-default btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Cancel</button>
-                    
-                </div>
-               </form>
+
+                    </div>
+                </form>
             </div>
         </div>
     </div>
