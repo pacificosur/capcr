@@ -17,8 +17,8 @@ public interface IRegistroModel {
     public List<Registro> obtenerRegistros();
     public Registro obtenerRegistro(Long idRegistro);
     public void crearRegistro(Registro registro);
-    public void actualizarRegistros(Registro registro);
     public void eliminarRegistro(Long idRegistro);
+    public void finalizarRegistro(Long idRegistro, String comentario);
     
     public Registro obtenerRegistroPorMatricula(String matricula);
 }

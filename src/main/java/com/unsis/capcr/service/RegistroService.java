@@ -33,11 +33,6 @@ public class RegistroService implements IRegistroService {
     }
 
     @Override
-    public void actualizarRegistro(Registro registro) {
-        iRegistroModel.actualizarRegistros(registro);
-    }
-
-    @Override
     public void eliminarRegistro(Long idRegistro) {
         iRegistroModel.eliminarRegistro(idRegistro);
     }
@@ -45,6 +40,11 @@ public class RegistroService implements IRegistroService {
     @Override
     public Registro obtenerRegistroPorMatricula(String matricula) {
         return iRegistroModel.obtenerRegistroPorMatricula(matricula);
+    }
+
+    @Override
+    public void finalizarRegistro(Long idRegistro, String comentario) {
+         iRegistroModel.finalizarRegistro(idRegistro,comentario);
     }
             
 }

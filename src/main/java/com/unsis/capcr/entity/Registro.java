@@ -17,6 +17,15 @@ public class Registro {
     private String horaEntrada;
     private String horaSalida;
     private String sustituye;
+    private String nombreAlumno;
+
+    public String getNombreAlumno() {
+        return nombreAlumno;
+    }
+
+    public void setNombreAlumno(String nombreAlumno) {
+        this.nombreAlumno = nombreAlumno;
+    }
     
     public Registro(Long idRegistro,String matriculaAlumno, String codigoPractica, String horaEntrada, String horaSalida, String sustituye){
         this.idRegistro=idRegistro;

@@ -28,38 +28,81 @@ $(document).ready(function () {
 
 
     $("#id-btn-crear-registro").click(function () {
+        var mat = $('.input-matricula-registro').val().trim();
+        var valor;
+        var numero = 0;
+        var numero2 = 0;
+        var idregistro;
 
-        $.ajax({
-            url: 'RegistroController',
-            data: {
-                'matricula': $('.input-matricula-registro').val(),
-                'accion': 'alumnopractica'
-            },
-            success: function (responseText) {
-                var texto = responseText.split(",");
-                var opcion = $("#idselect");
+//        $("#miTabla tr").find('td').each(function () {
+//            valor = $(this).html();
+//            alert(valor);
+//            numero++;
+//        },numero++);
+        $("#miTabla").find('tr').each(function () {
+            $(this).find('td:eq(1)').each(function () {
+                valor = $(this).html();
+                alert(valor);
+            })
+        });
 
-                //limpiar valores
-                opcion.empty();
-                $("#idmatricula").empty();
-                $("#idnombre").empty();
-                $("#idmatricula").append(texto[0]);
-                $("#idnombre").append(texto[1].toString().toUpperCase());
-
-                for (var i = 2; i < texto.length; i += 2) {
-                    //alert(texto[i]);
-                    opcion.append(new Option(texto[i + 1], texto[i]));
-                    
-                }
-
-                $("#id-modal-registro").modal();
-            }, error: function (responseText) {
-                alert("responseTe");
+        $("#miTabla tr").find('.btn').each(function () {
+            numero2++;
+            if (numero == numero2) {
+                idregistro = $(this).name;
+                $(this).remove();
             }
         });
 
-    });
+        if (valor == mat) {
+            alert("igual");
+            $.ajax({
+                url: 'RegistroController',
+                data: {
+                    'idRegistro': $('.input-matricula-registro').val(),
+                    'accion': 'actualizar'
+                },
+                success: function (responseText) {
 
+                }, error: function (responseText) {
+                    alert("Ocurrio un error intente de nuevo");
+                }
+            });
+        } else {
+            $.ajax({
+                url: 'RegistroController',
+                data: {
+                    'matricula': $('.input-matricula-registro').val(),
+                    'accion': 'alumnopractica'
+                },
+
+                success: function (responseText) {
+                    var texto = responseText.split(",");
+
+                    var opcion = $("#idselect");
+                    opcion.empty();
+                    $("#idmatricula").empty();
+                    $("#idnombre").empty();
+                    $("#txtidmatricula").empty();
+                    $("#txtidnombre").empty();
+
+                    var matricula = texto[0].split("[");
+                    $("#idmatricula").val(matricula[1]);
+                    $("#txtidmatricula").append(matricula[1]);
+                    $("#txtidnombre").append(texto[1].toString().toUpperCase());
+                    for (var i = 2; i < texto.length; i += 2) {
+                        var codigo = texto[i].split(" ");
+                        opcion.append(new Option(texto[i + 1], codigo[1]));
+                    }
+
+                    $("#id-modal-registro").modal();
+                }, error: function (responseText) {
+                    alert("Ocurrio un error intente de nuevo");
+                }
+            });
+        }
+
+    });
 });
 
 function abrirModal(e) {

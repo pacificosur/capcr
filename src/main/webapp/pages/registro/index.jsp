@@ -26,32 +26,35 @@
             <input type="text" class="form-control form-control-lg col-md-3 input-matricula-registro" placeholder="Matricula del alumno" name="matricula" onkeypress=" return soloNumeros(event)" maxlength="10" onkeyup = "abrirModal(event)" autofocus>
         </div>
         <div class="col-md-6">
-            <button type="button" class="btn btn-success boton-agregar-registro" id="id-btn-crear-registro"><i class="fa fa-user" aria-hidden="true"></i>Agregar</button>
+            <button type="button" class="btn btn-success boton-agregar-registro" id="id-btn-crear-registro"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Agregar</button>
         </div>
     </div>
     <table id="idTable" class="table table-hover">
         <thead class="thead-dark">
             <tr>
-                <td> Codigo Practica</td>
-                <td> Matricula Alumno</td>
-                <td> Hora Entrada</td>
-                <td> Hora Salida</td>
-                <td> Fecha</td>
-                <td> Sustituye</td>
-                <td> Comentario</td>
+                <th> Nombre Alumno</th>
+                <th> Matricula Alumno</th>
+                <th> Práctica</th>
+                <th> Hora Entrada</th>
+                <th> Hora Salida</th>
+                <th> Sustituye</th>
+                <th> Cancelar</th>
             </tr>
         </thead>
-<!--        <th class="tabla-data"></th>-->
+        <!--        <th class="tabla-data"></th>-->
+        <tbody id="miTabla">
         <c:forEach var="registro" items="${listaRegistro}">
-        <tr>
-            <td><c:out value="${registro.matriculaAlumno}"/></td>
-            <td><c:out value="${registro.codigoPractica}"/></td>
-            <td><c:out value="${registro.horaEntrada}"/></td>
-            <td><c:out value="${registro.horaSalida}"/></td>
-            <td><c:out value="${registro.sustituye}"/></td>
-            <td><button type="button" class="btn btn-danger class-eliminar-registro"><i class="fa fa-trash"></i></button> </td>
-            <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/RegistroController?accion=eliminar&matriculaAlumno=<c:out value="${registro.matriculaAlumno}"/>"><i class="fa fa-trash"></i></a> </td>				
-        </tr>
+            <tr>
+                <td><c:out value="${registro.nombreAlumno}"/></td>
+                <td><c:out value="${registro.matriculaAlumno}"/></td>
+                <td><c:out value="${registro.codigoPractica}"/></td>
+                <td><c:out value="${registro.horaEntrada}"/></td>
+                <td><c:out value="${registro.horaSalida}"/></td>
+                <td><c:out value="${registro.sustituye}"/></td>
+                <td><a name="<c:out value="${registro.idRegistro}"/>" type="button" class="btn btn-success"><i class="fa fa-remove"></i></a> </td>
+<!--                <td><a type="button" class="btn btn-success" href="${pageContext.request.contextPath}/RegistroController?accion=actualizar=<c:out value="${registro.idRegistro}"/>"><i class="fa fa-remove"></i></a> </td>-->
+            </tr>
+        </tbody>
     </c:forEach>
 </table>
 <!-- Modal -->
@@ -68,11 +71,12 @@
                 <form action="${pageContext.request.contextPath}/RegistroController?accion=crear" method="POST" role="form">
                     <div class="form-group">
                         <input type="hidden" name="idRegistro" class="form-control" id="idRegistro" >
+                        <input type="hidden" name="idmatricula" class="form-control" id="idmatricula">
                     </div>
                     <div class="card text-center">
                         <div class="card-header">
-                            <input type="text" name="idmatricula" class="form-control" id="idmatricula" disabled>
-                            <input type="text" name="idnombre" class="form-control" id="idnombre" disabled>
+                            <p id="txtidmatricula"></p>
+                            <p id="txtidnombre"></p>
                         </div>
 
                         <div class="card-body">

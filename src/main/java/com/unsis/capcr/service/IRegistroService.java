@@ -19,9 +19,9 @@ public interface IRegistroService {
 
     public void crearRegistro(Registro registro);
 
-    public void actualizarRegistro(Registro registro);
-
     public void eliminarRegistro(Long idRegistro);
     
     public Registro obtenerRegistroPorMatricula(String matricula);
+    
+    public void finalizarRegistro(Long idRegistro, String comentario);
 }

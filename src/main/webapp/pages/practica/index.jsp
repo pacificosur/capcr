@@ -94,19 +94,19 @@
                     </div>
 
                     <div class="form-group"  id="grupoCodigoPractica">
-                        <label for="codigoPractica"><span class="glyphicon glyphicon-th"></span>Codigo</label>
+                        <label for="codigoPractica"><span class="glyphicon glyphicon-th"></span>&nbsp Codigo</label>
                         <input type="text" name="codigoPractica" class="form-control" id="codigoPractica" placeholder="Ingrese el codigo" required pattern="[0-9]{4}" required>
                     </div>
                     <div class="form-group">
-                        <label for="nombrePractica"><span class="glyphicon glyphicon-user"></span>Nombre</label>
+                        <label for="nombrePractica"><span class="glyphicon glyphicon-user"></span>&nbsp Nombre</label>
                         <input type="text" name="nombrePractica" class="form-control" id="nombrePractica" placeholder="Ingrese el nombre" required>
                     </div>
                     <div class="form-group">
-                        <label for="idSemestrePractica"><span class="glyphicon glyphicon-pencil"></span>Semestre</label>
+                        <label for="idSemestrePractica"><span class="glyphicon glyphicon-pencil"></span>&nbsp Semestre</label>
                         <input type="text" name="idSemestrePractica" class="form-control" id="idSemestrePractica" placeholder="Ingrese el codigo del semestre" required pattern="[0-9]{2}" required>
                     </div>
                     <div class="form-group">
-                        <label for="idCarreraPractica"><span class="glyphicon glyphicon-list"></span>Carrera</label>
+                        <label for="idCarreraPractica"><span class="glyphicon glyphicon-list"></span>&nbsp Carrera</label>
                         <select name="idCarreraPractica" id="idCarreraPractica">
                             <option value="03">Enfermería</option>
                             <option value="13">Odontología</option>
@@ -114,7 +114,7 @@
                         </select>
                     </div>
 
-                    <button id="guardarPractica" type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Guardar</button>
+                    <button id="guardarPractica" type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span>&nbsp Guardar</button>
                 </form>
             </div>
             <div class="modal-footer">

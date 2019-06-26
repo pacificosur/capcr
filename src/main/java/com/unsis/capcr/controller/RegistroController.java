@@ -27,6 +27,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 public class RegistroController extends HttpServlet {
 
@@ -34,22 +35,21 @@ public class RegistroController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String accion = request.getParameter("accion");
-        System.out.println("controler"+accion);
-        String buscarAlumno = request.getParameter("matriculaAlumno");
-
-        if (buscarAlumno != null) {
-            accion = "buscar";
-        }
+        System.out.println("controler" + accion);
+//        String buscarAlumno = request.getParameter("matriculaAlumno");
+//
+//        if (buscarAlumno != null) {
+//            accion = "buscar";
+//        }
         switch (accion) {
             case "index":
                 index(request, response);
                 break;
             case "buscar":
-                buscar(request, response, buscarAlumno);
+                //buscar(request, response, buscarAlumno);
                 break;
             case "crear":
-                System.out.println("---->>>>"+request.getParameter("idnombre"));
-               
+                crear(request, response);
                 break;
             case "eliminar":
                 eliminar(request, response);
@@ -73,18 +73,12 @@ public class RegistroController extends HttpServlet {
 
     private void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/registro/index.jsp");
-        dispatcher.forward(request, response);
 
         IRegistroService iRegistroService = new RegistroService();
+
         List<Registro> listaRegistro = iRegistroService.obtenerRegistros();
-        System.out.println(listaRegistro.size());
-
-        for (Registro registro : listaRegistro) {
-            System.out.println(registro.getCodigoPractica() + " " + registro.getMatriculaAlumno() + " " + registro.getHoraEntrada() + " " + registro.getHoraSalida() + " " + registro.getSustituye());
-        }
-
         request.setAttribute("listaRegistro", listaRegistro);
-        //dispatcher.forward(request, response);
+        dispatcher.forward(request, response);
     }
 
     private void buscar(HttpServletRequest request, HttpServletResponse response, String matricula) throws ServletException, IOException {
@@ -104,19 +98,13 @@ public class RegistroController extends HttpServlet {
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/registro/index.jsp");
 
-        Long idRegistro = Long.parseLong(request.getParameter("cogigoPractica"));
-        String area = request.getParameter("area");
-        String responsableArea = request.getParameter("responsableArea");
-        String practica = request.getParameter("practica");
-        String responsablePractica = request.getParameter("responsablePractica");
+        Long idRegistro = Long.parseLong(request.getParameter("idRegistro"));
+        String comentario = "cancelado";
 
         Registro registro = new Registro();
-
-        registro.setMatriculaAlumno("matriculaAlumno");
-
-        registro.setHoraSalida("horaSalida");
+        
         IRegistroService iRegistroService = new RegistroService();
-        iRegistroService.actualizarRegistro(registro);
+        iRegistroService.finalizarRegistro(idRegistro, comentario);
 
         List<Registro> listaRegistro = iRegistroService.obtenerRegistros();
         request.setAttribute("listaRegistro", listaRegistro);
@@ -154,7 +142,7 @@ public class RegistroController extends HttpServlet {
             alumnoPractica.add(practica.getCodigo());
             alumnoPractica.add(practica.getNombre());
         }
-        for(String dato : alumnoPractica) {
+        for (String dato : alumnoPractica) {
             System.out.println(dato);
         }
         //  request.setAttribute("alumno", alumno);
@@ -163,27 +151,29 @@ public class RegistroController extends HttpServlet {
         response.getWriter().write(alumnoPractica.toString());
         //dispatcher.forward(request, response);
     }
-private void crear(HttpServletRequest request, HttpServletResponse response)
+
+    private void crear(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/registro/index.jsp");
-        
-        String codigo= request.getParameter("codigoPractica");      
-        String nombre = request.getParameter("nombrePractica");
-        String semestre = request.getParameter("idSemestrePractica");
-        String carrera = request.getParameter("idCarreraPractica");    
 
-        Practica practica=new Practica();
-        practica.setCodigo(codigo);
-        practica.setNombre(nombre);
-        practica.setIdSemestre(semestre);
-        practica.setIdCarrera(carrera);
-               
-         IRegistroService iRegistroService = new RegistroService();
+        String matriculaAlumno = request.getParameter("idmatricula");
+        String codigoPractica = request.getParameter("seleccionar-practica");
+        String sustituye = request.getParameter("hora-sustituye");
+        System.out.println(matriculaAlumno + " " + codigoPractica + " " + sustituye);
+
+        Registro registro = new Registro();
+        registro.setMatriculaAlumno(matriculaAlumno);
+        registro.setCodigoPractica(codigoPractica);
+        registro.setSustituye(sustituye);
+
+        IRegistroService iRegistroService = new RegistroService();
+        iRegistroService.crearRegistro(registro);
 
         List<Registro> listaRegistro = iRegistroService.obtenerRegistros();
         request.setAttribute("listaRegistro", listaRegistro);
-        dispatcher.forward(request, response);       
+        dispatcher.forward(request, response);
     }
+
     private void reporte(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     }
