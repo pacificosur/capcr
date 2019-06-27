@@ -62,11 +62,6 @@ public class CargarListasController extends HttpServlet {
             alumno.setGrupo(request.getParameter("grupo" + i));
             alumno.setCodigoSemestre(ObtenerCodigoSemestre(request.getParameter("semestre" + i)));
             alumno.setCodigoCarrera(ObtenerCodigoCarrera(request.getParameter("carrera" + i)));
-
-            //imprimir para ver el resultado
-            System.out.println(alumno.getMatricula() + " " + alumno.getNombre() + " " + alumno.getGrupo() + " " + alumno.getCodigoSemestre() + " " + alumno.getCodigoCarrera());
-
-            //crea el alumno
             IAlumnoService iAlumnoService = new AlumnoService();
             iAlumnoService.crearAlumno(alumno);
         }
@@ -78,21 +73,16 @@ public class CargarListasController extends HttpServlet {
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/cargarlista/index.jsp");
         int nPracticas = Integer.parseInt(request.getParameter("nPracticas"));
-        for (int i = 0; i < nPracticas; i++) {
-            
+        for (int i = 0; i < nPracticas; i++) {    
             String codigo = request.getParameter("codigo"+i);
             String nombre = request.getParameter("nombre"+i);
             String semestre = request.getParameter("semestre"+i);
             String carrera = request.getParameter("carrera"+i);
-
             Practica practica = new Practica();
             practica.setCodigo(codigo);
             practica.setNombre(nombre);
             practica.setIdSemestre(ObtenerCodigoSemestre(semestre));
             practica.setIdCarrera(ObtenerCodigoCarrera(carrera));
-            
-            System.out.println(practica.getCodigo()+" "+practica.getNombre()+" "+practica.getIdCarrera()+" "+practica.getIdSemestre());
-            
             IPracticaService iPracticaService = new PracticaService();
             iPracticaService.crearPractica(practica);
 

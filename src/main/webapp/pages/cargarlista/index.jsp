@@ -115,7 +115,7 @@
                             </div>
                             <div>
                                 <form action="${pageContext.request.contextPath}/CargarListasController?accion=cargar-alumnos" method="POST" id="listaAlumnos">
-                                    <input id="numAlumnos" type="text" name="nAlumnos" style="">
+                                    <input id="numAlumnos" type="text" name="nAlumnos" style="display:none;">
                                     <div class="table-responsive">
                                         <table id="myTable" class="table">
                                             <thead>
@@ -132,7 +132,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <button type="submit" class="btn btn-default btn-success" >Cargar lista</button>
+                                    <button type="submit" class="btn btn-default btn-success  marginbot-20 margintop-20" >Cargar lista</button>
                                 </form>
                             </div>
                         </div>
@@ -148,7 +148,7 @@
                             </div>
                             <div>
                                 <form action="${pageContext.request.contextPath}/CargarListasController?accion=cargar-practicas" method="POST" id="listaAlumnos">
-                                     <input id="numPracticas" type="text" name="nPracticas" style="">
+                                     <input id="numPracticas" type="text" name="nPracticas" style="display:none;">
                                     <div class="table-responsive">
                                         <table id="myTable2" class="table">
                                             <thead>
@@ -164,7 +164,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <button type="submit" class="btn btn-default btn-success" >Cargar lista</button>
+                                    <button type="submit" class="btn btn-default btn-success marginbot-20 margintop-20" >Cargar lista</button>
                                 </form>
                             </div>
                         </div>
