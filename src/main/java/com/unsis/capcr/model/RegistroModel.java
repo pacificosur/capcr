@@ -102,52 +102,10 @@ public class RegistroModel implements IRegistroModel {
         return;
     }
 
-    public void eliminarRegistro(Registro registro) {
-        try {
-            connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "update Registro set estado=?,horaSalida=now(),estado='cancelado',comentario=? where idRegistro=? ";
-            statement = connection.prepareStatement(query);
-
-            statement.setString(1, registro.getMatriculaAlumno());
-            statement.setString(2, registro.getCodigoPractica());
-            statement.setString(3, registro.getMatriculaAlumno());
-
-            statement.executeUpdate();
-            resultSet.close();
-            statement.close();
-            connection.close();
-
-        } catch (SQLException e) {
-            System.err.println("Error");;
-
-        }
-    }
-//    public void actualizarRegistros(Registro registro) {
-//        try{
-//            connection = (Connection) new ConnectionPostgreSQL().conecta();
-//            query = "update Registro set matriculaAlumno=?,codigoPractica=?,horaEntrada=now(),horaSalida=null,fecha=current_date,sustituye=null,estado='en proceso',comentario=null where matriculaAlumno=? ";
-//            statement = connection.prepareStatement(query);                
-//
-//            statement.setString(1, registro.getMatriculaAlumno()); 
-//            statement.setString(2, registro.getCodigoPractica());
-//            statement.setString(3, registro.getMatriculaAlumno());
-//            
-//            statement.executeUpdate();
-//            resultSet.close();
-//            statement.close();
-//            connection.close();
-//
-//
-//        }catch(Exception e){
-//             System.err.println("Error");;
-//
-//        }
-//    }
-
     public void finalizarRegistro(Long idRegistro, String comentario) {
         try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "update Registro set horaSalida=now() estado='cancelado' comentario=? where idRegistro = ?";
+            query = "update Registro set horaSalida=now() ,estado='cancelado', comentario=? where idRegistro = ?";
             statement = connection.prepareStatement(query);
             statement.setString(1, comentario);
             statement.setLong(2, idRegistro);
@@ -163,7 +121,7 @@ public class RegistroModel implements IRegistroModel {
     public void eliminarRegistro(Long idRegistro) {
         try {
             connection = (Connection) new ConnectionPostgreSQL().conecta();
-            query = "update Registro set horaSalida=now() estado='finalizado' where idRegistro = ?";
+            query = "update Registro set horaSalida=now(), estado='finalizado' where idRegistro = ?";
             statement = connection.prepareStatement(query);
             statement.setLong(1, idRegistro);
             statement.executeUpdate();
@@ -200,16 +158,4 @@ public class RegistroModel implements IRegistroModel {
             return null;
         }
     }
-
-    public static void main(String[] args) {
-        RegistroModel rm = new RegistroModel();
-
-        List<Registro> r = rm.obtenerRegistros();
-        for (Registro registro : r) {
-            System.out.println(registro.getNombreAlumno());
-        }
-
-    }
-
-
 }

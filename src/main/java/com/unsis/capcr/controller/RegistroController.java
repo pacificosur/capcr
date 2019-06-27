@@ -36,17 +36,12 @@ public class RegistroController extends HttpServlet {
             throws ServletException, IOException {
         String accion = request.getParameter("accion");
         System.out.println("controler" + accion);
-//        String buscarAlumno = request.getParameter("matriculaAlumno");
-//
-//        if (buscarAlumno != null) {
-//            accion = "buscar";
-//        }
+
         switch (accion) {
             case "index":
                 index(request, response);
                 break;
             case "buscar":
-                //buscar(request, response, buscarAlumno);
                 break;
             case "crear":
                 crear(request, response);
@@ -81,28 +76,15 @@ public class RegistroController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void buscar(HttpServletRequest request, HttpServletResponse response, String matricula) throws ServletException, IOException {
-
-        IRegistroService iRegistroService = new RegistroService();
-        Registro regis = iRegistroService.obtenerRegistroPorMatricula(matricula);
-
-        response.getWriter().write(regis.getCodigoPractica());
-        response.getWriter().write(regis.getMatriculaAlumno());
-        response.getWriter().write(regis.getHoraEntrada());
-        response.getWriter().write(regis.getHoraSalida());
-        response.getWriter().write(regis.getSustituye());
-
-    }
-
     private void actualizar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/registro/index.jsp");
 
         Long idRegistro = Long.parseLong(request.getParameter("idRegistro"));
-        String comentario = "cancelado";
+        String comentario = request.getParameter("comentario");
 
         Registro registro = new Registro();
-        
+
         IRegistroService iRegistroService = new RegistroService();
         iRegistroService.finalizarRegistro(idRegistro, comentario);
 
@@ -116,6 +98,7 @@ public class RegistroController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/registro/index.jsp");
 
         Long idRegistro = Long.parseLong(request.getParameter("idRegistro"));
+        System.out.println(idRegistro);
 
         IRegistroService iRegistroService = new RegistroService();
         iRegistroService.eliminarRegistro(idRegistro);
