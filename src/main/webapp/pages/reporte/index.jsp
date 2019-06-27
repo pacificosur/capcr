@@ -30,7 +30,7 @@
                     <img class="img-logo-modal-header" src="${pageContext.request.contextPath}/resources/reportes/img/icono.jpg" />
             </div>
             <div class="modal-body">
-                <form action="/capcr1/pages/reporte/reporte.jsp">
+                <form action="/capcr1/pages/reporte/reporte.jsp" target="_blank">
                     <div class="form-group">
                         <label for="NombrePractica"><span class="fa fa-user"></span>&nbsp Nombre de practica</label>
                         <select type="text" name="idNombrePractica" class="form-control" id="idNombrePractica">
