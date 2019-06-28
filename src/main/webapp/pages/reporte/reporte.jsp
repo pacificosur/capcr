@@ -50,7 +50,6 @@
             Date fechaFin = formato.parse(request.getParameter("idFechaFin"));
             System.out.println("La fecha es:"+fechaInicio);
             System.out.println("Lafecha es"+fechaFin);
-            JOptionPane.showMessageDialog(null,"Entró al JSP");
             
           
             parametros.put("varNombre_practica",practica);
@@ -59,11 +58,9 @@
             parametros.put("varFecha_fin", fechaFin);
            
             JasperReport reporte = null;
-        
-       
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path); // para cargar el reporte 
             byte[] bytes = JasperRunManager.runReportToPdf(reporte,parametros,conn);
-            response.setContentType("application/reporte");
+            response.setContentType("application/pdf");
             String archivo = practica+ "_" +grupo+ ".pdf";
             response.addHeader("Content-disposition", "attachment; filename=" + archivo);
             response.setContentLength(bytes.length);
