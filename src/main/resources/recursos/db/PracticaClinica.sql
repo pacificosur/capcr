@@ -49,6 +49,7 @@ create table Alumno(
 );
 
 create table Registro(
+    idregistro biginit not null,
     matriculaAlumno text not null,
     codigoPractica text not null,
     horaEntrada time(0) ,
@@ -56,13 +57,14 @@ create table Registro(
     fecha date,
     sustituye text not null,
     estado text not null,
-    comentario text,
+    comentario text,   
     constraint fk_alumno foreign key (matriculaAlumno)	references Alumno(matricula)
     on delete cascade
     on update cascade,
     constraint fk_practica foreign key(codigoPractica)	references Practica(codigo)
     on delete restrict
-    on update cascade
+    on update cascade,
+    constraint pk_registro primary key (idregistro)
 );   
 create table Rol(
     idrol bigserial not null,
