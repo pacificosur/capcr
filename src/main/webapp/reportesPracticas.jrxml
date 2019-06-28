@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d2e70e9d-5d5a-494e-81bb-8ae0a9785b1a">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="44"/>
+	<property name="ireport.x" value="103"/>
+	<property name="ireport.y" value="0"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -186,14 +186,6 @@ FROM
 				</textElement>
 				<text><![CDATA[UNIVERSIDAD DE LA SIERRA SUR]]></text>
 			</staticText>
-			<image>
-				<reportElement x="54" y="6" width="99" height="102" uuid="fff31d04-febb-4dba-bb2c-5889bcb765dd"/>
-				<imageExpression><![CDATA["C:\\Users\\Uriel\\Documents\\NetBeansProjects\\ProyectoWEB\\capcr\\src\\main\\webapp\\resources\\reportes\\img\\logoUnsis1.png"]]></imageExpression>
-			</image>
-			<image>
-				<reportElement x="657" y="6" width="99" height="102" uuid="f0da38a4-a0b5-416f-b4ab-ea89477c99b0"/>
-				<imageExpression><![CDATA["C:\\Users\\Uriel\\Documents\\NetBeansProjects\\ProyectoWEB\\capcr\\src\\main\\webapp\\resources\\reportes\\img\\Imagen1.png"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="197" y="50" width="406" height="20" uuid="41530412-3086-4ee3-89b9-57fe0350ed19"/>
 				<textElement textAlignment="Center">
@@ -411,4 +403,3 @@ FROM
 		<band splitType="Stretch"/>
 	</summary>
 </jasperReport>
-<!--- Funcional -->
