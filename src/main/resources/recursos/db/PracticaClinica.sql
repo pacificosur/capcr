@@ -142,25 +142,26 @@ insert into Alumno values('2017030240','irene bustamante jiron','303',now(),null
 insert into Alumno values('2018030379','maria guadalupe mendoza castro','103',now(),null,null,'01','03');
 
 -- insertamos en la tabla registro
-insert into Registro values('2018030379','1001','10:00','11:00','2019-05-02','biblioteca','realizado',null);
-insert into Registro values('2018030379','1002','10:00','11:00','2019-05-02','biblioteca','realizado',null);
-insert into Registro values('2018030379','1003','10:00','11:00','2019-05-02','biblioteca','realizado',null);
+insert into Registro(matriculaalumno, codigopractica, horaentrada, horasalida, fecha, sustituye, estado, comentario) values('2018030379','1001','10:00','11:00','2019-05-02','biblioteca','realizado',null);
+insert into Registro(matriculaalumno, codigopractica, horaentrada, horasalida, fecha, sustituye, estado, comentario) values('2018030379','1002','10:00','11:00','2019-05-02','biblioteca','realizado',null);
+insert into Registro(matriculaalumno, codigopractica, horaentrada, horasalida, fecha, sustituye, estado, comentario) values('2018030379','1003','10:00','11:00','2019-05-02','biblioteca','realizado',null);
 
-insert into Registro values('2017030240','3001','10:00','11:00','2019-05-02','biblioteca','realizado',null);
-insert into Registro values('2017030240','3002','10:00','11:00','2019-05-02','biblioteca','realizado',null);
-insert into Registro values('2017030240','3003','10:00','11:00','2019-05-02','biblioteca','realizado',null);
+insert into Registro(matriculaalumno, codigopractica, horaentrada, horasalida, fecha, sustituye, estado, comentario) values('2017030240','3001','10:00','11:00','2019-05-02','biblioteca','realizado',null);
+insert into Registro(matriculaalumno, codigopractica, horaentrada, horasalida, fecha, sustituye, estado, comentario) values('2017030240','3002','10:00','11:00','2019-05-02','biblioteca','realizado',null);
+insert into Registro(matriculaalumno, codigopractica, horaentrada, horasalida, fecha, sustituye, estado, comentario) values('2017030240','3003','10:00','11:00','2019-05-02','biblioteca','realizado',null);
 
-insert into Registro values('2016030037','5001','10:00','11:00','2019-05-02','biblioteca','realizado',null);
-insert into Registro values('2016030037','5002','10:00','11:00','2019-05-02','biblioteca','realizado',null);
-insert into Registro values('2016030037','5003','10:00','11:00','2019-05-02','biblioteca','realizado',null);
+insert into Registro(matriculaalumno, codigopractica, horaentrada, horasalida, fecha, sustituye, estado, comentario) values('2016030037','5001','10:00','11:00','2019-05-02','biblioteca','realizado',null);
+insert into Registro(matriculaalumno, codigopractica, horaentrada, horasalida, fecha, sustituye, estado, comentario) values('2016030037','5002','10:00','11:00','2019-05-02','biblioteca','realizado',null);
+insert into Registro(matriculaalumno, codigopractica, horaentrada, horasalida, fecha, sustituye, estado, comentario) values('2016030037','5003','10:00','11:00','2019-05-02','biblioteca','realizado',null);
 
-insert into Registro values('2015030104','7001','10:00','11:00','2019-05-02','biblioteca','realizado',null);
-insert into Registro values('2015030104','7002','10:00','11:00','2019-05-02','biblioteca','realizado',null);
-insert into Registro values('2015030104','7003','10:00','11:00','2019-05-02','biblioteca','realizado',null);
+insert into Registro(matriculaalumno, codigopractica, horaentrada, horasalida, fecha, sustituye, estado, comentario) values('2015030104','7001','10:00','11:00','2019-05-02','biblioteca','realizado',null);
+insert into Registro(matriculaalumno, codigopractica, horaentrada, horasalida, fecha, sustituye, estado, comentario) values('2015030104','7002','10:00','11:00','2019-05-02','biblioteca','realizado',null);
+insert into Registro(matriculaalumno, codigopractica, horaentrada, horasalida, fecha, sustituye, estado, comentario) values('2015030104','7003','10:00','11:00','2019-05-02','biblioteca','realizado',null);
 
-insert into Registro values('2014030100','9001','10:00','11:00','2019-05-02','biblioteca','realizado',null);
-insert into Registro values('2014030100','9002','10:00','11:00','2019-05-02','biblioteca','realizado',null);
-insert into Registro values('2014030100','9003','10:00','11:00','2019-05-02','biblioteca','realizado',null);
+insert into Registro(matriculaalumno, codigopractica, horaentrada, horasalida, fecha, sustituye, estado, comentario) values('2014030100','9001','10:00','11:00','2019-05-02','biblioteca','realizado',null);
+insert into Registro(matriculaalumno, codigopractica, horaentrada, horasalida, fecha, sustituye, estado, comentario) values('2014030100','9002','10:00','11:00','2019-05-02','biblioteca','realizado',null);
+insert into Registro(matriculaalumno, codigopractica, horaentrada, horasalida, fecha, sustituye, estado, comentario) values('2014030100','9003','10:00','11:00','2019-05-02','biblioteca','realizado',null);
+
 
 -- insertamos datos en la tabla rol
 
